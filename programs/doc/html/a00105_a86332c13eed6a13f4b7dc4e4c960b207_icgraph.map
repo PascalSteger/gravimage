@@ -1,0 +1,7 @@
+<map id="gi_int.g" name="gi_int.g">
+<area shape="rect" id="node3" href="$a00105.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="147,5,245,35"/>
+<area shape="rect" id="node7" href="$a00110.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="120,59,272,88"/>
+<area shape="rect" id="node5" href="$a00105.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="331,5,477,35"/>
+<area shape="rect" id="node9" href="$a00106.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by Multinest and plot_profiles spherical version ..." alt="" coords="321,59,487,88"/>
+<area shape="rect" id="node11" href="$a00119.html#ad821dec8433925b93f7529a34a5471b7" title="gravimage.myloglike" alt="" coords="536,59,685,88"/>
+</map>

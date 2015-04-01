@@ -1,0 +1,21 @@
+<map id="gi_helper.LOG" name="gi_helper.LOG">
+<area shape="rect" id="node3" href="$a00104.html#ad87b4b5f733e0e9288eacfdf6d0601e0" title="sanitize input (vectors) " alt="" coords="191,5,321,51"/>
+<area shape="rect" id="node5" href="$a00104.html#ae9152100a7fb623f94d6d3a6f1593eef" title="determine bin radii once and for all. " alt="" coords="183,74,329,121"/>
+<area shape="rect" id="node7" href="$a00104.html#a97913b135aca08fcd1956e91943c8437" title="sanitize input (scalar) " alt="" coords="191,143,321,190"/>
+<area shape="rect" id="node9" href="$a00104.html#a485e6b0f003624d1f8e5ca5733597b28" title="print Radius information " alt="" coords="168,213,344,243"/>
+<area shape="rect" id="node11" href="$a00104.html#ad87984f2a8fdfab6737ac592925a3d3f" title="integrate y over x, using splines " alt="" coords="191,267,321,296"/>
+<area shape="rect" id="node13" href="$a00104.html#a5eba0e7f1129d4f346ea8aaa0d75b10c" title="gi_helper.quadinflog" alt="" coords="181,320,331,349"/>
+<area shape="rect" id="node19" href="$a00104.html#a236f2c02fde6f0f6e81a6aa94a697827" title="gi_helper.quadinfloglog" alt="" coords="172,373,340,403"/>
+<area shape="rect" id="node21" href="$a00104.html#a182afc6cf52e5af0e850cbd8d384ae08" title="NaN encountered at any position in arr? " alt="" coords="184,427,328,456"/>
+<area shape="rect" id="node23" href="$a00104.html#a8e687017ace73eb02597b4c4fc8b8f82" title="abort if negative value found " alt="" coords="393,425,561,455"/>
+<area shape="rect" id="node26" href="$a00104.html#a2a9a7a40d02a2b00bf7f299af78a6b81" title="interpolate function in lin space, based on radial basis functions " alt="" coords="203,531,309,560"/>
+<area shape="rect" id="node32" href="$a00104.html#ad6d9cbace0da005ae36ff6aa47b620d6" title="interpolate function in log10 space, based on radial basis functions " alt="" coords="415,585,540,615"/>
+<area shape="rect" id="node35" href="$a00104.html#a6380a10ec68fccde6342c505307961bd" title="Given an array of data[1..n] , this routine returns its mean ave , average deviation adev ..." alt="" coords="185,635,327,664"/>
+<area shape="rect" id="node37" href="$a00110.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="180,688,332,717"/>
+<area shape="rect" id="node15" href="$a00104.html#a5dd0268bb4d75f1bd2baf76f85390e39" title="return total number of stars " alt="" coords="423,292,532,321"/>
+<area shape="rect" id="node17" href="$a00104.html#a96d836957c1c67cb8852e9226eaa75a9" title="eq. " alt="" coords="413,345,541,375"/>
+<area shape="rect" id="node28" href="$a00104.html#a14d1acb5d5744dfcd9d989a312709e05" title="gives numeric differentiation, assumes constant x spacings " alt="" coords="420,479,535,508"/>
+<area shape="rect" id="node30" href="$a00104.html#ac31b5f77e597b3c6f926abb2b1112b0f" title="numerical derivative, with h=const=stepsize of radial bins " alt="" coords="399,532,556,561"/>
+<area shape="rect" id="node39" href="$a00106.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by Multinest and plot_profiles spherical version ..." alt="" coords="395,688,560,717"/>
+<area shape="rect" id="node41" href="$a00119.html#ad821dec8433925b93f7529a34a5471b7" title="gravimage.myloglike" alt="" coords="611,688,760,717"/>
+</map>

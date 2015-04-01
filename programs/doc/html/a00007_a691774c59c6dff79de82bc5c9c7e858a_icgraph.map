@@ -1,0 +1,6 @@
+<map id="gi_collection.ProfileCollection.broaden_lim" name="gi_collection.ProfileCollection.broaden_lim">
+<area shape="rect" id="node3" href="$a00007.html#a98c1e9695d0c1f5aeb88245b9a401982" title="plot data as blue shaded region " alt="" coords="339,5,605,35"/>
+<area shape="rect" id="node5" href="$a00007.html#ae7264351995832084e6532ccd6b9455b" title="plot single profile " alt="" coords="655,79,884,126"/>
+<area shape="rect" id="node7" href="$a00007.html#a3ca1dbe6dd5dec836fc4d4457c711013" title="draw x and y labels " alt="" coords="357,109,587,155"/>
+<area shape="rect" id="node10" href="$a00007.html#ad1ca4b588ab5f66db9a3da573314c464" title="plot filled region for 1sigma and 2sigma confidence interval " alt="" coords="345,179,599,208"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="gl_helper.complete_nu" name="gl_helper.complete_nu">
+<area shape="rect" id="node3" href="$a00277.html#a78b4f4aa847ab159a9b2a5e5b6017059" title="extrapolate data to xout, based on radial basis functions " alt="" coords="249,5,367,35"/>
+<area shape="rect" id="node5" href="$a00277.html#ac689a759b6b2870403639a2ac07f34ee" title="interpolate linearly in ln&#45;ln&#45;space " alt="" coords="239,59,377,88"/>
+<area shape="rect" id="node7" href="$a00277.html#a40b679acb80bcdcf72094890d28e599f" title="extrapolate to high radii, assuming a minimum powerlaw " alt="" coords="219,112,397,141"/>
+</map>

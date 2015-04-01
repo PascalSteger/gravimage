@@ -1,0 +1,13 @@
+<map id="gi_file.bin_data" name="gi_file.bin_data">
+<area shape="rect" id="node3" href="$a00114.html#a859783fbbb6d8184207a0333b7ecafa9" title="gr_MCMCbin.run" alt="" coords="172,59,300,88"/>
+<area shape="rect" id="node14" href="$a00135.html#a78fc8f1dbce944fc435b2efe0f25a776" title="grw_mcmcbin.run" alt="" coords="171,219,301,248"/>
+<area shape="rect" id="node18" href="$a00131.html#a1a6507c244019445429c454fc4279938" title="grt_dens.run" alt="" coords="185,165,287,195"/>
+<area shape="rect" id="node20" href="$a00132.html#a1ce8e382296d58f979c6cf977c62f5b6" title="grt_siglos.run" alt="" coords="183,112,289,141"/>
+<area shape="rect" id="node23" href="$a00126.html#acd42a16a63faeca0b748be14c98e23c6" title="generate disc data from analytic form, return 3D densities, delta (=tilt) write it to files ..." alt="" coords="179,276,293,305"/>
+<area shape="rect" id="node5" href="$a00116.html#a4f4a83eaddc5c011c9a9f626d62fb65d" title="gr_MCMCbin_for.run" alt="" coords="371,59,523,88"/>
+<area shape="rect" id="node7" href="$a00085.html#a29a73d62880e90ca27cbef0a7f197fd8" title="Estimation of the central location (&#39;mean&#39;) of a distribution, resistant for outliers and robust for ..." alt="" coords="364,112,529,141"/>
+<area shape="rect" id="node12" href="$a00114.html#a6b2aa54be0a3b3ecaeb91c1964b0bf15" title="gr_MCMCbin.obs_Sig_phot" alt="" coords="349,5,544,35"/>
+<area shape="rect" id="node9" href="$a00085.html#a0e5ef102bbbcf0c3e0c2697ca572b83c" title="PURPOSE: Estimation of the scale (&#39;dispersion&#39;) of a distribution, resistant for outliers and robust ..." alt="" coords="593,112,767,141"/>
+<area shape="rect" id="node16" href="$a00135.html#abb1ae559f5155be4098f755c5f4723ed" title="volume of a circular ring from binmin to binmax " alt="" coords="369,206,524,253"/>
+<area shape="rect" id="node25" href="$a00126.html#ac3e2b442ed9f58a7a3e0d4173d8aa655" title="for permanent and consistent data handling " alt="" coords="368,275,525,322"/>
+</map>

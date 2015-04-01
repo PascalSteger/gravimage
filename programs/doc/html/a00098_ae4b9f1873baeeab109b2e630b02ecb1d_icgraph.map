@@ -1,0 +1,5 @@
+<map id="gi_class_cube.dierfc" name="gi_class_cube.dierfc">
+<area shape="rect" id="node3" href="$a00098.html#a90887efbfa1981be8be66f143dd439c0" title="take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no..." alt="" coords="203,13,341,43"/>
+<area shape="rect" id="node5" href="$a00098.html#ae98bb05e7a37badaed7a780c087b401a" title="mapping rho parameters from [0,1] to full parameter space setting all n(r&lt;r_nrlim)&lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value " alt="" coords="391,13,551,43"/>
+<area shape="rect" id="node7" href="$a00001.html#aa866aa722da9a1d475e8ee4a437553a9" title="convert [0,1]^ndim to parameter space such that values in cube are the parameters we need for rho..." alt="" coords="600,5,795,51"/>
+</map>

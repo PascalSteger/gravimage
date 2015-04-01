@@ -1,0 +1,5 @@
+<map id="gi_analytic.Mtot_walk" name="gi_analytic.Mtot_walk">
+<area shape="rect" id="node3" href="$a00094.html#a169f1e87eddb74ea1b4f1c27998fcd63" title="return total mass density, stars+DM " alt="" coords="211,5,376,35"/>
+<area shape="rect" id="node5" href="$a00094.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="424,5,573,35"/>
+<area shape="rect" id="node7" href="$a00094.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="623,5,791,35"/>
+</map>

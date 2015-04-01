@@ -1,0 +1,4 @@
+<map id="gl_physics.nu" name="gl_physics.nu">
+<area shape="rect" id="node3" href="$a00282.html#a1f70d603a30b23187bbe93725ee7f3b6" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="160,5,272,35"/>
+<area shape="rect" id="node5" href="$a00282.html#a3040b3ad02f326bbc2f2db86602e3080" title="calculate n(r) at any given radius, as linear interpolation with two asymptotes " alt="" coords="320,5,424,35"/>
+</map>

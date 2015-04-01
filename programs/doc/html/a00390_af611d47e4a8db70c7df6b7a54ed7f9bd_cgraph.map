@@ -1,0 +1,28 @@
+<map id="montepython.run.mpi_run" name="montepython.run.mpi_run">
+<area shape="rect" id="node3" href="$a00390.html#a479a561f0fd095a54612ce0cdcc4e2aa" title="Wrapper around the init function to handle errors. " alt="" coords="235,247,392,294"/>
+<area shape="rect" id="node5" href="$a00333.html#a85661ff55e898f9729552c458e9ba8ce" title="Initialisation routine. " alt="" coords="440,256,651,285"/>
+<area shape="rect" id="node7" href="$a00333.html#a94a651881052e6897fb1936db720751e" title="Read the configuration file, filling a dictionary. " alt="" coords="699,186,907,233"/>
+<area shape="rect" id="node9" href="$a00329.html#a18bbb90269c54384220857ae99339575" title="Main function, does the entire analysis. " alt="" coords="699,256,907,285"/>
+<area shape="rect" id="node54" href="$a00333.html#a3cee8016e1f9a8e94cc353317b195800" title="From the cosmological module name, initialise the proper Boltzmann code. " alt="" coords="699,309,907,355"/>
+<area shape="rect" id="node11" href="$a00329.html#aedb4114dc417bc63e7535a750d922b23" title="Separate the input files in folder. " alt="" coords="969,55,1183,102"/>
+<area shape="rect" id="node13" href="$a00329.html#ae7946015f69d75fa754bee5433f6eda3" title="Scan the whole input folder, and include all chains in it. " alt="" coords="972,125,1180,155"/>
+<area shape="rect" id="node19" href="$a00329.html#a1a080f0838e32f5adea1d58d57d93498" title="Compute convergence for the desired chains, using Gelman&#45;Rubin diagnostic. " alt="" coords="956,256,1196,285"/>
+<area shape="rect" id="node36" href="$a00329.html#ac980a1f42730e250ed30760831b41b66" title="montepython.analyze.compute\l_covariance_matrix" alt="" coords="971,309,1181,355"/>
+<area shape="rect" id="node38" href="$a00329.html#acefd5f13cb7555a070c02664d64c5db6" title="computes the marginalized posterior distributions, and optionnally plots them " alt="" coords="971,647,1181,694"/>
+<area shape="rect" id="node15" href="$a00329.html#a45fb17af16251b7aed4b486ac8571496" title="Execute the methods &quot;convert&quot; from the different sampling algorithms. " alt="" coords="1277,5,1469,51"/>
+<area shape="rect" id="node17" href="$a00329.html#a5cfab82f49a8717d60a116ec817a66b6" title="Distinguish the cases when analyze is called with files or folder. " alt="" coords="1271,74,1476,121"/>
+<area shape="rect" id="node21" href="$a00329.html#a0f010930f051eccc0232e6749a843985" title="Reading the log.param, store in the Information instance the names. " alt="" coords="1272,143,1475,190"/>
+<area shape="rect" id="node28" href="$a00329.html#a6cff74b073c68a6d40358c6f07824969" title="Finding the global maximum of likelihood. " alt="" coords="1283,213,1464,259"/>
+<area shape="rect" id="node30" href="$a00329.html#a834228d4e7c9fda69a516e6bcca96715" title="Create an array with all the points from the chains, after burnin. " alt="" coords="1271,282,1476,329"/>
+<area shape="rect" id="node32" href="$a00329.html#ab37f2f4fce198fff51175d8b6a005179" title="montepython.analyze.compute_mean" alt="" coords="1247,352,1500,381"/>
+<area shape="rect" id="node34" href="$a00329.html#a466a40501f202746113d221e677d85f7" title="montepython.analyze.compute\l_variance" alt="" coords="1268,405,1479,451"/>
+<area shape="rect" id="node23" href="$a00329.html#a5e5ef315aa89bf81c82921ad1e34ce9b" title="Return the array on the RHS of the line. " alt="" coords="1829,145,2032,191"/>
+<area shape="rect" id="node25" href="$a00329.html#ae27b17ebe4491243534aa958f39db4fe" title="Return the key and value of the dictionary element contained in line. " alt="" coords="1549,179,1781,208"/>
+<area shape="rect" id="node40" href="$a00329.html#a8581e606abe5904246c13a9674c04f63" title="montepython.analyze.adjust\l_ticks" alt="" coords="1276,474,1471,521"/>
+<area shape="rect" id="node42" href="$a00329.html#a79ce512792657798d21103cbfb081dea" title="Small routine to accomodate the absence of the interpolate module. " alt="" coords="1279,543,1468,590"/>
+<area shape="rect" id="node44" href="$a00329.html#a9a5aaaa94a807d702dedbcecc355334f" title="Extract minimum credible intervals (method from Jan Haman) FIXME. " alt="" coords="1267,613,1480,659"/>
+<area shape="rect" id="node46" href="$a00329.html#a0461aacb76d4b380fbcf1fa5b6fc14b4" title="Store the posterior distribution to a file. " alt="" coords="1279,682,1468,729"/>
+<area shape="rect" id="node48" href="$a00329.html#acf779a5e891d07c0d73be077e47c49b5" title="Extract the contours for the 2d plots (Karim Benabed) " alt="" coords="1287,751,1460,798"/>
+<area shape="rect" id="node50" href="$a00329.html#acd3b419469297a212577ae38a1a47038" title="docstring " alt="" coords="1279,821,1468,867"/>
+<area shape="rect" id="node52" href="$a00329.html#a30353a34138e5921e1244c8f3dfcab3a" title="Store the histogram information to a file, to plot it later. " alt="" coords="1279,890,1468,937"/>
+</map>

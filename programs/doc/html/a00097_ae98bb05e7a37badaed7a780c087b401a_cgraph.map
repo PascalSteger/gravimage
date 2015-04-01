@@ -1,0 +1,4 @@
+<map id="gi_class_cube.map_nr" name="gi_class_cube.map_nr">
+<area shape="rect" id="node3" href="$a00097.html#a90887efbfa1981be8be66f143dd439c0" title="take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no..." alt="" coords="216,5,355,35"/>
+<area shape="rect" id="node5" href="$a00097.html#ae4b9f1873baeeab109b2e630b02ecb1d" title="inverse of complimentary error function from MultiNest implementation " alt="" coords="404,5,551,35"/>
+</map>

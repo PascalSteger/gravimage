@@ -1,0 +1,5 @@
+<map id="gi_physics.beta" name="gi_physics.beta">
+<area shape="rect" id="node3" href="$a00108.html#a5ef84725c1d6af90f2e7b339b16dab58" title="calculate betastar from 4 parameters " alt="" coords="192,5,333,35"/>
+<area shape="rect" id="node7" href="$a00108.html#a31e8403f44521e1ca01451d4b9d2f05a" title="map beta* to beta " alt="" coords="175,59,351,88"/>
+<area shape="rect" id="node5" href="$a00108.html#adedce5dd5acfa1db15deb4e002573ac4" title="calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning ..." alt="" coords="401,5,559,35"/>
+</map>

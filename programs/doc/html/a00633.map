@@ -1,0 +1,11 @@
+<map id="tests.test_montepython.TestMontePython" name="tests.test_montepython.TestMontePython">
+<area shape="rect" id="node5" href="$a00072.html" title="Testing basic reaction to user input. " alt="" coords="467,5,680,51"/>
+<area shape="rect" id="node7" href="$a00073.html" title="Input from known cosmology on one single point. " alt="" coords="467,74,680,121"/>
+<area shape="rect" id="node9" href="$a00074.html" title="Try removing the default.conf, and not specifying any other conf file. " alt="" coords="467,143,680,190"/>
+<area shape="rect" id="node11" href="$a00075.html" title="Check the behaviour of the cosmological code through Monte Python. " alt="" coords="467,213,680,259"/>
+<area shape="rect" id="node13" href="$a00076.html" title="Check all functionnalities of the Data and Parameter class. " alt="" coords="467,282,680,329"/>
+<area shape="rect" id="node15" href="$a00077.html" title="Check that the default sampling method is working. " alt="" coords="437,351,709,398"/>
+<area shape="rect" id="node17" href="$a00078.html" title="Check if the modules are callable. " alt="" coords="467,421,680,467"/>
+<area shape="rect" id="node19" href="$a00079.html" title="Check if Nested Sampling works. " alt="" coords="467,490,680,537"/>
+<area shape="rect" id="node21" href="$a00080.html" title="Check the MPI behaviour. " alt="" coords="453,560,693,589"/>
+</map>

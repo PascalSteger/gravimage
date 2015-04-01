@@ -1,0 +1,8 @@
+<map id="gravimage.myloglike" name="gravimage.myloglike">
+<area shape="rect" id="node3" href="$a00105.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by Multinest and plot_profiles spherical version ..." alt="" coords="204,85,369,115"/>
+<area shape="rect" id="node5" href="$a00109.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="419,59,571,88"/>
+<area shape="rect" id="node11" href="$a00096.html#a145f0c80ed5504c94b3d2be05eb97bb3" title="Calculate chi^2. " alt="" coords="435,112,555,141"/>
+<area shape="rect" id="node7" href="$a00103.html#a14923b8bceed0787b9cc1cb429ce6118" title="print debugging message if level is important enough " alt="" coords="619,5,733,35"/>
+<area shape="rect" id="node9" href="$a00104.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="643,59,709,88"/>
+<area shape="rect" id="node13" href="$a00096.html#afbbcde30ae3902669c708d929cb579b4" title="determine &#39;reduced chi2&#39; " alt="" coords="621,112,731,141"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="montepython.likelihoods.bicep2.bicep_util.init" name="montepython.likelihoods.bicep2.bicep_util.init">
+<area shape="rect" id="node3" href="$a00337.html#acbf86cf1bd4dc9cc4e4f33605abaa5e7" title="montepython.likelihoods.bicep2.bicep\l_util.get_bpwf" alt="" coords="312,5,565,51"/>
+<area shape="rect" id="node5" href="$a00337.html#aa1b9c555e6ae7cb8274ca932855f0551" title="Loads matrices C_fl: fiducial bandpowers (mean of s+n sims). " alt="" coords="308,74,569,121"/>
+<area shape="rect" id="node7" href="$a00337.html#ae5c63c01de1cfb76c9cb4d86090cff53" title="Loads the M_cc matrix for bicep1 see details as defined in Barkats et al section 9.1. " alt="" coords="312,143,565,190"/>
+</map>
