@@ -2,74 +2,79 @@
 
 ##
 # @file
+# pymultinest run of gravimage integrals needs pymultinest from
+# http://johannesbuchner.github.io/PyMultiNest/
+# http://johannesbuchner.github.io/PyMultiNest/install.html#install-on-linux
 # needs Multinest from https://github.com/JohannesBuchner/MultiNest
 
-# Copyright 2015 GPLv3 ETHZ, Pascal Steger, pascal@steger.aero
+# TODO: run with mpirun -np <N> gravimage.py
+# where <N> is an integer <= number of processors
+# (c) 2013 ETHZ Pascal Steger, psteger@phys.ethz.ch
 
-# get latest version of PyMultiNest from
-# svn checkout http://lisasolve.googlecode.com/svn/trunk/ lisasolve-read-only
-
+### imports
+# from __future__ import absolute_import, unicode_literals, print_function
+#from mpi4py import MPI
 import subprocess
+import numpy as np
 import pymultinest
 import pickle
-import warnings
-import numpy as np
+import gl_helper as gh
 import pdb
-#from multiprocessing import Pool
-
-# increment NICEness of process by 1, if CPU usage shall not block others
+import numpy.random as npr
+# increment NICEness of process by 1, CPU usage shall not block others
 # import os
 # os.nice(1)
 
 # optionally start with -i and -c switches, to batch start gaia and walk runs
 from optparse import OptionParser
 parser = OptionParser()
-parser.add_option("-i", "--investigation", dest="investigation", default="", help="investigation to run: gaia, walk, hern, triax, discmock")
-parser.add_option("-c", "--case", dest="case", default='-1', help="case: 1, 2, ..")
-parser.add_option("-t", "--timestamp", dest="timestamp", default='-1', help="timestamp: 201501221224")
+parser.add_option("-i", "--investigation", dest="investigation",
+                      default="", help="investigation to run: gaia, walk, hern, triax, discmock, simplenu")
+parser.add_option("-c", "--case", dest="case",
+                      default=-1, help="case: 1, 2, ..")
 (options, args) = parser.parse_args()
-print('gravimage.py '+options.investigation+' '+str(options.case)+' '+str(options.timestamp))
-if options.timestamp != '-1':
-    import gi_base as gb
-    basepath = gb.get_basepath()
-    import import_path as ip
-    ip.insert_sys_path(basepath+"DT"+options.investigation+"/"+options.case+"/"+options.timestamp+"/programs/")
-import gi_params
+print('gravimage.py '+str(options.investigation)+' '+str(options.case))
+import gl_params
+import warnings
 warnings.simplefilter('ignore') # set to 'error' when debugging
-gp = gi_params.Params(options.timestamp, options.investigation, int(options.case))
-if options.timestamp != '-1':
-    ip.remove_third()
-    #import os
-    #os.system('cd '+basepath+'DT'+options.investigation+'/'+options.case+'/'+options.timestamp)
-    gp.restart = True
-    gp.chi2_Sig_converged = 0
-import gi_file as gf
+ts = '201503181633' # empty timestamp means: create new timestamp with folder
+gp = gl_params.Params(ts, options.investigation, int(options.case))
+import gl_file as gf
 
 def show(filepath):
     subprocess.call(('xdg-open', filepath))
     return
 ## \fn show(filepath) open the output (pdf) file for the user @param
-# filepath filename with full path
+# filepath filename with full pathThen
 
 def myprior(cube, ndim, nparams):
     mycube = Cube(gp)
     mycube.copy(cube)
-    cube = mycube.convert_to_parameter_space(gp)
+    try:
+        cube = mycube.convert_to_parameter_space(gp)
+    except Exception:
+        gh.LOG(1, 'parameters not fulfilling prior requirements')
+
     return
-## \fn myprior(cube, ndim, nparams)
-# priors
+## \fn myprior(cube, ndim, nparams) priors
 # @param cube [0,1]^ndim cube, array of dimension ndim
 # @param ndim number of dimensions, 2*npop*nipol + nipol
 # @param nparams = ndim + additional parameters
 # stored with actual parameters
 
 def myloglike(cube, ndim, nparams):
-    tmp_profs = geom_loglike(cube, ndim, nparams, gp)
+    if min(cube[0:ndim]) == -9999:  # parameters not fulfilling prior requirements,
+        return -1e300       #      return very large chi2
+    try:
+        tmp_profs = geom_loglike(cube, ndim, nparams, gp)
+    except ValueError:
+        return -1e100  # SS: think about sign...
     # store tmp_prof by appending it to pc2.save
+    # TODO: with parallel version, need to append to CPU-based output name
     # we only store models after the initial Sigma burn-in
-    if gp.chi2_Sig_converged <= 0:
-        tmp_profs.x0 = gp.xepol
-        tmp_profs.xbins = np.hstack([gp.dat.binmin, gp.dat.binmax[-1]])
+    if gp.chi2_nu_converged and npr.random() < gp.save_fraction:#save only a fraction of models
+        tmp_profs.x0 = gp.z_bincenters
+        tmp_profs.xbins = np.hstack([gp.z_binmins, gp.z_binmaxs[-1]])
         with open(gp.files.outdir+'pc2.save', 'ab') as fi:
             pickle.dump(tmp_profs, fi)
             # convention: use chi^2 directly, not log likelihood
@@ -84,44 +89,74 @@ def myloglike(cube, ndim, nparams):
 
 def prepare_data(gp):
     if gp.getnewdata:
-        gf.get_pos_and_COM(gp)
+        if gp.getnewpos:
+            gf.read_data(gp)
         gf.bin_data(gp)
-    if gp.getSigdata:
-        # if Sig convergence finished already
-        gf.read_Sigdata(gp)
-    gf.get_binned_data(gp)
-    if not gp.restart:
-        gp.files.populate_output_dir(gp)
+    gf.get_binned_data_noscale(gp)    #H Silverwood 20/11/14
+    gp.files.populate_output_dir(gp)
     gf.get_rhohalfs(gp)
 ## \fn prepare_data(gp)
 # prepare everything for multinest(.MPI) run
 # @param gp global parameters
-
 def run(gp):
-    pymultinest.run(myloglike, myprior, gp.ndim, n_params = gp.ndim+1,
-                    n_clustering_params = gp.nrho, # gp.ndim, or separate modes on the rho parameters only: gp.nrho
-                    wrapped_params = [ gp.pops, gp.nipol, gp.nrho],
-                    importance_nested_sampling = False, # INS enabled
-                    multimodal = False,           # separate modes
+    pymultinest.run(myloglike,   myprior,
+                    gp.ndim, n_params = gp.ndim+1, # None beforehands
+                    n_clustering_params = gp.ndim,# separate modes on
+                                                  # the rho parameters
+                                                  # only: gp.nrho
+                    wrapped_params = [ gp.ntracer_pops, gp.nbins, gp.nrhonu], # do
+                                                                     #not
+                                                                     #wrap-around
+                                                                     #parameters
+                    importance_nested_sampling = True, # INS enabled
+                    multimodal = True,           # separate modes
                     const_efficiency_mode = True, # use const sampling efficiency
                     n_live_points = gp.nlive,
-                    evidence_tolerance = 0.0,   # 0 to keep algorithm working indefinitely
-                    sampling_efficiency = 0.05, # 0.05, MultiNest README for >30 params
-                    n_iter_before_update = 2,  # output after this many iterations
+                    evidence_tolerance = 0.0, # set to 0 to keep
+                                              # algorithm working
+                                              # indefinitely
+                    sampling_efficiency = 0.95,
+                    n_iter_before_update = 100, # output after this many iterations
                     null_log_evidence = -1e100,
-                    max_modes = gp.nlive, # preallocation of modes: max=number of live points
-                    mode_tolerance = -1.e100,   # mode tolerance in the case where no special value exists: highly negative
+                    max_modes = gp.nlive,   # preallocation of modes:
+                                            #max. = number of live
+                                            #points
+                    mode_tolerance = -1.e100,   # mode tolerance in the
+                                               #case where no special
+                                               #value exists: highly
+                                               #negative
                     outputfiles_basename = gp.files.outdir,
-                    seed = -1, verbose = True,
-                    resume = gp.restart,
-                    context = 0, write_output = True,
-                    log_zero = -1e500, # points with log likelihood<log_zero will be neglected
-                    max_iter = 0, # set to 0 for never reaching max_iter (no stopping criterium based on number of iterations)
-                    init_MPI = False, dump_callback = None)
+                    seed = -1,
+                    verbose = True,
+                    resume = True,
+                    context = 0,
+                    write_output = True,
+                    log_zero = -1e500,    # points with log likelihood
+                                          #< log_zero will be
+                                          #neglected
+                    max_iter = 0,         # set to 0 for never
+                                          #reaching max_iter (no
+                                          #stopping criterium based on
+                                          #number of iterations)
+                    init_MPI = True,     # use MPI
+                    dump_callback = None)
 
 if __name__=="__main__":
     global Cube, geom_loglike
-    from gi_class_cube import Cube
-    from gi_loglike import geom_loglike
-    prepare_data(gp)
+    from gl_class_cube import Cube
+    from gl_loglike import geom_loglike
+
+    # hwmess = "Hello, World!! I am process %d of %d on %s.\n"
+    # myrank = MPI.COMM_WORLD.Get_rank()
+    # nprocs = MPI.COMM_WORLD.Get_size()
+    # procnm = MPI.Get_processor_name()
+    # import sys
+    # sys.stdout.write(hwmess % (myrank, nprocs, procnm))
+
+    # TODO: wait for prepare_data to finish
+    # if MPI.COMM_WORLD.Get_rank() == 0:
+    #     # TODO: wrong: have 0 take part in sampling as well
+    prepare_data(gp) # run once
+    # else:
+    #     # run with full MPI
     run(gp)

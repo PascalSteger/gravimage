@@ -5,35 +5,27 @@
 # check deprojection and projection of nu
 # with analytic Hernquist profiles
 
-# (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
+# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
+import sys
 import numpy as np
-from scipy.interpolate import splrep, splint
+from scipy.interpolate import splrep, splev, splint
 from pylab import *
 ion()
 
 import import_path as ip
-ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/reducedata/')
-ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/sphere/')
+ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/datareduction')
+ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/sphere')
 
-#from gi_timing import *
+#from gl_timing import *
 import time
-import gi_params as gp
+import gl_params as gp
 gp.rinfty = 5
 gp.nexp = 3
-import gi_helper as gh
-import gi_project as gip
-import gi_analytic as ga
-
-
-def introduce_points_in_between(r0):
-    rmin = np.log10(min(r0))
-    rmax = np.log10(max(r0))
-    return np.logspace(rmin, rmax, Nfine)
-## \fn introduce_points_in_between(r0)
-# get gp.fine points logarithmically spaced points
-# @param r0 3D radius
-
+import gl_helper as gh
+import gl_int as gi
+import gl_project as glp
+import gl_analytic as ga
 
 # unitsXS
 G1  = 6.67398e-11                # [m^3 kg^-1 s^-2]
@@ -44,6 +36,15 @@ G1  = G1*msun/km**2/pc
 
 Nfine = 30
 MtoL = 100000. # constant
+
+def introduce_points_in_between(r0):
+    rmin = np.log10(min(r0))
+    rmax = np.log10(max(r0))
+    return np.logspace(rmin, rmax, Nfine)
+## \fn introduce_points_in_between(r0)
+# get gp.fine points logarithmically spaced points
+# @param r0 3D radius
+
 
 r0 = np.logspace(-2, 2, 10)
 nuanf  = ga.rho_hern(r0, 1, 1) # 1/MtoL
@@ -60,21 +61,21 @@ Sigdatnu, Sigerrnu = gh.complete_nu(r0, Siganf, Siganf/20, rfine)
 
 
 loglog(r0, nuanf, 'b.-')
-nudatnu = gip.Sig_INT_rho(rfine, Sigdatnu, gp)
+nudatnu = glp.Sig_INT_rho(rfine, Sigdatnu, gp)
 loglog(rfine, nudatnu, 'r.-', lw=0.5)
-#nudatnuold = gip.Sig_INT_rho_buggy(rfine, Sigdatnu, gp) #negative found
+#nudatnuold = glp.Sig_INT_rho_buggy(rfine, Sigdatnu, gp) #negative found
 #loglog(rfine, nudatnuold, 'g.-')
 pdb.set_trace()
 
-dummy, nudatnu, nuerrnu, Mrdatnu = gip.Sig_NORM_rho(rfine, Sigdatnu, Sigerrnu, gp)
+dummy, nudatnu, nuerrnu, Mrdatnu = glp.Sig_NORM_rho(rfine, Sigdatnu, Sigerrnu, gp)
 
 
 #loglog(r0, nuanf, 'b.-')
 #loglog(rfine, nudatnu, 'r.-', alpha=0.5)
 
 
-Sigdatproj_coarse = gip.rho_INTIPOL_Sig(r0, nuanf, gp)
-Sigdatproj_fine   = gip.rho_INTIPOL_Sig(rfine, nudatnu, gp)
+Sigdatproj_coarse = glp.rho_INTIPOL_Sig(r0, nuanf, gp)
+Sigdatproj_fine   = glp.rho_INTIPOL_Sig(rfine, nudatnu, gp)
 
 # loglog(r0, Siganf, 'b.-')
 # loglog(r0, Sigdatproj_coarse, 'r')
@@ -116,6 +117,7 @@ gh.checkpositive(yint, 'yint sigr2')
 # use quadinflog or quadinfloglog here
 sigr2nu = np.zeros(len(rfine))
 for i in range(len(rfine)):
+    # TODO: check quadinflog with walker profiles
     sigr2nu[i] = np.exp(-idnu[i])/nunu[i]*\
                  gh.quadinflog(xint, yint, rfine[i], gp.rinfty*rfine[-1], True)
     #if sigr2nu[i] == np.inf:
@@ -129,10 +131,12 @@ sigr2anf = ga.sigr2_hern(rfine, 1, 1, G1)
 # project back to LOS values
 # sigl2sold = np.zeros(len(rfine)-gp.nexp
 
+### TODO: find error in here!
+
 sigl2s = np.zeros(len(rfine)-gp.nexp)
 for i in range(len(rfine)-gp.nexp): # get sig_los^2
     xnew = np.sqrt(rfine[i:]**2-rfine[i]**2)             # [pc]
-    ynew = 2.*(1-betanu[i]*(rfine[i]**2)/(rfine[i:]**2))
+    ynew = 2.*(1-betanu[i]*(rfine[i]**2)/(rfine[i:]**2)) # TODO check
     ynew *= nunu[i:] * sigr2nu[i:]
     gh.checkpositive(ynew, 'ynew in sigl2s') # is hit several times..
     # check sigr2nu: has too many entries of inf!
@@ -144,7 +148,7 @@ for i in range(len(rfine)-gp.nexp): # get sig_los^2
 gh.checkpositive(sigl2s, 'sigl2s')
 
 # calculate surface density on the same rfine as the sigl2s
-surfden = gip.rho_INT_Sig(rfine, nunu, gp)
+surfden = glp.rho_INT_Sig(rfine, nunu, gp)
 siglos = np.sqrt(sigl2s/surfden[:-gp.nexp])
 
 elapsed_time = time.time() - start_time
