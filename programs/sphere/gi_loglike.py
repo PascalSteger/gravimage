@@ -82,6 +82,7 @@ def geom_loglike(cube, ndim, nparams, gp):
         off += offstep
 
         offstep = gp.nbeta
+
         if gp.chi2_Sig_converged <= 0:
             betapar = np.array(cube[off:off+offstep])
             tmp_beta, tmp_betastar = phys.beta(gp.xepol, betapar, gp)
@@ -147,7 +148,7 @@ def geom_loglike(cube, ndim, nparams, gp):
             gh.sanitize_vector(tmp_betastar, len(tmp_profs.x0), -1, 1, gp.debug)
             tmp_profs.set_prof('betastar', tmp_betastar, pop, gp)
             tmp_profs.set_prof('sig', sig, pop, gp)
-            tmp_profs.hypersig = tmp_hypersig
+            tmp_profs.hypersig[pop-1] = tmp_hypersig
             tmp_profs.set_prof('kap', kap, pop, gp)
             tmp_profs.set_zeta(zetaa, zetab, pop)
 
@@ -156,7 +157,8 @@ def geom_loglike(cube, ndim, nparams, gp):
 
         # following profile needs to be stored at all times, to calculate chi
         tmp_profs.set_prof('Sig', tmp_Signu, pop, gp)
-        tmp_profs.hyperSig = tmp_hyperSig
+        tmp_profs.hyperSig[pop-1] = tmp_hyperSig[0]
+
 
         off += offstep # still do this even if gp.chi2_Sig_converged is False
     if off != gp.ndim:
