@@ -33,7 +33,7 @@ class Params():
         if investigate != '':
             self.investigate = investigate
         else:
-            self.investigate  = 'walk' # determine which data set to work on
+            self.investigate  = 'gaia' # determine which data set to work on
                                       # 'hern': simple Hernquist prof. from simwiki
                                       # 'walk': with full obs. cont. data from Walker
                                       # 'gaia': 1pop 6D data, gaia challenge
@@ -45,11 +45,11 @@ class Params():
             self.case = case
             #os.system('sed -i "s/case = 1/case = '+str(case)+'/"')
         else:
-            self.case = 1 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
+            self.case = 2 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
                           # triax (1-4:core, 5-8:cusp), obs (1:for,car,scl,sex,dra)
 
         print(' case : ', self.case)
-        self.pops = 2 # number of stellar tracer populations, if changed: set getnewdata=True!
+        self.pops = 1 # number of stellar tracer populations, if changed: set getnewdata=True!
         # Set number of tracer stars to look at
         self.ntracer = [1e6, 1e6] # pop0, pop1, pop2, ..., pop_N
 
@@ -66,7 +66,7 @@ class Params():
 
         # MultiNest options
         self.getSigdata = False # get previously stored parameters for nu, after a Sig convergence run
-        self.chi2_switch = 40   # 10 turn on sig calculation if chi2 < chi2_switch
+        self.chi2_switch = 10   # 10 turn on sig calculation if chi2 < chi2_switch
         self.chi2_Sig_converged = 1000 # 1000 how many times to be below that threshold?
         # Set number of terms for enclosedmass&tracer&anisotropy bins = model parameters:
         self.nipol = 12  # set getnewdata = True to run data readout again if this value changes
