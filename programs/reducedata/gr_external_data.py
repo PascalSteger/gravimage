@@ -94,7 +94,7 @@ def run(gp):
         z_sampler = ErSamp_gauss_linear_w_z
     nu_err_meas = gmcer.mc_nu_error(z_sampler, gp.mc_err_N_iters, binmin, binmax, bincentermed)
 
-    #Combine nu errors in quadrature TODO check that this is the right way to add errors
+    #Combine nu errors in quadrature
     nu_err_tot = np.sqrt(nu_err_pois**2 + nu_err_meas**2)
 
     #Combine sig (vel disp) errors

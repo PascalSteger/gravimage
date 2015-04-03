@@ -227,7 +227,6 @@ def run(gp):
     binmin0, binmax0, z_dat_bin0, sig_dat_bin0, count_bin0 = gh.binsmooth(z_dat0, vz_dat0, \
                                                                           zmin, zmax, gp.nipol, 0.)
     sig_dat_err_bin0 = np.sqrt(sig_dat_bin0)
-    # binmin, binmax, z_dat_bin = gh.bin_r_const_tracers(z_dat, gp.nipol) # TODO: enable, get sig2
 
     nu_dat_bin0, nu_dat_err_bin0 = gh.bincount(z_dat0, binmax0)
     nu_dat_bin0 /= (binmax0-binmin0)

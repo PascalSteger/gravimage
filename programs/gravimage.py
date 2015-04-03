@@ -7,9 +7,7 @@
 # http://johannesbuchner.github.io/PyMultiNest/install.html#install-on-linux
 # needs Multinest from https://github.com/JohannesBuchner/MultiNest
 
-# TODO: run with mpirun -np <N> gravimage.py
-# where <N> is an integer <= number of processors
-# (c) 2013 ETHZ Pascal Steger, psteger@phys.ethz.ch
+# (c) 2015 ETHZ Pascal Steger, pascal@steger.aero
 
 ### imports
 # from __future__ import absolute_import, unicode_literals, print_function
@@ -70,7 +68,6 @@ def myloglike(cube, ndim, nparams):
     except ValueError:
         return -1e100  # SS: think about sign...
     # store tmp_prof by appending it to pc2.save
-    # TODO: with parallel version, need to append to CPU-based output name
     # we only store models after the initial Sigma burn-in
     if gp.chi2_nu_converged and npr.random() < gp.save_fraction:#save only a fraction of models
         tmp_profs.x0 = gp.z_bincenters
@@ -153,9 +150,6 @@ if __name__=="__main__":
     # import sys
     # sys.stdout.write(hwmess % (myrank, nprocs, procnm))
 
-    # TODO: wait for prepare_data to finish
-    # if MPI.COMM_WORLD.Get_rank() == 0:
-    #     # TODO: wrong: have 0 take part in sampling as well
     prepare_data(gp) # run once
     # else:
     #     # run with full MPI

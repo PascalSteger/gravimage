@@ -247,7 +247,6 @@ def Sig_NORM_rho(R0, Sig, Sigerr, gp):
 # @param Sigerr 2D density error, [Munit/pc^2]
 # @param gp global parameters
 
-
 def Sig_INT_rho(R0, Sig, gp):
     splpar_Sig = splrep(R0, np.log(Sig)) # get spline in log space to circumvent flattening
     J = np.zeros(len(Sig)-gp.nexp)
@@ -255,10 +254,8 @@ def Sig_INT_rho(R0, Sig, gp):
         xint = np.sqrt(R0[i:]**2-R0[i]**2)
         yint = np.exp(splev(np.sqrt(xint**2+R0[i]**2), splpar_Sig))
         J[i] = gh.quadinflog(xint, yint, 0., gp.rinfty*max(gp.xepol))
-
         #yf = lambda r: np.exp(splev(np.sqrt(r**2+R0[i]**2), splpar_Sig))
         #J[i] = quad(yf, 0, np.inf)[0]
-
         # OLD: direct integration with integrand as fct of x
         #xint = R0[i:]
         #yint = Sig[i:]*R0[i:]/np.sqrt(R0[i:]**2-R0[i]**2)
@@ -274,9 +271,7 @@ def Sig_INT_rho(R0, Sig, gp):
         rho = -1./np.pi/R0[:-gp.nexp]*J*splev(R0[:-gp.nexp], splpar_J, der=1)
         if(sm>1):
             raise Exception('Very irregular profile')
-
     gh.checkpositive(rho)
-
     rhoright = gh.expolpowerlaw(R0[:-gp.nexp], rho, R0[-3:], -3.001)
     rho = np.hstack([rho, rhoright])
     return rho
@@ -286,11 +281,8 @@ def Sig_INT_rho(R0, Sig, gp):
 # @param R0 radii in [pc]
 # @param Sig surface density
 
-
 def Sig_INT_rho_buggy(R0, Sig, gp):
     # TODO: deproject with variable transformed, x = sqrt(r^2-R^2)
-    pnts = len(Sig)                    # [1]
-
     R0nu = R0
     Signu = Sig
     gh.checkpositive(Signu, 'Signu in Sig_INT_rho')
