@@ -6,6 +6,8 @@
 # unit1__unit2 gives unit1 in terms of unit2
 # naming convention: m^2/kg => m2kg_1
 
+# (c) GPL v3 2015 Pascal Steger pascal@steger.aero
+
 import numpy as np
 
 day__hr = 24
