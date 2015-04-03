@@ -36,9 +36,7 @@ def com_shrinkcircle_v_2D(x, y, vlos, pm):
     nit = 0; minlen = len(x)/2.
     while nit < 200 and len(x) > minlen:
         nit += 1
-        print('it ',nit,' with ',len(x),\
-              ' part, COM=', \
-              gh.pretty(bucom_x), gh.pretty(bucom_y),\
+        print('it ',nit,' with ',len(x), ' part, COM=', gh.pretty(bucom_x), gh.pretty(bucom_y),\
               ' offset ', gh.pretty(dr))
 
         # shrink sphere:
@@ -190,11 +188,9 @@ def com_shrinkcircle_v(x, y, z, vz, pm):
     nit = 0; minlen = len(x)*0.666666666
     while nit < 200 and len(x) > minlen:
         nit += 1
-        print('it ',nit,' with ',len(x), ' part',\
-              ' COM= ', \
+        print('it ',nit,' with ',len(x), ' part', ' COM= ', \
               gh.pretty(bucom_x), gh.pretty(bucom_y), gh.pretty(bucom_z),\
-              ' vel=', gh.pretty(bucom_vz),\
-              ' offset ', gh.pretty(dr))
+              ' vel=', gh.pretty(bucom_vz), ' offset ', gh.pretty(dr))
 
         # shrink sphere:
         # 1) calc radius
