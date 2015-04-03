@@ -1,4 +1,5 @@
 #!/usr/bin/env ipython3
+# -*- coding: utf-8 -*-
 
 ##
 # @file
@@ -13,7 +14,9 @@ import re
 import numpy as np
 from scipy.interpolate import splrep, splev, interp1d
 from scipy.integrate import quad, romberg, simps
-
+import socket
+import getpass
+import os
 
 # show all messages which are important enough (Level <= DEBUGLEVEL)
 DEBUGLEVEL = 1 # 0: none, 1: some, 2: more, 3: all
@@ -831,3 +834,84 @@ def starred(R0, X, Sigma, Ntot, gp):
 # @param Sigma surface density at these radii, in [Munit/pc^2]
 # @param Ntot total number of stars
 # @param gp global parameters
+
+
+def nu_sig_from_bins(binmin, binmax, x0, v0):
+    # H Silverwood 29/10/2014
+    # Bin position and velocity information, return tracer density and velocity
+    # dispersion (nu and sigma)
+
+    #Sort the stars on position
+    order = np.argsort(x0)
+    x0 = np.array(x0)[order]
+    v0 = np.array(v0)[order]
+
+    #Setup output vectors
+    nu_vec = []
+    nu_err_vec = []
+    sigz2_vec = []
+    sigz2_err_vec = []
+    Ntr_per_bin = []
+
+    for jter in range(0, len(binmin)):
+        positions=np.where(np.logical_and(x0>=binmin[jter], x0<binmax[jter]))
+        Ntr = len(positions[0])
+        Ntr_per_bin.append(Ntr)
+
+        #Calculate tracer density nu and Poisson error (sqrt(N)/binsize)
+        nu_vec.append(Ntr/(binmax[jter]-binmin[jter]))
+        nu_err_vec.append(np.sqrt(Ntr)/(binmax[jter]-binmin[jter]))
+        v_list_temp=v0[positions]
+
+        #Calculate velocity dispersion and Poisson error (sqrt(sigma_z))
+        sigz2 = np.mean(v_list_temp**2) - (np.mean(v_list_temp))**2
+        sigz2_vec.append(sigz2)
+        #sig_err_vec.append(np.sqrt(np.sqrt(np.mean(v_list_temp**2) - (np.mean(v_list_temp))**2))) #HS TODO: think about this error calculation
+        #sig_err_vec.append(sig_z/np.sqrt(2.*Ntr))
+        sigz2_err_vec.append(sigz2 * np.sqrt(2./Ntr)) #SD(sig_z^2)
+
+    # Convert to numpy arrays
+    nu_vec = np.array(nu_vec)
+    nu_err_vec = np.array(nu_err_vec)
+    sigz2_vec = np.array(sigz2_vec)
+    sigz2_err_vec = np.array(sigz2_err_vec)
+    Ntr_per_bin = np.array(Ntr_per_bin)
+
+    return nu_vec, nu_err_vec, sigz2_vec, sigz2_err_vec, Ntr_per_bin
+
+## \fn bin_r_const_tracers(x0, no)
+# split interval into bins of constant particle number
+# @param x0 radii from all particles in an array
+# @param no integer, number of bins
+# @return arrays of (beginning of bins, end of bins, position of bins)
+
+def detect_machine():
+    host_name = socket.gethostname()
+    user_name = getpass.getuser()
+    if 'darkside' in host_name:
+        machine = 'darkside'
+        gravimage_path = '/home/ast/read/dark/gravimage/'
+
+    elif 'pstgnt332' in host_name:
+        machine = 'pstgnt332'
+        gravimage_path = '/home/psteger/sci/darcoda/gravimage/'
+
+    elif ('lisa' in host_name) and ('login' in host_name) and ('hsilverw' in user_name):
+        machine = 'lisa_HS_login'
+        gravimage_path = '/home/hsilverw/LoDaM/darcoda/gravimage/'
+
+    elif ('lisa' in host_name) and ('login' in host_name) and ('sofia' in user_name):
+        machine = 'lisa_SS_login'
+        gravimage_path = '/home/sofia/darcoda/gravimage/'
+
+    elif ('lisa' in host_name) and ('login' not in host_name) and ('hsilverw' in user_name):
+        machine = 'lisa_HS_batch'
+        scratch_space = os.getenv("TMPDIR")
+        gravimage_path = scratch_space + '/darcoda/gravimage/'
+
+    elif ('lisa' in host_name) and ('login' not in host_name) and ('sofia' in user_name):
+        machine = 'lisa_SS_batch'
+        scratch_space = os.getenv("TMPDIR")
+        gravimage_path = scratch_space + '/darcoda/gravimage/'
+
+    return machine, gravimage_path

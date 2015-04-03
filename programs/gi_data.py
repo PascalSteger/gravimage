@@ -45,12 +45,19 @@ class Datafile:
         self.nrnuerr = []
         self.Sig = []
         self.Sigerr = []
+        ## keep mean error bar of surface density profile
         self.barSig = []
-        ## keep line of sight velocity dispersion profile, in [km/s]
+        ## sphere: keep line of sight velocity dispersion profile, in [km/s]
         self.sig = []
-        ## keep error of sigdat
+        ## sphere: keep error of sigdat
         self.sigerr = []
         self.barsig = []
+        ## disk: keep line of sight velocity dispersion profile, in [km/s]
+        self.sigz2 = []
+        ## disk: keep error of sigdat
+        self.sigz2err = []
+
+
         ## keep fourth velocity moment of the LOS velocities
         self.kap = []
         ## keep errors of kapdat
@@ -61,7 +68,6 @@ class Datafile:
 
     def read_Sig(self, gp):
         for pop in np.arange(gp.pops+1):
-            print('read_Sig on file ', gp.files.Sigfiles[pop])
             Sigx, binmin, binmax, Sigdat, Sigerr = gh.readcol5(gp.files.Sigfiles[pop])
             # 3*[rscale], [Sig0], [Sig0]
             # switch to Munit (msun) and pc here
@@ -190,21 +196,54 @@ class Datafile:
     # @param gp global parameters
 
     def read_sig(self, gp):
-        # only ever use the tracer particles for velocity information
-        self.sig.append(np.zeros(gp.nipol))
-        self.sigerr.append(np.zeros(gp.nipol))
-        for pop in np.arange(gp.pops):
-            print('read_sig on file ', gp.files.sigfiles[pop+1])
-            Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop+1])
-            # 3*[Xscale], [maxsiglos], [maxsiglos]
-            # change to km/s here
-            self.sig.append(sigdat[:] * gp.maxsiglos[pop+1]) # [km/s]
-            self.sigerr.append(sigerr[:] * gp.maxsiglos[pop+1]) # [km/s]
-            self.barsig.append(np.mean(sigerr[:]*gp.maxsiglos[pop+1]))
+        if gp.geom == 'sphere':
+            # only ever use the tracer particles for velocity information
+            self.sig.append(np.zeros(gp.nipol))
+            self.sigerr.append(np.zeros(gp.nipol))
+            for pop in np.arange(gp.pops):
+                print('read_sig on file ', gp.files.sigfiles[pop+1])
+                Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop+1])
+                # 3*[Xscale], [maxsiglos], [maxsiglos]
+                # change to km/s here
+                self.sig.append(sigdat[:] * gp.maxsiglos[pop+1]) # [km/s]
+                self.sigerr.append(sigerr[:] * gp.maxsiglos[pop+1]) # [km/s]
+                self.barsig.append(np.mean(sigerr[:]*gp.maxsiglos[pop+1]))
+        elif gp.geom == 'disk':
+            for pop in np.arange(gp.pops+1):
+                print('read sig')
+                pdb.set_trace()
+                Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop])
+                # 3*[Xscale], [maxsiglos], [maxsiglos]
+                # change to km/s here
+                self.sig.append(sigdat[:] * gp.maxsiglos[pop]) # [km/s]
+                self.sigerr.append(sigerr[:] * gp.maxsiglos[pop]) # [km/s]
         return
     ## \fn read_sig(self, gp)
     # read in line of sight velocity dispersion for tracer particles
     # @param gp global parameters
+
+    def read_sigz2(self, gp):
+        dummy, dummy, dummy, sigz2dat, sigz2err = gh.readcol5(gp.files.sigfiles[0])
+        self.sigz2.append(sigz2dat[:]) # [km/s]
+        self.sigz2err.append(sigz2err[:]) # [km/s]
+
+        return
+    ## \fn read_sig(self, gp)
+    # read in line of sight velocity dispersion
+    # @param gp global parameters
+    # H Silverwood 20/11/14
+
+    def read_nu(self, gp):
+        bincenters, binmins, binmaxs, nudat, nuerr = gh.readcol5(gp.files.nufiles[0])
+        self.nu.append(nudat[:]) # [#stars/kpc^3]
+        self.nuerr.append(nuerr[:])
+        gp.z_bincenters = bincenters # [kpc]
+        gp.z_binmins = binmins
+        gp.z_binmaxs = binmaxs
+        #gp.z_all_pts = np.append(np.append([0.0], bincenters), [binmaxs[-1]]) #[kpc]
+        gp.z_all_pts = np.append([0.0], bincenters)  #[kpc]
+    ## \fn read_nu(self, gp)
+    # for disk only?
 
     def read_kappa(self, gp):
         for pop in np.arange(gp.pops+1):
