@@ -4,18 +4,15 @@
 # @file
 # all file related functions
 
-# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
+# (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
 
-import sys, pdb
+import pdb
 import numpy as np
 
-import gl_units as gu
-import gl_analytic as ga
-import gl_physics as phys
-from gl_data import Datafile
+import gi_helper as gh
+import gi_units as gu
 
-
-def read_data(gp):
+def get_pos_and_COM(gp):
     if gp.investigate == 'hern':
         import grh_com
         grh_com.run(gp)
@@ -37,49 +34,76 @@ def read_data(gp):
         import grt_com
         grt_com.run(gp)
     elif gp.investigate == 'obs':
-        import grd_COM
-        grd_COM.run(gp)
-        if gp.pops > 1:
-            import grd_split
-            grd_split.run(gp)
-## \fn read_data(gp)
+        if gp.pops == 1:
+            if gp.case == 1:
+                # in case we work with Fornax dwarf, use deBoer data
+                import grd_photo_for
+                grd_photo_for.run(gp)
+                import grd_COM
+                grd_COM.run(gp)
+            elif gp.case == 5:
+                print('TODO: include photometric data for Draco')
+                #import grd_photo_dra
+                #grd_photo_dra.run(gp)
+                import grd_COM_dra
+                grd_COM_dra.run(gp)
+            else:
+                import grd_COM
+                grd_COM.run(gp)
+        elif gp.pops == 2:
+            import grd_metalsplit
+            grd_metalsplit.read(gp.Rdiff, gp)
+            #grd_metalsplit.run(gp)
+            if gp.case < 5:
+                import grd_COM
+                grd_COM.run(gp)
+            elif gp.case == 5:
+                import grd_COM_dra
+                grd_COM_dra.run(gp)
+        else:
+            print('implement >2 populations for observed galaxies')
+            exit(1)
+    else:
+        print('wrong investigation')
+        exit(1)
+## \fn get_pos_and_COM(gp)
 # read in files with differing file formats, write out to common x, y, vz file
 # @param gp global parameters
 
+def read_Sigdata(gp):
+    gh.LOG(1, 'reading Sig converged parameters')
+    Sigconvparamsfn = gp.files.modedir+str(gp.case)+'/Sig_conv.stats'
+    # read first line into nuparam_min
+    # read second line into nuparam_median
+    # read third line into nuparam_max
+    gp.nupar_min, nupar_med, gp.nupar_max = np.loadtxt(Sigconvparamsfn)
+    return
+## \def read_Sigdata(gp)
+# read previously stored converged nu parameters with min, max values, and store them
+# @param gp global parameters
 
 def bin_data(gp):
-    #pdb.set_trace()
-    #gp.investigate = 'simplenu'
-    #pdb.set_trace()
     if gp.investigate == 'hern':
         import gr_MCMCbin
         gr_MCMCbin.run(gp)
     elif gp.investigate == 'gaia':
-        import grg_COM, gr_MCMCbin
-        grg_COM.run(gp)
+        import gr_MCMCbin
         gr_MCMCbin.run(gp)
     elif gp.investigate == 'walk':
-        import grw_COM, gr_MCMCbin # inside there, split by metallicity
-        grw_COM.run(gp)
-        gr_MCMCbin.run(gp)
+        if not gp.walker3D:
+            import gr_MCMCbin # inside there, split by metallicity
+            gr_MCMCbin.run(gp)
         # run for 3D models as well if model is set (needed in rhotot_walk)
         if gp.walker3D:
-            import grw_com, grw_mcmcbin
-            grw_com.run(gp)
+            import grw_mcmcbin
             grw_mcmcbin.run(gp)
     elif gp.investigate == 'triax':
-        import grt_com
-        grt_com.run(gp)
         import grt_dens
         grt_dens.run(gp)
         import grt_siglos
         grt_siglos.run(gp)
     elif gp.investigate == 'obs':
-        import grd_COM, gr_MCMCbin
-        grd_COM.run(gp)
-        if gp.pops > 1:
-            import grd_split
-            grd_split.run(gp)
+        import gr_MCMCbin
         gr_MCMCbin.run(gp)
     elif gp.investigate == 'discmock':
         import grdm_write
@@ -95,10 +119,9 @@ def bin_data(gp):
 # get data, bin it anew (e.g. if gp.nbin changed)
 # @param gp global parameter
 
-
 def get_binned_data(gp):
     for pop in range(gp.pops+1):
-        A = np.loadtxt(gp.files.get_scale_file(pop),unpack=False, skiprows=1)
+        A = np.loadtxt(gp.files.get_scale_file(pop), unpack=False, skiprows=1)
         gp.Xscale.append(A[0])
         gp.Sig0pc.append(A[1])
         gp.totmass_tracers.append(A[2])
@@ -107,10 +130,6 @@ def get_binned_data(gp):
             gp.maxsiglos.append(A[4])
         else:
             gp.maxsiglos.append(A[3])
-    #if gp.investigate == "walk":
-    #    for pop in range(gp.pops):
-    #        gp.ntracer[pop] = gp.totmass_tracers[pop+1]
-
     gp.dat.read_Sig(gp)    # set gp.xipol in here
     gp.dat.read_sig(gp)
     if gp.usekappa:
@@ -119,9 +138,8 @@ def get_binned_data(gp):
         gp.dat.read_zeta(gp)
     return gp.dat
 ## \fn get_binned_data(gp)
-# read in binned data, store in a gl_data class
+# read in binned data, store in a gi_data class
 # @param gp global parameters
-
 
 def get_binned_data_noscale(gp):
     gp.dat.read_nu(gp)
@@ -137,13 +155,13 @@ def get_rhohalfs(gp):
     if gp.geom == 'sphere':
         # Wolf, Walker method for M_half, r_half
         # assuming isotropic Plummer profile:
-        r_half = gp.dat.rhalf[0] # [pc] from overall rho*
-        sigv = max(gp.dat.sig[0]) # [km/s] from overall rho*
+        r_half = gp.dat.rhalf[1] # [pc] from first population
+        sigv = max(gp.dat.sig[1]) # [km/s] from first population
         M_half_walk = 5.*r_half*sigv**2/(2.*gu.G1__pcMsun_1km2s_2) # [Munit] Walker Penarrubia 2011
         r_half_walk = r_half
         # other estimate: Wolf+2010,
-        M_half_wolf = 4*r_half*sigv**2/gu.G1__pcMsun_1km2s_2
-        r_half_wolf = 4/3. * r_half
+        #M_half_wolf = 4*r_half*sigv**2/gu.G1__pcMsun_1km2s_2
+        #r_half_wolf = 4/3. * r_half
 
         # density at half-light radius of baryons
         rhohalf_approx = 3*M_half_walk/(4.*np.pi*r_half_walk**3) # max density possible assuming alpha=0
@@ -156,7 +174,6 @@ def get_rhohalfs(gp):
 # via deprojection for nu
 # and M_half = M(<r_half) for rho
 # @param gp global parameters
-
 
 def arraydump(fname, arrays, app='a', narr=1):
     fn=open(fname,app)
@@ -179,13 +196,11 @@ def arraydump(fname, arrays, app='a', narr=1):
 # @param app  ='a' appending?
 # @param narr =1 number of arrays
 
-
 def bufcount(filename):
     f = open(filename)
     lines = 0
     buf_size = 1024 * 1024
     read_f = f.read # loop optimization
-
     buf = read_f(buf_size)
     while buf:
         lines += buf.count('\n')
@@ -195,7 +210,6 @@ def bufcount(filename):
 ## \fn bufcount(filename)
 # count lines of a file
 # @param filename string
-
 
 def write_headers_2D(gp, pop):
     f_Sig = open(gp.files.Sigfiles[pop], 'w')
@@ -219,14 +233,13 @@ def write_headers_2D(gp, pop):
           'kappa_los(R) [1];','error [1]', file=f_kap)
 
     f_zeta = open(gp.files.zetafiles[pop], 'w')
-    print('zeta_A [1],  zeta_B [1]')
+    print('zeta_A [1],  zeta_B [1]', file=f_zeta)
 
     return f_Sig, f_nu, f_mass, f_sig, f_kap, f_zeta
 ## \fn write_headers_2D(gp, pop)
 # write headers for datareduction output files, and return file handlers
 # @param gp global parameters
 # @param pop component (0: all, 1,2,...)
-
 
 def write_headers_3D(gp, pop):
     f_nu = open(gp.files.Sigfiles[pop]+'_3D', 'w')
@@ -244,7 +257,6 @@ def write_headers_3D(gp, pop):
 # @param gp global parameters
 # @param pop population int
 
-
 def empty(filename):
     if bufcount(filename)<2:
         return True
@@ -253,17 +265,14 @@ def empty(filename):
 # determine if file is empty or not
 # @param filename string
 
-
 def read_Xscale(filename):
     crscale = open(filename, 'r')
-    Xscale = np.loadtxt(crscale, comments='#', skiprows=1, unpack=False)
-    # TODO set to first entry only
+    Xscale = np.loadtxt(crscale, comments='#', unpack=False)
     crscale.close()
     return Xscale
 ## \fn read_Xscale(filename)
 # read scale radius from file
 # @param filename string
-
 
 def write_tracer_file(filename, totmass_tracers):
     tr = open(filename, 'w')
@@ -273,7 +282,6 @@ def write_tracer_file(filename, totmass_tracers):
 # write tracer file
 # @param filename
 # @param totmass_tracers
-
 
 def write_Sig_scale(filename, Sig0pc, totmass_tracers):
     cdens = open(filename, 'a')
@@ -286,7 +294,6 @@ def write_Sig_scale(filename, Sig0pc, totmass_tracers):
 # @param Sig0pc central density [Munit/pc^2]
 # @param totmass_tracers total tracer density mass
 
-
 def write_nu_scale(filename, nu0pc):
     cdens = open(filename, 'a')
     print(nu0pc, file=cdens)                      # [Munit/pc^2]
@@ -295,7 +302,6 @@ def write_nu_scale(filename, nu0pc):
 # output 3D tracer density scale
 # @param filename
 # @param nu0pc central 3D tracer density [Munit/pc^3]
-
 
 def write_data_output(filename, x, y, vz, Xscale):
     print('output: ', filename)
@@ -312,7 +318,6 @@ def write_data_output(filename, x, y, vz, Xscale):
 # @param y
 # @param vz
 # @param Xscale
-
 
 def write_Xscale(filename, Xscale):
     crscale = open(filename, 'w')

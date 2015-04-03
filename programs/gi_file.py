@@ -111,6 +111,9 @@ def bin_data(gp):
     elif gp.investigate == 'discsim':
         import grds_write
         grds_write.run(gp)
+    elif gp.investigate == 'simplenu':
+        import gr_external_data
+        gr_external_data.run(gp)
     return
 ## \fn bin_data(gp)
 # get data, bin it anew (e.g. if gp.nbin changed)
@@ -137,6 +140,16 @@ def get_binned_data(gp):
 ## \fn get_binned_data(gp)
 # read in binned data, store in a gi_data class
 # @param gp global parameters
+
+def get_binned_data_noscale(gp):
+    gp.dat.read_nu(gp)
+    gp.dat.read_sigz2(gp)
+    return gp.dat
+## \fn get_binned_data_noscale(gp)
+# read in binned data, store in a gl_data class
+# @param gp global parameters
+# H Silverwood 20/11/14
+
 
 def get_rhohalfs(gp):
     if gp.geom == 'sphere':
