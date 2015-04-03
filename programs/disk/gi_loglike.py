@@ -6,11 +6,11 @@
 
 import numpy as np
 import pdb
-import gl_helper as gh
-from gl_class_profiles import Profiles
-from gl_priors import check_bprior, check_tilt
-from gl_chi import calc_chi2
-import gl_physics as phys
+import gi_helper as gh
+from gi_class_profiles import Profiles
+from gi_priors import check_bprior, check_tilt
+from gi_chi import calc_chi2
+import gi_physics as phys
 from pylab import *
 #ion()
 import time
@@ -90,8 +90,8 @@ def geom_loglike(cube, ndim, nparams, gp):
         off += offstep
 
     if off != gp.ndim:
-        gh.LOG(1,'wrong subscripts in gl_class_cube')
-        raise Exception('wrong subscripts in gl_class_cube')
+        gh.LOG(1,'wrong subscripts in gi_class_cube')
+        raise Exception('wrong subscripts in gi_class_cube')
 
 
     #Calculate Sigma (surface density)
@@ -126,7 +126,7 @@ def geom_loglike(cube, ndim, nparams, gp):
 ## \fn geom_loglike(cube, ndim, nparams, gp)
 # define log likelihood function to be called by pyMultinest and plot_profiles
 # disc version
-# @param cube parameter cube as defined by gl_class_cube, in physical space
+# @param cube parameter cube as defined by gi_class_cube, in physical space
 # @param ndim number of dimensions, needed as argument by multinest
 # @param nparams number of parameters, needed as argument by multinest
 # @param gp global parameters

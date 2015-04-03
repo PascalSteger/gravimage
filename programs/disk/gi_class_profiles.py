@@ -8,9 +8,9 @@
 
 import pdb
 import numpy as np
-import gl_project
-import gl_physics as phys
-import gl_helper as gh
+import gi_project
+import gi_physics as phys
+import gi_helper as gh
 
 class Profiles:
     def __init__(self, ntracer_pops, nbins):#, nrhonu,  nbaryon_pops, nbaryon_params):

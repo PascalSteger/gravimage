@@ -17,8 +17,8 @@ import pdb
 from scipy.integrate import simps
 from scipy.integrate import quad, fixed_quad, quadrature, romberg, cumtrapz
 from scipy.interpolate import splrep, splev, splint
-import gl_helper as gh
-import gl_physics as phys
+import gi_helper as gh
+import gi_physics as phys
 from pylab import *
 ion()
 

@@ -10,8 +10,8 @@ import numpy as np
 import numpy.random as npr
 import pdb
 
-import gl_units as gu
-import gl_helper as gh
+import gi_units as gu
+import gi_helper as gh
 import physics_disc as phys
 from binsmooth import *
 from bincount import *

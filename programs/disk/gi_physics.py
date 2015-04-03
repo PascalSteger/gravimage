@@ -12,7 +12,7 @@ import numpy as np
 import scipy.integrate as integrate
 import scipy.constants as constants
 import math
-import gl_helper as gh
+import gi_helper as gh
 
 # New rho function:
 def rho(zvec, kpar, rho0):

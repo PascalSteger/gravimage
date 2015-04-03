@@ -12,8 +12,8 @@ import numpy.random as npr
 import pdb
 from scipy.integrate import simps,trapz
 
-import gl_units as gu
-import gl_helper as gh
+import gi_units as gu
+import gi_helper as gh
 
 
 def disc_mock(gp):

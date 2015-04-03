@@ -8,14 +8,14 @@
 
 import numpy as np
 import pdb
-import gl_helper as gh
+import gi_helper as gh
 #import socket
 #import getpass
 
 def check_investigate(inv):
     if inv == 'discmock': return True
     if inv == 'discsim': return True
-    raise Exception('wrong investigative case in gl_params')
+    raise Exception('wrong investigative case in gi_params')
     return False
 
 class Params():
@@ -171,9 +171,9 @@ class Params():
         ip.set_geometry(self.geom, self.machine) # load spherical or
                                                  # disc version
                                                  # of the code
-        import gl_class_files
-        self.files = gl_class_files.Files(self, timestamp)
-        from gl_data import Datafile
+        import gi_class_files
+        self.files = gi_class_files.Files(self, timestamp)
+        from gi_data import Datafile
         self.dat = Datafile()
 
 
