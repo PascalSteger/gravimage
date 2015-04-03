@@ -127,29 +127,25 @@ class Params():
         self.monotonic_nu = False # monotonicity prior on n(x) for nu(x)
 
         # integration options
-        # --------------------------------------------------
         self.usekappa   = False # switch to turn on (True) or off the
                                 # calculation of kappa
         self.usezeta    = False # switch to turn on (True) or off the
                                 # calculation of virial parameters zeta_a,b
 
         # automatic plotting options
-        # --------------------------------------------------
         self.last_plot = -1    # timestamp of last automatic plot, set to -1
         self.plot_after = 36000  # [s] to elapse before automatic plotting called again
 
         # filesystem-related
-        # --------------------------------------------------
         self.machine = gb.get_machine()
         import import_path as ip
-        ip.set_geometry(self.geom, self.machine) # load spherical or disc version of the code
+        ip.set_geometry(self.geom, self.machine) # load spherical or disk version of the code
         import gi_class_files
         self.files = gi_class_files.Files(self, timestamp)
         from gi_data import Datafile
         self.dat = Datafile()
 
         # debug options
-        # --------------------------------------------------
         self.debug = False # enable calling debug routines. Turn off in production runs!
         self.checkbeta = False # check that if right r_s and beta(r_infty) is set,
                               # we get the right profiles back
@@ -157,7 +153,6 @@ class Params():
         self.stopstep = 5 # step to stop at by default
 
         # global arrays
-        # --------------------------------------------------
         self.xipol = np.array([]) # [pc] hold radius bin centers
         self.xepol = np.array([]) # [pc] extended by 3 fudge bins
         self.xfine = np.array([]) # [pc] radii for lookup tables,

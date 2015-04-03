@@ -181,7 +181,7 @@ class Datafile:
                 # axvline(r_half)
                 # print(nrpar)
             else:
-                gh.LOG(1, 'working in disc symmetry: reading nu directly')
+                gh.LOG(1, 'working in disk symmetry: reading nu directly')
                 dummy1, dummy2, dummy3, nudat, nuerr = \
                         gh.readcol5(gp.files.nufiles[pop])
                 self.nuhalf.append(nudat[round(len(nudat)/2)]) #HS ToDo: check validity of this

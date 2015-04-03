@@ -85,10 +85,10 @@ class Files:
             self.set_triax(gp, timestamp)
         elif gp.investigate == 'obs':
             self.set_obs(gp, timestamp)
-        elif gp.investigate == 'discsim':
-            self.set_discsim(gp, timestamp)
-        elif gp.investigate == 'discmock':
-            self.set_discmock(gp, timestamp)
+        elif gp.investigate == 'disksim':
+            self.set_disksim(gp, timestamp)
+        elif gp.investigate == 'diskmock':
+            self.set_diskmock(gp, timestamp)
         elif gp.investigate == 'simplenu':
             self.set_simplenu(gp, timestamp)
             newdir(self.dir + 'sigz/')
@@ -440,9 +440,9 @@ class Files:
     ## \fn get_ntracer_file(self, i)
     # get filename with attached tracer information
 
-    def set_discsim(self, gp, timestamp='-1'):
+    def set_disksim(self, gp, timestamp='-1'):
         # entry for "all components" as the first entry. Convention: 0. all 1. pop, 2. pop, 3. pop = background
-        self.dir = self.basepath + 'DTdiscsim/mwhr/'
+        self.dir = self.basepath + 'DTdisksim/mwhr/'
         self.dir += timestamp + '/'
         # TODO: check whether nufiles are contained as well
         # self.posvelfiles.append(self.dir + 'sim/mwhr_r8500_ang'+gp.patch+'_stars.txt')
@@ -462,13 +462,13 @@ class Files:
             self.surfdenfiles.append(self.dir + 'surfden/mwhr_r8500_ang'+gp.patch+'_surfacedenDM.txt') # DM surface density
 
         return
-    ## \fn set_discsim(self, gp, timestamp='')
-    # set all properties for disc case
+    ## \fn set_disksim(self, gp, timestamp='')
+    # set all properties for disk case
     # @param gp global parameters
     # @param timestamp string YYYYMMDDhhmm
 
-    def set_discmock(self, gp, timestamp='-1'):
-        self.dir = self.basepath + 'DTdiscmock/0/'
+    def set_diskmock(self, gp, timestamp='-1'):
+        self.dir = self.basepath + 'DTdiskmock/0/'
         self.dir += timestamp + '/'
         self.massfiles.append(self.dir + 'M/M_0.txt')
         self.Sigfiles.append(self.dir  + 'Sigma/Sigma_0.txt') # all comp.
@@ -487,8 +487,8 @@ class Files:
 #            self.sigfiles.append(self.dir  + 'siglos/siglos_2.txt')
 #            self.kappafiles.append(self.dir+ 'kappalos/kappalos_2.txt')
         return
-    ## \fn set_discmock(self, gp, timestamp='')
-    # set all properties if looking at simple disc
+    ## \fn set_diskmock(self, gp, timestamp='')
+    # set all properties if looking at simple disk
     # @param gp global parameters
     # @param timestamp string YYYYMMDDhhmm
 
@@ -499,7 +499,7 @@ class Files:
         self.sigfiles.append(self.dir+'sigz/sigz_1.txt')
         return
     ## \fn set_simplenu(self, gp, timestamp='')
-    # set all properties if looking at simple disc
+    # set all properties if looking at simple disk
     # @param gp global parameters
     # @param timestamp string YYYYMMDDhhmm
 

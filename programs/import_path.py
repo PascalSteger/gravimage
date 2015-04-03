@@ -58,5 +58,5 @@ def set_geometry(geom, machine):
     insert_sys_path(basepath + geom)
 ## \fn set_geometry(geom, machine)
 # get right directory for geometry-dependent imports
-# @param geom string of investigation geometry: disc or sphere
+# @param geom string of investigation geometry: disk or sphere
 # @param machine string for working machine. local or darkside

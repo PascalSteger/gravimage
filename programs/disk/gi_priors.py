@@ -3,7 +3,7 @@
 ##
 # @file
 # check all parameters for prior constraints
-# disc version
+# disk version
 
 # (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 

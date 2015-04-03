@@ -154,7 +154,7 @@ class Profiles:
     # @param pop and of this population (if applicable)
 
     def __repr__(self):
-        return "Profiles (disc): "+str(self.chi2)
+        return "Profiles (disk): "+str(self.chi2)
     ## \fn __repr__(self)
     # string representation for ipython
 

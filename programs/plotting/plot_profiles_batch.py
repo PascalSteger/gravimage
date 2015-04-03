@@ -123,8 +123,8 @@ def run(timestamp, basename, gp):
     pc.set_x0(gp.z_bincenters) # [kpc]
     print('here')
 
-    pc.sort_profiles_disc(gp)
-    pc.write_all_disc(basename, gp)
+    pc.sort_profiles_disk(gp)
+    pc.write_all_disk(basename, gp)
     pc.plot_profile(basename, 'nu_vec', 0, gp)
     pc.plot_profile(basename, 'sig_vec', 0, gp)
     pc.plot_profile(basename, 'rho_DM_vec', 0, gp)

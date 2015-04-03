@@ -3,7 +3,7 @@
 ##
 # @file
 # calculations for velocity dispersion
-# disc version
+# disk version
 
 # (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
@@ -53,7 +53,7 @@ def sigz2(zvec,Sigvec,nuvec,C):
 # @param nuvec: tracer number density at the locations of zvec
 # @param C: Integration constant C in eq (5) in the 'almost' paper
 # all arrays (zvec,Sigvec,nuvec) are required to be numpy arrays.
-# outputs sigvec at z = zvec[1:], eg discards first z point
+# outputs sigvec at z = zvec[1:], eg diskards first z point
 
 
 def tilt(zipol, param, gp):
@@ -111,4 +111,4 @@ def rho_baryon_simplenu(zvec, params):
 # Calculate baryon density from the model used to generate the simplenu mock data
 # @param zvec [kpc]
 # @param K [kpc s^-2], baryon force parameter
-# @param D [kpc], baryon disc scale height
+# @param D [kpc], baryon disk scale height

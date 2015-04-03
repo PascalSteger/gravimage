@@ -22,7 +22,7 @@ import gi_physics as phys
 from pylab import *
 ion()
 
-def rho_param_INT_Sig_disc(z0, rhopar, pop, gp):
+def rho_param_INT_Sig_disk(z0, rhopar, pop, gp):
     # TODO: check integration for z direction only
 
     # use splines on variable transformed integral
@@ -37,9 +37,9 @@ def rho_param_INT_Sig_disc(z0, rhopar, pop, gp):
         # TODO speed up using the same function for integrating all parts
         Sig[i] = gh.quadinflog(z0nu, rhonu, xmin, z0nu[i])
 
-    gh.checkpositive(Sig, 'Sig in rho_param_INT_Sig_disc')
+    gh.checkpositive(Sig, 'Sig in rho_param_INT_Sig_disk')
     return Sig[len(z0left):] # @z0 (z0nu without z0left, and without 3 extension bins)
-## \fn rho_param_INT_Sig_disc(z0, rhopar, pop, gp)
+## \fn rho_param_INT_Sig_disk(z0, rhopar, pop, gp)
 # take 3D density parameters, calculate projected surface density
 # @param z0 radii of bins, (nrho-nexp entries) [pc]
 # @param rhopar 3D density, (nrho entries) [Munit/pc^3]
@@ -47,7 +47,7 @@ def rho_param_INT_Sig_disc(z0, rhopar, pop, gp):
 # @param gp global parameters
 
 
-def nu_param_INT_Sig_disc(z0, nupar, pop, gp):
+def nu_param_INT_Sig_disk(z0, nupar, pop, gp):
     # TODO: check integration for z direction only
     # use splines on variable transformed integral
     # \Sigma(R) = \int_{r=0}^{R} \rho(r) dr
@@ -58,9 +58,9 @@ def nu_param_INT_Sig_disc(z0, nupar, pop, gp):
     for i in range(len(z0nu)):
         Sig[i] = gh.quadinflog(z0nu, nunu, z0nu[0], z0nu[i])
 
-    gh.checkpositive(Sig, 'Sig in nu_param_INT_Sig_disc')
+    gh.checkpositive(Sig, 'Sig in nu_param_INT_Sig_disk')
     return Sig
-## \fn nu_param_INT_Sig_disc(z0, nupar, pop, gp)
+## \fn nu_param_INT_Sig_disk(z0, nupar, pop, gp)
 # take 3D density parameters, calculate projected surface density
 # @param z0 radii of bins, (nrho-nexp entries) [pc]
 # @param nupar 3D density, (nrho entries) [Munit/pc^3]

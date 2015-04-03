@@ -10,7 +10,7 @@
 # and calculate physical values from [0,1]
 # populations are counted from 0 = first component,
 # 1 = first additional component
-# disc version, done
+# disk version, done
 
 # (c) 2013 ETHZ Pascal S.P. Steger
 
@@ -347,7 +347,7 @@ class Cube:
 
 
     def __repr__(self):
-        return "Cube (disc) with "+str(gp.ntracer_pops)+" pops "
+        return "Cube (disk) with "+str(gp.ntracer_pops)+" pops "
 
     def copy(self, cub):
         self.cube = cub

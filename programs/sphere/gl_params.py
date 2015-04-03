@@ -158,7 +158,7 @@ class Params():
             self.machine = 'lisa_SS'
         import import_path as ip
         ip.set_geometry(self.geom, self.machine) # load spherical or
-                                                 # disc version
+                                                 # disk version
                                                  # of the code
         import gl_class_files
         self.files = gl_class_files.Files(self, timestamp)
@@ -181,7 +181,7 @@ class Params():
         if self.investigate != 'walk' and\
            self.investigate != 'triax' and\
            self.investigate != 'gaia' and\
-           self.investigate != 'discmock':
+           self.investigate != 'diskmock':
             # each is set for all components and first component by
             # default
             self.rscale.append(1.);           self.rscale.append(1.)

@@ -105,10 +105,10 @@ def bin_data(gp):
     elif gp.investigate == 'obs':
         import gr_MCMCbin
         gr_MCMCbin.run(gp)
-    elif gp.investigate == 'discmock':
+    elif gp.investigate == 'diskmock':
         import grdm_write
         grdm_write.run(gp)
-    elif gp.investigate == 'discsim':
+    elif gp.investigate == 'disksim':
         import grds_write
         grds_write.run(gp)
     elif gp.investigate == 'simplenu':
@@ -166,7 +166,7 @@ def get_rhohalfs(gp):
         # density at half-light radius of baryons
         rhohalf_approx = 3*M_half_walk/(4.*np.pi*r_half_walk**3) # max density possible assuming alpha=0
         gp.rhohalf = rhohalf_approx
-    elif gp.geom == 'disc':
+    elif gp.geom == 'disk':
         gp.rhohalf = np.average(gp.dat.nuhalf) #Assuming DM density negligible
     return
 ## \fn get_rhohalfs(gp)

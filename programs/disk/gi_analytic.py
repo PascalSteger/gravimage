@@ -36,8 +36,8 @@ def get_prof(prof, pop, gp):
         return zth, nu_zth
     Kz_zth = -(K*zth/np.sqrt(zth**2.+D**2.) + 2.0 * F * zth) # [TODO]
 
-    if gp.adddarkdisc:
-        DD = 600                                         # [pc] scaleheight of dark disc
+    if gp.adddarkdisk:
+        DD = 600                                         # [pc] scaleheight of dark disk
         KD = 0.15 * 1.650                                # [TODO]
         Kz_zth = Kz_zth - KD*zth/np.sqrt(zth**2. + DD**2.) # [TODO]
 
@@ -60,7 +60,7 @@ def get_prof(prof, pop, gp):
     ran2 = npr.normal(size=int(gp.ntracer[2-1]))  # [1]
     vzstar = ran2 * sigzstar                      # [km/s]
 
-    # Add second population [thick-disc like]:
+    # Add second population [thick-disk like]:
     if gp.pops == 2:
         nu_zth2 = gp.ntracer[2-1]/gp.ntracer[1-1]*np.exp(-zth/z02)
         if prof == 'nu' and pop == 2:

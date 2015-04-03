@@ -110,7 +110,7 @@ def get_investigate():
     while(invalid):
         try:
             user_input = input('Investigate: (default: '+str(default)+\
-                               ", walk, gaia, triax, hern, obs, discsim, discmock, simplenu): ")
+                               ", walk, gaia, triax, hern, obs, disksim, diskmock, simplenu): ")
             if not user_input:
                 user_input = str(default)
             sel = user_input
@@ -118,12 +118,12 @@ def get_investigate():
             print("error in input")
         invalid = True
         if sel == 'walk' or sel == 'gaia' or sel == 'triax' or sel == 'hern'\
-          or sel == 'obs' or sel == 'discsim' or sel == 'discmock' or sel == 'simplenu':
+          or sel == 'obs' or sel == 'disksim' or sel == 'diskmock' or sel == 'simplenu':
             invalid = False
     return sel
 ## \fn get_investigate(default)
 # ask user for choice on investigation
-# (walk, gaia, triax, fornax, hern, discsim, discmock)
+# (walk, gaia, triax, fornax, hern, disksim, diskmock)
 # @return string
 
 
@@ -157,7 +157,7 @@ def get_case(investigate):
                        (sel <= 10 and investigate == 'gaia') or \
                        (sel < 4 and investigate == 'obs') or \
                        (sel <= 8 and investigate == 'triax') or \
-                       (sel == 0 and investigate == 'discmock') or\
+                       (sel == 0 and investigate == 'diskmock') or\
                        (sel == 0 and investigate == 'simplenu')):
             invalid = False
         # assign string if working with observed dwarfs
@@ -311,7 +311,7 @@ def get_profile_source():
     return sel
 ## \fn get_investigate(default)
 # ask user for choice on investigation
-# (walk, gaia, triax, fornax, hern, discsim, discmock)
+# (walk, gaia, triax, fornax, hern, disksim, diskmock)
 # @return string
 
 
@@ -355,7 +355,7 @@ def run(investigate="", case=-1, latest=False):
     return timestamp, basename+'/', investigate, profile_source#, prof #, pop
 ## \fn run(investigate, case, latest)
 # display possible runs of the current investigation method, select one
-# @param investigate string of investigation case, hern, gaia, walk, discmock
+# @param investigate string of investigation case, hern, gaia, walk, diskmock
 # @param case int for case
 # @param latest boolean if looking at latest only
 # @return basename, prof (string)

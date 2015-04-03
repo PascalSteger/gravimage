@@ -191,7 +191,7 @@ class ProfileCollection():
     # sort all profiles
     # @param gp global parameters
 
-    def sort_profiles_disc(self, gp):
+    def sort_profiles_disk(self, gp):
         self.sort_prof('nu_vec', 0, gp)
         #self.sort_prof('sig_vec', 0, gp) #Old plots
         self.sort_prof('sigz2_vec', 0, gp)
@@ -334,7 +334,7 @@ class ProfileCollection():
     # @param basename directory string
     # @param gp global parameters
 
-    def write_all_disc(self, basename, gp):
+    def write_all_disk(self, basename, gp):
         self.write_prof(basename, 'nu_vec', 0, gp)
         #self.write_prof(basename, 'sig_vec', 0, gp)
         self.write_prof(basename, 'sigz2_vec', 0, gp)
@@ -444,7 +444,7 @@ class ProfileCollection():
         if prof=='chi2':
             ax.set_xlabel('$\\log_{10}\\chi^2$')
             ax.set_ylabel('frequency')
-        elif gp.geom == 'disc' and prof != 'chi2':
+        elif gp.geom == 'disk' and prof != 'chi2':
             ax.set_xlabel('$z\\quad[\\rm{kpc}]$')
         elif gp.geom == 'sphere' and prof != 'chi2':
             ax.set_xlabel('$R\\quad[\\rm{pc}]$')
@@ -475,7 +475,7 @@ class ProfileCollection():
             ax.set_ylabel('$n_{\\nu,'+str(pop)+'}(r)$')
         elif prof == 'sig':
             ax.set_ylabel('$\\sigma_{\\rm{LOS},'+str(pop)+'}\\quad[\\rm{km}/\\rm{s}]$')
-        # Disc cases
+        # Disk cases
         elif prof == 'nu_vec':
             ax.set_ylabel('$\\nu_{\\rm{Tr},'+str(pop)+'}\\quad[\\rm{stars}/\\rm{kpc}^3]$')
             ax.set_ylim(1.0E3, 4.0E4)

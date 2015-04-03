@@ -2,7 +2,7 @@
 
 ##
 # @ file
-# generate simple disc data ourselves
+# generate simple disk data ourselves
 
 # (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
@@ -17,7 +17,7 @@ import gl_helper as gh
 import gl_mc_errors as gmcer
 import numpy.random as rand
 
-def write_disc_output_files(Bincenter, Binmin, Binmax, nudat, nuerr, sigz2dat, sigz2err, gp):
+def write_disk_output_files(Bincenter, Binmin, Binmax, nudat, nuerr, sigz2dat, sigz2err, gp):
 
     # write tracer densities 3D
     file_nu = open(gp.files.nufiles[0], 'w')
@@ -46,7 +46,7 @@ def ErSamp_gauss_linear_w_z():
     return z_sampled
 
 
-## \fn write_disc_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp)
+## \fn write_disk_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp)
 # for permanent and consistent data handling
 # @param Rbin
 # @param Binmin
@@ -102,7 +102,7 @@ def run(gp):
     sigz2_err_tot = sigz2_err_pois + np.sqrt(2/Ntr_per_bin)*gp.vz_SDerr_meas**2
 
     #Output data to file
-    write_disc_output_files(bincentermed, binmin, binmax, nu_data, nu_err_tot, sigz2_data, sigz2_err_tot, gp)
+    write_disk_output_files(bincentermed, binmin, binmax, nu_data, nu_err_tot, sigz2_data, sigz2_err_tot, gp)
 
     #Set central nu prior range
     gp.nu_C_max = 2.*Ntr/(binmax[0]-binmin[0])

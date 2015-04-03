@@ -3,7 +3,7 @@
 ##
 # @file
 # all functions called directly from gravimage
-# disc version, done
+# disk version, done
 
 # (c) ETHZ 2013 Pascal Steger, psteger@phys.ethz.ch
 

@@ -2,7 +2,7 @@
 
 ##
 # @ file
-# generate simple disc data ourselves
+# generate simple disk data ourselves
 
 # (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
@@ -16,7 +16,7 @@ import gi_units as gu
 import gi_helper as gh
 
 
-def disc_mock(gp):
+def disk_mock(gp):
     global K,C,D,F, zth, zp_kz, zmin, zmax, z0, z02
     # Set up simple population here using analytic formulae:
     zmin = 100.                               # [pc], first bin center
@@ -35,7 +35,7 @@ def disc_mock(gp):
     nu_zth = np.exp(-zth/z0)                                 # [1]
     Kz_zth = -(K*zth/np.sqrt(zth**2.+D**2.) + 2.0 * F * zth) # [TODO]
 
-    if gp.adddarkdisc:
+    if gp.adddarkdisk:
         DD = 600                                         # [pc]
         KD = 0.15 * 1.650                                # [TODO]
         Kz_zth = Kz_zth - KD*zth/np.sqrt(zth**2. + DD**2.) # [TODO]
@@ -57,7 +57,7 @@ def disc_mock(gp):
     ran2 = npr.normal(size=int(gp.ntracer[1-1]))  # [1]
     vzstar = ran2 * sigzstar                      # [km/s]
 
-    # Add second population [thick-disc like]:
+    # Add second population [thick-disk like]:
     if gp.pops == 2:
         nu_zth2 = gp.ntracer[2-1]/gp.ntracer[1-1]*np.exp(-zth/z02)
         # no normalization to 1
@@ -173,6 +173,6 @@ def disc_mock(gp):
         gp.dat.sigerr.append(sig_dat_err_bin2)# [km/s]
     return gp.dat
 
-## \fn disc_mock(gp)
-# generate disc data from analytic form, return 3D densities, delta (=tilt)
+## \fn disk_mock(gp)
+# generate disk data from analytic form, return 3D densities, delta (=tilt)
 # @param gp global parameters

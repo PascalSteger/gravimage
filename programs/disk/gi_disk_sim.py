@@ -12,12 +12,12 @@ import pdb
 
 import gi_units as gu
 import gi_helper as gh
-import physics_disc as phys
+import physics_disk as phys
 from binsmooth import *
 from bincount import *
 
 
-def disc_sim(gp):
+def disk_sim(gp):
     gp.zpmin = -1
     gp.zpmax = -1
 
@@ -269,6 +269,6 @@ def disc_sim(gp):
 
         gp.dat.output()
         return gp.dat
-## \fn disc_sim(gp)
-# read in disc simulation file
+## \fn disk_sim(gp)
+# read in disk simulation file
 # @param gp

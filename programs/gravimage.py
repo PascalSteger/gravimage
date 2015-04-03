@@ -29,7 +29,7 @@ import numpy.random as npr
 from optparse import OptionParser
 parser = OptionParser()
 parser.add_option("-i", "--investigation", dest="investigation",
-                      default="", help="investigation to run: gaia, walk, hern, triax, discmock, simplenu")
+                      default="", help="investigation to run: gaia, walk, hern, triax, diskmock, simplenu")
 parser.add_option("-c", "--case", dest="case",
                       default=-1, help="case: 1, 2, ..")
 (options, args) = parser.parse_args()

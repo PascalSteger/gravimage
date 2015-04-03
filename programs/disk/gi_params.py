@@ -4,7 +4,7 @@
 # @file
 # all parameters for the gravimage MCMC, gaia investigation
 
-# (c) 2013 ETHZ Pascal S.P. Steger
+# (c) GPL v3 2015 ETHZ Pascal S.P. Steger, pascal@steger.aero
 
 import numpy as np
 import pdb
@@ -13,28 +13,27 @@ import gi_helper as gh
 #import getpass
 
 def check_investigate(inv):
-    if inv == 'discmock': return True
-    if inv == 'discsim': return True
+    if inv == 'diskmock': return True
+    if inv == 'disksim': return True
     raise Exception('wrong investigative case in gi_params')
     return False
+## \fn check_investigate(inv)
+# check whether there is a valid investigation chosen
+# @param inv string
 
 class Params():
     def __init__(self, timestamp = '', investigate = '', case = -1):
-
         # Set machine and user variables
-        # ----------------------------------------------------------------------
         self.machine, dummy = gh.detect_machine()
 
-
         # Set investigation and geometry
-        # ----------------------------------------------------------------------
         if investigate != '':
             self.investigate = investigate
         else:
             self.investigate  = 'simplenu' # determine which data set to work on
-                                  # 'discmock': set up simple model for disc
-                                  # 'discsim': read in disc simulation
-        self.geom = 'disc'
+                                  # 'diskmock': set up simple model for disk
+                                  # 'disksim': read in disk simulation
+        self.geom = 'disk'
 
         #check_investigate(self.investigate)
         self.case = 0 # used in spherical case
@@ -43,13 +42,11 @@ class Params():
 
 
         # debug options
-        # ----------------------------------------------------------------------
         self.checksig = False # debug sig calculation?
         self.debug = False # stop at wrong sanitazion?
 
 
         # data and analysis options
-        # ----------------------------------------------------------------------
         self.getnewdata = True  # get new data computed from
                                 # observations before burn-in
         self.getnewpos  = True  # redo the first data conversion step
@@ -62,7 +59,7 @@ class Params():
                                    # e.g. bin centres, plus zC=0
 
         #Dark matter options
-        self.adddarkdisc = False  # for disc mock case: add a dark disc?
+        self.adddarkdisk = False  # for disk mock case: add a dark disk?
 
         self.darkmattermodel = 'const_dm'  # kz_dm = kz parameterization of DM
                                         # const_dm = constant DM density in z
@@ -98,11 +95,7 @@ class Params():
         self.vz_SDerr_meas = 5.  # Measurement error on vz, [km s^-1]
         self.mc_err_N_iters = int(100) #Number of iterations to perform when doing MC error estimation
 
-
-
-
         # Priors
-        # ----------------------------------------------------------------------
         # Limits for central densities (z=0)
         self.rho_C_max = 1.0E8  #Msun kpc^-3 for either DM or baryons (cf rho_b = 0.0914 Msun pc^-3, Flynn+ 2006)
         self.rho_C_min = 1.0E6 #Msun pc^-3
@@ -144,7 +137,6 @@ class Params():
 
 
         # MultiNest options
-        # ----------------------------------------------------------------------
         self.map_priors = False
         # Set number of terms for enclosedmass+tracer+anisotropy bins
         # = model parameters:
@@ -158,6 +150,8 @@ class Params():
         # ellipsoids in phase space to be found
         self.nlive = 100*self.ndim
         self.err = 1e300    # chi^2 for models which are impossible
+        self.minsig = 0.1   # hyperparameter range sampled from 1/(minsig*mean(sig)) .. max
+        self.maxsig = 10.0
 
         #fraction of profiles to save, set <0 for no profile saving
         self.save_fraction = -1.0
@@ -166,19 +160,21 @@ class Params():
         self.plotting_flag = False
 
         # filesystem-related
-        # ----------------------------------------------------------------------
         import import_path as ip
-        ip.set_geometry(self.geom, self.machine) # load spherical or
-                                                 # disc version
-                                                 # of the code
+        ip.set_geometry(self.geom, self.machine) # load spherical or disk version of the code
         import gi_class_files
         self.files = gi_class_files.Files(self, timestamp)
         from gi_data import Datafile
         self.dat = Datafile()
 
+        # debug options
+        self.debug = False # enable calling debug routines. Turn off in production runs!
+        self.checkbeta = False # check that if right r_s and beta(r_infty) is set,
+                              # we get the right profiles back
+        self.checksig = False # check sigma_LOS calculation steps in gi_int
+        self.stopstep = 5 # step to stop at by default
 
         # global arrays
-        # ----------------------------------------------------------------------
         self.z_bincenters = np.array([]) # [pc] holds the bin centers, H Silverwood 21/11/14
         self.z_binmins = np.array([])
         self.z_binmaxs = np.array([])
@@ -186,9 +182,7 @@ class Params():
 
     ## \fn __init__(self, timestamp = '')
     # set up all parameters used in the course of the MultiNest run,
-    # and the analysis routines in plot_multinest @param timestamp =
-    # '', for output
-
+    # and the analysis routines in plot_multinest @param timestamp = '', for output
 
     def __repr__(self):
         return "Params: "+self.files.dir
