@@ -89,6 +89,9 @@ class Files:
             self.set_discsim(gp, timestamp)
         elif gp.investigate == 'discmock':
             self.set_discmock(gp, timestamp)
+        elif gp.investigate == 'simplenu':
+            self.set_simplenu(gp, timestamp)
+            newdir(self.dir + 'sigz/')
         else:
             print(' wrong investigation in Files()')
             pdb.set_trace()
@@ -99,6 +102,16 @@ class Files:
         else:
             self.timestamp = str(timestamp)
         self.outdir = self.shortdir+self.timestamp+'/'
+
+	if gp.geom == 'disk':
+            # Output the PBS job ID for reference
+            jobid = os.popen('echo $PBS_JOBID').read()
+            print('jobid = ', jobid)
+            if jobid != '\n':
+                print('here')
+                jobid = jobid.split('.')[0]
+                newdir(self.outdir + 'jobid_' + jobid)
+
         # shorter dir names in Multinest (bound to <= 100 total)
         #os.system('ln -sf '+ self.dir+' '+self.modedir + str(gp.case))
         os.system('mkdir -p '+self.outdir)
@@ -128,6 +141,17 @@ class Files:
     # @param machine depending on which computer is used
     # @param case which special case in investigated
     # @param inv string of investigation
+
+    def set_ntracer(self, cas):
+        ntracer = get_case(cas)
+        ## number of tracers
+        self.ntracer = ntracer
+        ## string of the same quantity
+        self.nstr = str(ntracer)
+        return self.ntracer, self.nstr
+    ## \fn set_ntracer(self,cas)
+    # set number of tracers
+    # @param cas based on the case (3k, 30k tracers) we are working on
 
     def get_sim_name(self, gp):
         if gp.hern_sim_pops == 1:
@@ -420,6 +444,7 @@ class Files:
         # entry for "all components" as the first entry. Convention: 0. all 1. pop, 2. pop, 3. pop = background
         self.dir = self.basepath + 'DTdiscsim/mwhr/'
         self.dir += timestamp + '/'
+        # TODO: check whether nufiles are contained as well
         # self.posvelfiles.append(self.dir + 'sim/mwhr_r8500_ang'+gp.patch+'_stars.txt')
         # self.Sigfiles.append(self.dir + 'Sigma/mwhr_r8500_ang'+gp.patch+'_falloff_stars.txt') # again all components
         # self.sigfiles.append(self.dir +  'siglos/mwhr_r8500_ang'+gp.patch+'_dispvel_stars.txt') # all comp.
@@ -455,14 +480,25 @@ class Files:
         self.nufiles.append(self.dir   + 'nu/nu_1.txt')
         self.sigfiles.append(self.dir  + 'siglos/siglos_1.txt')
         self.kappafiles.append(self.dir+ 'kappalos/kappalos_1.txt')
-        if gp.pops == 2:
-            self.massfiles.append(self.dir + 'M/M_2.txt')
-            self.Sigfiles.append(self.dir  + 'Sigma/Sigma_2.txt') # all comp.
-            self.nufiles.append(self.dir   + 'nu/nu_2.txt')
-            self.sigfiles.append(self.dir  + 'siglos/siglos_2.txt')
-            self.kappafiles.append(self.dir+ 'kappalos/kappalos_2.txt')
+#        if gp.pops == 2:  # SS OK to remove?:
+#            self.massfiles.append(self.dir + 'M/M_2.txt')
+#            self.Sigfiles.append(self.dir  + 'Sigma/Sigma_2.txt') # all comp.
+#            self.nufiles.append(self.dir   + 'nu/nu_2.txt')
+#            self.sigfiles.append(self.dir  + 'siglos/siglos_2.txt')
+#            self.kappafiles.append(self.dir+ 'kappalos/kappalos_2.txt')
         return
     ## \fn set_discmock(self, gp, timestamp='')
+    # set all properties if looking at simple disc
+    # @param gp global parameters
+    # @param timestamp string YYYYMMDDhhmm
+
+    def set_simplenu(self, gp, timestamp=''):
+        self.dir = self.machine + 'DTsimplenu/0/'
+        self.dir += timestamp + '/'
+        self.nufiles.append(self.dir+'nu/nu_1.txt')
+        self.sigfiles.append(self.dir+'sigz/sigz_1.txt')
+        return
+    ## \fn set_simplenu(self, gp, timestamp='')
     # set all properties if looking at simple disc
     # @param gp global parameters
     # @param timestamp string YYYYMMDDhhmm
