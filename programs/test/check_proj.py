@@ -4,23 +4,26 @@
 # @file
 # check deprojection and projection of nu
 
-# (c) 2015 Pascal Steger, pascal@steger.aero
+# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
-import pdb
+import sys, pdb
 import numpy as np
+#from scipy.stats import kurtosis
 from pylab import *
 ion()
 
 import import_path as ip
-ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/reducedata/')
+ip.insert_sys_path('/home/psteger/sci/darcoda/gravimage/programs/datareduction')
 
-import gi_params as gp
-import gi_project as gip
+import gl_params as gp
+import gl_file as gf
+import gl_helper as gp
+import gl_project as glp
 
 
 def run(gp):
-    Rscale = []; Dens0Rscale = []; Dens0pc = []; Totmass_Tracers = []
-    rscale = []; dens0Rscale = []; dens0pc = []; totmass_tracers = []
+    Rscale = []; Dens0Rscale = []; Dens0pc = []; Totmass_Tracers = []; Maxsiglos = []
+    rscale = []; dens0Rscale = []; dens0pc = []; totmass_tracers = []; maxsiglos = []
 
     for pop in range(3):
         A = np.loadtxt(gp.files.get_scale_file(pop), unpack=False, skiprows=1)
@@ -71,8 +74,8 @@ def run(gp):
         ax1.set_ylabel(r'$\nu_{2D}(R)/\nu_{2D}(0)$')
 
         try:
-            ax1.plot(Rbin, gip.rho_INT_Sig(Rbin, dens, denserr, gp))
-            ax1.plot(Rbin, gip.rho_INT_Sig(Rbin, Sig_INT_rho(Rbin,Dens,Denserr),denserr, gp))
+            ax1.plot(Rbin, glp.rho_INT_Sig(Rbin, dens, denserr, gp))
+            ax1.plot(Rbin, glp.rho_INT_Sig(Rbin, Sig_INT_rho(Rbin,Dens,Denserr),denserr, gp))
         except Exception as detail:
             print('rho_INT_Sig giving NaN in plotting')
         draw()
@@ -96,7 +99,7 @@ def run(gp):
         # projSig = test(rbin, binmin, binmax, dens)
         # ax1.plot(rbin, projSig)
 
-        ax2.plot(rbin, gip.Sig_INT_rho(Rbin,Dens,Denserr),color='green')
+        ax2.plot(rbin, glp.Sig_INT_rho(Rbin,Dens,Denserr),color='green')
         draw()
 
         ioff(); show()
@@ -106,7 +109,7 @@ def run(gp):
 
 
 if __name__=="__main__":
-    import gi_params
-    gp = gi_params.Params()
+    import gl_params
+    gp = gl_params.Params()
 
     run(gp)

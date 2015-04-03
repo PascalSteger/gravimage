@@ -12,10 +12,11 @@ from gl_priors import check_bprior, check_tilt
 from gl_chi import calc_chi2
 import gl_physics as phys
 from pylab import *
-ion()
+#ion()
+import time
 
 def geom_loglike(cube, ndim, nparams, gp):
-    tmp_profs = Profiles(gp.ntracer_pops, gp.nbins)#, gp.nrhonu, gp.nbaryon_pops, gp.nbaryon_params)
+    tmp_profs = Profiles(gp.ntracer_pops, gp.nbins)#, gp.nbaryon_pops, gp.nbaryon_params)#, gp.nrhonu, )
 
     #Normalisation constant C for sigz calculation
     off = 0
@@ -23,65 +24,103 @@ def geom_loglike(cube, ndim, nparams, gp):
     norm = cube[off]
     off += offstep
 
-    #Dark Matter rho parameters (rho_C, kz_C, kz_vector, kz_LS)
-    offstep = gp.nrhonu + 1
-    rho_DM_params = np.array(cube[off:off+offstep])
-    rho_DM_C = rho_DM_params[0] #rho_C
-    kz_rho_DM_allz = rho_DM_params[1:] #kz for rho across all z points [0, bin_centres, LS]
-    tmp_rho_DM_allz = phys.rho(gp.z_all_pts, kz_rho_DM_allz, rho_DM_C) #outputs rho across all points
+    #Dark Matter rho parameters (rho_C, kz_C, kz_vector)
 
-    tmp_profs.kz_rho_DM_C = kz_rho_DM_allz[0]
-    tmp_profs.set_prof('kz_rho_DM_vec', kz_rho_DM_allz[1:-1], 0, gp)
-    tmp_profs.kz_rho_DM_LS = kz_rho_DM_allz[-1]
+    offstep = gp.nrhonu + 1
+    if gp.scan_rhonu_space:
+        tmp_rho_DM_allz = np.array(cube[off:off+offstep])
+    elif gp.darkmattermodel == 'const_dm':
+        offstep = 1
+        rho_DM_params = np.array(cube[off:off+offstep])
+        rho_DM_C = rho_DM_params[0]
+        tmp_rho_DM_allz = rho_DM_C * np.ones(gp.nbins+1)
+    else:
+        rho_DM_params = np.array(cube[off:off+offstep])
+        rho_DM_C = rho_DM_params[0] #rho_C
+        kz_rho_DM_allz = rho_DM_params[1:] #kz for rho across all z points [0, bin_centres]
+        tmp_rho_DM_allz = phys.rho(gp.z_all_pts, abs(kz_rho_DM_allz), rho_DM_C) #outputs rho across all points
+
+        tmp_profs.kz_rho_DM_C = kz_rho_DM_allz[0]
+        tmp_profs.set_prof('kz_rho_DM_vec', kz_rho_DM_allz[1:], 0, gp)
+
+    tmp_rho_total_allz = tmp_rho_DM_allz*1.0 # Add DM to total mass density
 
     tmp_profs.rho_DM_C = tmp_rho_DM_allz[0]
-    tmp_profs.set_prof('rho_DM_vec', tmp_rho_DM_allz[1:-1], 0, gp)
-    tmp_profs.rho_DM_LS = tmp_rho_DM_allz[-1]
+    tmp_profs.set_prof('rho_DM_vec', tmp_rho_DM_allz[1:], 0, gp)
     off += offstep
 
     #Baryons
-    for bary_pop in range(0, gp.nbaryon_pops):
+    tmp_rho_totbaryon_allz = np.zeros(len(tmp_rho_total_allz))
+
+    for baryon_pop in range(0, gp.nbaryon_pops):
         offstep = gp.nbaryon_params
-        bary_params = np.array(cube[off:off+offstep])
+        baryon_params = np.array(cube[off:off+offstep])
+        if gp.baryonmodel == 'simplenu_baryon':
+            tmp_rho_baryon_allz = phys.rho_baryon_simplenu(gp.z_all_pts, baryon_params)
+        elif gp.baryonmodel == 'kz_baryon':
+            print('Not implemented yet')
+        tmp_profs.rho_baryon_C = tmp_rho_baryon_allz[0]
+        tmp_profs.set_prof('rho_baryon_vec', tmp_rho_baryon_allz[1:], baryon_pop, gp)
+
+        tmp_rho_totbaryon_allz += tmp_rho_baryon_allz # add this pop's density to baryon total
+        tmp_rho_total_allz += tmp_rho_baryon_allz # add the baryon density to the total density
+
         off += offstep
 
-    #Tracer params, nu_C, kz_nu_C, kz_nu_vector, kz_nu_LS
+    #pdb.set_trace()
+    tmp_profs.rho_total_C = tmp_rho_total_allz[0]
+    tmp_profs.set_prof('rho_total_vec', tmp_rho_total_allz[1:], 0, gp)
+
+    #Tracer params, nu_C, kz_nu_C, kz_nu_vector
     for tracer_pop in range(0, gp.ntracer_pops):
         offstep = gp.nrhonu + 1
-        tracer_params = np.array(cube[off:off+offstep])
-        nu_C = tracer_params[0]
-        kz_nu_allz = tracer_params[1:] #kz for rho across all z points [0, bin_centres, LS]
-        tmp_nu_allz = phys.rho(gp.z_all_pts, kz_nu_allz, nu_C) #outputs nu across all z points
+        if gp.scan_rhonu_space:
+            tmp_nu_allz = np.array(cube[off:off+offstep])
+        else:
+            tracer_params = np.array(cube[off:off+offstep])
+            nu_C = tracer_params[0]
+            kz_nu_allz = tracer_params[1:] #kz for rho across all z points [0, bin_centres]
+            tmp_nu_allz = phys.rho(gp.z_all_pts, kz_nu_allz, nu_C) #outputs nu across all z points
 
-        tmp_profs.kz_nu_C = kz_nu_allz[0]
-        tmp_profs.set_prof('kz_nu_vec', kz_nu_allz[1:-1], 0, gp)
-        tmp_profs.kz_nu_LS = kz_nu_allz[-1]
+            tmp_profs.kz_nu_C = kz_nu_allz[0]
+            tmp_profs.set_prof('kz_nu_vec', kz_nu_allz[1:], 0, gp)
 
         tmp_profs.nu_C = tmp_nu_allz[0]
-        tmp_profs.set_prof('nu_vec', tmp_nu_allz[1:-1], tracer_pop, gp)
-        tmp_profs.nu_LS = tmp_nu_allz[-1]
+        tmp_profs.set_prof('nu_vec', tmp_nu_allz[1:], tracer_pop, gp)
         off += offstep
 
     if off != gp.ndim:
         gh.LOG(1,'wrong subscripts in gl_class_cube')
         raise Exception('wrong subscripts in gl_class_cube')
 
+
     #Calculate Sigma (surface density)
-    Sig_DM_allz = phys.Sig(gp.z_all_pts, tmp_rho_DM_allz)
+    Sig_DM_allz = phys.Sig(gp.z_all_pts, tmp_rho_DM_allz) # Dark matter Sigma
+    Sig_baryon_allz = phys.Sig(gp.z_all_pts, tmp_rho_totbaryon_allz) # total baryon Sigma
+    Sig_total_allz = phys.Sig(gp.z_all_pts, tmp_rho_total_allz) # total Sigma
+
     tmp_profs.Sig_DM_C = Sig_DM_allz[0]
-    tmp_profs.set_prof('Sig_DM_vec', Sig_DM_allz[1:-1], 0, gp)
-    tmp_profs.Sig_DM_LS = Sig_DM_allz[-1]
+    tmp_profs.set_prof('Sig_DM_vec', Sig_DM_allz[1:], 0, gp)
+
+    tmp_profs.Sig_baryon_C = Sig_baryon_allz[0]
+    tmp_profs.set_prof('Sig_baryon_vec', Sig_baryon_allz[1:], 0, gp)
+
+    tmp_profs.Sig_total_C = Sig_total_allz[0]
+    tmp_profs.set_prof('Sig_total_vec', Sig_total_allz[1:], 0, gp)
 
     #Calculate sigma (velocity dispersion)
-    sigz_vecLS = phys.sigz(gp.z_all_pts, Sig_DM_allz, tmp_nu_allz, norm)
-    tmp_profs.set_prof('sig_vec', sigz_vecLS[0:-1], 0, gp)
-    tmp_profs.sig_LS = sigz_vecLS[-1]
+    #pdb.set_trace()
+    try:
+        sigz2_vec = phys.sigz2(gp.z_all_pts, Sig_total_allz, tmp_nu_allz, norm)
+    except ValueError:
+        raise ValueError('negative value in sig2 array')
+        return
+    tmp_profs.set_prof('sigz2_vec', sigz2_vec[1:], 0, gp)
 
     # determine log likelihood
-    chi2 = calc_chi2(tmp_profs, gp) #HS currently rewriting calc_chi2
+    chi2 = calc_chi2(tmp_profs, gp)
     gh.LOG(1, '   log L = ', -chi2/2.)
     tmp_profs.chi2 = chi2
-
 
     return tmp_profs   # from   likelihood L = exp(-\chi^2/2), want log of that
 ## \fn geom_loglike(cube, ndim, nparams, gp)
