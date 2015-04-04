@@ -10,14 +10,14 @@
 # *INT*          denotes main method = integrating
 # *NORM*         denotes main method = renormalization
 
-# (c) 2013 Pascal Steger, ETH Zurich, psteger@phys.ethz.ch
+# (c) GPL v3 2015 Pascal Steger, ETH Zurich, pascal@steger.aero
 
 import numpy as np
 import pdb
-from scipy.integrate import cumtrapz, romberg, simps, quad
+from scipy.integrate import simps, quad
 from scipy.interpolate import splrep, splev, splint
-import gl_helper as gh
-import gl_physics as phys
+import gi_helper as gh
+import gi_physics as phys
 
 
 def rho_INTDIRECT_Sig(r0, rho):
@@ -27,20 +27,17 @@ def rho_INTDIRECT_Sig(r0, rho):
     # more points to the left help, but not so much
     r0ext = np.array([0.,r0[0]/6.,r0[0]/5.,r0[0]/4.,\
                       r0[0]/3.,r0[0]/2.,r0[0]/1.5])
-
     # introduce new points in between
     dR = r0[1:]-r0[:-1]
     r0nu = np.hstack([r0ext,r0,dR/4.+r0[:-1],dR/2.+r0[:-1],.75*dR+r0[:-1]])
     r0nu.sort()
     rhonu = np.exp(splev(r0nu,splpar_rho))
-
     # extend to higher radii
     splpar_lrho = splrep(r0[-3:],np.log(rho[-3:]),k=1,s=0.2) # previous: k=2
     dr0 = (r0[-1]-r0[-2])/8.
     r0ext = np.hstack([r0[-1]+dr0, r0[-1]+2*dr0, r0[-1]+3*dr0, r0[-1]+4*dr0])
     rhoext = np.exp(splev(r0ext,splpar_lrho))
     r0nu = np.hstack([r0nu, r0ext]);    rhonu = np.hstack([rhonu, rhoext])
-
     Sig = np.zeros(len(r0nu)-4)
     for i in range(len(r0nu)-4):
         xint = r0nu[i:]         # [lunit]
@@ -48,7 +45,6 @@ def rho_INTDIRECT_Sig(r0, rho):
         for j in range(i+1,len(r0nu)):
             yint[j-i] = r0nu[j] * rhonu[j]/np.sqrt(r0nu[j]**2-r0nu[i]**2)
             # [Munit/lunit^3]
-
         # Cubic-spline extrapolation to first bin
         splpar_lyint = splrep(xint[1:], np.log(yint[1:]), k=3, s=0.)
         xnew = xint
@@ -59,9 +55,7 @@ def rho_INTDIRECT_Sig(r0, rho):
         dropoffint = quad(invexp, r0nu[-1], np.inf)
         splpar_nu = splrep(xnew, ynew, s=0) # interpolation in real space
         Sig[i] = 2. * (splint(r0nu[i], r0nu[-1], splpar_nu) + dropoffint[0])
-
     Sigout = splev(r0, splrep(r0nu[:-4],Sig))     # [Munit/lunit^2]
-
     gh.checkpositive(Sigout, 'Sigout in rho_INTDIRECT_Sig')
     # [Munit/lunit^2]
     return Sigout
@@ -70,22 +64,22 @@ def rho_INTDIRECT_Sig(r0, rho):
 # @param r0 bin radii, [pc]
 # @param rho 3D density, [Munit/pc^3]
 
-
 def rho_INT_Sig(r0, rho, gp):
     # use splines on variable transformed integral
     # \Sigma(R) = \int_{r=R}^{R=\infty} \rho(r) d \sqrt(r^2-R^2)
+    if rho[0] <= 1e-100:
+        return np.zeros(gp.nepol)
     gh.checknan(rho, 'rho_INT_Sig')
-
     # >= 0.1 against rising in last bin. previous: k=2, s=0.1
-    splpar_rho = splrep(r0, np.log(rho), k=3, s=0.01)
+    # TODO: check use of np.log(r0) here
+    splpar_rho = splrep(r0, np.log(rho), k=3, s=0.01) # 0.01?
     r0ext = np.array([0., r0[0]*0.25, r0[0]*0.50, r0[0]*0.75])
-    dR = r0[1:]-r0[:-1]
+    #dR = r0[1:]-r0[:-1]
     r0nu = np.hstack([r0ext,r0])
     # points in between possible, but not helping much:
     # ,dR*0.25+r0[:-1],dR*0.50+r0[:-1],dR*0.75+r0[:-1]])
     r0nu.sort()
     rhonu = np.exp(splev(r0nu, splpar_rho))
-
     # extend to higher radii
     splpar_lrhor   = splrep(r0[-3:],np.log(rho[-3:]),k=1,s=1.) # k=2 gives NaN!
     dr0    = (r0[-1]-r0[-2])/8.
@@ -94,24 +88,19 @@ def rho_INT_Sig(r0, rho, gp):
     r0nu   = np.hstack([r0nu, r0ext])
     rhonu  = np.hstack([rhonu, rhoext])
     gh.checkpositive(rhonu, 'rhonu in rho_INT_Sig')
-
     Sig = np.zeros(len(r0nu)-4)
     for i in range(len(r0nu)-4):
         xnew = np.sqrt(r0nu[i:]**2-r0nu[i]**2)         # [lunit]
         ynew = 2.*rhonu[i:]
         yscale = 10.**(1.-min(np.log10(ynew)))
         ynew *= yscale
-
         # power-law extension to infinity
         C = gh.quadinflog(xnew[-4:],ynew[-4:],xnew[-1], gp.rinfty*max(gp.xepol))
-
         splpar_nu  = splrep(xnew,ynew,k=3) # interpolation in real space. previous: k=2, s=0.1
         Sig[i] = splint(0., xnew[-1], splpar_nu) + C
-
     Sig /= yscale
     gh.checkpositive(Sig, 'Sig in rho_INT_Sig')
     Sigout = splev(r0, splrep(r0nu[:-4], Sig))     # [Munit/lunit^2]
-
     gh.checkpositive(Sigout, 'Sigout in rho_INT_Sig')
     return Sigout
 ## \fn rho_INT_Sig(r0, rho, gp)
@@ -120,27 +109,20 @@ def rho_INT_Sig(r0, rho, gp):
 # @param rho 3D density, [Munit/pc^3]
 # @param gp global parameters
 
-
 def rho_param_INT_Sig(r0, rhodmpar, pop, gp):
     # use splines on variable transformed integral
     # \Sigma(R) = \int_{r=R}^{R=\infty} \rho(r) d \sqrt(r^2-R^2)
-    #gh.sanitize_vector(rhodmpar, gp.nrho, -gp.nrtol, \
-    #                   max(gp.maxrhoslope, 10**(np.log10(gp.rhohalf)+gp.log10rhospread)), gp.debug)
     xmin = gp.xfine[0]/15. # needed, if not: loose on first 4 bins
     r0nu = gp.xfine
-
     rhonu = phys.rho(r0nu, rhodmpar, pop, gp)
     Sig = np.zeros(len(r0nu)-gp.nexp)
     for i in range(len(r0nu)-gp.nexp):
         xnew = np.sqrt(r0nu[i:]**2-r0nu[i]**2)         # [lunit]
         ynew = 2.*rhonu[i:]
-
         # power-law extension to infinity
         C = gh.quadinflog(xnew[-gp.nexp:], ynew[-gp.nexp:], xnew[-1], gp.rinfty*xnew[-1])
         Sig[i] = gh.quadinflog(xnew[1:], ynew[1:], xmin, xnew[-1]) + C # np.inf)
-
     gh.checkpositive(Sig, 'Sig in rho_param_INT_Sig')
-
     # interpolation onto r0
     tck1 = splrep(np.log(gp.xfine[:-gp.nexp]), np.log(Sig))
     Sigout = np.exp(splev(np.log(r0), tck1))
@@ -152,12 +134,9 @@ def rho_param_INT_Sig(r0, rhodmpar, pop, gp):
 # @param pop int population to take halflight radius from (0 both, 1, 2)
 # @param gp global parameters
 
-
 def rho_param_INT_Sig_theta(Rproj, rhodmpar, pop, gp):
     # use splines on variable transformed integral
     # \Sigma(R) = \int_{r=R}^{R=\infty} \rho(r) d \sqrt(r^2-R^2)
-    gh.sanitize_vector(rhodmpar, gp.nrho, -gp.nrtol, \
-                       max(gp.maxrhoslope, 10**(np.log10(gp.rhohalf)+gp.log10rhospread)), gp.debug)
     bit = 1.e-6
     theta = np.linspace(0, np.pi/2-bit, gp.nfine)
     cth = np.cos(theta)
@@ -171,7 +150,6 @@ def rho_param_INT_Sig_theta(Rproj, rhodmpar, pop, gp):
         #rhoq = phys.rho(rq, rhodmpar, pop, gp)
         Sig[i] = 2.*Rproj[i]*simps(rhoq/cth2, theta)
     gh.checkpositive(Sig, 'Sig in rho_param_INT_Sig')
-
     # interpolation onto r0
     #tck1 = splrep(np.log(gp.xfine), np.log(Sig))
     #Sigout = np.exp(splev(np.log(r0), tck1))
@@ -183,7 +161,6 @@ def rho_param_INT_Sig_theta(Rproj, rhodmpar, pop, gp):
 # @param pop int population to take halflight radius from (0 both, 1, 2)
 # @param gp global parameters
 
-
 def Sig_SUM_MR(r0, Sig):
     MR = np.zeros(len(r0))
     MR[0] = Sig[0]*np.pi*r0[0]**2
@@ -194,7 +171,6 @@ def Sig_SUM_MR(r0, Sig):
 # calculate enclosed mass from summing up (density in rings)*(ring surface)
 # @param r0 radii, [pc]
 # @param Sig 2D density, [Munit/pc^2]
-
 
 def rho_INT_Sum_MR(r0, rho, gp):
     surf_tot = rho_INT_Sig(r0, rho, gp)                # gives [rho0, 2D]
@@ -208,36 +184,25 @@ def rho_INT_Sum_MR(r0, rho, gp):
 # @param rho 3D mass density, [Munit/pc^3]
 # @param gp global parameters
 
-
 def Sig_NORM_rho(R0, Sig, Sigerr, gp):
     rho =  Sig_INT_rho(R0, Sig, gp)         # [Munit/lunit^3]
-
     if min(rho)<0.:
         gh.LOG(1, '*** Sig_NORM_rho: got bin with negative 3D density! ***')
         for i in range(len(rho)):
             if rho[i] < 0.: rho[i] = rho[i-1]
             gh.LOG(2, 'corrected iteratively to last valid value')
-
     # normalization: calc tot mass from 2D and 3D, set equal,
     # get center 3D density rho0 right
     # and convert it into [Munit/lunit^3]
     Mr = rho_SUM_Mr(R0, rho)                   # [Munit]
-
     # R0 != r0, too bad
-    # TODO: correction for 3D radii
-    r0  = R0
-
+    r0  = R0 # use the same radii for 3D as for the 2D projection
     MR = Sig_SUM_MR(R0, Sig)                   # [Munit]
-
     corr = MR[-1]/Mr[-1]
     gh.LOG(2, ' * Sig_NORM_rho:  no correction by ', corr)
     # rho *= corr                                      # [Munit/lunit^3]
-
     # fractional error propagation
-    # TODO: not the case, really.
-    # needs to be included in Sig_INT_rho()
     rhoerr = rho * Sigerr/Sig                        # [Munit/lunit^3]
-
     # [pc], [Munit/lunit^3], [Munit/lunit^3]
     return r0, rho, rhoerr, Mr
 ## \fn Sig_NORM_rho(R0, Sig, Sigerr, gp)
@@ -247,8 +212,10 @@ def Sig_NORM_rho(R0, Sig, Sigerr, gp):
 # @param Sigerr 2D density error, [Munit/pc^2]
 # @param gp global parameters
 
-def Sig_INT_rho(R0, Sig, gp):
-    splpar_Sig = splrep(R0, np.log(Sig)) # get spline in log space to circumvent flattening
+def Jpar(R0, Sig, gp):
+    if Sig[0] < 1e-100:
+        return np.ones(len(R0)-gp.nexp)
+    splpar_Sig = splrep(R0, np.log(Sig),k=1,s=0.1) # get spline in log space to circumvent flattening
     J = np.zeros(len(Sig)-gp.nexp)
     for i in range(len(Sig)-gp.nexp):
         xint = np.sqrt(R0[i:]**2-R0[i]**2)
@@ -261,17 +228,37 @@ def Sig_INT_rho(R0, Sig, gp):
         #yint = Sig[i:]*R0[i:]/np.sqrt(R0[i:]**2-R0[i]**2)
         #J[i] = gh.quadinflog(xint[1:], yint[1:], R0[i], np.inf)
     gh.checkpositive(J)
+    return J
+## \fn Jpar(R0, Sig, gp)
+# J parameter profile, int int rho^2 dl dOmega
+# @param R0 radii where Sig is defined on
+# @param Sig surface density
+# @param gp global parameters
+# @return len(R0)-3 length array of J parameter
+
+def Sig_INT_rho(R0, Sig, gp):
+    J = Jpar(R0, Sig, gp)
     sm0 = 0.02
     splpar_J = splrep(R0[:-gp.nexp], np.log(J), s=sm0) # smoothing determined for Hernquist profile. can go below to 0.01 for very smooth profiles
     rho = -1./np.pi/R0[:-gp.nexp]*J*splev(R0[:-gp.nexp], splpar_J, der=1)
     sm = sm0*1.
     while(min(rho)<0):
+        print('min(rho)<0, rho = ', rho)
         sm *= 2
         splpar_J = splrep(R0[:-gp.nexp], np.log(J), s=sm)
         rho = -1./np.pi/R0[:-gp.nexp]*J*splev(R0[:-gp.nexp], splpar_J, der=1)
         if(sm>1):
-            raise Exception('Very irregular profile')
+            print('very irregular profile')
+            sel = (rho >= 0.0)
+            finerho = rho[sel]
+            firstfinerho = finerho[0]
+            for k in range(len(rho)):
+                if rho[k] <0:
+                    rho[k] = firstfinerho
+        #    raise Exception('Very irregular profile')
+
     gh.checkpositive(rho)
+
     rhoright = gh.expolpowerlaw(R0[:-gp.nexp], rho, R0[-3:], -3.001)
     rho = np.hstack([rho, rhoright])
     return rho
@@ -280,43 +267,7 @@ def Sig_INT_rho(R0, Sig, gp):
 # see appendix in Mamon Boue 2009
 # @param R0 radii in [pc]
 # @param Sig surface density
-
-def Sig_INT_rho_buggy(R0, Sig, gp):
-    # TODO: deproject with variable transformed, x = sqrt(r^2-R^2)
-    R0nu = R0
-    Signu = Sig
-    gh.checkpositive(Signu, 'Signu in Sig_INT_rho')
-
-    splpar_Sig = splrep(R0nu, Signu, k=2, s=0.)
-    dnubydR = splev(R0nu, splpar_Sig, der=1)  # Attention, numerical derivative
-
-    rho = np.zeros(len(R0nu)-gp.nexp)
-    for i in range(len(R0nu)-gp.nexp):
-        xint = R0nu[i:]         # [lunit]
-        yint = np.ones(len(xint))
-        gh.checkpositive(yint)
-        for j in range(i+1, len(R0nu)):
-            yint[j-i] = dnubydR[j]/np.sqrt(R0nu[j]**2-R0nu[i]**2)
-            # [Munit/lunit^3/lunit]
-
-        # Cubic-spline extrapolation to first bin
-        splpar_yint = splrep(xint[1:], yint[1:], k=2, s=0.01)
-        xnew = xint
-        ynew = splev(xnew, splpar_yint)
-        gh.checknan(ynew)
-        splpar_nu = splrep(xnew, ynew, k=1, s=0) # interpolation in real space
-        rho[i] = -1./np.pi * splint(0., max(R0), splpar_nu)
-    gh.checkpositive(rho)
-    splpar_rhon = splrep(R0nu[:-gp.nexp], rho)
-    rhoout = splev(R0, splpar_rhon)     # [Munit/lunit^3]
-    gh.checkpositive(rhoout)
-    return rhoout               # [Munit/lunit^3]
-## \fn Sig_INT_rho(R0, Sig, gp):
-# take surface density, deproject, 2D => 3D with radius r'
-# @param R0 radius in [pc]
-# @param Sig 2D density in [Munit/pc^2]
 # @param gp global parameters
-
 
 def rho_SUM_Mr(r0max, rho):
     r0max = np.hstack([0., r0max])

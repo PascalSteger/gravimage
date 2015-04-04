@@ -4,13 +4,13 @@
 # @file
 # check all parameters for prior constraints
 
-# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
+# (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
 
 import pdb
 import numpy as np
 from scipy.interpolate import splrep, splev
-from gl_int import g
-from gl_helper import LOG
+from gi_int import g
+from gi_helper import LOG
 
 
 def check_beta(beta, gp):
@@ -18,8 +18,6 @@ def check_beta(beta, gp):
     if max(beta)>1.:
         LOG(2, 'max beta!')
         return True
-
-    # TODO: check smoothness of beta
 
     # now checking physical kappa: g(rvar, rfix, beta, dbetadr) >= 0
     if gp.usekappa == False:
@@ -49,13 +47,3 @@ def check_beta(beta, gp):
 # check that beta is bound and not jumping
 # @param beta physical beta, to be in the range ]-infty,1]
 # @param gp global parameters
-
-def check_bprior(rhocheck, nucheck):
-    for jj in range(len(rhocheck)):
-        if rhocheck[jj] < nucheck[jj]:
-            return True
-    return False
-## \fn check_bprior(rhocheck, nucheck)
-# check that observed tracer mass is less than total mass
-# @param rhocheck density profile in [Munit/pc^3]
-# @param nucheck density profile in [Munit/pc^3]
