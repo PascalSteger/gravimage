@@ -19,8 +19,8 @@ import gi_project as gip
 
 import matplotlib
 matplotlib.use('pdf')
-from pylab import *
-ion()
+#from pylab import *
+#ion()
 
 def int_poly_inf(r0,poly):
     f = -1/poly[0]*np.exp(poly[1]+poly[0]*r0)
@@ -420,7 +420,6 @@ def zeta(r0fine, nufine, Sigfine, Mrfine, betafine, sigr2nu, gp):
     theta = np.arccos(r0min/r0fine)
     cth = np.cos(theta)
     sth = np.sin(theta)
-    # TODO calculate nuinterp, sigr2interp, Minterp, betainterp
     yint = gu.G1__pcMsun_1km2s_2*(5-2*betainterp)*sigr2
     yint *= Minterp*rmin**2/cth**3*sth
     nom = quad(theta, yint, 0, np.pi/2)

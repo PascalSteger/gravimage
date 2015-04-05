@@ -1,4 +1,4 @@
-#!/usr/bin/env ipython3
+#!/usr/bin/env python3
 
 ##
 # @file
@@ -10,7 +10,6 @@ import pdb
 import numpy as np
 
 from scipy.interpolate import splrep, splint
-from pylab import *
 import gi_helper as gh
 import gi_int as gi
 

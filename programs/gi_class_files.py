@@ -103,7 +103,7 @@ class Files:
             self.timestamp = str(timestamp)
         self.outdir = self.shortdir+self.timestamp+'/'
 
-	if gp.geom == 'disk':
+        if gp.geom == 'disk':
             # Output the PBS job ID for reference
             jobid = os.popen('echo $PBS_JOBID').read()
             print('jobid = ', jobid)

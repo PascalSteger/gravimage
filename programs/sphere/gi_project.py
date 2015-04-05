@@ -71,7 +71,6 @@ def rho_INT_Sig(r0, rho, gp):
         return np.zeros(gp.nepol)
     gh.checknan(rho, 'rho_INT_Sig')
     # >= 0.1 against rising in last bin. previous: k=2, s=0.1
-    # TODO: check use of np.log(r0) here
     splpar_rho = splrep(r0, np.log(rho), k=3, s=0.01) # 0.01?
     r0ext = np.array([0., r0[0]*0.25, r0[0]*0.50, r0[0]*0.75])
     #dR = r0[1:]-r0[:-1]
