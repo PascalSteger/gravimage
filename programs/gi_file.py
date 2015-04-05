@@ -321,7 +321,7 @@ def write_data_output(filename, x, y, vz, Xscale):
 
 def write_Xscale(filename, Xscale):
     crscale = open(filename, 'w')
-    print('# Xscale in [pc], central surface density (Sig(0))in [Munit/pc^2], and totmass_tracers [Munit], and max(sigma_LOS) in [km/s], and central 3D tracer density nu(0) in [Munit/Xscale^3]', file=crscale)
+    print('# Xscale in [pc], central surface density (Sig(0))in [Munit/pc^2], and totmass_tracers [Munit], and central 3D tracer density nu(0) in [Munit/Xscale^3], and max(sigma_LOS) in [km/s]', file=crscale)
     print(Xscale, file=crscale)
     crscale.close()
     return

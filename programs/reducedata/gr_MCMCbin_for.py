@@ -75,7 +75,6 @@ def run(gp):
     gf.write_Sig_scale(gp.files.get_scale_file(pop), Sig0pc, totmass_tracers)
 
     # calculate density and mass profile, store it
-    # ----------------------------------------------------------------------
     P_dens  = np.zeros(gp.nipol)
     P_edens = np.zeros(gp.nipol)
     for b in range(gp.nipol):

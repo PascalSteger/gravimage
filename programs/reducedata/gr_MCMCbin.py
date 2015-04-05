@@ -146,12 +146,10 @@ def run(gp):
                             v2[i][k] = v2[i-1][k]
                             v4[i][k] = v4[i-1][k]
                     else:
-                        siglos[i][k] = meanbiweight(vlosi[ind1], ci_perc=68.4, \
-                                                    ci_mean=True, ci_std=True)[1]
+                        siglos[i][k] = meanbiweight(vlosi[ind1], ci_perc=68.4, ci_mean=True, ci_std=True)[1]
                         # [km/s], see BiWeight.py
                         if gp.usekappa:
-                            kappa[i][k] = kurtosis(vlosi[ind1], axis=0, \
-                                                   fisher=False, bias=False) # [1]
+                            kappa[i][k] = kurtosis(vlosi[ind1], axis=0, fisher=False, bias=False) # [1]
                         if gp.usezeta:
                             ave, adev, sdev, var, skew, curt = gh.moments(vlosi[ind1])
                             v2[i][k] = var
@@ -176,7 +174,6 @@ def run(gp):
         gf.write_Sig_scale(gp.files.get_scale_file(pop), Sig0pc, totmass_tracers)
 
         # calculate density and mass profile, store it
-        # ----------------------------------------------------------------------
         #tpb0   = np.sum(tpb[0])/float(gpr.n)     # [1]
         #Sigerr0 = Sig0/np.sqrt(tpb0)       # [Munit/Rscale^2]
         P_dens  = np.zeros(gp.nipol)
@@ -212,7 +209,6 @@ def run(gp):
             print(Rbin[b], Binmin[b], Binmax[b], numedi[b]/nu0pc, nuerr[b]/nu0pc, file = f_nu)
         f_nu.close()
         # calculate and output siglos
-        # --------------------------------------------
         p_dvlos = np.zeros(gp.nipol)
         p_edvlos = np.zeros(gp.nipol)
         for b in range(gp.nipol):
@@ -239,12 +235,11 @@ def run(gp):
         print(maxsiglos, file=fpars)          #[km/s]
         fpars.close()
         for b in range(gp.nipol):
-            print(Rbin[b], Binmin[b], Binmax[b], np.abs(p_dvlos[b]/maxsiglos),\
-                  np.abs(p_edvlos[b]/maxsiglos), file=f_sig)
+            print(Rbin[b], Binmin[b], Binmax[b], np.abs(p_dvlos[b]/maxsiglos), np.abs(p_edvlos[b]/maxsiglos), file=f_sig)
             # 3*[rscale], 2*[maxsiglos]
         f_sig.close()
+
         # calculate and output kurtosis kappa
-        # --------------------------------------------
         if gp.usekappa:
             p_kappa = np.zeros(gp.nipol) # needed for plotting later
             p_ekappa = np.zeros(gp.nipol)
@@ -258,12 +253,11 @@ def run(gp):
                     kappavelerr = np.abs(kappavel/np.sqrt(tpbb)) #[1]
                 p_kappa[b] = kappavel
                 p_ekappa[b] = kappavelerr
-                print(Rbin[b], Binmin[b], Binmax[b], \
-                      kappavel, kappavelerr, file=f_kap)
+                print(Rbin[b], Binmin[b], Binmax[b], kappavel, kappavelerr, file=f_kap)
                 # [rscale], 2*[1]
             f_kap.close()
+
         # output zetas
-        # -------------------------------------------------------------
         if gp.usezeta:
             print(np.median(zetaa), np.median(zetab), file=f_zeta)
             f_zeta.close()

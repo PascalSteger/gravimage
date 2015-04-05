@@ -33,7 +33,7 @@ class Params():
         if investigate != '':
             self.investigate = investigate
         else:
-            self.investigate  = 'walk' # determine which data set to work on
+            self.investigate  = 'obs' # determine which data set to work on
                                       # 'hern': simple Hernquist prof. from simwiki
                                       # 'walk': with full obs. cont. data from Walker
                                       # 'gaia': 1pop 6D data, gaia challenge
@@ -45,7 +45,7 @@ class Params():
             self.case = case
             #os.system('sed -i "s/case = 1/case = '+str(case)+'/"')
         else:
-            self.case = 1 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
+            self.case = 3 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
                           # triax (1-4:core, 5-8:cusp), obs (1:for,car,scl,sex,dra)
 
         print(' case : ', self.case)
@@ -58,7 +58,8 @@ class Params():
         if self.restart: self.getnewdata = False
         self.selfconsistentnu = False # tracer star density profile for dSph?
         self.binning = 'consttr' # linspace, logspace, consttr: binning of particles
-        self.metalpop = False # split metallicities with a separate MCMC
+        self.metalpop = True # split metallicities with a separate MCMC
+        self.Rdiff = 'max' # min1s median max1s max
         self.walker3D = False # for walker mock data: use 3D models
         self.hern_dual = 2 # use hernquist model with 1 or 2 particle
                            # types. do not use second type (DM) as population
