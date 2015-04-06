@@ -18,10 +18,11 @@ import pdb
 nodes=1
 cores='any'
 ppn=1
-walltime='00:02:00:00'
+walltime='05:00:00:00'
 
 gravimage_path = os.path.abspath('../')
 holding_stack_path = gravimage_path + '/holding_stack/'
+investigation = 'simplenu'
 
 #Check for holding area folder, create one if none exists
 if os.path.isdir(holding_stack_path) != True:
@@ -33,6 +34,9 @@ holding_number = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
 
 #Copy code to holding area with timestamp
 shutil.copytree(gravimage_path + '/programs', holding_stack_path + holding_number + '/programs/')
+
+#Remove __pycache__ from the holding area
+shutil.rmtree(holding_stack_path + holding_number + '/programs/__pycache__', ignore_errors=True)
 
 #Create PBS file
 pbs_filename = holding_stack_path + holding_number + '/programs/PBS_LisaSubmit_' + holding_number + '.pbs'
@@ -54,13 +58,13 @@ pbs_file.writelines('cd $TMPDIR/darcoda/gravimage/programs'+'\n')
 pbs_file.writelines('# Calculate run time for gravimage, less than wall time to allow for data to be'+'\n')
 pbs_file.writelines('# copied back, allow [transft] seconds for transfer.'+'\n')
 pbs_file.writelines('echo PBS_WALLTIME = $PBS_WALLTIME'+'\n')
-pbs_file.writelines('transft=1200'+'\n')
+pbs_file.writelines('transft=360'+'\n')
 pbs_file.writelines('echo Transfer time = $transft'+'\n')
 pbs_file.writelines('runtime=$(expr $PBS_WALLTIME - $transft)'+'\n')
 pbs_file.writelines('echo gravimage runtime = $runtime'+'\n')
-pbs_file.writelines('python3 gravimage.py --investigation simplenu& PID=$!; sleep $runtime; kill $PID'+'\n')
+pbs_file.writelines('python3 gravimage.py --investigation ' + investigation + '& PID=$!; sleep $runtime; kill $PID'+'\n')
 pbs_file.writelines('echo gravimage killed, transfering data'+'\n')
-pbs_file.writelines('cp -r $TMPDIR/darcoda/gravimage/DTdiscmock/0/* $HOME/LoDaM/darcoda/gravimage/DTdiscmock/0/'+'\n')
+pbs_file.writelines('cp -r $TMPDIR/darcoda/gravimage/DT' + investigation +'/0/* $HOME/LoDaM/darcoda/gravimage/DT'+ investigation +'/0/'+'\n')
 pbs_file.writelines('echo Data transfered, job finished'+'\n')
 pbs_file.close()
 

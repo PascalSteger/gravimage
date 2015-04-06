@@ -1,4 +1,4 @@
-#!/usr/bin/env ipython3
+#!/usr/bin/env python3
 
 ## @file
 # split populations in observed dwarf galaxies
@@ -27,10 +27,10 @@ except:
     nprocs = 1
     procnm = 'localhost'
 
-import matplotlib
-matplotlib.use('pdf')
-from pylab import ion,plot,xlabel,ylabel,loglog,axvline,xlim,ylim,hist,clf,savefig
-ion()
+#import matplotlib
+#matplotlib.use('pdf')
+#from pylab import ion,plot,xlabel,ylabel,loglog,axvline,xlim,ylim,hist,clf,savefig
+#ion()
 
 sys.stdout.write("Hello, World!! I am process %d of %d on %s.\n" % (myrank, nprocs, procnm))
 sys.stdout.flush()
@@ -61,7 +61,7 @@ def introduce_points_in_between(r0, gp):
 def myprior(cube, ndim, nparams):
     # convert to physical space
     off = 0
-    cube[off] = cube[off]*0.8+0.1 # fraction of particles in part 1, with min 0.1, max 0.9
+    cube[off] = cube[off]*0.4+0.3 # fraction of particles in part 1, with min 0.3, max 0.7
     # such that each population has at least 10% of the total no. stars
     off +=1
     for pop in range(2): # 2 pops
@@ -145,9 +145,9 @@ def run(gp):
     Nsample = bufcount(gpr.fil)
     delim = [0,22,3,3,6,4,3,5,6,6,7,5,6,5,6,5,6]
     #ID = np.genfromtxt(gpr.fil,skiprows=29,unpack=True,usecols=(0,1),delimiter=delim)
-    if gp.case==5:
+    if gp.case == 5:
         RAh,RAm,RAs,DEd,DEm,DEs,VHel,e_VHel,Teff,e_Teff,logg,e_logg,Fe,e_Fe,N=np.loadtxt(gpr.fil, skiprows=25, unpack=True)
-        PM = np.ones(len(RAh))
+        PM = (Teff>4e3)*(Teff<7.6e3)*(logg>0.3)*(logg<3.7)*(Fe>-3.5)*(Fe<-0.8)*(VHel<-250)*(VHel>-500) # according fig.10 Walker+2015
         split = logg
         e_split = e_logg
     else:
@@ -155,7 +155,7 @@ def run(gp):
         split = Mg
         e_split = Mg_err
     if gp.case == 5:
-        sel = (N>0)
+        sel = (PM>0.95)
     else:
         sel = (Mg>-1)  # exclude missing data on Mg
     RAh = RAh[sel]
@@ -231,7 +231,6 @@ def run(gp):
                   1000, # nest_maxIter =
                   False,     # initMPI =  use MPI
                   None) #dump_callback =
-
     import os
     os.system('cd '+gp.files.outdir+'; grep -n6 Maximum stats.dat|tail -5|cut -d " " -f8 > metalmaxL.dat;')
     os.system("cd "+gp.files.outdir+"; sed -i 's/\\([0-9]\\)-\\([0-9]\\)/\\1E-\\2/g' metalmaxL.dat")
@@ -249,7 +248,6 @@ def run(gp):
     #xlabel('Mg')
     #ylabel('pdf')
     #pdb.set_trace()
-
     sig = abs(RAh[0])/RAh[0]
     RAh = RAh/sig
     xs = 15*(RAh*3600+RAm*60+RAs)*sig       # [arcsec/15]
@@ -266,7 +264,6 @@ def run(gp):
       }[gp.case](kpc)
     xs *= (arcsec*DL) # [pc]
     ys *= (arcsec*DL) # [pc]
-
     # alternative: get center of photometric measurements by deBoer
     # for Fornax, we have
     if gp.case == 1:
@@ -282,7 +279,6 @@ def run(gp):
     coll_R1half = []
     coll_R2half = []
     coll_popass = []
-
     print('drawing 1000 assignments of stars to best fitting Gaussians')
     import numpy.random as npr
     #import gi_project as gip
@@ -295,7 +291,6 @@ def run(gp):
             #    popass.append(1)
             #else:
             #    popass.append(2)
-
             spl = split[i]
             ppop1 = pML*gh.gauss(spl, mu1ML, sig1ML)
             ppop2 = (1-pML)*gh.gauss(spl, mu2ML, sig2ML)
@@ -303,7 +298,6 @@ def run(gp):
                 popass.append(1)
             else:
                 popass.append(2)
-
         popass = np.array(popass)
         coll_popass.append(popass)
         sel1 = (popass==1)
@@ -313,7 +307,6 @@ def run(gp):
         R2 = np.sqrt((xs[sel2])**2 + (ys[sel2])**2)
         R1.sort()
         R2.sort()
-
         for pop in np.arange(2)+1:
             if pop == 1:
                 R0 = R1 # [pc]
@@ -328,13 +321,12 @@ def run(gp):
     coll_R1half = np.array(coll_R1half)
     coll_R2half = np.array(coll_R2half)
     coll_Rdiffhalf = np.abs(coll_R1half-coll_R2half)
-
     # select 3 assignments: one for median, one for median-1sigma, one for median+1sigma
     med_Rdiff = np.median(coll_Rdiffhalf)
     stdif = np.std(coll_Rdiffhalf)
     min1s_Rdiff = med_Rdiff-stdif
     max1s_Rdiff = med_Rdiff+stdif
-
+    max_Rdiff   = max(coll_Rdiffhalf)
     #clf()
     #hist(coll_Rdiffhalf, np.sqrt(len(coll_Rdiffhalf))/2)
     #xlabel(r'$\Delta R/pc$')
@@ -342,20 +334,19 @@ def run(gp):
     #axvline(med_Rdiff, color='r')
     #axvline(min1s_Rdiff, color='g')
     #axvline(max1s_Rdiff, color='g')
-
     kmed = np.argmin(abs(coll_Rdiffhalf-med_Rdiff))
     kmin1s = np.argmin(abs(coll_Rdiffhalf-min1s_Rdiff))
     kmax1s = np.argmin(abs(coll_Rdiffhalf-max1s_Rdiff))
-
+    kmax = np.argmin(abs(coll_Rdiffhalf-max_Rdiff))
     print('saving median, lower 68%, upper 68% stellar assignments')
     np.savetxt(gpr.dir+'data/popass_median', coll_popass[kmed])
     np.savetxt(gpr.dir+'data/popass_min1s', coll_popass[kmin1s])
     np.savetxt(gpr.dir+'data/popass_max1s', coll_popass[kmax1s])
+    np.savetxt(gpr.dir+'data/popass_max', coll_popass[kmax])
     print('finished')
 
-
 def read(Rdiff, gp):
-    if Rdiff != 'median' and Rdiff != 'min1s' and Rdiff != 'max1s':
+    if Rdiff != 'median' and Rdiff != 'min1s' and Rdiff != 'max1s' and Rdiff != 'max':
         print('run grd_metalsplit.py to get the split by metallicity done before reading it in for GravImage')
         exit(1)
 

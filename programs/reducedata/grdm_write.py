@@ -2,7 +2,7 @@
 
 ##
 # @ file
-# generate simple disc data ourselves
+# generate simple disk data ourselves
 
 # (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
 
@@ -15,7 +15,7 @@ from scipy.integrate import simps
 import gi_units as gu
 import gi_helper as gh
 
-def write_disc_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp):
+def write_disk_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp):
 #    pdb.set_trace()
     for pop in range(gp.pops+1):
         # write scales
@@ -64,7 +64,7 @@ def write_disc_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, 
                   Mdat[pop][b], Merr[pop][b], file=f_mass)
         f_mass.close()
 
-## \fn write_disc_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp)
+## \fn write_disk_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp)
 # for permanent and consistent data handling
 # @param Rbin
 # @param Binmin
@@ -102,8 +102,8 @@ def run(gp):
     nu_zth = np.exp(-zth/z0)                                 # [nu0] = [Msun/A/pc] 3D tracer density
     Kz_zth = -(K*zth/np.sqrt(zth**2.+D**2.) + 2.0 * F * zth)
 
-    if gp.adddarkdisc:
-        DD = 600                                         # [pc] scaleheight of dark disc
+    if gp.adddarkdisk:
+        DD = 600                                         # [pc] scaleheight of dark disk
         KD = 0.15 * 1.650
         Kz_zth = Kz_zth - KD*zth/np.sqrt(zth**2. + DD**2.)
 
@@ -125,7 +125,7 @@ def run(gp):
     ran2 = npr.normal(size=int(gp.ntracer[1-1]))  # [1]
     vzstar = ran2 * sigzstar                      # [km/s]
 
-    # Add second population [thick-disc like]:
+    # Add second population [thick-disk like]:
     if gp.pops == 2:
         nu_zth2 = gp.ntracer[2-1]/gp.ntracer[1-1]*np.exp(-zth/z02)
         # [nu0,2] = [Msun/A/pc], 3D tracer density, exponentially falling
@@ -227,7 +227,6 @@ def run(gp):
     binmin0, binmax0, z_dat_bin0, sig_dat_bin0, count_bin0 = gh.binsmooth(z_dat0, vz_dat0, \
                                                                           zmin, zmax, gp.nipol, 0.)
     sig_dat_err_bin0 = np.sqrt(sig_dat_bin0)
-    # binmin, binmax, z_dat_bin = gh.bin_r_const_tracers(z_dat, gp.nipol)
 
     nu_dat_bin0, nu_dat_err_bin0 = gh.bincount(z_dat0, binmax0)
     nu_dat_bin0 /= (binmax0-binmin0)
@@ -300,14 +299,14 @@ def run(gp):
     sigerr.append(sig_dat_err_bin1/scales[1][4])
     if gp.pops == 2:
         sigerr.append(sig_dat_err_bin2/scales[2][4])
-    write_disc_output_files(rbin, rmin, rmax, nudat, nuerr, \
+    write_disk_output_files(rbin, rmin, rmax, nudat, nuerr, \
                             Sigdat, Sigerr, Mrdat, Mrerr,\
                             sigdat, sigerr, scales, gp)
 
     return gp.dat
 
 ## \fn run(gp)
-# generate disc data from analytic form, return 3D densities, delta (=tilt)
+# generate disk data from analytic form, return 3D densities, delta (=tilt)
 # write it to files
 # @param gp global parameters
 

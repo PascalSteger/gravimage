@@ -1,4 +1,4 @@
-#!/usr/bin/env ipython3
+#!/usr/bin/env python3
 
 ##
 # @file
@@ -10,7 +10,6 @@ import pdb
 import numpy as np
 
 from scipy.interpolate import splrep, splint
-from pylab import *
 import gi_helper as gh
 import gi_int as gi
 
@@ -69,14 +68,12 @@ def rho(r0, rhodmpar, pop, gp):
 
     lnrhoright = []
     for i in np.arange(0, len(lnrright)):
-        lnrhoright.append(np.log(rho_at_rhalf) + \
-                           splint(0., lnrright[i], spline_n))
+        lnrhoright.append(np.log(rho_at_rhalf) + splint(0., lnrright[i], spline_n))
                            # integration along dlog(r) instead of dr
 
     lnrholeft = []
     for i in np.arange(0, len(lnrleft)):
-        lnrholeft.append(np.log(rho_at_rhalf) + \
-                          splint(0., lnrleft[i], spline_n))
+        lnrholeft.append(np.log(rho_at_rhalf) + splint(0., lnrleft[i], spline_n))
 
     tmp = np.exp(np.hstack([lnrholeft[::-1], lnrhoright])) # still defined on ln(r)
     gh.checkpositive(tmp, 'rho()')
@@ -88,7 +85,6 @@ def rho(r0, rhodmpar, pop, gp):
 # @param r0 radii to calculate density for, in physical units (pc)
 # @param pop int for population, 0 all or DM, 1, 2, ...
 # @param gp global parameters
-
 
 def betastar2beta(betastar):
     # beta^* = \frac{sig_r^2-sig_t^2}{sig_r^2+sig_t^2}
@@ -174,16 +170,13 @@ def calculate_surfdens(r, M):
 def sig_kap_zet(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp):
     siglos2, kaplos4, zetaa, zetab = gi.ant_sigkaplos(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp)
     siglos  = np.sqrt(siglos2)           # [km/s]
-
     if gp.usekappa:
         kaplos4 = kaplos4surf/Sig
         # takes [Munit/pc^2 (km/s)^2], gives back [(km/s)^2]
-
         kaplos  = kaplos4/(siglos2**2)
         # - 3.0 # subtract 3.0 for Gaussian distribution in Fisher version.
     else:
         kaplos = 3.*np.ones(len(siglos))
-
     return siglos, kaplos, zetaa, zetab  # [km/s], [1]
 ## \fn sig_kap_zet(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp)
 # General function to calculate sig_los
@@ -196,7 +189,6 @@ def sig_kap_zet(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp):
 # @param betapar 1D array 3D velocity anisotropy parameters [1]
 # @param pop int population to take halflight radius from
 # @param gp global parameters
-
 
 if __name__=="__main__":
     # check whether backward-calculation of parameters is done correctly

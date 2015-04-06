@@ -48,24 +48,25 @@ def run(gp):
     gpr = gr_params.grParams(gp)
     gpr.fil = gpr.dir+"/data/tracers.dat"
     A = np.loadtxt(gpr.fil, skiprows=25)
-    RAh,RAm,RAs,DEd,DEm,DEs,Vlos,e_Vlos,Teff,e_Teff,logg,e_logg,Fe,e_Fe,Nobs = A.T
-    # only use stars which have Mg measurements
-    pm = (Nobs>0) # (PM>=0.95)*
-    print("f_members = ", gh.pretty(1.*sum(pm)/len(pm)))
-    RAh=RAh[pm]
-    RAm=RAm[pm]
-    RAs=RAs[pm]
-    DEd=DEd[pm]
-    DEm=DEm[pm]
-    DEs=DEs[pm]
-    Vlos=Vlos[pm]
-    e_Vlos=e_Vlos[pm]
-    Teff=Teff[pm]
-    e_Teff=e_Teff[pm]
-    logg=logg[pm]
-    e_logg=e_logg[pm]
-    Fe=Fe[pm]
-    e_Fe=e_Fe[pm]
+    RAh, RAm, RAs, DEd, DEm, DEs, Vlos, e_Vlos, Teff, e_Teff, logg, e_logg, Fe, e_Fe, Nobs = A.T
+    # only use stars with high probability of membership according to red boxes in fig. 10 of Walker+2015
+
+    pm = (Teff>4e3)*(Teff<7.6e3)*(logg>0.3)*(logg<3.7)*(Fe>-3.5)*(Fe<-0.8)*(Vlos<-250)*(Vlos>-500)
+    print('take ', sum(pm), ' stars of ',len(pm), ' available')
+    RAh = RAh[pm]
+    RAm = RAm[pm]
+    RAs = RAs[pm]
+    DEd = DEd[pm]
+    DEm = DEm[pm]
+    DEs = DEs[pm]
+    Vlos = Vlos[pm]
+    e_Vlos = e_Vlos[pm]
+    Teff = Teff[pm]
+    e_Teff = e_Teff[pm]
+    logg = logg[pm]
+    e_logg = e_logg[pm]
+    Fe = Fe[pm]
+    e_Fe = e_Fe[pm]
     Nobs = Nobs[pm]
 
     sig = abs(RAh[0])/RAh[0]
@@ -106,7 +107,7 @@ def run(gp):
         # get parameters from function in pymcmetal.py
         #[p, mu1, sig1, mu2, sig2] = np.loadtxt(gp.files.dir+'metalsplit.dat')
         #[pm1, pm2] = np.loadtxt(gp.files.dir+'metalsplit_assignment.dat')
-        popass = np.loadtxt(gp.files.dir+'popass')
+        popass = np.loadtxt(gp.files.dir+'data/popass_max')
         pm1 = (popass==1)
         pm2 = (popass==2)
 
@@ -164,3 +165,8 @@ def run(gp):
 ## \fn run(gp)
 # perform
 # @param gp global parameters
+
+if __name__=="__main__":
+    import gi_params
+    gp = gi_params.Params()
+    run(gp)

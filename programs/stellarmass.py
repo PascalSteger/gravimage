@@ -5,25 +5,25 @@
 # Calculate approximative stellar masses from V-band magnitude, V-I color, distance to dwarf galaxy.
 # Read in [some].bin.[MV,V-I], output ID,Mstar
 
-# (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
+# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
 import numpy
-import gi_params as gp
+
 
 
 import sys
 if(len(sys.argv)<2):
-    print("use: stellarmass.py [car,scl,sex,for]")
+    print "use: stellarmass.py [car,scl,sex,for]"
     exit(1)
 
 # choose simulation
 dwarf = sys.argv[1]
 dir = gp.files.machine
-print(dir+dwarf+"/data/tracers.dat")
+print(dir+dwarf+"/table_merged.bin")
 
 delim=[0,22,3,3,6,4,3,5,6,6,7,5,6,5,6,5,6]
-ID=numpy.genfromtxt(dir+dwarf+"/data/tracers.dat",skiprows=29,unpack=True,usecols=(0,1),delimiter=delim,dtype="string")
-RAh,RAm,RAs,DEd,DEm,DEs,Vmag,VI,VHel,e_VHel,SigFe,e_SigFe,SigMg,e_SigMg,PM=numpy.genfromtxt(dir+dwarf+"/data/tracers.dat",skiprows=29,unpack=True,usecols=tuple(range(2,17)),delimiter=delim,filling_values=-1)
+ID=numpy.genfromtxt(dir+dwarf+"/table_merged.bin",skiprows=29,unpack=True,usecols=(0,1),delimiter=delim,dtype="string")
+RAh,RAm,RAs,DEd,DEm,DEs,Vmag,VI,VHel,e_VHel,SigFe,e_SigFe,SigMg,e_SigMg,PM=numpy.genfromtxt(dir+dwarf+"/table_merged.bin",skiprows=29,unpack=True,usecols=tuple(range(2,17)),delimiter=delim,filling_values=-1)
 
 print('Vmag = ',Vmag[0:10])
 

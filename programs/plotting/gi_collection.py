@@ -185,9 +185,13 @@ class ProfileCollection():
     # @return tmp profiles sorted binwise
 
     def calculate_J(self, gp):
-        if len(self.profs)>0:
+        if len(self.profs) > 0:
             for i in range(len(self.profs)):
-                Sigprof = gip.rho_INT_Sig(gp.xepol, self.profs[i].get_prof('rho', 0), gp)
+                # TODO: replace with calculated rho profile from parameters
+                rho_xepol = self.profs[i].get_prof('rho', 0)
+                tck = splrep(gp.xepol, rho_xepol)
+                rho_xfine = splev(gp.xfine, tck)
+                Sigprof = gip.rho_INT_Sig(gp.xepol, rho_xfine, gp)
                 Jprof = gip.Jpar(gp.xepol, Sigprof, gp)
                 # add 3 extension bins
                 tck = splrep(np.log(gp.xepol[:-gp.nexp]), np.log(Jprof), k=1, s=0.1)

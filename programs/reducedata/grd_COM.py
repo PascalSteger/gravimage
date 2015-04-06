@@ -50,26 +50,21 @@ def run(gp):
     delim = [0, 22, 3, 3, 6, 4, 3, 5, 6, 6, 7, 5, 6, 5, 6, 5, 6]
     ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, usecols=(0,1),delimiter=delim)
     RAh, RAm, RAs, DEd, DEm, DEs, Vmag, VI, VHel, e_VHel, SigFe, e_SigFe, SigMg, e_SigMg, PM = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, usecols=tuple(range(2,17)), delimiter=delim, filling_values=-1)
+    if gp.pops == 2:
+        popass = np.loadtxt(gp.files.dir+'data/popass_'+gp.Rdiff)
 
     # only use stars which have Mg measurements
-    pm = (SigMg>-1) * (PM>=0.95)
-    print("f_members = ", gh.pretty(1.*sum(pm)/len(pm)))
-    ID = ID[1][pm]
-    RAh = RAh[pm]
-    RAm = RAm[pm]
-    RAs = RAs[pm]
-    DEd = DEd[pm]
-    DEm = DEm[pm]
-    DEs = DEs[pm]
-    Vmag = Vmag[pm]
-    VI = VI[pm]
-    VHel = VHel[pm]
-    e_VHel = e_VHel[pm]
-    SigFe = SigFe[pm]
-    e_SigFe = e_SigFe[pm]
-    SigMg = SigMg[pm]
-    e_SigMg = e_SigMg[pm]
-    PM = PM[pm]
+    pm = (SigMg>-1)
+    ID = ID[1][pm]; RAh = RAh[pm]; RAm = RAm[pm]; RAs = RAs[pm]; DEd = DEd[pm]; DEm = DEm[pm]; DEs = DEs[pm]
+    Vmag = Vmag[pm];VI = VI[pm];   VHel = VHel[pm]; e_VHel = e_VHel[pm]; SigFe = SigFe[pm];  e_SigFe = e_SigFe[pm]
+    SigMg = SigMg[pm]; e_SigMg = e_SigMg[pm];  PM = PM[pm]
+
+    # second step: use stars with high probability of membership
+    pm = (PM>=0.95)
+    ID = ID[pm]; RAh = RAh[pm]; RAm = RAm[pm]; RAs = RAs[pm]; DEd = DEd[pm]; DEm = DEm[pm]; DEs = DEs[pm]
+    Vmag = Vmag[pm];VI = VI[pm];   VHel = VHel[pm]; e_VHel = e_VHel[pm]; SigFe = SigFe[pm];  e_SigFe = e_SigFe[pm]
+    SigMg = SigMg[pm]; e_SigMg = e_SigMg[pm];  PM = PM[pm]
+    popass = popass[pm]
 
     Mg0 = SigMg
     sig = abs(RAh[0])/RAh[0]
@@ -94,8 +89,8 @@ def run(gp):
     ys *= (arcsec*DL) # [pc]
 
     PM0 = np.copy(PM)
-    x0 = np.copy(xs)
-    y0 = np.copy(ys) # [pc]
+    x0  = np.copy(xs)
+    y0  = np.copy(ys) # [pc]
     vz0 = np.copy(VHel) # [km/s]
 
     # only use stars which are members of the dwarf: exclude pop3 by construction
@@ -108,7 +103,6 @@ def run(gp):
         # get parameters from function in pymcmetal.py
         #[p, mu1, sig1, mu2, sig2] = np.loadtxt(gp.files.dir+'metalsplit.dat')
         #[pm1, pm2] = np.loadtxt(gp.files.dir+'metalsplit_assignment.dat')
-        popass = np.loadtxt(gp.files.dir+'popass')
         pm1 = (popass==1)
         pm2 = (popass==2)
 

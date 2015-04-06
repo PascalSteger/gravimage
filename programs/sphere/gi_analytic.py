@@ -247,6 +247,7 @@ def nr3Dtot_gaia(rad, gp):
         nr = 0.*rad
     return nr
 ## \fn nr3Dtot_gaia(rad, gp)
+# plot - d log rho/ d log r for Gaia models
 # @param rad radius in pc, not log.
 # @param gp global parameters
 

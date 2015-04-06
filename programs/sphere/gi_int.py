@@ -19,8 +19,8 @@ import gi_project as gip
 
 import matplotlib
 matplotlib.use('pdf')
-from pylab import *
-ion()
+#from pylab import *
+#ion()
 
 def int_poly_inf(r0,poly):
     f = -1/poly[0]*np.exp(poly[1]+poly[0]*r0)
@@ -53,15 +53,14 @@ def ant_intbeta(r0, betapar, gp):
     intbet = np.zeros(len(r0))
     for k in range(len(r0)):
         intbet[k] = gh.quadinf(xint, yint, r0[0], r0[k])
-    # assumption here is that integration goes down to min(r0)/1e5
+    # assumption here is that integration goes down to min(r0), and this leads to an integration constant
     gh.checknan(intbet, 'intbet in ant_intbeta')
     return intbet
-## \fn ant_intbeta(r0, betapar, pop, gp)
+## \fn ant_intbeta(r0, betapar, gp)
 # integrate beta(s)/s over s
 # (integrals in front of and after sigma_r^2 integral, factor 2 not in here)
 # @param r0 free variable, array, in [lunit]
 # @param betapar integrand, array, in [1]
-# @param pop population int
 # @param gp global parameters
 
 def g(rvar, rfix, beta, dbetadr):
@@ -224,7 +223,7 @@ def ant_sigkaplos(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp):
         Mrfine[i] = splint(0., r0fine[i], splpar_rho)
     gh.checkpositive(Mrfine, 'Mrfine')
     if gp.checksig:
-        anMr = ga.Mr(r0fine, gp)[0] # earlier: pop
+        #anMr = ga.Mr(r0fine, gp)[0] # earlier: pop
         anMr = Mrfine
         #anMr = ga.M_hern(r0fine, gp)[0]
     if gp.checksig and gp.stopstep <= 6:
@@ -421,7 +420,6 @@ def zeta(r0fine, nufine, Sigfine, Mrfine, betafine, sigr2nu, gp):
     theta = np.arccos(r0min/r0fine)
     cth = np.cos(theta)
     sth = np.sin(theta)
-    # TODO calculate nuinterp, sigr2interp, Minterp, betainterp
     yint = gu.G1__pcMsun_1km2s_2*(5-2*betainterp)*sigr2
     yint *= Minterp*rmin**2/cth**3*sth
     nom = quad(theta, yint, 0, np.pi/2)
@@ -502,6 +500,7 @@ def kappa(r0fine, Mrfine, nufine, sigr2nu, intbetasfine, gp):
         #kapl4s[k] /= yscale
         # LOG('ynew = ',ynew,', kapl4s =', kapl4s[k])
 
+    # TODO: sometimes the last value of kapl4s is nan: why?
     gh.checkpositive(kapl4s, 'kapl4s in kappa_r^4')
 
     # project kappa4_los as well
