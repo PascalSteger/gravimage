@@ -4,7 +4,7 @@
 # @file
 # read data from simulation
 
-# (c) GPL v3 2015 Pascal Steger, pascal@steger.aero
+# (c) 2013 Pascal Steger, psteger@phys.ethz.ch
 
 import numpy as np
 import numpy.random as npr
@@ -13,8 +13,8 @@ import pdb
 import gi_units as gu
 import gi_helper as gh
 import physics_disk as phys
-#from binsmooth import *
-#from bincount import *
+from binsmooth import *
+from bincount import *
 
 
 def disk_sim(gp):
@@ -42,12 +42,12 @@ def disk_sim(gp):
 
         # baryonic surface density
         gp.dat.Mx   = z_surf_raw[selsurf]*1000.      # [pc]
-        gp.dat.Mr = surfbar_dat_raw[selsurf]      # [Munit/pc^2]
+        gp.dat.Mrdat = surfbar_dat_raw[selsurf]      # [Munit/pc^2]
         gp.dat.Mrerr = surfbar_dat_err_raw[selsurf]  # [Munit/pc^2]
 
         # total surface density
-        Mmodel = surftot_dat_raw[selsusrf]        # [Munit/pc^2]
-        Kz_zstar = -Mmodel * (2.*np.pi*gu.G1__pcMsun_1km2s_2)
+        gp.Mmodel = surftot_dat_raw[selsusrf]        # [Munit/pc^2]
+        Kz_zstar = -gp.Mmodel * (2.*np.pi*gu.G1__pcMsun_1km2s_2)
 
         # should be kappa data (not sure whether this is necessary)
         gp.dat.densx     = z_surf_raw[selsusrf]*1000.         # [pc]
@@ -206,6 +206,8 @@ def disk_sim(gp):
             nu_dat_bin2 /= renorm              # [1]
             nu_dat_err_bin2 /= renorm          # [1]
 
+
+        # if gp.bprior:
         # Load the baryonic model:
         if gp.baryonmodel == 'silvia':
             zvis,sigexpvis,sigexpviserr,sigsecvis,sigsecviserr = gh.readcoln('/home/ast/user/jread/Data/Local_dm/Vis/Sigma_MM.txt')
@@ -236,12 +238,12 @@ def disk_sim(gp):
 
         # baryonic surface density, really a Sig
         gp.dat.Mx   = gp.xipol                # [pc]
-        gp.dat.Mr = sigusevis              # [Munit/pc^2]
+        gp.dat.Mrdat = sigusevis              # [Munit/pc^2]
         gp.dat.Mrerr = siguseviserr           # [Munit/pc^2]
 
         # total surface density (same z array as baryonic)
-        Mmodel = sigusevis + sigusedm         # [Munit/pc^2]
-        Kz_zstar = -Mmodel * (2.*np.pi*gu.G1__pcMsun_1km2s_2) # [1000/pc (km/s)^2]
+        gp.Mmodel = sigusevis + sigusedm         # [Munit/pc^2]
+        Kz_zstar = -gp.Mmodel * (2.*np.pi*gu.G1__pcMsun_1km2s_2) # [1000/pc (km/s)^2]
 
         # should be kappa data (not sure whether this is necessary)
         gp.dat.densx     = gp.xipol                       # [pc]

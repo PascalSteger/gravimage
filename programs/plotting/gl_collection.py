@@ -191,7 +191,7 @@ class ProfileCollection():
     # sort all profiles
     # @param gp global parameters
 
-    def sort_profiles_disc(self, gp):
+    def sort_profiles_disk(self, gp):
         self.sort_prof('nu_vec', 0, gp)
         #self.sort_prof('sig_vec', 0, gp) #Old plots
         self.sort_prof('sigz2_vec', 0, gp)
@@ -232,7 +232,7 @@ class ProfileCollection():
         elif gp.investigate == 'walk':
             anrho = ga.rho_walk(r0, gp)[0]
             anM = glp.rho_SUM_Mr(r0, anrho)
-            annr = ga.nr3Dtot_deriv_walk(r0, gp) # TODO too high in case of core
+            annr = ga.nr3Dtot_deriv_walk(r0, gp)
             tmp_annu = ga.rho_walk(r0, gp)[1]
             annu.append( tmp_annu )
             anSig.append( glp.rho_INT_Sig(r0, tmp_annu, gp) )
@@ -268,7 +268,7 @@ class ProfileCollection():
             nrnu = -gh.derivipol(np.log(annu[pop]), np.log(r0))
             self.analytic.set_prof('nrnu', nrnu, pop, gp)
             self.analytic.set_prof('Sig', anSig[pop] , pop, gp)#/ Signorm, pop, gp)
-            self.analytic.set_prof('sig', -np.ones(len(r0)), pop, gp) # TODO: find analytic profile
+            self.analytic.set_prof('sig', -np.ones(len(r0)), pop, gp)
         return
     ## \fn set_analytic(x0, gp)
     # set analytic curves (later shown in blue)
@@ -334,7 +334,7 @@ class ProfileCollection():
     # @param basename directory string
     # @param gp global parameters
 
-    def write_all_disc(self, basename, gp):
+    def write_all_disk(self, basename, gp):
         self.write_prof(basename, 'nu_vec', 0, gp)
         #self.write_prof(basename, 'sig_vec', 0, gp)
         self.write_prof(basename, 'sigz2_vec', 0, gp)
@@ -444,7 +444,7 @@ class ProfileCollection():
         if prof=='chi2':
             ax.set_xlabel('$\\log_{10}\\chi^2$')
             ax.set_ylabel('frequency')
-        elif gp.geom == 'disc' and prof != 'chi2':
+        elif gp.geom == 'disk' and prof != 'chi2':
             ax.set_xlabel('$z\\quad[\\rm{kpc}]$')
         elif gp.geom == 'sphere' and prof != 'chi2':
             ax.set_xlabel('$R\\quad[\\rm{pc}]$')
@@ -475,7 +475,7 @@ class ProfileCollection():
             ax.set_ylabel('$n_{\\nu,'+str(pop)+'}(r)$')
         elif prof == 'sig':
             ax.set_ylabel('$\\sigma_{\\rm{LOS},'+str(pop)+'}\\quad[\\rm{km}/\\rm{s}]$')
-        # Disc cases
+        # Disk cases
         elif prof == 'nu_vec':
             ax.set_ylabel('$\\nu_{\\rm{Tr},'+str(pop)+'}\\quad[\\rm{stars}/\\rm{kpc}^3]$')
             ax.set_ylim(1.0E3, 4.0E4)

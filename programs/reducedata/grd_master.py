@@ -90,8 +90,7 @@ k2 = {1: lambda x: x * (339),#+/-36 for Fornax
 
 gpr.fil = gpr.dir+"/data/tracers.dat"
 delim = [0,22,3,3,6,4,3,5,6,6,7,5,6,5,6,5,6]
-#ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=True,\
-# usecols=(0,1),delimiter=delim)
+#ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, usecols=(0,1),delimiter=delim)
 RAh,RAm,RAs,DEd,DEm,DEs,Vmag,VI,\
   Vhel,Vhel_err,Fe,Fe_err,\
   Mg,Mg_err,PM = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, \

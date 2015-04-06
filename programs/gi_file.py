@@ -52,8 +52,8 @@ def get_pos_and_COM(gp):
                 grd_COM.run(gp)
         elif gp.pops == 2:
             import grd_metalsplit
+            #grd_metalsplit.run(gp) # do this once before reading in splitting parmaters: keep consistent between runs
             grd_metalsplit.read(gp.Rdiff, gp)
-            #grd_metalsplit.run(gp)
             if gp.case < 5:
                 import grd_COM
                 grd_COM.run(gp)
@@ -103,14 +103,18 @@ def bin_data(gp):
         import grt_siglos
         grt_siglos.run(gp)
     elif gp.investigate == 'obs':
+        # TODO: check whether gr_MCMCbin_dra is needed
         import gr_MCMCbin
         gr_MCMCbin.run(gp)
-    elif gp.investigate == 'discmock':
+    elif gp.investigate == 'diskmock':
         import grdm_write
         grdm_write.run(gp)
-    elif gp.investigate == 'discsim':
+    elif gp.investigate == 'disksim':
         import grds_write
         grds_write.run(gp)
+    elif gp.investigate == 'simplenu':
+        import gr_external_data
+        gr_external_data.run(gp)
     return
 ## \fn bin_data(gp)
 # get data, bin it anew (e.g. if gp.nbin changed)
@@ -138,6 +142,16 @@ def get_binned_data(gp):
 # read in binned data, store in a gi_data class
 # @param gp global parameters
 
+def get_binned_data_noscale(gp):
+    gp.dat.read_nu(gp)
+    gp.dat.read_sigz2(gp)
+    return gp.dat
+## \fn get_binned_data_noscale(gp)
+# read in binned data, store in a gl_data class
+# @param gp global parameters
+# H Silverwood 20/11/14
+
+
 def get_rhohalfs(gp):
     if gp.geom == 'sphere':
         # Wolf, Walker method for M_half, r_half
@@ -153,7 +167,7 @@ def get_rhohalfs(gp):
         # density at half-light radius of baryons
         rhohalf_approx = 3*M_half_walk/(4.*np.pi*r_half_walk**3) # max density possible assuming alpha=0
         gp.rhohalf = rhohalf_approx
-    elif gp.geom == 'disc':
+    elif gp.geom == 'disk':
         gp.rhohalf = np.average(gp.dat.nuhalf) #Assuming DM density negligible
     return
 ## \fn get_rhohalfs(gp)
@@ -308,7 +322,7 @@ def write_data_output(filename, x, y, vz, Xscale):
 
 def write_Xscale(filename, Xscale):
     crscale = open(filename, 'w')
-    print('# Xscale in [pc], central surface density (Sig(0))in [Munit/pc^2], and totmass_tracers [Munit], and max(sigma_LOS) in [km/s], and central 3D tracer density nu(0) in [Munit/Xscale^3]', file=crscale)
+    print('# Xscale in [pc], central surface density (Sig(0))in [Munit/pc^2], and totmass_tracers [Munit], and central 3D tracer density nu(0) in [Munit/Xscale^3], and max(sigma_LOS) in [km/s]', file=crscale)
     print(Xscale, file=crscale)
     crscale.close()
     return
