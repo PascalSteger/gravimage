@@ -147,7 +147,7 @@ def run(gp):
     #ID = np.genfromtxt(gpr.fil,skiprows=29,unpack=True,usecols=(0,1),delimiter=delim)
     if gp.case == 5:
         RAh,RAm,RAs,DEd,DEm,DEs,VHel,e_VHel,Teff,e_Teff,logg,e_logg,Fe,e_Fe,N=np.loadtxt(gpr.fil, skiprows=25, unpack=True)
-        PM = np.ones(len(RAh))
+        PM = (Teff>4e3)*(Teff<7.6e3)*(logg>0.3)*(logg<3.7)*(Fe>-3.5)*(Fe<-0.8)*(VHel<-250)*(VHel>-500) # according fig.10 Walker+2015
         split = logg
         e_split = e_logg
     else:
@@ -155,7 +155,7 @@ def run(gp):
         split = Mg
         e_split = Mg_err
     if gp.case == 5:
-        sel = (N>0)
+        sel = (PM>0.95)
     else:
         sel = (Mg>-1)  # exclude missing data on Mg
     RAh = RAh[sel]

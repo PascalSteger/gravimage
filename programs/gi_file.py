@@ -52,8 +52,8 @@ def get_pos_and_COM(gp):
                 grd_COM.run(gp)
         elif gp.pops == 2:
             import grd_metalsplit
+            #grd_metalsplit.run(gp) # do this once before reading in splitting parmaters: keep consistent between runs
             grd_metalsplit.read(gp.Rdiff, gp)
-            #grd_metalsplit.run(gp)
             if gp.case < 5:
                 import grd_COM
                 grd_COM.run(gp)
@@ -103,6 +103,7 @@ def bin_data(gp):
         import grt_siglos
         grt_siglos.run(gp)
     elif gp.investigate == 'obs':
+        # TODO: check whether gr_MCMCbin_dra is needed
         import gr_MCMCbin
         gr_MCMCbin.run(gp)
     elif gp.investigate == 'diskmock':

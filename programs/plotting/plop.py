@@ -227,7 +227,7 @@ if __name__ == '__main__':
 
     pcall.plot_profile(basename+tt+'/', 'rho', 0, gp)
     pcall.plot_profile(basename+tt+'/', 'nr', 0, gp)
-    #pc.plot_profile(basename+tt+'/', 'J', 0, gp)
+    pcall.plot_profile(basename+tt+'/', 'J', 0, gp)
     if gp.investigate == 'obs':
         pcall.plot_profile(basename+tt+'/', 'Sig', 0, gp)
         pcall.plot_profile(basename+tt+'/', 'nu', 0, gp)

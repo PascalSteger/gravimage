@@ -147,6 +147,8 @@ def run(gp):
                             v4[i][k] = v4[i-1][k]
                     else:
                         siglos[i][k] = meanbiweight(vlosi[ind1], ci_perc=68.4, ci_mean=True, ci_std=True)[1]
+                        if siglos[i][k]> 100:
+                            pdb.set_trace()
                         # [km/s], see BiWeight.py
                         if gp.usekappa:
                             kappa[i][k] = kurtosis(vlosi[ind1], axis=0, fisher=False, bias=False) # [1]

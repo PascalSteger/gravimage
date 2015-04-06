@@ -19,8 +19,7 @@ import gi_project as gip
 def run(gp, pop):
     import gr_params
     gpr = gr_params.grParams(gp)
-    xall,yall = np.loadtxt(gp.files.get_com_file(0), skiprows=1, \
-                           usecols=(0,1), unpack=True)
+    xall,yall = np.loadtxt(gp.files.get_com_file(0), skiprows=1, usecols=(0,1), unpack=True)
     # 2*[Rscale0]
     R = np.sqrt(xall**2+yall**2) # [Rscale0]
     # set number and size of (linearly spaced) bins
@@ -64,8 +63,7 @@ def run(gp, pop):
     for k in range(gpr.n):
         Rsi   = gh.add_errors(Rs,   gpr.Rerr)   # [Rscalei]
         for i in range(gp.nipol):
-            ind1 = np.argwhere(np.logical_and(Rsi * Rscalei >= Binmin[i] * Rscale0, \
-                                          Rsi * Rscalei <  Binmax[i] * Rscale0)).flatten() # [1]
+            ind1 = np.argwhere(np.logical_and(Rsi * Rscalei >= Binmin[i] * Rscale0, Rsi * Rscalei <  Binmax[i] * Rscale0)).flatten() # [1]
             tpb[i][k] = float(len(ind1)) #[1]
             Sig_phot[i][k] = float(len(ind1))*totmass_tracers/Vol[i] # [Munit/rscale^2]
     # do the following for all populations
@@ -74,7 +72,6 @@ def run(gp, pop):
     gf.write_Sig_scale(gp.files.get_scale_file(pop), Sig0pc, totmass_tracers)
 
     # calculate density and mass profile, store it
-    # ----------------------------------------------------------------------
     P_dens  = np.zeros(gp.nipol)
     P_edens = np.zeros(gp.nipol)
     for b in range(gp.nipol):
@@ -106,9 +103,7 @@ def run(gp, pop):
     gf.write_nu_scale(gp.files.get_scale_file(pop), nu0pc)
     nuerr  = numax-numedi
     for b in range(gp.nipol):
-        print(Rbin[b], Binmin[b], Binmax[b],\
-              numedi[b]/nu0pc, nuerr[b]/nu0pc, \
-              file = f_nu)
+        print(Rbin[b], Binmin[b], Binmax[b], numedi[b]/nu0pc, nuerr[b]/nu0pc, file = f_nu)
     f_nu.close()
     # write dummy sig scale, not to be used later on
     maxsiglos = -1. #[km/s]
