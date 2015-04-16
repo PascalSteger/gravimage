@@ -32,7 +32,7 @@ def geom_loglike(cube, ndim, nparams, gp):
         tmp_rho0 = phys.rho(gp.xepol, rhodmpar, 0, gp)
         # for J factor calculation (has been deferred to output routine)
         #tmp_rhofine = phys.rho(gp.xfine, rhodmpar, 0, gp)
-        #tmp_Jfine = gip.Jpar(gp.xfine, tmp_rhofine, gp) #tmp_rhofine
+        #tmp_Jfine = gip.Jpar(gp.xfine, tmp_rhofine, gp)
         #tck = splrep(gp.xfine[:-3], tmp_Jfine)
         #tmp_J = splev(gp.xepol, tck)
         # rhodmpar hold [rho(rhalf), nr to be used for integration

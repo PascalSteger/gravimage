@@ -65,31 +65,23 @@ def read_data(filename):
     x0,y0,z0,vb0,vz0,Mg0,PM0,comp0 = np.genfromtxt(filename, skiprows = 0, unpack = True,\
                                                    usecols=(0, 1, 2, 5, 11, 13, 19, 20),\
                                                    dtype="d17",\
-                                                   converters={0:expDtofloat,\
-                                                               1:expDtofloat,\
-                                                               2:expDtofloat,\
-                                                               5:expDtofloat,\
-                                                               11:expDtofloat,\
-                                                               13:expDtofloat,\
-                                                               19:expDtofloat,\
-                                                               20:expDtofloat})
+                                                   converters={0:expDtofloat,   1:expDtofloat,\
+                                                               2:expDtofloat,   5:expDtofloat,\
+                                                               11:expDtofloat, 13:expDtofloat,\
+                                                               19:expDtofloat, 20:expDtofloat})
     return x0, y0, z0, vb0, vz0, Mg0, PM0, comp0
 ## \fn read_data(filename)
 # read and convert data
 # @param filename string
 
-
 def run(gp):
     import gr_params
     gpr = gr_params.grParams(gp)
     print('input: ', gpr.fil)
-    x0,y0,z0,vb0,vz0,Mg0,PM0,comp0 = read_data(gpr.fil)
-    # [pc], [km/s], [1]
+    x0,y0,z0,vb0,vz0,Mg0,PM0,comp0 = read_data(gpr.fil) # [pc], [km/s], [1]
 
-    # only use stars which are members of the dwarf: exclude pop3 by
-    # construction
-    pm = (PM0 >= gpr.pmsplit) # exclude foreground contamination,
-                              #outliers
+    # only use stars which are members of the dwarf: exclude pop3 by construction
+    pm = (PM0 >= gpr.pmsplit) # exclude foreground contamination, outliers
 
     x0, y0, z0, comp0, vb0, vz0, Mg0, PM0 = select_pm(x0, y0, z0, comp0, vb0, vz0, Mg0, PM0, pm)
 
@@ -101,15 +93,15 @@ def run(gp):
         pm1 = (comp0 < 3)
         pm2 = (comp0 == -1) # assign none, but of same length as comp0
 
-    if gp.metalpop:
-        # drawing of populations based on metallicity get parameters
-        # from function in pymcmetal.py
+    # if gp.metalpop:
+    #     # drawing of populations based on metallicity get parameters
+    #     # from function in pymcmetal.py
 
-        import pickle
-        fi = open('metalsplit.dat', 'rb')
-        DATA = pickle.load(fi)
-        fi.close()
-        p, mu1, sig1, mu2, sig2, M, pm1, pm2 = DATA
+    #     import pickle
+    #     fi = open('metalsplit.dat', 'rb')
+    #     DATA = pickle.load(fi)
+    #     fi.close()
+    #     p, mu1, sig1, mu2, sig2, M, pm1, pm2 = DATA
 
     x1, y1, z1, comp1, vb1, vz1, Mg1, PM1 = select_pm(x0, y0, z0, comp0, vb0, vz0, Mg0, PM0, pm1)
     x2, y2, z2, comp2, vb2, vz2, Mg2, PM2 = select_pm(x0, y0, z0, comp0, vb0, vz0, Mg0, PM0, pm2)
