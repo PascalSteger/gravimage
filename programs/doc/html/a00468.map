@@ -1,6 +1,0 @@
-<map id="montepython.likelihood_class.Likelihood_prior" name="montepython.likelihood_class.Likelihood_prior">
-<area shape="rect" id="node7" href="$a00034.html" title="montepython.likelihoods.gunn\l_peterson.gunn_peterson" alt="" coords="551,5,756,51"/>
-<area shape="rect" id="node9" href="$a00035.html" title="montepython.likelihoods.hst.hst" alt="" coords="545,75,761,104"/>
-<area shape="rect" id="node11" href="$a00036.html" title="montepython.likelihoods.igm\l_temperature.igm_temperature" alt="" coords="547,127,760,174"/>
-<area shape="rect" id="node2" href="$a00040.html" title="General class that all likelihoods will inherit from. " alt="" coords="113,66,279,113"/>
-</map>

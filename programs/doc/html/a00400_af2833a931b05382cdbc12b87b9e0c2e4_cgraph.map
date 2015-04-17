@@ -1,7 +1,0 @@
-<map id="select_run.run" name="select_run.run">
-<area shape="rect" id="node3" href="$a00400.html#aa89e8720355c4df22ad7da2eda4fa3b5" title="select_run.get_investigate" alt="" coords="165,5,352,35"/>
-<area shape="rect" id="node5" href="$a00400.html#a3f3b9621999fd3deb5efced74eba1d64" title="select_run.get_case" alt="" coords="185,59,332,88"/>
-<area shape="rect" id="node7" href="$a00400.html#aca87e12b1e29a270ddd664ac3fd9c623" title="return list of MCMC run directories " alt="" coords="189,111,328,158"/>
-<area shape="rect" id="node9" href="$a00400.html#ae4075ee3e1abcab3024da733e0097146" title="ask user for choice on run number " alt="" coords="189,181,328,211"/>
-<area shape="rect" id="node11" href="$a00400.html#afbd05d4c9f9112f9563056d15eff4094" title="ask user for choice on action to take: print or delete " alt="" coords="181,235,336,264"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="gi_class_cube.Cube.convert_to_parameter_space" name="gi_class_cube.Cube.convert_to_parameter_space">
-<area shape="rect" id="node3" href="$a00098.html#ae98bb05e7a37badaed7a780c087b401a" title="mapping rho parameters from [0,1] to full parameter space setting all n(r&lt;r_nrlim)&lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value " alt="" coords="268,5,428,35"/>
-<area shape="rect" id="node9" href="$a00098.html#ad8a9912c9921b56e67bd08d62d03684a" title="create nr params " alt="" coords="249,59,447,88"/>
-<area shape="rect" id="node11" href="$a00098.html#aa18d30fd4e863889929cff838e05e42e" title="map [0,1] to MtoL flat prior " alt="" coords="259,112,437,141"/>
-<area shape="rect" id="node13" href="$a00098.html#a9588c5189f92f54907d441c60c74b3ae" title="mapping beta parameters from [0,1] to full param space " alt="" coords="249,165,447,211"/>
-<area shape="rect" id="node5" href="$a00098.html#a90887efbfa1981be8be66f143dd439c0" title="take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no..." alt="" coords="496,5,635,35"/>
-<area shape="rect" id="node7" href="$a00098.html#ae4b9f1873baeeab109b2e630b02ecb1d" title="inverse of complimentary error function from MultiNest implementation " alt="" coords="684,5,831,35"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="montepython.likelihood_class.Likelihood_newdat.loglkl" name="montepython.likelihood_class.Likelihood_newdat.loglkl">
-<area shape="rect" id="node3" href="$a00040.html#a7cfc97c3f0873a0e949c4423562eced6" title="Return the :math:C_{\ell} from the cosmological code in :math:\mu {\\rm K}^2 " alt="" coords="317,5,488,51"/>
-<area shape="rect" id="node5" href="$a00040.html#a16c6a08f308e772fc8839516be279b0f" title="montepython.likelihood\l_class.Likelihood.add\l_contamination_spectra" alt="" coords="316,75,489,139"/>
-<area shape="rect" id="node7" href="$a00045.html#aaad4b966a659d8b101eb58fc32eeea4d" title="montepython.likelihood\l_class.Likelihood_newdat.compute_lkl" alt="" coords="273,162,532,209"/>
-<area shape="rect" id="node9" href="$a00040.html#a46db13975d71fdb1148c4e118dd8f98c" title="montepython.likelihood\l_class.Likelihood.add\l_nuisance_prior" alt="" coords="320,232,485,296"/>
-</map>

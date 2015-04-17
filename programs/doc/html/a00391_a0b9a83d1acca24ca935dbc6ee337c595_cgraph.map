@@ -1,6 +1,0 @@
-<map id="montepython.sampler.get_covariance_matrix" name="montepython.sampler.get_covariance_matrix">
-<area shape="rect" id="node3" href="$a00391.html#a3dfd54d080f7fdaef292e6605a72cb7d" title="Deduce the starting point either from the input file, or from a best fit file. " alt="" coords="247,5,436,51"/>
-<area shape="rect" id="node5" href="$a00391.html#a89b153df18f074062c922298683c5f01" title="montepython.sampler.compute\l_fisher" alt="" coords="235,74,448,121"/>
-<area shape="rect" id="node7" href="$a00391.html#a1c4c6b7ab29a91a2c99766f8ca2674b4" title="montepython.sampler.compute\l_fisher_element" alt="" coords="496,74,709,121"/>
-<area shape="rect" id="node9" href="$a00391.html#a8020a30bb398ef7dbb4ca86f7815e778" title="Compute the likelihood, given the current point in parameter space. " alt="" coords="757,83,992,112"/>
-</map>

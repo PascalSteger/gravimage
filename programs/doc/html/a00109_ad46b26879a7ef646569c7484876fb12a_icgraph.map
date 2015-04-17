@@ -1,4 +1,0 @@
-<map id="gi_physics.nr" name="gi_physics.nr">
-<area shape="rect" id="node3" href="$a00109.html#aca6dc48fc8b80cab7f3c1366a6d2a243" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="157,5,269,35"/>
-<area shape="rect" id="node5" href="$a00109.html#a919f43b025bf7f226a75bee120a3248e" title="possibly interpolate nu parameters from gp.xepol where they are defined to any radii r0 (typically gp..." alt="" coords="317,5,424,35"/>
-</map>

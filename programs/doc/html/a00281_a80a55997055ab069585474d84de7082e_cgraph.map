@@ -1,6 +1,0 @@
-<map id="gl_analytic.rho" name="gl_analytic.rho">
-<area shape="rect" id="node3" href="$a00281.html#afbf90e94838d51ba30f76034c88ffd8e" title="equation 2 from Hernquist 1990, 3D mass density equation 2b from Baes&amp;Dejonghe 2002 ..." alt="" coords="169,5,319,35"/>
-<area shape="rect" id="node5" href="$a00281.html#af1cb32958f784542127d1975daccc2fa" title="give densities for the spherical Gaia challenge dataset " alt="" coords="171,59,317,88"/>
-<area shape="rect" id="node9" href="$a00281.html#abe6e9763bf6371e25b274b6a52624582" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="169,112,319,141"/>
-<area shape="rect" id="node7" href="$a00281.html#a536b8132c6eb1efff83c6fbd4d0998cb" title="determine rho(r) for a generalized Hernquist model " alt="" coords="369,85,537,115"/>
-</map>

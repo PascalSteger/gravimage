@@ -1,5 +1,0 @@
-<map id="gl_physics.beta" name="gl_physics.beta">
-<area shape="rect" id="node3" href="$a00282.html#ad9d711b5028ba9667415832915f74fb3" title="calculate betastar from 4 parameters, using general sigmoid function " alt="" coords="192,5,333,35"/>
-<area shape="rect" id="node7" href="$a00282.html#a28937fe462d533a04d6acd661698f44d" title="map beta* to beta " alt="" coords="175,59,351,88"/>
-<area shape="rect" id="node5" href="$a00282.html#a6c9805cf0fbe5fef85ff6df601107b2f" title="calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning ..." alt="" coords="401,5,559,35"/>
-</map>

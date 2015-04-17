@@ -1,8 +1,0 @@
-<map id="montepython.io_mp.MyError" name="montepython.io_mp.MyError">
-<area shape="rect" id="node5" href="$a00002.html" title="Used when encountering a fatal mistake in analyzing chains. " alt="" coords="404,5,601,51"/>
-<area shape="rect" id="node7" href="$a00016.html" title="Missing files, libraries, etc... " alt="" coords="387,74,619,121"/>
-<area shape="rect" id="node9" href="$a00021.html" title="For all problems linked to the cosmological module. " alt="" coords="387,143,619,190"/>
-<area shape="rect" id="node11" href="$a00030.html" title="Used to exit the code in case of writing a fiducial file. " alt="" coords="405,213,600,259"/>
-<area shape="rect" id="node13" href="$a00048.html" title="Problems when computing likelihood, missing nuisance, etc... " alt="" coords="397,282,608,329"/>
-<area shape="rect" id="node15" href="$a00051.html" title="Missing Cosmo module, Planck, ... " alt="" coords="405,351,600,398"/>
-</map>

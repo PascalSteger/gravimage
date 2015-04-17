@@ -1,6 +1,0 @@
-<map id="gi_int.ant_sigkaplos" name="gi_int.ant_sigkaplos">
-<area shape="rect" id="node3" href="$a00104.html#abc4571d7472a35afcc57b3cfec89bcd4" title="integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)..." alt="" coords="201,5,329,35"/>
-<area shape="rect" id="node5" href="$a00104.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="216,59,315,88"/>
-<area shape="rect" id="node9" href="$a00104.html#ab237071931f4fd85416c04350d8f241a" title="return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014 " alt="" coords="223,112,308,141"/>
-<area shape="rect" id="node7" href="$a00104.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="379,59,445,88"/>
-</map>

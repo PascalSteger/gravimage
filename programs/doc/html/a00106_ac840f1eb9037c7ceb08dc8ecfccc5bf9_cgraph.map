@@ -1,7 +1,0 @@
-<map id="gi_loglike.geom_loglike" name="gi_loglike.geom_loglike">
-<area shape="rect" id="node3" href="$a00110.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="221,59,373,88"/>
-<area shape="rect" id="node9" href="$a00097.html#a145f0c80ed5504c94b3d2be05eb97bb3" title="Calculate chi^2. " alt="" coords="237,112,357,141"/>
-<area shape="rect" id="node5" href="$a00104.html#a14923b8bceed0787b9cc1cb429ce6118" title="print debugging message if level is important enough " alt="" coords="421,5,536,35"/>
-<area shape="rect" id="node7" href="$a00105.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="445,59,512,88"/>
-<area shape="rect" id="node11" href="$a00097.html#afbbcde30ae3902669c708d929cb579b4" title="determine &#39;reduced chi2&#39; " alt="" coords="424,112,533,141"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="gl_analytic.nr3Dtot_deriv_walk" name="gl_analytic.nr3Dtot_deriv_walk">
-<area shape="rect" id="node3" href="$a00074.html#ab39faf7846b66e4ef1ed769c4d6e73ab" title="return total mass density, stars+DM " alt="" coords="192,13,357,43"/>
-<area shape="rect" id="node5" href="$a00074.html#abe6e9763bf6371e25b274b6a52624582" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="405,13,555,43"/>
-<area shape="rect" id="node7" href="$a00074.html#a536b8132c6eb1efff83c6fbd4d0998cb" title="determine rho(r) for a generalized Hernquist model " alt="" coords="604,13,772,43"/>
-</map>

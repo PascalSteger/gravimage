@@ -1,4 +1,0 @@
-<map id="gl_physics.rhodm_hernquist" name="gl_physics.rhodm_hernquist">
-<area shape="rect" id="node3" href="$a00090.html#a3040b3ad02f326bbc2f2db86602e3080" title="calculate n(r) at any given radius, as linear interpolation with two asymptotes " alt="" coords="411,5,515,35"/>
-<area shape="rect" id="node5" href="$a00090.html#a1f70d603a30b23187bbe93725ee7f3b6" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="251,31,363,60"/>
-</map>

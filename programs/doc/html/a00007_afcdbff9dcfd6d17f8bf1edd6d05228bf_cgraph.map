@@ -1,5 +1,0 @@
-<map id="gi_collection.ProfileCollection.plot_full_distro" name="gi_collection.ProfileCollection.plot_full_distro">
-<area shape="rect" id="node3" href="$a00007.html#ae26dd935f13736538b1bee5aab33be1c" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="287,5,551,35"/>
-<area shape="rect" id="node7" href="$a00007.html#af8c3b8898daad2e1c3e2fcc3dbb88610" title="plot 3D half&#45;light radii, based on median nu model " alt="" coords="304,58,533,105"/>
-<area shape="rect" id="node5" href="$a00150.html#a2bb8f9490df14529849db74cafbb8413" title="interactive input for prof: rho, M, beta, betastar, nu, sig " alt="" coords="601,5,743,35"/>
-</map>

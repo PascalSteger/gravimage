@@ -1,5 +1,0 @@
-<map id="gl_class_cube.Cube.convert_to_parameter_space" name="gl_class_cube.Cube.convert_to_parameter_space">
-<area shape="rect" id="node3" href="$a00077.html#adf0c95492e8a3842908e16c6d6dae394" title="mapping rho parameters from [0,1] to full parameter space setting all n(r&lt;r_nrlim)&lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value " alt="" coords="261,5,421,35"/>
-<area shape="rect" id="node5" href="$a00077.html#a0557595573b8bda30ada13754aeb6595" title="map [0,1] to MtoL flat prior " alt="" coords="252,59,431,88"/>
-<area shape="rect" id="node7" href="$a00077.html#a338a7d0fd38da239106ba7413b0a5978" title="gl_class_cube.map_tiltstar" alt="" coords="248,112,435,141"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="grw_COM.run" name="grw_COM.run">
-<area shape="rect" id="node3" href="$a00320.html#af00a28b20863a3b2e30afacba8c1d8cd" title="read and convert data " alt="" coords="197,5,352,35"/>
-<area shape="rect" id="node5" href="$a00320.html#ae8518c3ea3339634cc76c915ddfde0d7" title="extract only parts of the arrays given " alt="" coords="199,59,351,88"/>
-<area shape="rect" id="node7" href="$a00320.html#ab9e756164059f96c2cf6693970a6ef27" title="grw_COM.concat_pops" alt="" coords="189,112,360,141"/>
-<area shape="rect" id="node9" href="$a00282.html#a8df7b826b95abad434194e21163a1fc4" title="shrinking sphere in 3D, following v_LOS " alt="" coords="164,165,385,195"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="gi_chi.chi2red" name="gi_chi.chi2red">
-<area shape="rect" id="node3" href="$a00097.html#a145f0c80ed5504c94b3d2be05eb97bb3" title="Calculate chi^2. " alt="" coords="164,5,284,35"/>
-<area shape="rect" id="node5" href="$a00106.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by Multinest and plot_profiles spherical version ..." alt="" coords="335,5,500,35"/>
-<area shape="rect" id="node7" href="$a00119.html#ad821dec8433925b93f7529a34a5471b7" title="gravimage.myloglike" alt="" coords="549,5,699,35"/>
-</map>
