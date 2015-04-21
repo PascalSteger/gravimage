@@ -2,7 +2,7 @@
 
 ##
 # @file
-# all parameters for the gravimage MCMC, gaia investigation
+# all parameters for the gravimage MCMC
 
 # (c) GPL v3 2015 ETHZ Pascal S.P. Steger, pascal@steger.aero
 
@@ -45,11 +45,11 @@ class Params():
             self.case = case
             #os.system('sed -i "s/case = 1/case = '+str(case)+'/"')
         else:
-            self.case = 5 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
+            self.case = 1 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
                           # triax (1-4:core, 5-8:cusp), obs (1:for,car,scl,sex,dra)
 
         print(' case : ', self.case)
-        self.pops = 2 # number of stellar tracer populations, if changed: set getnewdata=True!
+        self.pops = 1 # number of stellar tracer populations, if changed: set getnewdata=True!
         # Set number of tracer stars to look at
         self.ntracer = [1e6, 1e6] # pop0, pop1, pop2, ..., pop_N
 
@@ -58,7 +58,7 @@ class Params():
         if self.restart: self.getnewdata = False
         self.selfconsistentnu = False # tracer star density profile for dSph?
         self.binning = 'consttr' # linspace, logspace, consttr: binning of particles
-        self.metalpop = True # split metallicities with a separate MCMC
+        self.metalpop = False # split metallicities with a separate MCMC
         self.Rdiff = 'max' # min1s median max1s max
         self.walker3D = False # for walker mock data: use 3D models
         self.hern_dual = 2 # use hernquist model with 1 or 2 particle
@@ -67,7 +67,7 @@ class Params():
 
         # MultiNest options
         self.getSigdata = False # get previously stored parameters for nu, after a Sig convergence run
-        self.chi2_switch = 40   # 10 turn on sig calculation if chi2 < chi2_switch
+        self.chi2_switch = 60   # 10 turn on sig calculation if chi2 < chi2_switch
         self.chi2_Sig_converged = 1000 # 1000 how many times to be below that threshold?
         # Set number of terms for enclosedmass&tracer&anisotropy bins = model parameters:
         self.nipol = 12  # set getnewdata = True to run data readout again if this value changes
@@ -98,7 +98,7 @@ class Params():
 
         # ndim has nrho for rho, N_nu, (self.nbeta + 2) per population
         self.ndim = self.nrho + N_nu + self.pops*(self.nbeta + 2)
-        self.nlive = 100*self.ndim
+        self.nlive = 1000*self.ndim
         self.err = 1e300    # chi^2 for models which are impossible
         self.minsig = 0.1   # hyperparameter range sampled from 1/(minsig*mean(sig)) .. max
         self.maxsig = 10.0
