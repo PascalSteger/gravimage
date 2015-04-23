@@ -240,13 +240,13 @@ def Sig_INT_rho(R0, Sig, gp):
     sm0 = 0.02
     splpar_J = splrep(R0[:-gp.nexp], np.log(J), s=sm0) # smoothing determined for Hernquist profile. can go below to 0.01 for very smooth profiles
     rho = -1./np.pi/R0[:-gp.nexp]*J*splev(R0[:-gp.nexp], splpar_J, der=1)
-    sm = sm0*1.
-    while(min(rho)<0):
-        print('min(rho)<0, rho = ', rho)
+    sm = sm0 * 1.
+    while( min(rho) < 0):
+        #print('min(rho)<0, rho = ', rho)
         sm *= 2
         splpar_J = splrep(R0[:-gp.nexp], np.log(J), s=sm)
         rho = -1./np.pi/R0[:-gp.nexp]*J*splev(R0[:-gp.nexp], splpar_J, der=1)
-        if(sm>1):
+        if( sm>1 ):
             print('very irregular profile')
             sel = (rho >= 0.0)
             finerho = rho[sel]
@@ -254,8 +254,6 @@ def Sig_INT_rho(R0, Sig, gp):
             for k in range(len(rho)):
                 if rho[k] <0:
                     rho[k] = firstfinerho
-        #    raise Exception('Very irregular profile')
-
     gh.checkpositive(rho)
 
     rhoright = gh.expolpowerlaw(R0[:-gp.nexp], rho, R0[-3:], -3.001)
