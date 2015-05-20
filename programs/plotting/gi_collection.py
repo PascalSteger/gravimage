@@ -698,7 +698,7 @@ class ProfileCollection():
             ax.plot(r0, y0, 'b--', lw=2)
         ax.set_ylim(self.ranges[prof+str(pop)])
         plt.draw()
-        fig.savefig(basename+'output/pdf/prof_'+prof+'_'+str(pop)+'.pdf')
+        fig.savefig(basename+'output/pdf/tprof_'+prof+'_'+str(pop)+'.pdf')
         return 1
     ## \fn plot_profile(self, basename, prof, pop, gp)
     # plot single profile

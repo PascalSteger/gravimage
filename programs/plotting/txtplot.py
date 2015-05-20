@@ -298,9 +298,9 @@ if __name__ == '__main__':
 
     cmd = "cd "+basename+tt+"/output/pdf/;"
     if gp.pops == 1:
-        cmd += "pdfjam --outfile cat.pdf --nup 3x4 --no-landscape prof_nr_0.pdf prof_rho_0.pdf prof_M_0.pdf prof_nrnu_1.pdf prof_nu_1.pdf prof_Sig_1.pdf prof_betastar_1.pdf prof_beta_1.pdf prof_sig_1.pdf ../prof_chi2_0.pdf;"
+        cmd += "pdfjam --outfile cat.pdf --nup 3x4 --no-landscape tprof_nr_0.pdf tprof_rho_0.pdf tprof_M_0.pdf tprof_nrnu_1.pdf tprof_nu_1.pdf tprof_Sig_1.pdf tprof_betastar_1.pdf tprof_beta_1.pdf tprof_sig_1.pdf ../prof_chi2_0.pdf;"
     elif gp.pops == 2:
-        cmd += "pdfjam --outfile cat.pdf --nup 3x5 --no-landscape prof_nr_0.pdf prof_rho_0.pdf prof_M_0.pdf prof_nrnu_1.pdf prof_nu_1.pdf prof_Sig_1.pdf prof_betastar_1.pdf prof_beta_1.pdf prof_sig_1.pdf prof_nrnu_2.pdf prof_nu_2.pdf prof_Sig_2.pdf prof_betastar_2.pdf prof_beta_2.pdf prof_sig_2.pdf;"
+        cmd += "pdfjam --outfile cat.pdf --nup 3x5 --no-landscape tprof_nr_0.pdf tprof_rho_0.pdf tprof_M_0.pdf tprof_nrnu_1.pdf tprof_nu_1.pdf tprof_Sig_1.pdf tprof_betastar_1.pdf tprof_beta_1.pdf tprof_sig_1.pdf tprof_nrnu_2.pdf tprof_nu_2.pdf tprof_Sig_2.pdf tprof_betastar_2.pdf tprof_beta_2.pdf tprof_sig_2.pdf;"
     os.system(cmd)
     #cmd += "evince cat.pdf &"
     #os.system(cmd)
