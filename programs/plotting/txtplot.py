@@ -201,17 +201,17 @@ if __name__ == '__main__':
                 pass
         print('linelen = ',linelen)
         minlinelen = min(minlinelen, linelen)
-    ip.remove_first(); ip.remove_first()
-    ip.remove_first(); ip.remove_first()
+    #ip.remove_first(); ip.remove_first()
+    #ip.remove_first(); ip.remove_first()
     # set up overall profile collection
-    import import_path as ip
-    ip.insert_sys_path(basename+tt+'/programs/')
-    ip.insert_sys_path(basename+tt+'/programs/sphere')
+    #import import_path as ip
+    #ip.insert_sys_path(basename+tt+'/programs/')
+    #ip.insert_sys_path(basename+tt+'/programs/sphere')
     import gi_params as gip
     gp = gip.Params(tt)
     gp.pops = sr.get_pops(basename+tt+'/')
     print('working with ', gp.pops, ' populations')
-    ip.remove_first(); ip.remove_first() # programs/sphere and programs/reducedata from gip.Params() call
+    #ip.remove_first(); ip.remove_first() # programs/sphere and programs/reducedata from gip.Params() call
 
     #import gi_collection
     #pcall = gi_collection.ProfileCollection(gp.pops, gp.nepol)
