@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_int Namespace Reference</title>
+<title>GravImage: external_pc Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,60 +82,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_int Namespace Reference</div>  </div>
+<div class="title">external_pc Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a8d2c39026c26a97d7b9de04c9c283a75">int_poly_inf</a></td></tr>
-<tr class="memdesc:a8d2c39026c26a97d7b9de04c9c283a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate polynomial from r0[k] to infinity assume log(integrand) = A + B*r; B = poly[0] &lt; 0, A = poly[1]  <a href="#a8d2c39026c26a97d7b9de04c9c283a75">More...</a><br/></td></tr>
-<tr class="separator:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4627af4bccde0dbe1bafef26ba016260"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a4627af4bccde0dbe1bafef26ba016260">correct_first_bin</a></td></tr>
-<tr class="memdesc:a4627af4bccde0dbe1bafef26ba016260"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate back to first bin, with splines  <a href="#a4627af4bccde0dbe1bafef26ba016260">More...</a><br/></td></tr>
-<tr class="separator:a4627af4bccde0dbe1bafef26ba016260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#abc4571d7472a35afcc57b3cfec89bcd4">ant_intbeta</a></td></tr>
-<tr class="memdesc:abc4571d7472a35afcc57b3cfec89bcd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)  <a href="#abc4571d7472a35afcc57b3cfec89bcd4">More...</a><br/></td></tr>
-<tr class="separator:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a86332c13eed6a13f4b7dc4e4c960b207">g</a></td></tr>
-<tr class="memdesc:a86332c13eed6a13f4b7dc4e4c960b207"><td class="mdescLeft">&#160;</td><td class="mdescRight">function from Lokas+2005, eq.  <a href="#a86332c13eed6a13f4b7dc4e4c960b207">More...</a><br/></td></tr>
-<tr class="separator:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a657add5cfa9ee1a48db389246d6d6bb5">varepsilon</a></td></tr>
-<tr class="memdesc:a657add5cfa9ee1a48db389246d6d6bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return e^{-2 int_r_min^r beta(s)/s ds}, to be used in sigma_r^2 calc  <a href="#a657add5cfa9ee1a48db389246d6d6bb5">More...</a><br/></td></tr>
-<tr class="separator:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810">ant_sigkaplos</a></td></tr>
-<tr class="memdesc:aa25d61ce3efbf854f6323ee6ad42d810"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa, and virial parameters from Richardson,Fairbairn 2014 all on gp.nfine logarithmically spaced radii, and store outcome on lookup table  <a href="#aa25d61ce3efbf854f6323ee6ad42d810">More...</a><br/></td></tr>
-<tr class="separator:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab237071931f4fd85416c04350d8f241a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ab237071931f4fd85416c04350d8f241a">zeta</a></td></tr>
-<tr class="memdesc:ab237071931f4fd85416c04350d8f241a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014  <a href="#ab237071931f4fd85416c04350d8f241a">More...</a><br/></td></tr>
-<tr class="separator:ab237071931f4fd85416c04350d8f241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a851345fa7cfbc535b7de72338cb782fa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a851345fa7cfbc535b7de72338cb782fa">kappa</a></td></tr>
-<tr class="separator:a851345fa7cfbc535b7de72338cb782fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7f980c6b66313572041be28fe01814"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a3a7f980c6b66313572041be28fe01814">smooth_ext</a></td></tr>
-<tr class="memdesc:a3a7f980c6b66313572041be28fe01814"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate to high radii with linear extrapolation NOT USED ANYMORE  <a href="#a3a7f980c6b66313572041be28fe01814">More...</a><br/></td></tr>
-<tr class="separator:a3a7f980c6b66313572041be28fe01814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#adb4f91dec2092b7f85206392a3b5f7a0">smooth_fun</a></td></tr>
-<tr class="memdesc:adb4f91dec2092b7f85206392a3b5f7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">smooth function y(x) NOT USED ANYMORE  <a href="#adb4f91dec2092b7f85206392a3b5f7a0">More...</a><br/></td></tr>
-<tr class="separator:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55e52c8855150c200aaaae108e86616"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ad55e52c8855150c200aaaae108e86616">prepare_output_folder</a></td></tr>
+<tr class="memdesc:ad55e52c8855150c200aaaae108e86616"><td class="mdescLeft">&#160;</td><td class="mdescRight">create directory structure in output folder  <a href="#ad55e52c8855150c200aaaae108e86616">More...</a><br/></td></tr>
+<tr class="separator:ad55e52c8855150c200aaaae108e86616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a424b40009a9212b6c32bfb39b8c35f21"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a424b40009a9212b6c32bfb39b8c35f21">read_scale</a></td></tr>
+<tr class="memdesc:a424b40009a9212b6c32bfb39b8c35f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">read scale file, store into gp.  <a href="#a424b40009a9212b6c32bfb39b8c35f21">More...</a><br/></td></tr>
+<tr class="separator:a424b40009a9212b6c32bfb39b8c35f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ecd0c33d2573b30a9e4909e6c874c9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a63ecd0c33d2573b30a9e4909e6c874c9">pcload_single_entries</a></td></tr>
+<tr class="memdesc:a63ecd0c33d2573b30a9e4909e6c874c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">load all data into [chi^2, profiles] pairs, and add to a profile collection  <a href="#a63ecd0c33d2573b30a9e4909e6c874c9">More...</a><br/></td></tr>
+<tr class="separator:a63ecd0c33d2573b30a9e4909e6c874c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac6a63b2d876bfd2dbb22bcf1246c2006"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ac6a63b2d876bfd2dbb22bcf1246c2006">basename</a> = sys.argv[1]</td></tr>
+<tr class="separator:ac6a63b2d876bfd2dbb22bcf1246c2006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e5bcd89fb1a0f0f2af8f77174ecaa5"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ad6e5bcd89fb1a0f0f2af8f77174ecaa5">tt</a> = sys.argv[2]</td></tr>
+<tr class="separator:ad6e5bcd89fb1a0f0f2af8f77174ecaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d3f13693578a163e590acd7061c9e0"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#af7d3f13693578a163e590acd7061c9e0">minlinelen</a> = int(sys.argv[3])</td></tr>
+<tr class="separator:af7d3f13693578a163e590acd7061c9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acefb377c2546fe07e3fb8ea98da7d141"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#acefb377c2546fe07e3fb8ea98da7d141">basedir</a> = <a class="el" href="a00105.html#ac6a63b2d876bfd2dbb22bcf1246c2006">basename</a>+<a class="el" href="a00105.html#ad6e5bcd89fb1a0f0f2af8f77174ecaa5">tt</a>+'/'</td></tr>
+<tr class="separator:acefb377c2546fe07e3fb8ea98da7d141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc0a4a0b5a95859c864cd6361c312f2"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#afcc0a4a0b5a95859c864cd6361c312f2">ngp</a> = ngip.Params(<a class="el" href="a00105.html#ad6e5bcd89fb1a0f0f2af8f77174ecaa5">tt</a>)</td></tr>
+<tr class="separator:afcc0a4a0b5a95859c864cd6361c312f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b261ba5f88e17421a348ce087c9703"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a> = max(<a class="el" href="a00105.html#aeaf13a57e8d0fdd9a181ac3c76b8b524">Radii</a>)</td></tr>
+<tr class="separator:a19b261ba5f88e17421a348ce087c9703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf49fef21a8113bd38727dca5d3811b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a> = min(<a class="el" href="a00105.html#aeaf13a57e8d0fdd9a181ac3c76b8b524">Radii</a>)</td></tr>
+<tr class="separator:acbf49fef21a8113bd38727dca5d3811b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf13a57e8d0fdd9a181ac3c76b8b524"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#aeaf13a57e8d0fdd9a181ac3c76b8b524">Radii</a> = np.hstack([<a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/8, <a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/4, <a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/2, Radii, 2*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>, 4*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>, 8*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>])</td></tr>
+<tr class="separator:aeaf13a57e8d0fdd9a181ac3c76b8b524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602b31bd705957c92640f2c3052b969f"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a602b31bd705957c92640f2c3052b969f">pc</a> = <a class="el" href="a00105.html#a63ecd0c33d2573b30a9e4909e6c874c9">pcload_single_entries</a>(<a class="el" href="a00105.html#acefb377c2546fe07e3fb8ea98da7d141">basedir</a>, <a class="el" href="a00105.html#afcc0a4a0b5a95859c864cd6361c312f2">ngp</a>)</td></tr>
+<tr class="separator:a602b31bd705957c92640f2c3052b969f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="abc4571d7472a35afcc57b3cfec89bcd4"></a>
+<a class="anchor" id="a63ecd0c33d2573b30a9e4909e6c874c9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.ant_intbeta </td>
+          <td class="memname">external_pc.pcload_single_entries </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
+          <td class="paramname"><em>bn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -151,617 +147,203 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here) </p>
+<p>load all data into [chi^2, profiles] pairs, and add to a profile collection </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>free variable, array, in [lunit] </td></tr>
-    <tr><td class="paramname">betapar</td><td>integrand, array, in [1] </td></tr>
+    <tr><td class="paramname">bn</td><td>string </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00047_source.html#l00041">41</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad55e52c8855150c200aaaae108e86616"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">external_pc.prepare_output_folder </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>outdir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>create directory structure in output folder </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outdir</td><td>string, data folder </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00047_source.html#l00016">16</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a424b40009a9212b6c32bfb39b8c35f21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">external_pc.read_scale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read scale file, store into gp. </p>
+<p>*scale </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">gp</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00056_source.html#l00052">52</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_abc4571d7472a35afcc57b3cfec89bcd4_icgraph.png" border="0" usemap="#a00105_abc4571d7472a35afcc57b3cfec89bcd4_icgraph" alt=""/></div>
-<map name="a00105_abc4571d7472a35afcc57b3cfec89bcd4_icgraph" id="a00105_abc4571d7472a35afcc57b3cfec89bcd4_icgraph">
-<area shape="rect" id="node3" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="184,5,331,35"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00026">26</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa25d61ce3efbf854f6323ee6ad42d810"></a>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="acefb377c2546fe07e3fb8ea98da7d141"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.ant_sigkaplos </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rhodmpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>lbaryonpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>MtoL</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nupar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">string external_pc.basedir = <a class="el" href="a00105.html#ac6a63b2d876bfd2dbb22bcf1246c2006">basename</a>+<a class="el" href="a00105.html#ad6e5bcd89fb1a0f0f2af8f77174ecaa5">tt</a>+'/'</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa, and virial parameters from Richardson,Fairbairn 2014 all on gp.nfine logarithmically spaced radii, and store outcome on lookup table </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>array, radial bin positions, in [pc] </td></tr>
-    <tr><td class="paramname">rhodmpar</td><td>overall 3D density profile in [Munit/pc^3] </td></tr>
-    <tr><td class="paramname">lbaryonpar</td><td>rho* light profile from baryons </td></tr>
-    <tr><td class="paramname">MtoL</td><td>mass-to-light ratio in [Msun/Lsun] </td></tr>
-    <tr><td class="paramname">nupar</td><td>tracer density in [Munit/pc^3] </td></tr>
-    <tr><td class="paramname">betapar</td><td>velocity anisotropy in [1] </td></tr>
-    <tr><td class="paramname">pop</td><td>int for population to look at (really the scalrad for rhohalf) </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>sig_los^2, correspondingly for 4th order kappa, zetaa, zetab </dd></dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00101">101</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_aa25d61ce3efbf854f6323ee6ad42d810_cgraph.png" border="0" usemap="#a00105_aa25d61ce3efbf854f6323ee6ad42d810_cgraph" alt=""/></div>
-<map name="a00105_aa25d61ce3efbf854f6323ee6ad42d810_cgraph" id="a00105_aa25d61ce3efbf854f6323ee6ad42d810_cgraph">
-<area shape="rect" id="node3" href="a00105.html#abc4571d7472a35afcc57b3cfec89bcd4" title="integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)..." alt="" coords="201,5,329,35"/><area shape="rect" id="node5" href="a00105.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="216,59,315,88"/><area shape="rect" id="node9" href="a00105.html#ab237071931f4fd85416c04350d8f241a" title="return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014 " alt="" coords="223,112,308,141"/><area shape="rect" id="node7" href="a00105.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="379,59,445,88"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00014">14</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4627af4bccde0dbe1bafef26ba016260"></a>
+<a class="anchor" id="ac6a63b2d876bfd2dbb22bcf1246c2006"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.correct_first_bin </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>yint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.01</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">list external_pc.basename = sys.argv[1]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>extrapolate back to first bin, with splines </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">xint</td><td>x values </td></tr>
-    <tr><td class="paramname">yint</td><td>y values, of which the first entry has to be rechecked </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing of the spline. 0.01 is a <em>small</em> default value, hard to converge to </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in log space </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00036">36</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00011">11</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a86332c13eed6a13f4b7dc4e4c960b207"></a>
+<a class="anchor" id="a19b261ba5f88e17421a348ce087c9703"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.g </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rfix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>beta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>dbetadr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.maxR = max(<a class="el" href="a00105.html#aeaf13a57e8d0fdd9a181ac3c76b8b524">Radii</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>function from Lokas+2005, eq. </p>
-<p>(8) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rvar</td><td>small r, in [pc] </td></tr>
-    <tr><td class="paramname">rfix</td><td>capital R, in [pc] </td></tr>
-    <tr><td class="paramname">beta</td><td>beta, in [1] </td></tr>
-    <tr><td class="paramname">dbetadr</td><td>d beta/dr, in [1] </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00075">75</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_a86332c13eed6a13f4b7dc4e4c960b207_icgraph.png" border="0" usemap="#a00105_a86332c13eed6a13f4b7dc4e4c960b207_icgraph" alt=""/></div>
-<map name="a00105_a86332c13eed6a13f4b7dc4e4c960b207_icgraph" id="a00105_a86332c13eed6a13f4b7dc4e4c960b207_icgraph">
-<area shape="rect" id="node3" href="a00105.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="147,5,245,35"/><area shape="rect" id="node7" href="a00110.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="120,59,272,88"/><area shape="rect" id="node5" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="331,5,477,35"/><area shape="rect" id="node9" href="a00106.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by Multinest and plot_profiles spherical version ..." alt="" coords="321,59,487,88"/><area shape="rect" id="node11" href="a00119.html#ad821dec8433925b93f7529a34a5471b7" title="gravimage.myloglike" alt="" coords="536,59,685,88"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00101">101</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8d2c39026c26a97d7b9de04c9c283a75"></a>
+<a class="anchor" id="af7d3f13693578a163e590acd7061c9e0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.int_poly_inf </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>poly</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.minlinelen = int(sys.argv[3])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>integrate polynomial from r0[k] to infinity assume log(integrand) = A + B*r; B = poly[0] &lt; 0, A = poly[1] </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radii </td></tr>
-    <tr><td class="paramname">poly</td><td>slope </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00025">25</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00013">13</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a851345fa7cfbc535b7de72338cb782fa"></a>
+<a class="anchor" id="acbf49fef21a8113bd38727dca5d3811b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def gi_int.kappa </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0fine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Mrfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nufine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>sigr2nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>intbetasfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.minR = min(<a class="el" href="a00105.html#aeaf13a57e8d0fdd9a181ac3c76b8b524">Radii</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00056_source.html#l00470">470</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_a851345fa7cfbc535b7de72338cb782fa_cgraph.png" border="0" usemap="#a00105_a851345fa7cfbc535b7de72338cb782fa_cgraph" alt=""/></div>
-<map name="a00105_a851345fa7cfbc535b7de72338cb782fa_cgraph" id="a00105_a851345fa7cfbc535b7de72338cb782fa_cgraph">
-<area shape="rect" id="node3" href="a00105.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="152,5,219,35"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_a851345fa7cfbc535b7de72338cb782fa_icgraph.png" border="0" usemap="#a00105_a851345fa7cfbc535b7de72338cb782fa_icgraph" alt=""/></div>
-<map name="a00105_a851345fa7cfbc535b7de72338cb782fa_icgraph" id="a00105_a851345fa7cfbc535b7de72338cb782fa_icgraph">
-<area shape="rect" id="node3" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="152,5,299,35"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00102">102</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3a7f980c6b66313572041be28fe01814"></a>
+<a class="anchor" id="afcc0a4a0b5a95859c864cd6361c312f2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.smooth_ext </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>x0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>y0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xext</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>slope</em> = <code>-3.</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>minval</em> = <code>0.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.ngp = ngip.Params(<a class="el" href="a00105.html#ad6e5bcd89fb1a0f0f2af8f77174ecaa5">tt</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>extrapolate to high radii with linear extrapolation NOT USED ANYMORE </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x0</td><td>array, free variable </td></tr>
-    <tr><td class="paramname">y0</td><td>array, dependent variable </td></tr>
-    <tr><td class="paramname">xext</td><td>array, points to evaluate function on </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline, 1 as a default </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing. 0.01 is small </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in logarithmic space </td></tr>
-    <tr><td class="paramname">slope</td><td>without upper limit </td></tr>
-    <tr><td class="paramname">minval</td><td>minimal value allowed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00524">524</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00083">83</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adb4f91dec2092b7f85206392a3b5f7a0"></a>
+<a class="anchor" id="a602b31bd705957c92640f2c3052b969f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.smooth_fun </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>x0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>y0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xnew</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.01</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.pc = <a class="el" href="a00105.html#a63ecd0c33d2573b30a9e4909e6c874c9">pcload_single_entries</a>(<a class="el" href="a00105.html#acefb377c2546fe07e3fb8ea98da7d141">basedir</a>, <a class="el" href="a00105.html#afcc0a4a0b5a95859c864cd6361c312f2">ngp</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>smooth function y(x) NOT USED ANYMORE </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x0</td><td>array, free variable </td></tr>
-    <tr><td class="paramname">y0</td><td>array, dependent variable </td></tr>
-    <tr><td class="paramname">xnew</td><td>array, new positions (or the same as x0) </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing. 0.01 is <em>small</em> </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in logarithmic space </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00551">551</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00106">106</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a657add5cfa9ee1a48db389246d6d6bb5"></a>
+<a class="anchor" id="aeaf13a57e8d0fdd9a181ac3c76b8b524"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.varepsilon </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">tuple external_pc.Radii = np.hstack([<a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/8, <a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/4, <a class="el" href="a00105.html#acbf49fef21a8113bd38727dca5d3811b">minR</a>/2, Radii, 2*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>, 4*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>, 8*<a class="el" href="a00105.html#a19b261ba5f88e17421a348ce087c9703">maxR</a>])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>return e^{-2 int_r_min^r beta(s)/s ds}, to be used in sigma_r^2 calc </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radius [pc] </td></tr>
-    <tr><td class="paramname">betapar</td><td>[1] coefficients of beta representation </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00090">90</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00103">103</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab237071931f4fd85416c04350d8f241a"></a>
+<a class="anchor" id="ad6e5bcd89fb1a0f0f2af8f77174ecaa5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.zeta </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0fine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nufine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Sigfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Mrfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betafine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>sigr2nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">list external_pc.tt = sys.argv[2]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0fine</td><td>radii, [pc] </td></tr>
-    <tr><td class="paramname">nufine</td><td>3D tracer density </td></tr>
-    <tr><td class="paramname">Sigfine</td><td>2D surface density </td></tr>
-    <tr><td class="paramname">Mrfine</td><td>enclosed mass </td></tr>
-    <tr><td class="paramname">betafine</td><td>anisotropy parameter </td></tr>
-    <tr><td class="paramname">sigr2nu</td><td>&lt;v_r**2&gt; </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameter </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00056_source.html#l00420">420</a> of file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00105_ab237071931f4fd85416c04350d8f241a_icgraph.png" border="0" usemap="#a00105_ab237071931f4fd85416c04350d8f241a_icgraph" alt=""/></div>
-<map name="a00105_ab237071931f4fd85416c04350d8f241a_icgraph" id="a00105_ab237071931f4fd85416c04350d8f241a_icgraph">
-<area shape="rect" id="node3" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="141,5,288,35"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00047_source.html#l00012">12</a> of file <a class="el" href="a00047_source.html">external_pc.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -231,14 +231,14 @@ def map_betastar_sigmoid(params, gp):
 # @param params parameter vector, size 4
 # @param gp global parameters
 
-def map_MtoL(param, gp):
-    gh.sanitize_scalar(param, 0, 1, gp.debug)
+def map_MtoL(par, gp):
+    gh.sanitize_scalar(par, 0, 1, gp.debug)
     scale = gp.MtoLmax - gp.MtoLmin
-    MtoL = param*scale+gp.MtoLmin
+    MtoL = par*scale+gp.MtoLmin
     return MtoL
-## \fn map_MtoL(param, gp)
+## \fn map_MtoL(par, gp)
 # map [0,1] to MtoL flat prior
-# @param param scalar
+# @param par scalar
 # @param gp global parameters holding MtoL{min,max}
 
 def map_hypersig(param, prof, pop, gp):
@@ -251,7 +251,7 @@ def map_hypersig(param, prof, pop, gp):
     lam = 1/(param[0]*(lmax-lmin)+lmin)
     return lam
 ## \fn map_hypersig(param, prof, pop, gp)
-# map [0,1] to [1/(gp.maxsig * <sig>), 1/(gp.minsig * <sig>)]
+# map [0,1] to [1/(gp.maxSS * mean(SS)), 1/(gp.minSS * mean(SS))], SS="s i g"
 # return hyperparameter
 # @param param scalar [0,1]
 # @param prof Sigma or sigma depending on profile

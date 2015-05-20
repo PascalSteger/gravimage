@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/plotting/plop.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_loglike.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,68 +80,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_6c27e3002ec904ab436ee8a25303fe4b.html">plotting</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_dd24ee3e64a33da7b27d9c9d3211d3c8.html">sphere</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">plop.py File Reference</div>  </div>
+<div class="title">gi_loglike.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>plot all profiles of a given run  
+<p>define log likelihood function to be called by multinest spherical version  
 <a href="#details">More...</a></p>
 
 <p><a href="a00025_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00144"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html">plop</a></td></tr>
+<tr class="memitem:a00123"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html">gi_loglike</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afb79d6a0429292fb1b106f348338152a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#afb79d6a0429292fb1b106f348338152a">plop.prepare_output_folder</a></td></tr>
-<tr class="memdesc:afb79d6a0429292fb1b106f348338152a"><td class="mdescLeft">&#160;</td><td class="mdescRight">create directory structure in output folder  <a href="#afb79d6a0429292fb1b106f348338152a">More...</a><br/></td></tr>
-<tr class="separator:afb79d6a0429292fb1b106f348338152a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8650f72a1c5a92e145d5f1e6603eb9a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#aa8650f72a1c5a92e145d5f1e6603eb9a">plop.read_scale</a></td></tr>
-<tr class="memdesc:aa8650f72a1c5a92e145d5f1e6603eb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">read scale file, store into gp.  <a href="#aa8650f72a1c5a92e145d5f1e6603eb9a">More...</a><br/></td></tr>
-<tr class="separator:aa8650f72a1c5a92e145d5f1e6603eb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a89b3451465b041ef01dcf3dd83b217"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#a8a89b3451465b041ef01dcf3dd83b217">plop.correct_E_error</a></td></tr>
-<tr class="memdesc:a8a89b3451465b041ef01dcf3dd83b217"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way  <a href="#a8a89b3451465b041ef01dcf3dd83b217">More...</a><br/></td></tr>
-<tr class="separator:a8a89b3451465b041ef01dcf3dd83b217"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79c365b7185596f88c36002f580446f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#ab79c365b7185596f88c36002f580446f">plop.read_models</a></td></tr>
-<tr class="memdesc:ab79c365b7185596f88c36002f580446f"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in all models, concatenate them  <a href="#ab79c365b7185596f88c36002f580446f">More...</a><br/></td></tr>
-<tr class="separator:ab79c365b7185596f88c36002f580446f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f5ccd6b305e9742a98a03ce49eb0e9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#a84f5ccd6b305e9742a98a03ce49eb0e9">plop.pcload_single_entries</a></td></tr>
-<tr class="memdesc:a84f5ccd6b305e9742a98a03ce49eb0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">load all data into [chi^2, profiles] pairs, and add to a profile collection  <a href="#a84f5ccd6b305e9742a98a03ce49eb0e9">More...</a><br/></td></tr>
-<tr class="separator:a84f5ccd6b305e9742a98a03ce49eb0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a648cd26c9ab5b7dcc82f2d9720eaf21b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#a648cd26c9ab5b7dcc82f2d9720eaf21b">plop.run</a></td></tr>
-<tr class="memdesc:a648cd26c9ab5b7dcc82f2d9720eaf21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call all model read-in, and profile-plotting routines  <a href="#a648cd26c9ab5b7dcc82f2d9720eaf21b">More...</a><br/></td></tr>
-<tr class="separator:a648cd26c9ab5b7dcc82f2d9720eaf21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:acc2826a40729ecf852738242db48666c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#acc2826a40729ecf852738242db48666c">plop.parser</a> = OptionParser()</td></tr>
-<tr class="separator:acc2826a40729ecf852738242db48666c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e05f41537b77910c78a64465c964cb6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#a0e05f41537b77910c78a64465c964cb6">plop.default</a> = &quot;&quot;</td></tr>
-<tr class="separator:a0e05f41537b77910c78a64465c964cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a001f6bf1223caf7966313f49e19ed22c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html#a001f6bf1223caf7966313f49e19ed22c">plop.gp</a> = gip.Params(timestamp)</td></tr>
-<tr class="memdesc:a001f6bf1223caf7966313f49e19ed22c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00136.html#a15af94783486d90b06ac1a20d64edc02" title="remove first entry in sys.path and thus reverse insert_sys_path ">ip.remove_first()</a>; <a class="el" href="a00136.html#a15af94783486d90b06ac1a20d64edc02" title="remove first entry in sys.path and thus reverse insert_sys_path ">ip.remove_first()</a> # uncomment to include most recent  <a href="#a001f6bf1223caf7966313f49e19ed22c">More...</a><br/></td></tr>
-<tr class="separator:a001f6bf1223caf7966313f49e19ed22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac840f1eb9037c7ceb08dc8ecfccc5bf9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></td></tr>
+<tr class="memdesc:ac840f1eb9037c7ceb08dc8ecfccc5bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">define log likelihood function to be called by pyMultinest and <a class="el" href="a00168.html">plot_profiles</a> disk version  <a href="#ac840f1eb9037c7ceb08dc8ecfccc5bf9">More...</a><br/></td></tr>
+<tr class="separator:ac840f1eb9037c7ceb08dc8ecfccc5bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>plot all profiles of a given run </p>
+<div class="textblock"><p>define log likelihood function to be called by multinest spherical version </p>
 
-<p>Definition in file <a class="el" href="a00025_source.html">plop.py</a>.</p>
+<p>Definition in file <a class="el" href="a00025_source.html">gi_loglike.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

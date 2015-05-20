@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/test_proj.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grt_siglos.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,179 +80,119 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_2ca09340385140c39f431843b082c14f.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_be9429b6d98f3738ece5a5ee89294dc4.html">reducedata</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">test_proj.py</div>  </div>
+<div class="title">grt_siglos.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00082.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00155.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00082.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00157.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># check deprojection and projection of nu</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># with analytic Hernquist profiles</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># calculate velocity dispersion of 2D rings from a Walker dataset&#39;&#39;&#39;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># for triaxial systems</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal Steger, pascal@steger.aero</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> splrep, splint</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> pylab <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;ion()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;ip.insert_sys_path(<span class="stringliteral">&#39;/home/psteger/sci/darcoda/gravimage/programs/reducedata/&#39;</span>)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;ip.insert_sys_path(<span class="stringliteral">&#39;/home/psteger/sci/darcoda/gravimage/programs/sphere/&#39;</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">#from gi_timing import *</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> time</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> gi_params <span class="keyword">as</span> gp</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;gp.rinfty = 5</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;gp.nexp = 3</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">import</span> gi_project <span class="keyword">as</span> gip</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">import</span> gi_analytic <span class="keyword">as</span> ga</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00155.html#a335a7c5d9538a9a48a31bf977476a322">   29</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00155.html#a335a7c5d9538a9a48a31bf977476a322">introduce_points_in_between</a>(r0):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    rmin = np.log10(min(r0))</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    rmax = np.log10(max(r0))</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> np.logspace(rmin, rmax, Nfine)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">## \fn introduce_points_in_between(r0)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"># get gp.fine points logarithmically spaced points</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"># @param r0 3D radius</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">#from pylab import *</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">#ion()</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> BiWeight <span class="keyword">import</span> meanbiweight</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> gi_file <span class="keyword">as</span> gf</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6">run</a>(gp):</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">import</span> gr_params</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    gpr = <a class="code" href="a00004.html">gr_params.grParams</a>(gp)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment"># get radius, used for all binning</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        print(<span class="stringliteral">&#39;input: &#39;</span>, gp.files.get_com_file(pop))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> gf.bufcount(gp.files.get_com_file(pop))&lt;2:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        x,y,vlos = np.loadtxt(gp.files.get_com_file(pop), skiprows=1, unpack=<span class="keyword">True</span>) <span class="comment">#2*[rscale], [km/s]</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment"># totmass_tracers = 1.*len(x)  # [Munit], [Munit], where each star is weighted with the same mass</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        r = np.sqrt(x*x+y*y) <span class="comment"># [rscale]</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">#set binning</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">#gp.nipol = (max - min)*N^(1/3)/(2*(Q3-Q1)) #(method of wand)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        rmin = 0.                                       <span class="comment"># [rscale]</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        rmax = max(r) <span class="keywordflow">if</span> gp.maxR &lt; 0 <span class="keywordflow">else</span> 1.0*gp.maxR <span class="comment"># [rscale]</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        binmin, binmax, rbin = gh.determine_radius(r, rmin, rmax, gp) <span class="comment"># [rscale0]</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># unitsXS</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00155.html#ac066e9546868b0d0ae0526784a37d0b8">   39</a></span>&#160;G1  = 6.67398e-11                <span class="comment"># [m^3 kg^-1 s^-2]</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00155.html#af97113aab03bea093ff61d2a9dbcbc90">   40</a></span>&#160;pc  = 3.08567758e16              <span class="comment"># [m]</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00155.html#a7ddc50ca352252f9a740bce81ce73410">   41</a></span>&#160;msun= 1.981e30                   <span class="comment"># [kg]</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00155.html#a8d2fbd63bc06254835f15c70e90d5ea2">   42</a></span>&#160;km  = 1000.                      <span class="comment"># [m]</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;G1  = G1*msun/km**2/pc</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00155.html#a3033f0f0b5aaed7217760e4c656fb23a">   45</a></span>&#160;Nfine = 30</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00155.html#abfda2b0c453ae2df1c6f61b0a53dd88a">   46</a></span>&#160;MtoL = 100000. <span class="comment"># constant</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00155.html#a49a16bb75163bac8b9773a5d7e60983a">   48</a></span>&#160;r0 = np.logspace(-2, 2, 10)</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00155.html#a90e3fec719c0e564615f557a2fbcaa5a">   49</a></span>&#160;nuanf  = ga.rho_hern(r0, 1, 1) <span class="comment"># 1/MtoL</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00155.html#ad565312273ef86d02e7c5e50666603fe">   50</a></span>&#160;Siganf = ga.Sig_hern(r0, 1, 1) <span class="comment"># 1/MtoL</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a00155.html#acb2ac65a32d9db02ad822787c913bc4f">   52</a></span>&#160;minr = min(r0)</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a00155.html#a29beb63bbc9dc149ad9b9942269ccd0e">   53</a></span>&#160;maxr = max(r0)</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a00155.html#a90535bb10e44a1bb1ab0cb5bb00c9c0e">   54</a></span>&#160;repol = xepol = np.hstack([minr/8.,minr/4.,minr/2.,r0,2*maxr, 4*maxr, 8*maxr])</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a00155.html#a460411a7a64e81d464e23f52da1cd3b4">   55</a></span>&#160;rfine = <a class="code" href="a00155.html#a335a7c5d9538a9a48a31bf977476a322">introduce_points_in_between</a>(r0)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;Sigdatnu, Sigerrnu = gh.complete_nu(r0, Siganf, Siganf/20, rfine)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">#loglog(r0, Siganf, &#39;b.-&#39;)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">#loglog(rfine, Sigdatnu, &#39;r.-&#39;)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;loglog(r0, nuanf, <span class="stringliteral">&#39;b.-&#39;</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a00155.html#ad105d6b8aa828f474b523d48bc72df65">   63</a></span>&#160;nudatnu = gip.Sig_INT_rho(rfine, Sigdatnu, gp)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;loglog(rfine, nudatnu, <span class="stringliteral">&#39;r.-&#39;</span>, lw=0.5)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">#nudatnuold = gip.Sig_INT_rho_buggy(rfine, Sigdatnu, gp) #negative found</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">#loglog(rfine, nudatnuold, &#39;g.-&#39;)</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;pdb.set_trace()</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;dummy, nudatnu, nuerrnu, Mrdatnu = gip.Sig_NORM_rho(rfine, Sigdatnu, Sigerrnu, gp)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">#loglog(r0, nuanf, &#39;b.-&#39;)</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">#loglog(rfine, nudatnu, &#39;r.-&#39;, alpha=0.5)</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment"># offset from the start!</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        rs = gpr.Rerr*np.random.randn(len(r))+r <span class="comment">#[rscale]</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        vlos = gpr.vrerr*np.random.randn(len(vlos))+vlos <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        vfil = open(gp.files.sigfiles[pop], <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        print(<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;, &#39;</span>sigma_r(r)&#39;, &#39;error&#39;, file=vfil)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment"># 30 iterations for drawing a given radius in bin</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        dispvelocity = np.zeros((gp.nipol,gpr.n))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        a = np.zeros((gp.nipol,gpr.n))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        p_dvlos = np.zeros(gp.nipol)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        p_edvlos = np.zeros(gp.nipol)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(gpr.n):</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            rsi = gpr.Rerr*np.random.randn(len(rs))+rs <span class="comment">#[rscale]</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            vlosi = gpr.vrerr*np.random.randn(len(vlos))+vlos <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(gp.nipol):</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                ind1 = np.argwhere(np.logical_and(rsi&gt;binmin[i],rsi&lt;binmax[i])).flatten()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                a[i][k] = len(ind1) <span class="comment">#[1]</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                vlos1 = vlosi[ind1] <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                if(len(ind1)&lt;=1):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    dispvelocity[i][k] = dispvelocity[i-1][k]</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="comment"># attention! should be 0, uses last value</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    dispvelocity[i][k] = <a class="code" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">meanbiweight</a>(vlos1,ci_perc=68.4,\</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                                      ci_mean=<span class="keyword">True</span>,ci_std=<span class="keyword">True</span>)[1]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="comment"># [km/s], see BiWeight.py</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(gp.nipol):</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            dispvel = np.sum(dispvelocity[i])/gpr.n <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            ab = np.sum(a[i])/(1.*gpr.n) <span class="comment">#[1]</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> ab == 0:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                dispvelerr = p_edvlos[i-1] <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="comment"># attention! uses last error</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                dispvelerr = dispvel/np.sqrt(ab) <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            p_dvlos[i] = dispvel      <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            p_edvlos[i]= dispvelerr <span class="comment">#[km/s]</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00155.html#a8729fe6ee174cfcf9e55b59201855a2a">   76</a></span>&#160;Sigdatproj_coarse = gip.rho_INTIPOL_Sig(r0, nuanf, gp)</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00155.html#afe7aa153161be889f2b9bba5c6378425">   77</a></span>&#160;Sigdatproj_fine   = gip.rho_INTIPOL_Sig(rfine, nudatnu, gp)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"># loglog(r0, Siganf, &#39;b.-&#39;)</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"># loglog(r0, Sigdatproj_coarse, &#39;r&#39;)</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"># loglog(rfine, Sigdatproj_fine, &#39;g&#39;)</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        maxsiglos = max(p_dvlos) <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        print(<span class="stringliteral">&#39;maxsiglos = &#39;</span>,maxsiglos,<span class="stringliteral">&#39;[km/s]&#39;</span>)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        fpars = open(gp.files.get_scale_file(pop),<span class="stringliteral">&#39;a&#39;</span>)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        print(maxsiglos, file=fpars)          <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        fpars.close()</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">#import shutil</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">#shutil.copy2(gp.files.get_scale_file(0), gp.files.get_scale_file(1))</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a00155.html#afd427c3b451edc2adad756a60528d574">   85</a></span>&#160;betanu = np.zeros(len(rfine))</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a00155.html#a296a7625ecefca7cdc60b38ea401003a">   86</a></span>&#160;rhonu  = ga.rho_hern(rfine, 1, 1)</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a00155.html#ad7fcefc929bab4d866f7da4ad77a35dd">   87</a></span>&#160;nunu   = ga.rho_hern(rfine, 1, 1/MtoL)</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="a00155.html#a459d5de070d000afd607555f7fee1b59">   88</a></span>&#160;idnu   = np.zeros(len(rfine))</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">######################## calculation of sigma_LOS ##########################</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(gp.nipol):</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="comment">#             [rscale]  [maxsiglos]                  [maxsiglos]</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            print(rbin[i], binmin[i], binmax[i], np.abs(p_dvlos[i]/maxsiglos),np.abs(p_edvlos[i]/maxsiglos), file=vfil) <span class="comment">#/np.sqrt(n))</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        vfil.close()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">#if gpr.showplots:</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">#    gpr.show_plots_vlos(rbin, p_dvlos, p_edvlos)</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a00155.html#ad914c3ae58bef048acb314b384920d38">   93</a></span>&#160;start_time = time.time()</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"># integrate enclosed 3D mass from 3D density</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a00155.html#af011013f63b0d494236a7f1e1abe3613">   96</a></span>&#160;r0tmp = np.hstack([0.,rfine])</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="a00155.html#a541a602141731e6cb0d14d48e2cc19e5">   97</a></span>&#160;rhoint = 4.*np.pi*rfine**2*rhonu</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"># add point to avoid 0.0 in Mrnu(rfine[0])</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a00155.html#a7528fa1c10141e0d7a85a2a39dd53163">   99</a></span>&#160;rhotmp = np.hstack([0.,rhoint])</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a00155.html#a9aec2585f723dd11bef20e442477e5ea">  101</a></span>&#160;splpar = splrep(r0tmp, rhotmp, k=1, s=0.) <span class="comment"># not necessarily monotonic</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="a00155.html#a2186481ed4ff4bbd95dd253b1e7885ca">  102</a></span>&#160;Mrnu = np.zeros(len(rfine))              <span class="comment"># work in refined model</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(rfine)):              <span class="comment"># get Mrnu</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    Mrnu[i] = splint(0., rfine[i], splpar)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;gh.checkpositive(Mrnu, <span class="stringliteral">&#39;Mrnu&#39;</span>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="a00155.html#ad54849e2e01c772992dbc5e671842bca">  107</a></span>&#160;Mr_hern = ga.M_hern(rfine, 1, 1)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"># (sigr2, 3D) * nu/exp(-idnu)</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="a00155.html#ae202dd596218ad419c2f84f5aa53f8c8">  110</a></span>&#160;xint = rfine                           <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a00155.html#a4e8880673a2dfa0c3d836af5ee8214cf">  111</a></span>&#160;yint = G1 * Mrnu / rfine**2         <span class="comment"># [1/pc (km/s)^2]</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;yint *= nunu                          <span class="comment"># [Munit/pc^4 (km/s)^2]</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;yint *= np.exp(idnu)                  <span class="comment"># [Munit/pc^4 (km/s)^2]</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;gh.checkpositive(yint, <span class="stringliteral">&#39;yint sigr2&#39;</span>)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"># use quadinflog or quadinfloglog here</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a00155.html#af70ba5cdeab5e5ab5e3f0879ccc836a6">  117</a></span>&#160;sigr2nu = np.zeros(len(rfine))</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(rfine)):</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    sigr2nu[i] = np.exp(-idnu[i])/nunu[i]*\</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                 gh.quadinflog(xint, yint, rfine[i], gp.rinfty*rfine[-1], <span class="keyword">True</span>)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">#if sigr2nu[i] == np.inf:</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">#    sigr2nu[i] = 1e-100</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment"># last arg: warn if no convergence found</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;gh.checkpositive(sigr2nu, <span class="stringliteral">&#39;sigr2nu in sigl2s&#39;</span>)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="a00155.html#a03bfd20bd91ac7d260ab267ebe3babe3">  126</a></span>&#160;sigr2anf = ga.sigr2_hern(rfine, 1, 1, G1)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"># project back to LOS values</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"># sigl2sold = np.zeros(len(rfine)-gp.nexp</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a00155.html#aebc0640f0d2776dc02a7bbf3c78373c5">  132</a></span>&#160;sigl2s = np.zeros(len(rfine)-gp.nexp)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(rfine)-gp.nexp): <span class="comment"># get sig_los^2</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a00155.html#a3c524528018b39ca93f71035ea406fec">  134</a></span>&#160;    xnew = np.sqrt(rfine[i:]**2-rfine[i]**2)             <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a00155.html#ab37cc194ede99eb8a21503ecf5614afa">  135</a></span>&#160;    ynew = 2.*(1-betanu[i]*(rfine[i]**2)/(rfine[i:]**2))</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    ynew *= nunu[i:] * sigr2nu[i:]</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    gh.checkpositive(ynew, <span class="stringliteral">&#39;ynew in sigl2s&#39;</span>) <span class="comment"># is hit several times..</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment"># check sigr2nu: has too many entries of inf!</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment"># stop integration at xnew[-1] instead of at np.inf</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment"># to circumvent inf when nunu has increase at fudge radii</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    sigl2s[i] = gh.quadinflog(xnew, ynew, 0, gp.rinfty*xnew[-1], <span class="keyword">False</span>)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"># for last 3 bins, we are up to a factor 2 off</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;gh.checkpositive(sigl2s, <span class="stringliteral">&#39;sigl2s&#39;</span>)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"># calculate surface density on the same rfine as the sigl2s</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="a00155.html#aa3876253289b138eb1f8d36bcf9d9aa0">  147</a></span>&#160;surfden = gip.rho_INT_Sig(rfine, nunu, gp)</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a00155.html#afaf6d385cd0874fa49789a26b58b268c">  148</a></span>&#160;siglos = np.sqrt(sigl2s/surfden[:-gp.nexp])</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a00155.html#a64edaf211dd3533bf7c213490dd3054c">  150</a></span>&#160;elapsed_time = time.time() - start_time</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;print(<span class="stringliteral">&quot;elapsed time: &quot;</span>+str(elapsed_time))</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a00155.html#a0c6e76d5231763c2225ad8f646e145d9">  153</a></span>&#160;surfdenanf = ga.Sig_hern(rfine, 1, 1/MtoL)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;rfine = rfine[:-gp.nexp]</div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="a00155.html#a1f6fcc514f319f13409cdbc9bd946c5f">  155</a></span>&#160;siglanf = ga.sig_los_hern(rfine, 1, 1, G1)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;plot(rfine, siglanf, <span class="stringliteral">&#39;b.-&#39;</span>)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;xscale(<span class="stringliteral">&#39;log&#39;</span>)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;plot(rfine, siglos, <span class="stringliteral">&#39;r.-&#39;</span>)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;pdb.set_trace()</div>
-<div class="ttc" id="a00155_html_a335a7c5d9538a9a48a31bf977476a322"><div class="ttname"><a href="a00155.html#a335a7c5d9538a9a48a31bf977476a322">test_proj.introduce_points_in_between</a></div><div class="ttdeci">def introduce_points_in_between</div><div class="ttdoc">get gp.fine points logarithmically spaced points </div><div class="ttdef"><b>Definition:</b> <a href="a00082_source.html#l00029">test_proj.py:29</a></div></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    gpr.showplots = <span class="keyword">True</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">import</span> gi_params</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a00157.html#ae1067edd23d084c5896703685bf8d320">   96</a></span>&#160;    gp = <a class="code" href="a00007.html">gi_params.Params</a>()</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6">run</a>(gp)</div>
+<div class="ttc" id="a00102_html_a29a73d62880e90ca27cbef0a7f197fd8"><div class="ttname"><a href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">BiWeight.meanbiweight</a></div><div class="ttdeci">def meanbiweight</div><div class="ttdoc">Estimation of the central location (&amp;#39;mean&amp;#39;) of a distribution, resistant for outliers and robust for ...</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00090">BiWeight.py:90</a></div></div>
+<div class="ttc" id="a00157_html_a1ce8e382296d58f979c6cf977c62f5b6"><div class="ttname"><a href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6">grt_siglos.run</a></div><div class="ttdeci">def run</div><div class="ttdef"><b>Definition:</b> <a href="a00082_source.html#l00018">grt_siglos.py:18</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">gr_params.grParams</a></div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00012">gr_params.py:12</a></div></div>
+<div class="ttc" id="a00007_html"><div class="ttname"><a href="a00007.html">gi_params.Params</a></div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00024">gi_params.py:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

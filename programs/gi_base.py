@@ -22,12 +22,13 @@ def get_basepath():
 def get_machine():
     host_name = socket.gethostname()
     user_name = getpass.getuser()
+    print(host_name)
     #print('host_name = ', host_name)
     if 'darkside' in host_name:
         machine = 'darkside'
     elif 'ethz' in host_name:
         machine = 'brutus'
-    elif 'science' in host_name:
+    elif 'science' in host_name or 'known' in host_name:
         machine = 'science'
     elif ('lisa' in host_name) and ('login' in host_name) and ('hsilverw' in user_name):
         machine = 'lisa_HS_login'

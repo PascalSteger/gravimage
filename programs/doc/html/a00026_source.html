@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/plotting/select_run.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/disk/gi_params.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,386 +80,278 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_6c27e3002ec904ab436ee8a25303fe4b.html">plotting</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_77a4f8c80a572cfce9678ddd5961f4a1.html">disk</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">select_run.py</div>  </div>
+<div class="title">gi_params.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00026.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00150.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00026.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00127.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># select a completed or still running MCMC run for plotting</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># all parameters for the gravimage MCMC, gaia investigation</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) 2015 ETHZ, Pascal Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) GPL v3 2015 ETHZ Pascal S.P. Steger, pascal@steger.aero</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> os</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> glob</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> shutil</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> re</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">#import socket</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">#import getpass</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> gi_base <span class="keyword">as</span> gb</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00150.html#a48e0dd541e611647fade178ac1e81854">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a48e0dd541e611647fade178ac1e81854">bufcount</a>(filename):</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    f = open(filename)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    lines = 0</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    buf_size = 1024 * 1024</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    read_f = f.read <span class="comment"># loop optimization</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    buf = read_f(buf_size)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">while</span> buf:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        lines += buf.count(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        buf = read_f(buf_size)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> lines</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">## \fn bufcount(filename)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"># determine no. lines optimally</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># not used anymore</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param filename filename</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00150.html#aba89bd6ea537ba9dcd4459bd452cd6c4">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#aba89bd6ea537ba9dcd4459bd452cd6c4">removeDir</a>(path):</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> os.path.isdir(path):</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        shutil.rmtree(path)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">## \fn removeDir(path)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"># delete directory recursively, if it exists</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># @param path path to directory</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00150.html#ade488ed8eac7de2637a5b68ade50bc05">   40</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#ade488ed8eac7de2637a5b68ade50bc05">remove_empty_folders</a>(fdl):</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> fdl:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            with open(x[0]+<span class="stringliteral">&quot;ev.dat&quot;</span>):</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="comment"># delete any folder that has empty ev.dat</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> <a class="code" href="a00150.html#a48e0dd541e611647fade178ac1e81854">bufcount</a>(x[0]+<span class="stringliteral">&#39;ev.dat&#39;</span>) &lt;= 0:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="comment">#removeDir(x[0])</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    print(<span class="stringliteral">&#39;empty &#39;</span>+x[0]+<span class="stringliteral">&#39;ev.dat, remove dir?&#39;</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">except</span> IOError:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">#removeDir(x[0])</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            print(x[0]+<span class="stringliteral">&#39;ev.dat does not exist, remove empty directory &#39;</span>+x[0]+<span class="stringliteral">&#39;?&#39;</span>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">## \fn remove_empty_folders(fdl)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"># remove all folders in list fdl without any ev.dat file in it = where</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># no iterations of the MultiNest algorithm were stored</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"># @param fdl [(name, datestamp)] of all dirs in current mode</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a00150.html#ab5527453779acc542aba7d996b5c9278">   58</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#ab5527453779acc542aba7d996b5c9278">list_files</a>(basedir):</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    dirs = list(filter(os.path.isdir, glob.glob(basedir + <span class="stringliteral">&quot;201*&quot;</span>)))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    fdl = [(x, datetime.strptime(x[x.find(<span class="stringliteral">&#39;201&#39;</span>):x.find(<span class="stringliteral">&#39;201&#39;</span>)+14],\</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                 <span class="stringliteral">&#39;%Y%m%d%H%M&#39;</span>)) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirs]</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">#remove_empty_folders(fdl)</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    dirs = list(filter(os.path.isdir, glob.glob(basedir + <span class="stringliteral">&quot;201*&quot;</span>)))</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    fdl = []</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirs:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        timestamp = datetime.strptime(x[x.find(<span class="stringliteral">&#39;201&#39;</span>):x.find(<span class="stringliteral">&#39;201&#39;</span>)+14], <span class="stringliteral">&#39;%Y%m%d%H%M&#39;</span>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            co = <a class="code" href="a00150.html#a48e0dd541e611647fade178ac1e81854">bufcount</a>(x+<span class="stringliteral">&#39;ev.dat&#39;</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            print(<span class="stringliteral">&#39;file not found&#39;</span>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            co = 0</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        fdl.append((x, timestamp, co ))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    fdl.sort(key=<span class="keyword">lambda</span> x: x[1])</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(fdl)):</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            fil = open(fdl[i][0]+<span class="stringliteral">&#39;programs/gi_params.py&#39;</span>,<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            print(<span class="stringliteral">&#39;missing &#39;</span>+fdl[i][0]+<span class="stringliteral">&#39;programs/gi_params.py&#39;</span>)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        pops = 0                <span class="comment"># default: 0 populations, error</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        nipol = 0</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        nbeta = 0</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> fil:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            lsp = line.split()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">if</span> len(lsp) &lt; 1:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">if</span> lsp[0] == <span class="stringliteral">&#39;self.pops&#39;</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                pops = int(lsp[2])</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">elif</span> lsp[0] == <span class="stringliteral">&#39;self.nipol&#39;</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                nipol = int(lsp[2])</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">elif</span> lsp[0] == <span class="stringliteral">&#39;self.nbeta&#39;</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                nbeta = int(lsp[2])</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">elif</span> lsp[0] == <span class="stringliteral">&#39;self.monotonic&#39;</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                mono = lsp[2]</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        print(<span class="stringliteral">&quot;%2d&quot;</span>%(i+1),<span class="stringliteral">&#39;: &#39;</span>,\</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;              datetime.strftime(fdl[i][1],<span class="stringliteral">&#39;%Y-%m-%d %H:%M&#39;</span>),\</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;              <span class="stringliteral">&quot;%5d&quot;</span>%fdl[i][2], <span class="stringliteral">&#39;its,&#39;</span>, \</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;              pops, <span class="stringliteral">&#39;pops,&#39;</span>,\</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              nipol, <span class="stringliteral">&#39;bins,&#39;</span>, <span class="stringliteral">&#39;nbeta=&#39;</span>, nbeta, <span class="stringliteral">&#39;mono=&#39;</span>, mono)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    out = np.transpose(np.array(fdl))[:][0]</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> out</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">## \fn list_files(basedir)</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"># return all working or completed MCMC run directories</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"># NOT USED ANYMORE</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"># @param basedir string of directory</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a00150.html#aca87e12b1e29a270ddd664ac3fd9c623">  108</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#aca87e12b1e29a270ddd664ac3fd9c623">list_files_readout</a>(basedir, investigate, case):</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    bp = gb.get_basepath()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    fil = open(bp+<span class="stringliteral">&quot;/run_info&quot;</span>, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;)</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">    fdl=[]</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> fil:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> re.search(<span class="stringliteral">&quot;DT&quot;</span>+str(investigate)+<span class="stringliteral">&quot;/&quot;</span>+str(case)+<span class="stringliteral">&quot;/&quot;</span>, line):</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            line2 = re.sub(<span class="stringliteral">r&#39;\n&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, line)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            print(line2)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> re.search(<span class="stringliteral">&quot;File &quot;</span>, line2):</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                fdl.append(line2)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    fil.close()</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> fdl</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">## \fn list_files_readout(basedir, investigate, case)</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment"># return list of MCMC run directories</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"># @param basedir string of base directory, e.g. DTgaia/3/</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"># @param investigate str investigation, gaia, walk, ..</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"># @param case int for case to look at</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="a00150.html#aa89e8720355c4df22ad7da2eda4fa3b5">  126</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#aa89e8720355c4df22ad7da2eda4fa3b5">get_investigate</a>():</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    default = <span class="stringliteral">&#39;gaia&#39;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    invalid = <span class="keyword">True</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            user_input = input(<span class="stringliteral">&#39;Investigate: (default: &#39;</span>+str(default)+\</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                               <span class="stringliteral">&quot;, walk, gaia, triax, hern, obs, discsim, discmock, simplenu): &quot;</span>)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                user_input = str(default)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            sel = user_input</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            print(<span class="stringliteral">&quot;error in input&quot;</span>)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        invalid = <span class="keyword">True</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;walk&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;gaia&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;triax&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;hern&#39;</span>\</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;          <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;obs&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;discsim&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;discmock&#39;</span> <span class="keywordflow">or</span> sel == <span class="stringliteral">&#39;simplenu&#39;</span>:</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> sel</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">## \fn get_investigate(default)</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment"># ask user for choice on investigation</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"># (walk, gaia, triax, fornax, hern, discsim, discmock)</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"># @return string</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a00150.html#a8664d9c7a07535eda3b69770e6d3e53e">  148</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a8664d9c7a07535eda3b69770e6d3e53e">choose_obs</a>(sel):</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;1&#39;</span>:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;for&#39;</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;2&#39;</span>:</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;car&#39;</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;3&#39;</span>:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;scl&#39;</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;4&#39;</span>:</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;sex&#39;</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">if</span> sel == <span class="stringliteral">&#39;5&#39;</span>:</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;dra&#39;</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;for&#39;</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">## \fn choose_obs(sel)</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"># mapping of selection (int) to directory name (string of length 3)</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"># @param sel selection (int)</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="a00150.html#a3f3b9621999fd3deb5efced74eba1d64">  164</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a3f3b9621999fd3deb5efced74eba1d64">get_case</a>(investigate):</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    default = 1</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    invalid = <span class="keyword">True</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            user_input = input(<span class="stringliteral">&#39;Case: (default &#39;</span>+str(default)+<span class="stringliteral">&quot;): &quot;</span>)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                user_input = str(default)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            sel = int(user_input)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            print(<span class="stringliteral">&quot;error in input&quot;</span>)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">if</span> 0&lt;=sel <span class="keywordflow">and</span> ((sel &lt;= 5 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;walk&#39;</span>) <span class="keywordflow">or</span> \</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                       (sel &lt;= 10 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;gaia&#39;</span>) <span class="keywordflow">or</span> \</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                       (sel &lt;= 5 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;obs&#39;</span>) <span class="keywordflow">or</span> \</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                       (sel &lt;= 8 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;triax&#39;</span>) <span class="keywordflow">or</span> \</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                       (sel == 0 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;discmock&#39;</span>) <span class="keywordflow">or</span>\</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                       (sel == 0 <span class="keywordflow">and</span> investigate == <span class="stringliteral">&#39;simplenu&#39;</span>)):</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment"># assign string if working with observed dwarfs</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="comment">#if investigate == &#39;obs&#39;:</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="comment">#    sel = choose_obs(sel)</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">return</span> sel</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">## \fn get_case()</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"># ask user for choice on case number (see gi_params and gi_class_files</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"># for definitions)</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"># @return sel integer for case number</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="a00150.html#ae4075ee3e1abcab3024da733e0097146">  192</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#ae4075ee3e1abcab3024da733e0097146">get_run</a>(default):</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment"># interactive input</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    invalid = <span class="keyword">True</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            user_input = input(<span class="stringliteral">&#39;Input: (default &#39;</span>+str(default)+<span class="stringliteral">&quot;): &quot;</span>)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                user_input = str(default)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            selection = int(user_input)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            print(<span class="stringliteral">&quot;error in input&quot;</span>)</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">if</span> 0 &lt; selection <span class="keywordflow">and</span> selection &lt;= default:</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> selection - 1</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">## \fn get_run(default)</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"># ask user for choice on run number</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"># @param default default value: last one</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"># @return selection integer</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="a00150.html#afbd05d4c9f9112f9563056d15eff4094">  212</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#afbd05d4c9f9112f9563056d15eff4094">get_action</a>():</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment"># interactive input for action: p - print, k - kill and delete</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    default = <span class="stringliteral">&#39;p&#39;</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    invalid=<span class="keyword">True</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            user_input = input(<span class="stringliteral">&#39;Action: (p - print (default), k - kill): &#39;</span>)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                user_input = default</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            selection = user_input</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            print(<span class="stringliteral">&quot;error in input&quot;</span>)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">if</span> selection == <span class="stringliteral">&#39;p&#39;</span> <span class="keywordflow">or</span> selection == <span class="stringliteral">&#39;k&#39;</span>:</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">return</span> selection</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">## \fn get_action</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"># ask user for choice on action to take: print or delete</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="a00150.html#a584d3a4f2e7ce8f7f11dbb7e901710af">  231</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a584d3a4f2e7ce8f7f11dbb7e901710af">get_pop</a>():</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    default = <span class="stringliteral">&#39;1&#39;</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    invalid = <span class="keyword">True</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            user_input = input(<span class="stringliteral">&#39;population: 1 (default), 2 (if available): &#39;</span>)</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                user_input = default</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            sel = user_input</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            print(<span class="stringliteral">&#39;error in input&#39;</span>)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">if</span> sel==<span class="stringliteral">&#39;1&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;2&#39;</span>:</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">return</span> int(sel)</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">## \fn get_pop()</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"># get population integer</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"># @return int of population (0: all, 1: first, ...)</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="a00150.html#a2bb8f9490df14529849db74cafbb8413">  250</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a2bb8f9490df14529849db74cafbb8413">get_prof</a>():</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    default = <span class="stringliteral">&#39;all&#39;</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    invalid=<span class="keyword">True</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    while(invalid):</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            user_input = input(<span class="stringliteral">&#39;profile: all, rho, nr, beta, betastar, Sig, sig, chi2: &#39;</span>)</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> user_input:</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                user_input = default</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            sel = user_input</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            print(<span class="stringliteral">&quot;error in input&quot;</span>)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">if</span> sel==<span class="stringliteral">&#39;rho&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;M&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;beta&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;betastar&#39;</span> <span class="keywordflow">or</span> \</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;          sel==<span class="stringliteral">&#39;Sig&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;sig&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;nr&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;all&#39;</span> <span class="keywordflow">or</span> sel==<span class="stringliteral">&#39;chi2&#39;</span>:</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            invalid = <span class="keyword">False</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">return</span> sel</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">## \fn get_prof()</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"># interactive input for prof: rho, M, beta, betastar, nu, sig</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"># @return string</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="a00150.html#a730d74d7ceb93e35c8117e93a4a81d48">  270</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a730d74d7ceb93e35c8117e93a4a81d48">get_pops</a>(basename):</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    pops = 1</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    with open(basename+<span class="stringliteral">&#39;programs/gi_params.py&#39;</span>, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;) as f:</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> f:</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            lss = line.split()</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="keywordflow">if</span> len(lss) == 0:</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keywordflow">if</span> lss[0]==<span class="stringliteral">&#39;self.pops&#39;</span>:</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                pops = int(lss[2])</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="comment"># import re</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                <span class="comment"># pops = int(re.split(&#39;[=\n]&#39;, line)[-2])</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">return</span> pops</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">## \fn get_pops(basename)</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"># return number of populations from gi_params stored in output directory</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"># @param basename string of output dir</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"># @return integer number of populations</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="a00150.html#aba5699d33b9eeb7565a90cdb15a71036">  288</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#aba5699d33b9eeb7565a90cdb15a71036">get_nipol</a>(basename):</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    nipol = 0</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    with open(basename+<span class="stringliteral">&#39;programs/gi_params.py&#39;</span>, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;) as f:</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> f:</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;nipol      = &#39;</span> <span class="keywordflow">in</span> line:</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <span class="keyword">import</span> re</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                nipol = int(re.split(<span class="stringliteral">&#39;[=\n]&#39;</span>, line)[-2])</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">return</span> nipol</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">## \fn get_nipol(basename)</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"># return number bins from gi_params stored in output directory</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"># @param basename string of output dir</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"># @return integer number of bins</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="a00150.html#a1656b04ccd7a0a39b21bbd01a5d03343">  302</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#a1656b04ccd7a0a39b21bbd01a5d03343">get_nbeta</a>(basename):</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    nbeta = 0</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    with open(basename+<span class="stringliteral">&#39;programs/gi_params.py&#39;</span>, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;) as f:</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> f:</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;nbeta      = &#39;</span> <span class="keywordflow">in</span> line:</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keyword">import</span> re</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                nbeta = int(re.split(<span class="stringliteral">&#39;[=\n]&#39;</span>, line)[-2])</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">return</span> nbeta</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">## \fn get_nbeta(basename)</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment"># return number of beta parameters  from gi_params stored in output directory</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment"># @param basename string of output dir</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"># @return integer number of beta* parameters</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="a00150.html#af2833a931b05382cdbc12b87b9e0c2e4">  316</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00150.html#af2833a931b05382cdbc12b87b9e0c2e4">run</a>(investigate=&quot;&quot;, case=-1, latest=False):</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span> investigate == <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        investigate = <a class="code" href="a00150.html#aa89e8720355c4df22ad7da2eda4fa3b5">get_investigate</a>()</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">if</span> case == -1:</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        case = <a class="code" href="a00150.html#a3f3b9621999fd3deb5efced74eba1d64">get_case</a>(investigate)</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    basepath = gb.get_basepath()</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    basedir = os.path.abspath(basepath+<span class="stringliteral">&#39;DT&#39;</span>+investigate+<span class="stringliteral">&#39;/&#39;</span>+str(case)+<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    print(<span class="stringliteral">&#39; - searching directory &#39;</span>, basedir, <span class="stringliteral">&#39; for output files&#39;</span>)</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> latest:</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        fdl = <a class="code" href="a00150.html#aca87e12b1e29a270ddd664ac3fd9c623">list_files_readout</a>(basedir, investigate, case)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        sel = -1</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        action = <span class="stringliteral">&#39;k&#39;</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        while(action == <span class="stringliteral">&#39;k&#39;</span>):</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            fdl = <a class="code" href="a00150.html#aca87e12b1e29a270ddd664ac3fd9c623">list_files_readout</a>(basedir, investigate, case)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            sel = <a class="code" href="a00150.html#ae4075ee3e1abcab3024da733e0097146">get_run</a>(len(fdl))</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            action = <a class="code" href="a00150.html#afbd05d4c9f9112f9563056d15eff4094">get_action</a>()</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="keywordflow">if</span> action == <span class="stringliteral">&#39;k&#39;</span>:</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keyword">import</span> shutil</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                basename = re.split(<span class="stringliteral">&#39;\t&#39;</span>, fdl[sel])[1]</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                shutil.rmtree(basepath+basename)</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    line = fdl[sel] <span class="comment"># full directory path, without &#39;/&#39;</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    basename = re.split(<span class="stringliteral">&#39;\t&#39;</span>, line)[1]</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    timestamp = re.split(<span class="stringliteral">&#39;/&#39;</span>, basename)[2]</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">return</span> timestamp, basepath+basename+<span class="stringliteral">&#39;/&#39;</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">## \fn run(investigate, case, latest)</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"># display possible runs of the current investigation method, select one</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment"># @param investigate string of investigation case, hern, gaia, walk, discmock</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"># @param case int for case</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment"># @param latest boolean if looking at latest only</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment"># @return basename, prof (string)</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment"># default: take overall gi_params for parameters</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <a class="code" href="a00150.html#af2833a931b05382cdbc12b87b9e0c2e4">run</a>()</div>
-<div class="ttc" id="a00150_html_af2833a931b05382cdbc12b87b9e0c2e4"><div class="ttname"><a href="a00150.html#af2833a931b05382cdbc12b87b9e0c2e4">select_run.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">display possible runs of the current investigation method, select one </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00316">select_run.py:316</a></div></div>
-<div class="ttc" id="a00150_html_a2bb8f9490df14529849db74cafbb8413"><div class="ttname"><a href="a00150.html#a2bb8f9490df14529849db74cafbb8413">select_run.get_prof</a></div><div class="ttdeci">def get_prof</div><div class="ttdoc">interactive input for prof: rho, M, beta, betastar, nu, sig </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00250">select_run.py:250</a></div></div>
-<div class="ttc" id="a00150_html_aa89e8720355c4df22ad7da2eda4fa3b5"><div class="ttname"><a href="a00150.html#aa89e8720355c4df22ad7da2eda4fa3b5">select_run.get_investigate</a></div><div class="ttdeci">def get_investigate</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00126">select_run.py:126</a></div></div>
-<div class="ttc" id="a00150_html_aba89bd6ea537ba9dcd4459bd452cd6c4"><div class="ttname"><a href="a00150.html#aba89bd6ea537ba9dcd4459bd452cd6c4">select_run.removeDir</a></div><div class="ttdeci">def removeDir</div><div class="ttdoc">delete directory recursively, if it exists </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00033">select_run.py:33</a></div></div>
-<div class="ttc" id="a00150_html_a730d74d7ceb93e35c8117e93a4a81d48"><div class="ttname"><a href="a00150.html#a730d74d7ceb93e35c8117e93a4a81d48">select_run.get_pops</a></div><div class="ttdeci">def get_pops</div><div class="ttdoc">return number of populations from gi_params stored in output directory </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00270">select_run.py:270</a></div></div>
-<div class="ttc" id="a00150_html_ade488ed8eac7de2637a5b68ade50bc05"><div class="ttname"><a href="a00150.html#ade488ed8eac7de2637a5b68ade50bc05">select_run.remove_empty_folders</a></div><div class="ttdeci">def remove_empty_folders</div><div class="ttdoc">remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest a...</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00040">select_run.py:40</a></div></div>
-<div class="ttc" id="a00150_html_ae4075ee3e1abcab3024da733e0097146"><div class="ttname"><a href="a00150.html#ae4075ee3e1abcab3024da733e0097146">select_run.get_run</a></div><div class="ttdeci">def get_run</div><div class="ttdoc">ask user for choice on run number </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00192">select_run.py:192</a></div></div>
-<div class="ttc" id="a00150_html_afbd05d4c9f9112f9563056d15eff4094"><div class="ttname"><a href="a00150.html#afbd05d4c9f9112f9563056d15eff4094">select_run.get_action</a></div><div class="ttdeci">def get_action</div><div class="ttdoc">ask user for choice on action to take: print or delete </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00212">select_run.py:212</a></div></div>
-<div class="ttc" id="a00150_html_a1656b04ccd7a0a39b21bbd01a5d03343"><div class="ttname"><a href="a00150.html#a1656b04ccd7a0a39b21bbd01a5d03343">select_run.get_nbeta</a></div><div class="ttdeci">def get_nbeta</div><div class="ttdoc">return number of beta parameters from gi_params stored in output directory </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00302">select_run.py:302</a></div></div>
-<div class="ttc" id="a00150_html_a48e0dd541e611647fade178ac1e81854"><div class="ttname"><a href="a00150.html#a48e0dd541e611647fade178ac1e81854">select_run.bufcount</a></div><div class="ttdeci">def bufcount</div><div class="ttdoc">determine no. </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00018">select_run.py:18</a></div></div>
-<div class="ttc" id="a00150_html_a3f3b9621999fd3deb5efced74eba1d64"><div class="ttname"><a href="a00150.html#a3f3b9621999fd3deb5efced74eba1d64">select_run.get_case</a></div><div class="ttdeci">def get_case</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00164">select_run.py:164</a></div></div>
-<div class="ttc" id="a00150_html_ab5527453779acc542aba7d996b5c9278"><div class="ttname"><a href="a00150.html#ab5527453779acc542aba7d996b5c9278">select_run.list_files</a></div><div class="ttdeci">def list_files</div><div class="ttdoc">return all working or completed MCMC run directories NOT USED ANYMORE </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00058">select_run.py:58</a></div></div>
-<div class="ttc" id="a00150_html_a8664d9c7a07535eda3b69770e6d3e53e"><div class="ttname"><a href="a00150.html#a8664d9c7a07535eda3b69770e6d3e53e">select_run.choose_obs</a></div><div class="ttdeci">def choose_obs</div><div class="ttdoc">mapping of selection (int) to directory name (string of length 3) </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00148">select_run.py:148</a></div></div>
-<div class="ttc" id="a00150_html_aca87e12b1e29a270ddd664ac3fd9c623"><div class="ttname"><a href="a00150.html#aca87e12b1e29a270ddd664ac3fd9c623">select_run.list_files_readout</a></div><div class="ttdeci">def list_files_readout</div><div class="ttdoc">return list of MCMC run directories </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00108">select_run.py:108</a></div></div>
-<div class="ttc" id="a00150_html_aba5699d33b9eeb7565a90cdb15a71036"><div class="ttname"><a href="a00150.html#aba5699d33b9eeb7565a90cdb15a71036">select_run.get_nipol</a></div><div class="ttdeci">def get_nipol</div><div class="ttdoc">return number bins from gi_params stored in output directory </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00288">select_run.py:288</a></div></div>
-<div class="ttc" id="a00150_html_a584d3a4f2e7ce8f7f11dbb7e901710af"><div class="ttname"><a href="a00150.html#a584d3a4f2e7ce8f7f11dbb7e901710af">select_run.get_pop</a></div><div class="ttdeci">def get_pop</div><div class="ttdoc">get population integer </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00231">select_run.py:231</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00127.html#af7c959edeb0d2f1d2e5e640d39e67eac">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00127.html#af7c959edeb0d2f1d2e5e640d39e67eac">check_investigate</a>(inv):</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> inv == <span class="stringliteral">&#39;diskmock&#39;</span>: <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> inv == <span class="stringliteral">&#39;disksim&#39;</span>: <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;wrong investigative case in gi_params&#39;</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">## \fn check_investigate(inv)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># check whether there is a valid investigation chosen</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># @param inv string</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00007.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00007.html">Params</a>():</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00007.html#a35234db18438fe600deabc81aa1b9dd4">   25</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00007.html#a35234db18438fe600deabc81aa1b9dd4">__init__</a>(self, timestamp = &#39;&#39;, investigate = &#39;&#39;, case = -1):</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment"># Set machine and user variables</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.<a class="code" href="a00007.html#a0d93e43db0a70b3c12c44e834fa0d121">machine</a>, dummy = gh.detect_machine()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment"># Set investigation and geometry</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> investigate != <span class="stringliteral">&#39;&#39;</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00007.html#ab0f5817c5b2a8af268dbb1243f7f9ef2">   31</a></span>&#160;            self.<a class="code" href="a00007.html#ab0f5817c5b2a8af268dbb1243f7f9ef2">investigate</a> = investigate</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            self.<a class="code" href="a00007.html#ab0f5817c5b2a8af268dbb1243f7f9ef2">investigate</a>  = <span class="stringliteral">&#39;simplenu&#39;</span> <span class="comment"># determine which data set to work on</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                  <span class="comment"># &#39;diskmock&#39;: set up simple model for disk</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                  <span class="comment"># &#39;disksim&#39;: read in disk simulation</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00007.html#ab5520ecfce90e6aee8eddecfa681fff9">   36</a></span>&#160;        self.<a class="code" href="a00007.html#ab5520ecfce90e6aee8eddecfa681fff9">geom</a> = <span class="stringliteral">&#39;disk&#39;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">#check_investigate(self.investigate)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00007.html#ac1c45a892e08df212532bd4cd1bfea76">   39</a></span>&#160;        self.<a class="code" href="a00007.html#ac1c45a892e08df212532bd4cd1bfea76">case</a> = 0 <span class="comment"># used in spherical case</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00007.html#af9e5857728f2e39d215919fc5ef4e808">   40</a></span>&#160;        self.<a class="code" href="a00007.html#af9e5857728f2e39d215919fc5ef4e808">ntracer_pops</a> = 1 <span class="comment"># number of stellar tracer populations</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                      <span class="comment"># if changed: set getnewdata=True!</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment"># debug options</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00007.html#abd926bea406c8f80983e555e33240815">   45</a></span>&#160;        self.<a class="code" href="a00007.html#abd926bea406c8f80983e555e33240815">checksig</a> = <span class="keyword">False</span> <span class="comment"># debug sig calculation?</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00007.html#ac7a22e93d6194c03c09a0a475cc0ff68">   46</a></span>&#160;        self.<a class="code" href="a00007.html#ac7a22e93d6194c03c09a0a475cc0ff68">debug</a> = <span class="keyword">False</span> <span class="comment"># stop at wrong sanitazion?</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment"># data and analysis options</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00007.html#a7dddbe7355d0b4eb63e8f71451dea6fa">   50</a></span>&#160;        self.<a class="code" href="a00007.html#a7dddbe7355d0b4eb63e8f71451dea6fa">getnewdata</a> = <span class="keyword">True</span>  <span class="comment"># get new data computed from</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                <span class="comment"># observations before burn-in</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a00007.html#acccbddb4f78518f20b0ee8b3d3bade5f">   52</a></span>&#160;        self.<a class="code" href="a00007.html#acccbddb4f78518f20b0ee8b3d3bade5f">getnewpos</a>  = <span class="keyword">True</span>  <span class="comment"># redo the first data conversion step</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a00007.html#aaf2418a7b5c799b723e60f8365f7b917">   54</a></span>&#160;        self.<a class="code" href="a00007.html#aaf2418a7b5c799b723e60f8365f7b917">external_data_file</a>= <span class="stringliteral">&#39;/simplenu/simplenu_sigz_raw.dat&#39;</span><span class="comment">#_sdz_p05_sdvz_5.dat&#39;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a00007.html#a7d2b3b3092845ba1f2e63438e3c7d53e">   56</a></span>&#160;        self.<a class="code" href="a00007.html#a7d2b3b3092845ba1f2e63438e3c7d53e">binning</a> = <span class="stringliteral">&#39;consttr&#39;</span> <span class="comment"># &#39;linspace&#39;, &#39;logspace&#39;, &#39;consttr&#39;: binning of particles</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a00007.html#ab1f59aa286873a9ded2fe240005085f2">   57</a></span>&#160;        self.<a class="code" href="a00007.html#ab1f59aa286873a9ded2fe240005085f2">nbins</a> = 10 <span class="comment"># Number of bins to split tracer stars into</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a00007.html#a58b75c33c653f1147fae2be73def11b4">   58</a></span>&#160;        self.<a class="code" href="a00007.html#a58b75c33c653f1147fae2be73def11b4">nrhonu</a> = self.<a class="code" href="a00007.html#ab1f59aa286873a9ded2fe240005085f2">nbins</a> + 1 <span class="comment"># Number of points where rho and nu parameters will be set,</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                   <span class="comment"># e.g. bin centres, plus zC=0</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">#Dark matter options</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a00007.html#a71cb4c5ab70704bc62052096c9215fb4">   62</a></span>&#160;        self.<a class="code" href="a00007.html#a71cb4c5ab70704bc62052096c9215fb4">adddarkdisk</a> = <span class="keyword">False</span>  <span class="comment"># for disk mock case: add a dark disk?</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a00007.html#abeb1df8ea71410df4a3ff16cd07a671b">   64</a></span>&#160;        self.<a class="code" href="a00007.html#abeb1df8ea71410df4a3ff16cd07a671b">darkmattermodel</a> = <span class="stringliteral">&#39;const_dm&#39;</span>  <span class="comment"># kz_dm = kz parameterization of DM</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                        <span class="comment"># const_dm = constant DM density in z</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">#Baryon options</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a00007.html#af5cba091f9c531182b2e53fad7f96271">   68</a></span>&#160;        self.<a class="code" href="a00007.html#af5cba091f9c531182b2e53fad7f96271">baryonmodel</a> = <span class="stringliteral">&#39;simplenu_baryon&#39;</span> <span class="comment">#set baryon model</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                    <span class="comment"># none = all mass in DM</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                    <span class="comment"># simplenu_baryon = model used to generate simplenu mock data</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a00007.html#acdc59c0558efbdf8ea0a729b116e4ad2">   71</a></span>&#160;        self.<a class="code" href="a00007.html#acdc59c0558efbdf8ea0a729b116e4ad2">nbaryon_pops</a> = 1 <span class="comment"># Number of baryon populations to look at</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                    <span class="comment"># =0 if doing simple mass model (eg DM profile describes</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                    <span class="comment"># all mmass)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a00007.html#ad2f8ccdad7c60308a87445c839e08e48">   74</a></span>&#160;        self.<a class="code" href="a00007.html#ad2f8ccdad7c60308a87445c839e08e48">nbaryon_params</a> = 2 <span class="comment"># Number of parameters to describe baryon population</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                    <span class="comment">#  simplenu_baryon = 2</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                    <span class="comment">#  Holmberg &amp; Flynn = ?</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                    <span class="comment">#  with baryon observational information = nrho</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a00007.html#ae9d694f40cffb5177744106a00f5b5de">   79</a></span>&#160;        self.<a class="code" href="a00007.html#ae9d694f40cffb5177744106a00f5b5de">scan_rhonu_space</a> = <span class="keyword">False</span> <span class="comment">#Search directly in rho or nu space, i.e. no kr parametrization</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="a00007.html#ae9d694f40cffb5177744106a00f5b5de">scan_rhonu_space</a>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            self.<a class="code" href="a00007.html#a58b75c33c653f1147fae2be73def11b4">nrhonu</a> = self.<a class="code" href="a00007.html#ab1f59aa286873a9ded2fe240005085f2">nbins</a> <span class="comment">#Param count will be rho_C + rho_bins</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">#Total dimensions count</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="a00007.html#abeb1df8ea71410df4a3ff16cd07a671b">darkmattermodel</a> == <span class="stringliteral">&#39;kz_dm&#39;</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a00007.html#adf0842fc02749bdfbf808bb76acf7b51">   85</a></span>&#160;            self.<a class="code" href="a00007.html#adf0842fc02749bdfbf808bb76acf7b51">ndim</a> = 1 + 2*(self.<a class="code" href="a00007.html#a58b75c33c653f1147fae2be73def11b4">nrhonu</a> + 1) + self.<a class="code" href="a00007.html#acdc59c0558efbdf8ea0a729b116e4ad2">nbaryon_pops</a>*self.<a class="code" href="a00007.html#ad2f8ccdad7c60308a87445c839e08e48">nbaryon_params</a></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="comment"># Constant C from sigma_z calculation, nrho + 1 params for rho (nrho</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="comment"># points for kz_rho, plus central density of rho, eg rho_C), similarly</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="comment"># nrho +1  params for nu, plus the number of params for all baryon pops</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="a00007.html#abeb1df8ea71410df4a3ff16cd07a671b">darkmattermodel</a> == <span class="stringliteral">&#39;const_dm&#39;</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            self.<a class="code" href="a00007.html#adf0842fc02749bdfbf808bb76acf7b51">ndim</a> = 1 + 1 + (self.<a class="code" href="a00007.html#a58b75c33c653f1147fae2be73def11b4">nrhonu</a> + 1) + self.<a class="code" href="a00007.html#acdc59c0558efbdf8ea0a729b116e4ad2">nbaryon_pops</a>*self.<a class="code" href="a00007.html#ad2f8ccdad7c60308a87445c839e08e48">nbaryon_params</a></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="comment"># Constant C from sigma_z calculations, 1 for constant rho density,</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="comment"># nrhonu + 1 for kz_nu and nu_C, plus baryon params</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="a00007.html#ad5123c3bc048313fea9cbedcf486cbdb">   94</a></span>&#160;        self.<a class="code" href="a00007.html#ad5123c3bc048313fea9cbedcf486cbdb">z_err_measurement</a> = 0.05 <span class="comment"># Measurement error on z, fraction, eg 0.05 = 5%</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a00007.html#aba297c647248ae73a90fcd036b523672">   95</a></span>&#160;        self.<a class="code" href="a00007.html#aba297c647248ae73a90fcd036b523672">vz_SDerr_meas</a> = 5.  <span class="comment"># Measurement error on vz, [km s^-1]</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a00007.html#a2e9c2400b8d4d6363738d2654c1acc63">   96</a></span>&#160;        self.<a class="code" href="a00007.html#a2e9c2400b8d4d6363738d2654c1acc63">mc_err_N_iters</a> = int(100) <span class="comment">#Number of iterations to perform when doing MC error estimation</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment"># Priors</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment"># Limits for central densities (z=0)</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="a00007.html#a51494884cf70067c5999920961bcc667">  100</a></span>&#160;        self.<a class="code" href="a00007.html#a51494884cf70067c5999920961bcc667">rho_C_max</a> = 1.0E8  <span class="comment">#Msun kpc^-3 for either DM or baryons (cf rho_b = 0.0914 Msun pc^-3, Flynn+ 2006)</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a00007.html#aec8990e5d34fd41eaea7242846fb4392">  101</a></span>&#160;        self.<a class="code" href="a00007.html#aec8990e5d34fd41eaea7242846fb4392">rho_C_min</a> = 1.0E6 <span class="comment">#Msun pc^-3</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="a00007.html#a43ea7833012d7ee219576d6b206da38d">  102</a></span>&#160;        self.<a class="code" href="a00007.html#a43ea7833012d7ee219576d6b206da38d">rho_C_prior_type</a> = <span class="stringliteral">&#39;log&#39;</span> <span class="comment">#log, linear, gaussian</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a00007.html#a5614ec3d680355b7322051a4ecb055aa">  103</a></span>&#160;        self.<a class="code" href="a00007.html#a5614ec3d680355b7322051a4ecb055aa">nu_C_max</a> = 0.0 <span class="comment"># no. stars pc^-3, full value calculated in external_data</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a00007.html#a2b3661ecd564ed08a9b5e533e64c4f76">  104</a></span>&#160;        self.<a class="code" href="a00007.html#a2b3661ecd564ed08a9b5e533e64c4f76">nu_C_min</a> = 10.0 <span class="comment"># no. stars pc^-3</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="a00007.html#a88b3ed035a6d8c8e5bcf8a1fc00663f5">  105</a></span>&#160;        self.<a class="code" href="a00007.html#a88b3ed035a6d8c8e5bcf8a1fc00663f5">nu_C_prior_type</a> = <span class="stringliteral">&#39;log&#39;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment"># Limits for central kz values (z=0)</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a00007.html#a738ea6e8cf564f278f4968be265f636c">  108</a></span>&#160;        self.<a class="code" href="a00007.html#a738ea6e8cf564f278f4968be265f636c">kz_rho_C_max</a> = 5.0</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="a00007.html#aa59e2c4d611ef1f6097ac477a22afe9f">  109</a></span>&#160;        self.<a class="code" href="a00007.html#aa59e2c4d611ef1f6097ac477a22afe9f">kz_rho_C_min</a> = -5.0 <span class="comment">#SS</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="a00007.html#a09fa9b72f4d4016e5558f3bb3858d263">  110</a></span>&#160;        self.<a class="code" href="a00007.html#a09fa9b72f4d4016e5558f3bb3858d263">kz_nu_C_max</a> = 5.<span class="comment">#20.0</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a00007.html#ac76abaab15d05b98dd7ecb69e7bf3eda">  111</a></span>&#160;        self.<a class="code" href="a00007.html#ac76abaab15d05b98dd7ecb69e7bf3eda">kz_nu_C_min</a> = -5.0 <span class="comment">#SS</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment"># Maximum kz_slope (=dk/dz)</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a00007.html#ae01bf0858c3bd7ff14f48a2f02b7e98f">  114</a></span>&#160;        self.<a class="code" href="a00007.html#ae01bf0858c3bd7ff14f48a2f02b7e98f">max_kz_slope</a> = 10.0</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="comment"># Limits for sigz central value</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a00007.html#a52c92d27a6943964fed632b75bb12c3d">  117</a></span>&#160;        self.<a class="code" href="a00007.html#a52c92d27a6943964fed632b75bb12c3d">sigz_C_max</a> = 50.</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="a00007.html#a030b84d3c868e975fbe917637014a85f">  118</a></span>&#160;        self.<a class="code" href="a00007.html#a030b84d3c868e975fbe917637014a85f">sigz_C_min</a> = 5.</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment"># Monotonicity priors</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="a00007.html#ab182874568ec38f446bd57b9f9692b21">  121</a></span>&#160;        self.<a class="code" href="a00007.html#ab182874568ec38f446bd57b9f9692b21">monotonic_rho</a> = <span class="keyword">False</span>    <span class="comment"># mono-prior on rho(z)</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="a00007.html#ad99633d2524638b0b8cabe84e566f649">  122</a></span>&#160;        self.<a class="code" href="a00007.html#ad99633d2524638b0b8cabe84e566f649">monotonic_nu</a> = <span class="keyword">False</span> <span class="comment"># mono-prior on nu(z)</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="comment"># kz selection scheme</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a00007.html#a0ad3a9262149d1b3ae65d791e522e5b1">  125</a></span>&#160;        self.<a class="code" href="a00007.html#a0ad3a9262149d1b3ae65d791e522e5b1">kz_rho_selection</a> = <span class="stringliteral">&#39;gaussian&#39;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="a00007.html#a00ac1d25bf7efd203b00c1fadd9e40b3">  126</a></span>&#160;        self.<a class="code" href="a00007.html#a00ac1d25bf7efd203b00c1fadd9e40b3">kz_nu_selection</a> = <span class="stringliteral">&#39;tophat&#39;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="comment"># Log or linear priors for rhonu scanning</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="a00007.html#ab6f3ab1b046014a36301964c68293057">  129</a></span>&#160;        self.<a class="code" href="a00007.html#ab6f3ab1b046014a36301964c68293057">prior_type_rho</a> = <span class="stringliteral">&#39;gaussian&#39;</span> <span class="comment"># &#39;log&#39; or &#39;linear&#39;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="a00007.html#aa1ce0010d71f12381e934468190a3c95">  130</a></span>&#160;        self.<a class="code" href="a00007.html#aa1ce0010d71f12381e934468190a3c95">prior_type_nu</a> = <span class="stringliteral">&#39;gaussian&#39;</span> <span class="comment"># &#39;log&#39; or &#39;linear&#39;</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment"># Simplenu Baryon model priors</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a00007.html#aa1be0b99cd5dcca80d2e19566bd2335d">  133</a></span>&#160;        self.<a class="code" href="a00007.html#aa1be0b99cd5dcca80d2e19566bd2335d">simplenu_baryon_K_max</a> = 1700. <span class="comment">#JR model has K = 1500.</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a00007.html#a5d7328e4063d12773d30df5f49ce091e">  134</a></span>&#160;        self.<a class="code" href="a00007.html#a5d7328e4063d12773d30df5f49ce091e">simplenu_baryon_K_min</a> = 1300.</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a00007.html#aee447c59644d85a2eb6655b1708bc3f1">  135</a></span>&#160;        self.<a class="code" href="a00007.html#aee447c59644d85a2eb6655b1708bc3f1">simplenu_baryon_D_max</a> = 0.5 <span class="comment">#JR model has D = 0.18</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a00007.html#a566168c3794f7cb4f502b725b894e958">  136</a></span>&#160;        self.<a class="code" href="a00007.html#a566168c3794f7cb4f502b725b894e958">simplenu_baryon_D_min</a> = 0.05</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="comment"># MultiNest options</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a00007.html#a1a69fc11f8e7b29b9c3d5418edd88411">  140</a></span>&#160;        self.<a class="code" href="a00007.html#a1a69fc11f8e7b29b9c3d5418edd88411">map_priors</a> = <span class="keyword">False</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="comment"># Set number of terms for enclosedmass+tracer+anisotropy bins</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="comment"># = model parameters:</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a00007.html#a1024c8039c080077435952dddc4b2cfb">  143</a></span>&#160;        self.<a class="code" href="a00007.html#a1024c8039c080077435952dddc4b2cfb">chi2_nu_converged</a> = <span class="keyword">False</span> <span class="comment"># first converge on Sig if set to False</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a00007.html#aeffbab3ea4d529b38a6937e97b44df03">  144</a></span>&#160;        self.<a class="code" href="a00007.html#aeffbab3ea4d529b38a6937e97b44df03">chi2_switch</a> = 100. <span class="comment"># if chi2*10 &lt; chi2_switch, add chi2_sig</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="a00007.html#a182ea5c5094312b627054af2f51238ba">  145</a></span>&#160;        self.<a class="code" href="a00007.html#a182ea5c5094312b627054af2f51238ba">chi2_switch_mincount</a> = 10. <span class="comment"># demand that this number of profiles with</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                        <span class="comment"># chi2&lt;chi2_switch are found before adding chi2_sig</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="a00007.html#af3e883d22bf3b0d9835210e231a6a9a7">  147</a></span>&#160;        self.<a class="code" href="a00007.html#af3e883d22bf3b0d9835210e231a6a9a7">chi2_switch_counter</a> = 0. <span class="comment"># start the counter at 0</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="comment"># live points, &gt; ndim, &lt; 2^ndim, about number of</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="comment"># ellipsoids in phase space to be found</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a00007.html#ae57bd7ccaff7161b4cb68566c4eb8627">  151</a></span>&#160;        self.<a class="code" href="a00007.html#ae57bd7ccaff7161b4cb68566c4eb8627">nlive</a> = 100*self.<a class="code" href="a00007.html#adf0842fc02749bdfbf808bb76acf7b51">ndim</a></div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a00007.html#a7cd2c969c13c88815bcb2491473ae946">  152</a></span>&#160;        self.<a class="code" href="a00007.html#a7cd2c969c13c88815bcb2491473ae946">err</a> = 1e300    <span class="comment"># chi^2 for models which are impossible</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a00007.html#aaf3b5a45833a2cc5306105489da822a8">  153</a></span>&#160;        self.<a class="code" href="a00007.html#aaf3b5a45833a2cc5306105489da822a8">minsig</a> = 0.1   <span class="comment"># hyperparameter range sampled from 1/(minsig*mean(sig)) .. max</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="a00007.html#ab6ee83ab2c8e3075e6532496e7756aa5">  154</a></span>&#160;        self.<a class="code" href="a00007.html#ab6ee83ab2c8e3075e6532496e7756aa5">maxsig</a> = 10.0</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="comment">#fraction of profiles to save, set &lt;0 for no profile saving</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="a00007.html#a11a0c4d2aee7f44373e825d198fb19ab">  157</a></span>&#160;        self.<a class="code" href="a00007.html#a11a0c4d2aee7f44373e825d198fb19ab">save_fraction</a> = -1.0</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="comment">#Plotting flag</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a00007.html#ac13a3ef22a81293846d5754692245cff">  160</a></span>&#160;        self.<a class="code" href="a00007.html#ac13a3ef22a81293846d5754692245cff">plotting_flag</a> = <span class="keyword">False</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment"># filesystem-related</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        ip.set_geometry(self.<a class="code" href="a00007.html#ab5520ecfce90e6aee8eddecfa681fff9">geom</a>, self.<a class="code" href="a00007.html#a0d93e43db0a70b3c12c44e834fa0d121">machine</a>) <span class="comment"># load spherical or disk version of the code</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keyword">import</span> gi_class_files</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="a00007.html#aa714ef4ff9d18bd92d60620bdc759edc">  166</a></span>&#160;        self.<a class="code" href="a00007.html#aa714ef4ff9d18bd92d60620bdc759edc">files</a> = <a class="code" href="a00003.html">gi_class_files.Files</a>(self, timestamp)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keyword">from</span> gi_data <span class="keyword">import</span> Datafile</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="a00007.html#aed8aefdef7ed5b8e7e2049fcd35b4145">  168</a></span>&#160;        self.<a class="code" href="a00007.html#aed8aefdef7ed5b8e7e2049fcd35b4145">dat</a> = Datafile()</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment"># debug options</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        self.<a class="code" href="a00007.html#ac7a22e93d6194c03c09a0a475cc0ff68">debug</a> = <span class="keyword">False</span> <span class="comment"># enable calling debug routines. Turn off in production runs!</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a00007.html#a69757ad057512475686d925b48be3215">  172</a></span>&#160;        self.<a class="code" href="a00007.html#a69757ad057512475686d925b48be3215">checkbeta</a> = <span class="keyword">False</span> <span class="comment"># check that if right r_s and beta(r_infty) is set,</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                              <span class="comment"># we get the right profiles back</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        self.<a class="code" href="a00007.html#abd926bea406c8f80983e555e33240815">checksig</a> = <span class="keyword">False</span> <span class="comment"># check sigma_LOS calculation steps in gi_int</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="a00007.html#a3f7ce21831bd7bc6a7205ce65788b111">  175</a></span>&#160;        self.<a class="code" href="a00007.html#a3f7ce21831bd7bc6a7205ce65788b111">stopstep</a> = 5 <span class="comment"># step to stop at by default</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="comment"># global arrays</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="a00007.html#ac9b1affc308192e4742b92aaab62e7fe">  178</a></span>&#160;        self.<a class="code" href="a00007.html#ac9b1affc308192e4742b92aaab62e7fe">z_bincenters</a> = np.array([]) <span class="comment"># [pc] holds the bin centers, H Silverwood 21/11/14</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a00007.html#af84f119528bc36a0e635fc48aa6ddd41">  179</a></span>&#160;        self.<a class="code" href="a00007.html#af84f119528bc36a0e635fc48aa6ddd41">z_binmins</a> = np.array([])</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="a00007.html#a1d2cce312ac03ddd22d3cba119c7eaf3">  180</a></span>&#160;        self.<a class="code" href="a00007.html#a1d2cce312ac03ddd22d3cba119c7eaf3">z_binmaxs</a> = np.array([])</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="a00007.html#afdac930b4d7902f75ce885c6a266cf41">  181</a></span>&#160;        self.<a class="code" href="a00007.html#afdac930b4d7902f75ce885c6a266cf41">z_all_pts</a> = np.array([]) <span class="comment"># [pc] holds [zC = 0, z_bin_centers]</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment">## \fn __init__(self, timestamp = &#39;&#39;)</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment"># set up all parameters used in the course of the MultiNest run,</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment"># and the analysis routines in plot_multinest @param timestamp = &#39;&#39;, for output</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="a00007.html#a3c29b263a96fc2e413de06c3e39bfc8a">  187</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00007.html#a3c29b263a96fc2e413de06c3e39bfc8a">__repr__</a>(self):</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Params: &quot;</span>+self.files.dir</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">## \fn __repr__(self)</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment"># string representation for ipython</span></div>
+<div class="ttc" id="a00007_html_abeb1df8ea71410df4a3ff16cd07a671b"><div class="ttname"><a href="a00007.html#abeb1df8ea71410df4a3ff16cd07a671b">gi_params.Params.darkmattermodel</a></div><div class="ttdeci">darkmattermodel</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00064">gi_params.py:64</a></div></div>
+<div class="ttc" id="a00007_html_aa59e2c4d611ef1f6097ac477a22afe9f"><div class="ttname"><a href="a00007.html#aa59e2c4d611ef1f6097ac477a22afe9f">gi_params.Params.kz_rho_C_min</a></div><div class="ttdeci">kz_rho_C_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00109">gi_params.py:109</a></div></div>
+<div class="ttc" id="a00007_html_ab5520ecfce90e6aee8eddecfa681fff9"><div class="ttname"><a href="a00007.html#ab5520ecfce90e6aee8eddecfa681fff9">gi_params.Params.geom</a></div><div class="ttdeci">geom</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00036">gi_params.py:36</a></div></div>
+<div class="ttc" id="a00007_html_a7cd2c969c13c88815bcb2491473ae946"><div class="ttname"><a href="a00007.html#a7cd2c969c13c88815bcb2491473ae946">gi_params.Params.err</a></div><div class="ttdeci">err</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00152">gi_params.py:152</a></div></div>
+<div class="ttc" id="a00007_html_a0d93e43db0a70b3c12c44e834fa0d121"><div class="ttname"><a href="a00007.html#a0d93e43db0a70b3c12c44e834fa0d121">gi_params.Params.machine</a></div><div class="ttdeci">machine</div><div class="ttdef"><b>Definition:</b> <a href="a00027_source.html#l00132">gi_params.py:132</a></div></div>
+<div class="ttc" id="a00007_html_ae9d694f40cffb5177744106a00f5b5de"><div class="ttname"><a href="a00007.html#ae9d694f40cffb5177744106a00f5b5de">gi_params.Params.scan_rhonu_space</a></div><div class="ttdeci">scan_rhonu_space</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00079">gi_params.py:79</a></div></div>
+<div class="ttc" id="a00007_html_ac76abaab15d05b98dd7ecb69e7bf3eda"><div class="ttname"><a href="a00007.html#ac76abaab15d05b98dd7ecb69e7bf3eda">gi_params.Params.kz_nu_C_min</a></div><div class="ttdeci">kz_nu_C_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00111">gi_params.py:111</a></div></div>
+<div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">gi_class_files.Files</a></div><div class="ttdoc">Common base class for all filename sets. </div><div class="ttdef"><b>Definition:</b> <a href="a00036_source.html#l00040">gi_class_files.py:40</a></div></div>
+<div class="ttc" id="a00007_html_abd926bea406c8f80983e555e33240815"><div class="ttname"><a href="a00007.html#abd926bea406c8f80983e555e33240815">gi_params.Params.checksig</a></div><div class="ttdeci">checksig</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00045">gi_params.py:45</a></div></div>
+<div class="ttc" id="a00007_html_af5cba091f9c531182b2e53fad7f96271"><div class="ttname"><a href="a00007.html#af5cba091f9c531182b2e53fad7f96271">gi_params.Params.baryonmodel</a></div><div class="ttdeci">baryonmodel</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00068">gi_params.py:68</a></div></div>
+<div class="ttc" id="a00007_html_a2b3661ecd564ed08a9b5e533e64c4f76"><div class="ttname"><a href="a00007.html#a2b3661ecd564ed08a9b5e533e64c4f76">gi_params.Params.nu_C_min</a></div><div class="ttdeci">nu_C_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00104">gi_params.py:104</a></div></div>
+<div class="ttc" id="a00007_html_a7dddbe7355d0b4eb63e8f71451dea6fa"><div class="ttname"><a href="a00007.html#a7dddbe7355d0b4eb63e8f71451dea6fa">gi_params.Params.getnewdata</a></div><div class="ttdeci">getnewdata</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00050">gi_params.py:50</a></div></div>
+<div class="ttc" id="a00007_html_ab1f59aa286873a9ded2fe240005085f2"><div class="ttname"><a href="a00007.html#ab1f59aa286873a9ded2fe240005085f2">gi_params.Params.nbins</a></div><div class="ttdeci">nbins</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00057">gi_params.py:57</a></div></div>
+<div class="ttc" id="a00007_html_af9e5857728f2e39d215919fc5ef4e808"><div class="ttname"><a href="a00007.html#af9e5857728f2e39d215919fc5ef4e808">gi_params.Params.ntracer_pops</a></div><div class="ttdeci">ntracer_pops</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00040">gi_params.py:40</a></div></div>
+<div class="ttc" id="a00007_html_aec8990e5d34fd41eaea7242846fb4392"><div class="ttname"><a href="a00007.html#aec8990e5d34fd41eaea7242846fb4392">gi_params.Params.rho_C_min</a></div><div class="ttdeci">rho_C_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00101">gi_params.py:101</a></div></div>
+<div class="ttc" id="a00007_html_a11a0c4d2aee7f44373e825d198fb19ab"><div class="ttname"><a href="a00007.html#a11a0c4d2aee7f44373e825d198fb19ab">gi_params.Params.save_fraction</a></div><div class="ttdeci">save_fraction</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00157">gi_params.py:157</a></div></div>
+<div class="ttc" id="a00127_html_af7c959edeb0d2f1d2e5e640d39e67eac"><div class="ttname"><a href="a00127.html#af7c959edeb0d2f1d2e5e640d39e67eac">gi_params.check_investigate</a></div><div class="ttdeci">def check_investigate</div><div class="ttdoc">check whether there is a valid investigation chosen </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00015">gi_params.py:15</a></div></div>
+<div class="ttc" id="a00007_html_aba297c647248ae73a90fcd036b523672"><div class="ttname"><a href="a00007.html#aba297c647248ae73a90fcd036b523672">gi_params.Params.vz_SDerr_meas</a></div><div class="ttdeci">vz_SDerr_meas</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00095">gi_params.py:95</a></div></div>
+<div class="ttc" id="a00007_html_a88b3ed035a6d8c8e5bcf8a1fc00663f5"><div class="ttname"><a href="a00007.html#a88b3ed035a6d8c8e5bcf8a1fc00663f5">gi_params.Params.nu_C_prior_type</a></div><div class="ttdeci">nu_C_prior_type</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00105">gi_params.py:105</a></div></div>
+<div class="ttc" id="a00007_html_a71cb4c5ab70704bc62052096c9215fb4"><div class="ttname"><a href="a00007.html#a71cb4c5ab70704bc62052096c9215fb4">gi_params.Params.adddarkdisk</a></div><div class="ttdeci">adddarkdisk</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00062">gi_params.py:62</a></div></div>
+<div class="ttc" id="a00007_html_ab0f5817c5b2a8af268dbb1243f7f9ef2"><div class="ttname"><a href="a00007.html#ab0f5817c5b2a8af268dbb1243f7f9ef2">gi_params.Params.investigate</a></div><div class="ttdeci">investigate</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00031">gi_params.py:31</a></div></div>
+<div class="ttc" id="a00007_html_aa714ef4ff9d18bd92d60620bdc759edc"><div class="ttname"><a href="a00007.html#aa714ef4ff9d18bd92d60620bdc759edc">gi_params.Params.files</a></div><div class="ttdeci">files</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00166">gi_params.py:166</a></div></div>
+<div class="ttc" id="a00007_html_acdc59c0558efbdf8ea0a729b116e4ad2"><div class="ttname"><a href="a00007.html#acdc59c0558efbdf8ea0a729b116e4ad2">gi_params.Params.nbaryon_pops</a></div><div class="ttdeci">nbaryon_pops</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00071">gi_params.py:71</a></div></div>
+<div class="ttc" id="a00007_html_afdac930b4d7902f75ce885c6a266cf41"><div class="ttname"><a href="a00007.html#afdac930b4d7902f75ce885c6a266cf41">gi_params.Params.z_all_pts</a></div><div class="ttdeci">z_all_pts</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00181">gi_params.py:181</a></div></div>
+<div class="ttc" id="a00007_html_aeffbab3ea4d529b38a6937e97b44df03"><div class="ttname"><a href="a00007.html#aeffbab3ea4d529b38a6937e97b44df03">gi_params.Params.chi2_switch</a></div><div class="ttdeci">chi2_switch</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00144">gi_params.py:144</a></div></div>
+<div class="ttc" id="a00007_html_a2e9c2400b8d4d6363738d2654c1acc63"><div class="ttname"><a href="a00007.html#a2e9c2400b8d4d6363738d2654c1acc63">gi_params.Params.mc_err_N_iters</a></div><div class="ttdeci">mc_err_N_iters</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00096">gi_params.py:96</a></div></div>
+<div class="ttc" id="a00007_html_ad2f8ccdad7c60308a87445c839e08e48"><div class="ttname"><a href="a00007.html#ad2f8ccdad7c60308a87445c839e08e48">gi_params.Params.nbaryon_params</a></div><div class="ttdeci">nbaryon_params</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00074">gi_params.py:74</a></div></div>
+<div class="ttc" id="a00007_html_ac1c45a892e08df212532bd4cd1bfea76"><div class="ttname"><a href="a00007.html#ac1c45a892e08df212532bd4cd1bfea76">gi_params.Params.case</a></div><div class="ttdeci">case</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00039">gi_params.py:39</a></div></div>
+<div class="ttc" id="a00007_html_ac13a3ef22a81293846d5754692245cff"><div class="ttname"><a href="a00007.html#ac13a3ef22a81293846d5754692245cff">gi_params.Params.plotting_flag</a></div><div class="ttdeci">plotting_flag</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00160">gi_params.py:160</a></div></div>
+<div class="ttc" id="a00007_html_a3c29b263a96fc2e413de06c3e39bfc8a"><div class="ttname"><a href="a00007.html#a3c29b263a96fc2e413de06c3e39bfc8a">gi_params.Params.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00187">gi_params.py:187</a></div></div>
+<div class="ttc" id="a00007_html_ab6ee83ab2c8e3075e6532496e7756aa5"><div class="ttname"><a href="a00007.html#ab6ee83ab2c8e3075e6532496e7756aa5">gi_params.Params.maxsig</a></div><div class="ttdeci">maxsig</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00154">gi_params.py:154</a></div></div>
+<div class="ttc" id="a00007_html_ad5123c3bc048313fea9cbedcf486cbdb"><div class="ttname"><a href="a00007.html#ad5123c3bc048313fea9cbedcf486cbdb">gi_params.Params.z_err_measurement</a></div><div class="ttdeci">z_err_measurement</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00094">gi_params.py:94</a></div></div>
+<div class="ttc" id="a00007_html_a51494884cf70067c5999920961bcc667"><div class="ttname"><a href="a00007.html#a51494884cf70067c5999920961bcc667">gi_params.Params.rho_C_max</a></div><div class="ttdeci">rho_C_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00100">gi_params.py:100</a></div></div>
+<div class="ttc" id="a00007_html_a5614ec3d680355b7322051a4ecb055aa"><div class="ttname"><a href="a00007.html#a5614ec3d680355b7322051a4ecb055aa">gi_params.Params.nu_C_max</a></div><div class="ttdeci">nu_C_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00103">gi_params.py:103</a></div></div>
+<div class="ttc" id="a00007_html_a58b75c33c653f1147fae2be73def11b4"><div class="ttname"><a href="a00007.html#a58b75c33c653f1147fae2be73def11b4">gi_params.Params.nrhonu</a></div><div class="ttdeci">nrhonu</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00058">gi_params.py:58</a></div></div>
+<div class="ttc" id="a00007_html_a35234db18438fe600deabc81aa1b9dd4"><div class="ttname"><a href="a00007.html#a35234db18438fe600deabc81aa1b9dd4">gi_params.Params.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">set up all parameters used in the course of the MultiNest run, and the analysis routines in plot_mult...</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00025">gi_params.py:25</a></div></div>
+<div class="ttc" id="a00007_html_a1a69fc11f8e7b29b9c3d5418edd88411"><div class="ttname"><a href="a00007.html#a1a69fc11f8e7b29b9c3d5418edd88411">gi_params.Params.map_priors</a></div><div class="ttdeci">map_priors</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00140">gi_params.py:140</a></div></div>
+<div class="ttc" id="a00007_html_a3f7ce21831bd7bc6a7205ce65788b111"><div class="ttname"><a href="a00007.html#a3f7ce21831bd7bc6a7205ce65788b111">gi_params.Params.stopstep</a></div><div class="ttdeci">stopstep</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00175">gi_params.py:175</a></div></div>
+<div class="ttc" id="a00007_html_a5d7328e4063d12773d30df5f49ce091e"><div class="ttname"><a href="a00007.html#a5d7328e4063d12773d30df5f49ce091e">gi_params.Params.simplenu_baryon_K_min</a></div><div class="ttdeci">simplenu_baryon_K_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00134">gi_params.py:134</a></div></div>
+<div class="ttc" id="a00007_html_a09fa9b72f4d4016e5558f3bb3858d263"><div class="ttname"><a href="a00007.html#a09fa9b72f4d4016e5558f3bb3858d263">gi_params.Params.kz_nu_C_max</a></div><div class="ttdeci">kz_nu_C_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00110">gi_params.py:110</a></div></div>
+<div class="ttc" id="a00007_html_a182ea5c5094312b627054af2f51238ba"><div class="ttname"><a href="a00007.html#a182ea5c5094312b627054af2f51238ba">gi_params.Params.chi2_switch_mincount</a></div><div class="ttdeci">chi2_switch_mincount</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00145">gi_params.py:145</a></div></div>
+<div class="ttc" id="a00007_html_a738ea6e8cf564f278f4968be265f636c"><div class="ttname"><a href="a00007.html#a738ea6e8cf564f278f4968be265f636c">gi_params.Params.kz_rho_C_max</a></div><div class="ttdeci">kz_rho_C_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00108">gi_params.py:108</a></div></div>
+<div class="ttc" id="a00007_html_ad99633d2524638b0b8cabe84e566f649"><div class="ttname"><a href="a00007.html#ad99633d2524638b0b8cabe84e566f649">gi_params.Params.monotonic_nu</a></div><div class="ttdeci">monotonic_nu</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00122">gi_params.py:122</a></div></div>
+<div class="ttc" id="a00007_html_aaf3b5a45833a2cc5306105489da822a8"><div class="ttname"><a href="a00007.html#aaf3b5a45833a2cc5306105489da822a8">gi_params.Params.minsig</a></div><div class="ttdeci">minsig</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00153">gi_params.py:153</a></div></div>
+<div class="ttc" id="a00007_html_aee447c59644d85a2eb6655b1708bc3f1"><div class="ttname"><a href="a00007.html#aee447c59644d85a2eb6655b1708bc3f1">gi_params.Params.simplenu_baryon_D_max</a></div><div class="ttdeci">simplenu_baryon_D_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00135">gi_params.py:135</a></div></div>
+<div class="ttc" id="a00007_html_acccbddb4f78518f20b0ee8b3d3bade5f"><div class="ttname"><a href="a00007.html#acccbddb4f78518f20b0ee8b3d3bade5f">gi_params.Params.getnewpos</a></div><div class="ttdeci">getnewpos</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00052">gi_params.py:52</a></div></div>
+<div class="ttc" id="a00007_html_a7d2b3b3092845ba1f2e63438e3c7d53e"><div class="ttname"><a href="a00007.html#a7d2b3b3092845ba1f2e63438e3c7d53e">gi_params.Params.binning</a></div><div class="ttdeci">binning</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00056">gi_params.py:56</a></div></div>
+<div class="ttc" id="a00007_html_a030b84d3c868e975fbe917637014a85f"><div class="ttname"><a href="a00007.html#a030b84d3c868e975fbe917637014a85f">gi_params.Params.sigz_C_min</a></div><div class="ttdeci">sigz_C_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00118">gi_params.py:118</a></div></div>
+<div class="ttc" id="a00007_html_a0ad3a9262149d1b3ae65d791e522e5b1"><div class="ttname"><a href="a00007.html#a0ad3a9262149d1b3ae65d791e522e5b1">gi_params.Params.kz_rho_selection</a></div><div class="ttdeci">kz_rho_selection</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00125">gi_params.py:125</a></div></div>
+<div class="ttc" id="a00007_html_ae01bf0858c3bd7ff14f48a2f02b7e98f"><div class="ttname"><a href="a00007.html#ae01bf0858c3bd7ff14f48a2f02b7e98f">gi_params.Params.max_kz_slope</a></div><div class="ttdeci">max_kz_slope</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00114">gi_params.py:114</a></div></div>
+<div class="ttc" id="a00007_html_a52c92d27a6943964fed632b75bb12c3d"><div class="ttname"><a href="a00007.html#a52c92d27a6943964fed632b75bb12c3d">gi_params.Params.sigz_C_max</a></div><div class="ttdeci">sigz_C_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00117">gi_params.py:117</a></div></div>
+<div class="ttc" id="a00007_html_aaf2418a7b5c799b723e60f8365f7b917"><div class="ttname"><a href="a00007.html#aaf2418a7b5c799b723e60f8365f7b917">gi_params.Params.external_data_file</a></div><div class="ttdeci">external_data_file</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00054">gi_params.py:54</a></div></div>
+<div class="ttc" id="a00007_html_aa1be0b99cd5dcca80d2e19566bd2335d"><div class="ttname"><a href="a00007.html#aa1be0b99cd5dcca80d2e19566bd2335d">gi_params.Params.simplenu_baryon_K_max</a></div><div class="ttdeci">simplenu_baryon_K_max</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00133">gi_params.py:133</a></div></div>
+<div class="ttc" id="a00007_html_ac9b1affc308192e4742b92aaab62e7fe"><div class="ttname"><a href="a00007.html#ac9b1affc308192e4742b92aaab62e7fe">gi_params.Params.z_bincenters</a></div><div class="ttdeci">z_bincenters</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00178">gi_params.py:178</a></div></div>
+<div class="ttc" id="a00007_html_a1d2cce312ac03ddd22d3cba119c7eaf3"><div class="ttname"><a href="a00007.html#a1d2cce312ac03ddd22d3cba119c7eaf3">gi_params.Params.z_binmaxs</a></div><div class="ttdeci">z_binmaxs</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00180">gi_params.py:180</a></div></div>
+<div class="ttc" id="a00007_html_a566168c3794f7cb4f502b725b894e958"><div class="ttname"><a href="a00007.html#a566168c3794f7cb4f502b725b894e958">gi_params.Params.simplenu_baryon_D_min</a></div><div class="ttdeci">simplenu_baryon_D_min</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00136">gi_params.py:136</a></div></div>
+<div class="ttc" id="a00007_html_a1024c8039c080077435952dddc4b2cfb"><div class="ttname"><a href="a00007.html#a1024c8039c080077435952dddc4b2cfb">gi_params.Params.chi2_nu_converged</a></div><div class="ttdeci">chi2_nu_converged</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00143">gi_params.py:143</a></div></div>
+<div class="ttc" id="a00007_html_ab6f3ab1b046014a36301964c68293057"><div class="ttname"><a href="a00007.html#ab6f3ab1b046014a36301964c68293057">gi_params.Params.prior_type_rho</a></div><div class="ttdeci">prior_type_rho</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00129">gi_params.py:129</a></div></div>
+<div class="ttc" id="a00007_html_a43ea7833012d7ee219576d6b206da38d"><div class="ttname"><a href="a00007.html#a43ea7833012d7ee219576d6b206da38d">gi_params.Params.rho_C_prior_type</a></div><div class="ttdeci">rho_C_prior_type</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00102">gi_params.py:102</a></div></div>
+<div class="ttc" id="a00007_html_ae57bd7ccaff7161b4cb68566c4eb8627"><div class="ttname"><a href="a00007.html#ae57bd7ccaff7161b4cb68566c4eb8627">gi_params.Params.nlive</a></div><div class="ttdeci">nlive</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00151">gi_params.py:151</a></div></div>
+<div class="ttc" id="a00007_html_af3e883d22bf3b0d9835210e231a6a9a7"><div class="ttname"><a href="a00007.html#af3e883d22bf3b0d9835210e231a6a9a7">gi_params.Params.chi2_switch_counter</a></div><div class="ttdeci">chi2_switch_counter</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00147">gi_params.py:147</a></div></div>
+<div class="ttc" id="a00007_html_a69757ad057512475686d925b48be3215"><div class="ttname"><a href="a00007.html#a69757ad057512475686d925b48be3215">gi_params.Params.checkbeta</a></div><div class="ttdeci">checkbeta</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00172">gi_params.py:172</a></div></div>
+<div class="ttc" id="a00007_html_ac7a22e93d6194c03c09a0a475cc0ff68"><div class="ttname"><a href="a00007.html#ac7a22e93d6194c03c09a0a475cc0ff68">gi_params.Params.debug</a></div><div class="ttdeci">debug</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00046">gi_params.py:46</a></div></div>
+<div class="ttc" id="a00007_html_ab182874568ec38f446bd57b9f9692b21"><div class="ttname"><a href="a00007.html#ab182874568ec38f446bd57b9f9692b21">gi_params.Params.monotonic_rho</a></div><div class="ttdeci">monotonic_rho</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00121">gi_params.py:121</a></div></div>
+<div class="ttc" id="a00007_html_a00ac1d25bf7efd203b00c1fadd9e40b3"><div class="ttname"><a href="a00007.html#a00ac1d25bf7efd203b00c1fadd9e40b3">gi_params.Params.kz_nu_selection</a></div><div class="ttdeci">kz_nu_selection</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00126">gi_params.py:126</a></div></div>
+<div class="ttc" id="a00007_html_aed8aefdef7ed5b8e7e2049fcd35b4145"><div class="ttname"><a href="a00007.html#aed8aefdef7ed5b8e7e2049fcd35b4145">gi_params.Params.dat</a></div><div class="ttdeci">dat</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00168">gi_params.py:168</a></div></div>
+<div class="ttc" id="a00007_html_adf0842fc02749bdfbf808bb76acf7b51"><div class="ttname"><a href="a00007.html#adf0842fc02749bdfbf808bb76acf7b51">gi_params.Params.ndim</a></div><div class="ttdeci">ndim</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00085">gi_params.py:85</a></div></div>
+<div class="ttc" id="a00007_html_aa1ce0010d71f12381e934468190a3c95"><div class="ttname"><a href="a00007.html#aa1ce0010d71f12381e934468190a3c95">gi_params.Params.prior_type_nu</a></div><div class="ttdeci">prior_type_nu</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00130">gi_params.py:130</a></div></div>
+<div class="ttc" id="a00007_html"><div class="ttname"><a href="a00007.html">gi_params.Params</a></div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00024">gi_params.py:24</a></div></div>
+<div class="ttc" id="a00007_html_af84f119528bc36a0e635fc48aa6ddd41"><div class="ttname"><a href="a00007.html#af84f119528bc36a0e635fc48aa6ddd41">gi_params.Params.z_binmins</a></div><div class="ttdeci">z_binmins</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00179">gi_params.py:179</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:23 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

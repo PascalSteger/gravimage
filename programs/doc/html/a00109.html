@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_physics Namespace Reference</title>
+<title>GravImage: gi_analytic Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,74 +85,247 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_physics Namespace Reference</div>  </div>
+<div class="title">gi_analytic Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac7f10b52865d798570eef38f92803846"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac7f10b52865d798570eef38f92803846">rhodm_hernquist</a></td></tr>
-<tr class="memdesc:ac7f10b52865d798570eef38f92803846"><td class="mdescLeft">&#160;</td><td class="mdescRight">return hernquist DM density from generalized Hernquist profile  <a href="#ac7f10b52865d798570eef38f92803846">More...</a><br/></td></tr>
-<tr class="separator:ac7f10b52865d798570eef38f92803846"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad46b26879a7ef646569c7484876fb12a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ad46b26879a7ef646569c7484876fb12a">nr</a></td></tr>
-<tr class="memdesc:ad46b26879a7ef646569c7484876fb12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate n(r) at any given radius, as linear interpolation with two asymptotes  <a href="#ad46b26879a7ef646569c7484876fb12a">More...</a><br/></td></tr>
-<tr class="separator:ad46b26879a7ef646569c7484876fb12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#aca6dc48fc8b80cab7f3c1366a6d2a243">rho</a></td></tr>
-<tr class="memdesc:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate density, from interpolated n(r) = -log(rho(r)) using interpolation to left and right of r=r_{*, 1/2}  <a href="#aca6dc48fc8b80cab7f3c1366a6d2a243">More...</a><br/></td></tr>
-<tr class="separator:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919f43b025bf7f226a75bee120a3248e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a919f43b025bf7f226a75bee120a3248e">nu</a></td></tr>
-<tr class="memdesc:a919f43b025bf7f226a75bee120a3248e"><td class="mdescLeft">&#160;</td><td class="mdescRight">possibly interpolate nu parameters from gp.xepol where they are defined to any radii r0 (typically gp.rfine) within range of gp.xepol  <a href="#a919f43b025bf7f226a75bee120a3248e">More...</a><br/></td></tr>
-<tr class="separator:a919f43b025bf7f226a75bee120a3248e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31e8403f44521e1ca01451d4b9d2f05a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a31e8403f44521e1ca01451d4b9d2f05a">betastar2beta</a></td></tr>
-<tr class="memdesc:a31e8403f44521e1ca01451d4b9d2f05a"><td class="mdescLeft">&#160;</td><td class="mdescRight">map beta* to beta  <a href="#a31e8403f44521e1ca01451d4b9d2f05a">More...</a><br/></td></tr>
-<tr class="separator:a31e8403f44521e1ca01451d4b9d2f05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac6e28178b0d9ab1b561f64ba5ddeb815">beta2betastar</a></td></tr>
-<tr class="memdesc:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="mdescLeft">&#160;</td><td class="mdescRight">get back betastar from a beta  <a href="#ac6e28178b0d9ab1b561f64ba5ddeb815">More...</a><br/></td></tr>
-<tr class="separator:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adedce5dd5acfa1db15deb4e002573ac4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#adedce5dd5acfa1db15deb4e002573ac4">betastar_4</a></td></tr>
-<tr class="memdesc:adedce5dd5acfa1db15deb4e002573ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning  <a href="#adedce5dd5acfa1db15deb4e002573ac4">More...</a><br/></td></tr>
-<tr class="separator:adedce5dd5acfa1db15deb4e002573ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ef84725c1d6af90f2e7b339b16dab58"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a5ef84725c1d6af90f2e7b339b16dab58">betastar</a></td></tr>
-<tr class="memdesc:a5ef84725c1d6af90f2e7b339b16dab58"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate betastar from 4 parameters  <a href="#a5ef84725c1d6af90f2e7b339b16dab58">More...</a><br/></td></tr>
-<tr class="separator:a5ef84725c1d6af90f2e7b339b16dab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cb9b5d60023f36b7f48800e19de0e38"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a7cb9b5d60023f36b7f48800e19de0e38">betastar_old</a></td></tr>
-<tr class="separator:a7cb9b5d60023f36b7f48800e19de0e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ee97079289f6042b861a0a90b3d50b5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a9ee97079289f6042b861a0a90b3d50b5">beta</a></td></tr>
-<tr class="memdesc:a9ee97079289f6042b861a0a90b3d50b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">beta and beta* from beta parameter array  <a href="#a9ee97079289f6042b861a0a90b3d50b5">More...</a><br/></td></tr>
-<tr class="separator:a9ee97079289f6042b861a0a90b3d50b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a5600c94946fa6a33f80bd0169f3e4ee9">calculate_rho</a></td></tr>
-<tr class="memdesc:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">take enclosed mass, radii, and compute 3D density in shells  <a href="#a5600c94946fa6a33f80bd0169f3e4ee9">More...</a><br/></td></tr>
-<tr class="separator:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ae6f17e46bfc4fc5c9e4df89ae11d45b6">calculate_surfdens</a></td></tr>
-<tr class="memdesc:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">take mass(&lt;r) in bins, calc mass in annuli, get surface density  <a href="#ae6f17e46bfc4fc5c9e4df89ae11d45b6">More...</a><br/></td></tr>
-<tr class="separator:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a429469e37014f638634994f498c8137e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a429469e37014f638634994f498c8137e">sig_kap_zet</a></td></tr>
-<tr class="memdesc:a429469e37014f638634994f498c8137e"><td class="mdescLeft">&#160;</td><td class="mdescRight">General function to calculate sig_los with analytic integral over fitting polynomial'.  <a href="#a429469e37014f638634994f498c8137e">More...</a><br/></td></tr>
-<tr class="separator:a429469e37014f638634994f498c8137e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d1be922c82941f2a0b8f2f3d773392b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a0d1be922c82941f2a0b8f2f3d773392b">get_prof</a></td></tr>
+<tr class="memdesc:a0d1be922c82941f2a0b8f2f3d773392b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get analytic profile prof for global parameters gp  <a href="#a0d1be922c82941f2a0b8f2f3d773392b">More...</a><br/></td></tr>
+<tr class="separator:a0d1be922c82941f2a0b8f2f3d773392b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166e7753be878566cd93b8673f46d7f4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a166e7753be878566cd93b8673f46d7f4">X</a></td></tr>
+<tr class="memdesc:a166e7753be878566cd93b8673f46d7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">equation 33, 34 from Hernquist 1990  <a href="#a166e7753be878566cd93b8673f46d7f4">More...</a><br/></td></tr>
+<tr class="separator:a166e7753be878566cd93b8673f46d7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cff9308a1bdf28aac4209010fc76f2d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a></td></tr>
+<tr class="memdesc:a7cff9308a1bdf28aac4209010fc76f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine rho(r) for a generalized Hernquist model  <a href="#a7cff9308a1bdf28aac4209010fc76f2d">More...</a><br/></td></tr>
+<tr class="separator:a7cff9308a1bdf28aac4209010fc76f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6100916572d3e2ae05e0940bff8f7ab"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab">rho_triax</a></td></tr>
+<tr class="memdesc:af6100916572d3e2ae05e0940bff8f7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">density for a triaxial halo in Gaia challenge  <a href="#af6100916572d3e2ae05e0940bff8f7ab">More...</a><br/></td></tr>
+<tr class="separator:af6100916572d3e2ae05e0940bff8f7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8311a022abd5df38231f0a00dd75a9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a></td></tr>
+<tr class="memdesc:aed8311a022abd5df38231f0a00dd75a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Walker model: read values from theoretical params file, calculate from eq.  <a href="#aed8311a022abd5df38231f0a00dd75a9">More...</a><br/></td></tr>
+<tr class="separator:aed8311a022abd5df38231f0a00dd75a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a752578eb13be1a4cd7c801d34bacdb34"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a></td></tr>
+<tr class="memdesc:a752578eb13be1a4cd7c801d34bacdb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">give densities for the spherical Gaia challenge dataset  <a href="#a752578eb13be1a4cd7c801d34bacdb34">More...</a><br/></td></tr>
+<tr class="separator:a752578eb13be1a4cd7c801d34bacdb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3f684384218839a140d2d2deeba51e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a0e3f684384218839a140d2d2deeba51e">M_gaia</a></td></tr>
+<tr class="memdesc:a0e3f684384218839a140d2d2deeba51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate mass in 2D radial bins  <a href="#a0e3f684384218839a140d2d2deeba51e">More...</a><br/></td></tr>
+<tr class="separator:a0e3f684384218839a140d2d2deeba51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aec235b8cf6751e45c1769e2c68af2f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f">rhotot_gaia</a></td></tr>
+<tr class="memdesc:a5aec235b8cf6751e45c1769e2c68af2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return total mass density for Gaia challenge models  <a href="#a5aec235b8cf6751e45c1769e2c68af2f">More...</a><br/></td></tr>
+<tr class="separator:a5aec235b8cf6751e45c1769e2c68af2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af18007718ecc63a73ce4c572476182ab"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#af18007718ecc63a73ce4c572476182ab">Sig_gaia</a></td></tr>
+<tr class="memdesc:af18007718ecc63a73ce4c572476182ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">get projected surface density for Gaia tracer population not based on analytic integral  <a href="#af18007718ecc63a73ce4c572476182ab">More...</a><br/></td></tr>
+<tr class="separator:af18007718ecc63a73ce4c572476182ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f6fc4591a289a8fd99f6f060e406032"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a6f6fc4591a289a8fd99f6f060e406032">nu3Dtot_gaia</a></td></tr>
+<tr class="memdesc:a6f6fc4591a289a8fd99f6f060e406032"><td class="mdescLeft">&#160;</td><td class="mdescRight">give total density for the spherical Gaia challenge dataset  <a href="#a6f6fc4591a289a8fd99f6f060e406032">More...</a><br/></td></tr>
+<tr class="separator:a6f6fc4591a289a8fd99f6f060e406032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2126886deeb0839a5a3517acf2cbb0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0">nr3Dtot_deriv_walk</a></td></tr>
+<tr class="memdesc:a5d2126886deeb0839a5a3517acf2cbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot d log rho/d log r  <a href="#a5d2126886deeb0839a5a3517acf2cbb0">More...</a><br/></td></tr>
+<tr class="separator:a5d2126886deeb0839a5a3517acf2cbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2407a4725ee996297ef7f75ad841d67"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac2407a4725ee996297ef7f75ad841d67">nr3Dtot_deriv_triax</a></td></tr>
+<tr class="memdesc:ac2407a4725ee996297ef7f75ad841d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot d log rho/d log r  <a href="#ac2407a4725ee996297ef7f75ad841d67">More...</a><br/></td></tr>
+<tr class="separator:ac2407a4725ee996297ef7f75ad841d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e5715d0d0a21443f3efd89e51fbcb6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6">nr3Dtot_deriv_gaia</a></td></tr>
+<tr class="memdesc:ac9e5715d0d0a21443f3efd89e51fbcb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot d log rho/d log r  <a href="#ac9e5715d0d0a21443f3efd89e51fbcb6">More...</a><br/></td></tr>
+<tr class="separator:ac9e5715d0d0a21443f3efd89e51fbcb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b640d8b2b95ed3a52cd911c4ed6ce97"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a2b640d8b2b95ed3a52cd911c4ed6ce97">nr3Dtot_walk</a></td></tr>
+<tr class="memdesc:a2b640d8b2b95ed3a52cd911c4ed6ce97"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot - d log rho/ d log r for Walker models  <a href="#a2b640d8b2b95ed3a52cd911c4ed6ce97">More...</a><br/></td></tr>
+<tr class="separator:a2b640d8b2b95ed3a52cd911c4ed6ce97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e7d95a4f6b71a5ffb068f14c54f8c2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a54e7d95a4f6b71a5ffb068f14c54f8c2">nr3Dtot_gaia</a></td></tr>
+<tr class="memdesc:a54e7d95a4f6b71a5ffb068f14c54f8c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot - d log rho/ d log r for Gaia models  <a href="#a54e7d95a4f6b71a5ffb068f14c54f8c2">More...</a><br/></td></tr>
+<tr class="separator:a54e7d95a4f6b71a5ffb068f14c54f8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169f1e87eddb74ea1b4f1c27998fcd63"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">rhotot_walk</a></td></tr>
+<tr class="memdesc:a169f1e87eddb74ea1b4f1c27998fcd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">return total mass density, stars+DM  <a href="#a169f1e87eddb74ea1b4f1c27998fcd63">More...</a><br/></td></tr>
+<tr class="separator:a169f1e87eddb74ea1b4f1c27998fcd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ef591985cfdd81b84c621146050183"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a99ef591985cfdd81b84c621146050183">Mtot_walk</a></td></tr>
+<tr class="memdesc:a99ef591985cfdd81b84c621146050183"><td class="mdescLeft">&#160;</td><td class="mdescRight">return total mass in Walker model NOT USED ANYMORE  <a href="#a99ef591985cfdd81b84c621146050183">More...</a><br/></td></tr>
+<tr class="separator:a99ef591985cfdd81b84c621146050183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7f6977b95e48da505e49d5b01b0ef4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4">Sig_walk</a></td></tr>
+<tr class="memdesc:aaa7f6977b95e48da505e49d5b01b0ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate 2D surface density from radius for pop 0, 1, 2  <a href="#aaa7f6977b95e48da505e49d5b01b0ef4">More...</a><br/></td></tr>
+<tr class="separator:aaa7f6977b95e48da505e49d5b01b0ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19bc447bfdeb4389cadb2115438aafd7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7">beta_walk</a></td></tr>
+<tr class="memdesc:a19bc447bfdeb4389cadb2115438aafd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate Osipkov-Merritt velocity anisotropy profile, for pop 0 (dummy), 1, 2  <a href="#a19bc447bfdeb4389cadb2115438aafd7">More...</a><br/></td></tr>
+<tr class="separator:a19bc447bfdeb4389cadb2115438aafd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036af6b449c7f4d85456e84fb760bc80"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">q</a></td></tr>
+<tr class="memdesc:a036af6b449c7f4d85456e84fb760bc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">start analytic generalized Hernquist profiles following equation (17) from Zhao 1996  <a href="#a036af6b449c7f4d85456e84fb760bc80">More...</a><br/></td></tr>
+<tr class="separator:a036af6b449c7f4d85456e84fb760bc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7527d07c2c3909bd955ffd8073558fb6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6">apar</a></td></tr>
+<tr class="memdesc:a7527d07c2c3909bd955ffd8073558fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">a_parameter  <a href="#a7527d07c2c3909bd955ffd8073558fb6">More...</a><br/></td></tr>
+<tr class="separator:a7527d07c2c3909bd955ffd8073558fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad689b0a80b55d65bd395f19ef43c6562"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562">bpar</a></td></tr>
+<tr class="memdesc:ad689b0a80b55d65bd395f19ef43c6562"><td class="mdescLeft">&#160;</td><td class="mdescRight">bpar  <a href="#ad689b0a80b55d65bd395f19ef43c6562">More...</a><br/></td></tr>
+<tr class="separator:ad689b0a80b55d65bd395f19ef43c6562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0cb9dc372ce615fdb9841ab769fd230"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230">S</a></td></tr>
+<tr class="memdesc:af0cb9dc372ce615fdb9841ab769fd230"><td class="mdescLeft">&#160;</td><td class="mdescRight">S function.  <a href="#af0cb9dc372ce615fdb9841ab769fd230">More...</a><br/></td></tr>
+<tr class="separator:af0cb9dc372ce615fdb9841ab769fd230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5b4b1195b39706a43a4f05f58567a9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9">chi</a></td></tr>
+<tr class="memdesc:a5c5b4b1195b39706a43a4f05f58567a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">chi  <a href="#a5c5b4b1195b39706a43a4f05f58567a9">More...</a><br/></td></tr>
+<tr class="separator:a5c5b4b1195b39706a43a4f05f58567a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2e20af11ef24a8aee0f73798ee6200"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200">Phi</a></td></tr>
+<tr class="memdesc:a2f2e20af11ef24a8aee0f73798ee6200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phi.  <a href="#a2f2e20af11ef24a8aee0f73798ee6200">More...</a><br/></td></tr>
+<tr class="separator:a2f2e20af11ef24a8aee0f73798ee6200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab202717f773653ddacc20b284fa934a9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ab202717f773653ddacc20b284fa934a9">read_abc</a></td></tr>
+<tr class="memdesc:ab202717f773653ddacc20b284fa934a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">read analytic values for Walker mock data  <a href="#ab202717f773653ddacc20b284fa934a9">More...</a><br/></td></tr>
+<tr class="separator:ab202717f773653ddacc20b284fa934a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48370ec361b05a1c171cc7912267a3bd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd">Mabc_analytic</a></td></tr>
+<tr class="separator:a48370ec361b05a1c171cc7912267a3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cf4be90b59e2d30731ab0fe66791db"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db">PhiBeta</a></td></tr>
+<tr class="memdesc:ab3cf4be90b59e2d30731ab0fe66791db"><td class="mdescLeft">&#160;</td><td class="mdescRight">equation in Zhao1996 table p.2  <a href="#ab3cf4be90b59e2d30731ab0fe66791db">More...</a><br/></td></tr>
+<tr class="separator:ab3cf4be90b59e2d30731ab0fe66791db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036415dceeb003a0f60643a0ee65303c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a036415dceeb003a0f60643a0ee65303c">MBetaAnalytic</a></td></tr>
+<tr class="separator:a036415dceeb003a0f60643a0ee65303c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3947fe51ecd9f2c264c986703fdbabb7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a3947fe51ecd9f2c264c986703fdbabb7">Manalytic</a></td></tr>
+<tr class="separator:a3947fe51ecd9f2c264c986703fdbabb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16bafa1cdffb61f2f89318f93d4d9344"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344">beta_gaia</a></td></tr>
+<tr class="memdesc:a16bafa1cdffb61f2f89318f93d4d9344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Osipkov-Merritt velocity anisotropy profile, for pop 0, pop 1.  <a href="#a16bafa1cdffb61f2f89318f93d4d9344">More...</a><br/></td></tr>
+<tr class="separator:a16bafa1cdffb61f2f89318f93d4d9344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31963d39dfe3bbe4f48fdedf16fe1bd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd">beta_hern</a></td></tr>
+<tr class="memdesc:ab31963d39dfe3bbe4f48fdedf16fe1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic value for beta in Hernquist case  <a href="#ab31963d39dfe3bbe4f48fdedf16fe1bd">More...</a><br/></td></tr>
+<tr class="separator:ab31963d39dfe3bbe4f48fdedf16fe1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968c7d38e42a0c6a3f5af32a4d39c8be"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be">beta_triax</a></td></tr>
+<tr class="memdesc:a968c7d38e42a0c6a3f5af32a4d39c8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate velocity anisotropy for Dehnen-Wilkinson triaxial model  <a href="#a968c7d38e42a0c6a3f5af32a4d39c8be">More...</a><br/></td></tr>
+<tr class="separator:a968c7d38e42a0c6a3f5af32a4d39c8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4905352a707cba3122aa20a880c8f876"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a4905352a707cba3122aa20a880c8f876">beta</a></td></tr>
+<tr class="memdesc:a4905352a707cba3122aa20a880c8f876"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic profile for all investigations  <a href="#a4905352a707cba3122aa20a880c8f876">More...</a><br/></td></tr>
+<tr class="separator:a4905352a707cba3122aa20a880c8f876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40f146f722476f816bbc618d318bfa9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#aa40f146f722476f816bbc618d318bfa9">rho_hern</a></td></tr>
+<tr class="memdesc:aa40f146f722476f816bbc618d318bfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">equation 2 from Hernquist 1990, 3D mass density equation 2b from Baes&amp;Dejonghe 2002  <a href="#aa40f146f722476f816bbc618d318bfa9">More...</a><br/></td></tr>
+<tr class="separator:aa40f146f722476f816bbc618d318bfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b183d3d721c1cbc2e8350badd65192b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a2b183d3d721c1cbc2e8350badd65192b">rho_hern2</a></td></tr>
+<tr class="memdesc:a2b183d3d721c1cbc2e8350badd65192b"><td class="mdescLeft">&#160;</td><td class="mdescRight">find theoretical mass profile of double-Dehnen spheres with stars, according to <a href="http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest">http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest</a>  <a href="#a2b183d3d721c1cbc2e8350badd65192b">More...</a><br/></td></tr>
+<tr class="separator:a2b183d3d721c1cbc2e8350badd65192b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d2718ad8e5fd0faa5357f6451b8d38"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38">rho</a></td></tr>
+<tr class="memdesc:ac0d2718ad8e5fd0faa5357f6451b8d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic total mass density profile for all investigations  <a href="#ac0d2718ad8e5fd0faa5357f6451b8d38">More...</a><br/></td></tr>
+<tr class="separator:ac0d2718ad8e5fd0faa5357f6451b8d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a8ff6130a73c9e54e30f2d6877a001"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001">M_hern</a></td></tr>
+<tr class="memdesc:a05a8ff6130a73c9e54e30f2d6877a001"><td class="mdescLeft">&#160;</td><td class="mdescRight">equation 3 from Hernquist 1990  <a href="#a05a8ff6130a73c9e54e30f2d6877a001">More...</a><br/></td></tr>
+<tr class="separator:a05a8ff6130a73c9e54e30f2d6877a001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc69f4555e8835468559a4c84167d98a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#acc69f4555e8835468559a4c84167d98a">Mr</a></td></tr>
+<tr class="memdesc:acc69f4555e8835468559a4c84167d98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic total mass profile for all investigations  <a href="#acc69f4555e8835468559a4c84167d98a">More...</a><br/></td></tr>
+<tr class="separator:acc69f4555e8835468559a4c84167d98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3dfae3ae61f77d3a36e748fe68fd48e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">Sig_hern</a></td></tr>
+<tr class="memdesc:ac3dfae3ae61f77d3a36e748fe68fd48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002  <a href="#ac3dfae3ae61f77d3a36e748fe68fd48e">More...</a><br/></td></tr>
+<tr class="separator:ac3dfae3ae61f77d3a36e748fe68fd48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96be530f228bdea4f1b4d515ee0cfd70"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70">Sigma</a></td></tr>
+<tr class="memdesc:a96be530f228bdea4f1b4d515ee0cfd70"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic total mass surface density profile for all investigations  <a href="#a96be530f228bdea4f1b4d515ee0cfd70">More...</a><br/></td></tr>
+<tr class="separator:a96be530f228bdea4f1b4d515ee0cfd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa785b07df75977b2aa9b9a80d6af3403"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403">sigr2_hern</a></td></tr>
+<tr class="memdesc:aa785b07df75977b2aa9b9a80d6af3403"><td class="mdescLeft">&#160;</td><td class="mdescRight">sig_r^2, equation 10 of Hernquist 1990  <a href="#aa785b07df75977b2aa9b9a80d6af3403">More...</a><br/></td></tr>
+<tr class="separator:aa785b07df75977b2aa9b9a80d6af3403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1bbf10aaab090808ec83a578fad2d8c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#ab1bbf10aaab090808ec83a578fad2d8c">sigr2</a></td></tr>
+<tr class="memdesc:ab1bbf10aaab090808ec83a578fad2d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">analytic total mass surface density profile for all investigations  <a href="#ab1bbf10aaab090808ec83a578fad2d8c">More...</a><br/></td></tr>
+<tr class="separator:ab1bbf10aaab090808ec83a578fad2d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b01c7d2bb53c077787471c91346d263"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a1b01c7d2bb53c077787471c91346d263">sig_los_hern</a></td></tr>
+<tr class="memdesc:a1b01c7d2bb53c077787471c91346d263"><td class="mdescLeft">&#160;</td><td class="mdescRight">sig_los determined from analytic surfden*sig2 and surfden  <a href="#a1b01c7d2bb53c077787471c91346d263">More...</a><br/></td></tr>
+<tr class="separator:a1b01c7d2bb53c077787471c91346d263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b61698774ad5668c249a558428c202"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a42b61698774ad5668c249a558428c202">sig_los</a></td></tr>
+<tr class="memdesc:a42b61698774ad5668c249a558428c202"><td class="mdescLeft">&#160;</td><td class="mdescRight">sigma_LOS for all investigations  <a href="#a42b61698774ad5668c249a558428c202">More...</a><br/></td></tr>
+<tr class="separator:a42b61698774ad5668c249a558428c202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711e08ba47be0559c70371edc69e9226"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a711e08ba47be0559c70371edc69e9226">kappa_hern</a></td></tr>
+<tr class="memdesc:a711e08ba47be0559c70371edc69e9226"><td class="mdescLeft">&#160;</td><td class="mdescRight">analyitc value for the fourth order momentum of the LOS velocity  <a href="#a711e08ba47be0559c70371edc69e9226">More...</a><br/></td></tr>
+<tr class="separator:a711e08ba47be0559c70371edc69e9226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88edbb0846524b33b4559b97f6be4d2a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">Sig_sig_los_2_hern</a></td></tr>
+<tr class="memdesc:a88edbb0846524b33b4559b97f6be4d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">equation 21 from Baes&amp;Dejonghe 2002  <a href="#a88edbb0846524b33b4559b97f6be4d2a">More...</a><br/></td></tr>
+<tr class="separator:a88edbb0846524b33b4559b97f6be4d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87143ecad8bcdcb70ed4c6969b06eca0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0">Sig_sig_los_2</a></td></tr>
+<tr class="memdesc:a87143ecad8bcdcb70ed4c6969b06eca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">surface density time sigma_r^2  <a href="#a87143ecad8bcdcb70ed4c6969b06eca0">More...</a><br/></td></tr>
+<tr class="separator:a87143ecad8bcdcb70ed4c6969b06eca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af9c06c55922dda1686c521e96605b022"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#af9c06c55922dda1686c521e96605b022">gp</a> = <a class="el" href="a00006.html">gi_params.Params</a>()</td></tr>
-<tr class="separator:af9c06c55922dda1686c521e96605b022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85082edff9919cfce318eeae6ed31d0b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a85082edff9919cfce318eeae6ed31d0b">annu</a> = <a class="el" href="a00109.html#ac7f10b52865d798570eef38f92803846">rhodm_hernquist</a>(gp.xipol, 1.e0, max(gp.xipol)/2., 3, 2, 1)</td></tr>
-<tr class="separator:a85082edff9919cfce318eeae6ed31d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51aff2b9e9005226a31607ad7abe7a6d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#a51aff2b9e9005226a31607ad7abe7a6d">asech</a> = lambdax:np.arccosh(1./x)</td></tr>
+<tr class="separator:a51aff2b9e9005226a31607ad7abe7a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9752d58491ad3679484e8fe820fdb2"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html#abd9752d58491ad3679484e8fe820fdb2">asec</a> = lambdax:np.arccos(1./x)</td></tr>
+<tr class="separator:abd9752d58491ad3679484e8fe820fdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a9ee97079289f6042b861a0a90b3d50b5"></a>
+<a class="anchor" id="a7527d07c2c3909bd955ffd8073558fb6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.beta </td>
+          <td class="memname">gi_analytic.apar </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rho0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a_parameter </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>int </td></tr>
+    <tr><td class="paramname">alpha</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">beta</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">gamma</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">rho0</td><td>central density </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00335">335</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a7527d07c2c3909bd955ffd8073558fb6_cgraph.png" border="0" usemap="#a00109_a7527d07c2c3909bd955ffd8073558fb6_cgraph" alt=""/></div>
+<map name="a00109_a7527d07c2c3909bd955ffd8073558fb6_cgraph" id="a00109_a7527d07c2c3909bd955ffd8073558fb6_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80" title="start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 ..." alt="" coords="177,5,276,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a7527d07c2c3909bd955ffd8073558fb6_icgraph.png" border="0" usemap="#a00109_a7527d07c2c3909bd955ffd8073558fb6_icgraph" alt=""/></div>
+<map name="a00109_a7527d07c2c3909bd955ffd8073558fb6_icgraph" id="a00109_a7527d07c2c3909bd955ffd8073558fb6_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562" title="bpar " alt="" coords="176,5,296,35"/><area shape="rect" id="node5" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="344,5,456,35"/><area shape="rect" id="node7" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="505,5,687,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4905352a707cba3122aa20a880c8f876"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.beta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -168,251 +341,1043 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>beta and beta* from beta parameter array </p>
+<p>analytic profile for all investigations </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
-    <tr><td class="paramname">params</td><td>array, see <a class="el" href="a00098.html">gi_class_cube</a> </td></tr>
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
     <tr><td class="paramname">gp</td><td>global parameters </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00172">172</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00479">479</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_a9ee97079289f6042b861a0a90b3d50b5_cgraph.png" border="0" usemap="#a00109_a9ee97079289f6042b861a0a90b3d50b5_cgraph" alt=""/></div>
-<map name="a00109_a9ee97079289f6042b861a0a90b3d50b5_cgraph" id="a00109_a9ee97079289f6042b861a0a90b3d50b5_cgraph">
-<area shape="rect" id="node3" href="a00109.html#a5ef84725c1d6af90f2e7b339b16dab58" title="calculate betastar from 4 parameters " alt="" coords="192,5,333,35"/><area shape="rect" id="node7" href="a00109.html#a31e8403f44521e1ca01451d4b9d2f05a" title="map beta* to beta " alt="" coords="175,59,351,88"/><area shape="rect" id="node5" href="a00109.html#adedce5dd5acfa1db15deb4e002573ac4" title="calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning ..." alt="" coords="401,5,559,35"/></map>
+<div class="center"><img src="a00109_a4905352a707cba3122aa20a880c8f876_cgraph.png" border="0" usemap="#a00109_a4905352a707cba3122aa20a880c8f876_cgraph" alt=""/></div>
+<map name="a00109_a4905352a707cba3122aa20a880c8f876_cgraph" id="a00109_a4905352a707cba3122aa20a880c8f876_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd" title="analytic value for beta in Hernquist case " alt="" coords="175,5,329,35"/><area shape="rect" id="node5" href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344" title="Osipkov&#45;Merritt velocity anisotropy profile, for pop 0, pop 1. " alt="" coords="175,59,329,88"/><area shape="rect" id="node7" href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7" title="calculate Osipkov&#45;Merritt velocity anisotropy profile, for pop 0 (dummy), 1, 2 " alt="" coords="175,112,329,141"/><area shape="rect" id="node9" href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be" title="calculate velocity anisotropy for Dehnen&#45;Wilkinson triaxial model " alt="" coords="175,165,329,195"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac6e28178b0d9ab1b561f64ba5ddeb815"></a>
+<a class="anchor" id="a16bafa1cdffb61f2f89318f93d4d9344"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.beta2betastar </td>
+          <td class="memname">gi_analytic.beta_gaia </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>beta</em></td><td>)</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Osipkov-Merritt velocity anisotropy profile, for pop 0, pop 1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00448">448</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a16bafa1cdffb61f2f89318f93d4d9344_icgraph.png" border="0" usemap="#a00109_a16bafa1cdffb61f2f89318f93d4d9344_icgraph" alt=""/></div>
+<map name="a00109_a16bafa1cdffb61f2f89318f93d4d9344_icgraph" id="a00109_a16bafa1cdffb61f2f89318f93d4d9344_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a4905352a707cba3122aa20a880c8f876" title="analytic profile for all investigations " alt="" coords="209,5,327,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab31963d39dfe3bbe4f48fdedf16fe1bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.beta_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>get back betastar from a beta </p>
+<p>analytic value for beta in Hernquist case </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">rad</td><td>radius [pc] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00462">462</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ab31963d39dfe3bbe4f48fdedf16fe1bd_icgraph.png" border="0" usemap="#a00109_ab31963d39dfe3bbe4f48fdedf16fe1bd_icgraph" alt=""/></div>
+<map name="a00109_ab31963d39dfe3bbe4f48fdedf16fe1bd_icgraph" id="a00109_ab31963d39dfe3bbe4f48fdedf16fe1bd_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a4905352a707cba3122aa20a880c8f876" title="analytic profile for all investigations " alt="" coords="212,5,329,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a968c7d38e42a0c6a3f5af32a4d39c8be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.beta_triax </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculate velocity anisotropy for Dehnen-Wilkinson triaxial model </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>in [pc] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00468">468</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a968c7d38e42a0c6a3f5af32a4d39c8be_icgraph.png" border="0" usemap="#a00109_a968c7d38e42a0c6a3f5af32a4d39c8be_icgraph" alt=""/></div>
+<map name="a00109_a968c7d38e42a0c6a3f5af32a4d39c8be_icgraph" id="a00109_a968c7d38e42a0c6a3f5af32a4d39c8be_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a4905352a707cba3122aa20a880c8f876" title="analytic profile for all investigations " alt="" coords="209,5,327,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a19bc447bfdeb4389cadb2115438aafd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.beta_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculate Osipkov-Merritt velocity anisotropy profile, for pop 0 (dummy), 1, 2 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00305">305</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a19bc447bfdeb4389cadb2115438aafd7_icgraph.png" border="0" usemap="#a00109_a19bc447bfdeb4389cadb2115438aafd7_icgraph" alt=""/></div>
+<map name="a00109_a19bc447bfdeb4389cadb2115438aafd7_icgraph" id="a00109_a19bc447bfdeb4389cadb2115438aafd7_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a4905352a707cba3122aa20a880c8f876" title="analytic profile for all investigations " alt="" coords="209,5,327,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad689b0a80b55d65bd395f19ef43c6562"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.bpar </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rho0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bpar </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">alpha</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">beta</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">gamma</td><td>see Zhao 1996 </td></tr>
+    <tr><td class="paramname">rho0</td><td>central density </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00346">346</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ad689b0a80b55d65bd395f19ef43c6562_cgraph.png" border="0" usemap="#a00109_ad689b0a80b55d65bd395f19ef43c6562_cgraph" alt=""/></div>
+<map name="a00109_ad689b0a80b55d65bd395f19ef43c6562_cgraph" id="a00109_ad689b0a80b55d65bd395f19ef43c6562_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80" title="start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 ..." alt="" coords="345,5,444,35"/><area shape="rect" id="node5" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6" title="a_parameter " alt="" coords="175,31,295,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ad689b0a80b55d65bd395f19ef43c6562_icgraph.png" border="0" usemap="#a00109_ad689b0a80b55d65bd395f19ef43c6562_icgraph" alt=""/></div>
+<map name="a00109_ad689b0a80b55d65bd395f19ef43c6562_icgraph" id="a00109_ad689b0a80b55d65bd395f19ef43c6562_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="173,5,285,35"/><area shape="rect" id="node5" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="335,5,516,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c5b4b1195b39706a43a4f05f58567a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.chi </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>chi </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">alpha</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00371">371</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a5c5b4b1195b39706a43a4f05f58567a9_icgraph.png" border="0" usemap="#a00109_a5c5b4b1195b39706a43a4f05f58567a9_icgraph" alt=""/></div>
+<map name="a00109_a5c5b4b1195b39706a43a4f05f58567a9_icgraph" id="a00109_a5c5b4b1195b39706a43a4f05f58567a9_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="165,5,277,35"/><area shape="rect" id="node5" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="327,5,508,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d1be922c82941f2a0b8f2f3d773392b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.get_prof </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>prof</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get analytic profile prof for global parameters gp </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prof</td><td>profile string, rho, nu, sig </td></tr>
+    <tr><td class="paramname">pop</td><td>population int 1, 2 </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>z, profile </dd></dl>
+
+<p>Definition at line <a class="el" href="a00012_source.html#l00020">20</a> of file <a class="el" href="a00012_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a0d1be922c82941f2a0b8f2f3d773392b_icgraph.png" border="0" usemap="#a00109_a0d1be922c82941f2a0b8f2f3d773392b_icgraph" alt=""/></div>
+<map name="a00109_a0d1be922c82941f2a0b8f2f3d773392b_icgraph" id="a00109_a0d1be922c82941f2a0b8f2f3d773392b_icgraph">
+<area shape="rect" id="node3" href="a00009.html#ae26dd935f13736538b1bee5aab33be1c" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="209,160,473,189"/><area shape="rect" id="node15" href="a00009.html#a8824eef93dbe7969d7768b030cd73175" title="calculate J from Sig from rho " alt="" coords="203,271,480,300"/><area shape="rect" id="node17" href="a00008.html#a7837bc77ae5527c3de35d0e9e544c421" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="209,217,473,247"/><area shape="rect" id="node22" href="a00008.html#a3c933d0a470e78372c60789e336212ab" title="calculate M profiles from rho, as this has not been done prior to pc2.save " alt="" coords="200,324,483,353"/><area shape="rect" id="node5" href="a00009.html#a309ee5e22c30cc152547c952154f3e92" title="sort all profiles, in a parallel way " alt="" coords="531,74,763,121"/><area shape="rect" id="node7" href="a00009.html#afcdbff9dcfd6d17f8bf1edd6d05228bf" title="plot filled region with grayscale propto # models in log bin " alt="" coords="532,5,761,51"/><area shape="rect" id="node9" href="a00008.html#a0a205b473c9df571515066286b187f74" title="sort all profiles " alt="" coords="531,143,763,190"/><area shape="rect" id="node11" href="a00008.html#ae2be63ec32c9cc52693b16f4c3438a82" title="gl_collection.ProfileCollection.sort\l_profiles_disk" alt="" coords="531,213,763,259"/><area shape="rect" id="node13" href="a00008.html#a84682382afbb2d755e860029600687c0" title="plot filled region with grayscale propto # models in log bin " alt="" coords="532,282,761,329"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a711e08ba47be0559c70371edc69e9226"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.kappa_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>analyitc value for the fourth order momentum of the LOS velocity </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>3 for Gaussian velocity distribution </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00625">625</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e3f684384218839a140d2d2deeba51e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.M_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculate mass in 2D radial bins </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, 3D </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00141">141</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a0e3f684384218839a140d2d2deeba51e_cgraph.png" border="0" usemap="#a00109_a0e3f684384218839a140d2d2deeba51e_cgraph" alt=""/></div>
+<map name="a00109_a0e3f684384218839a140d2d2deeba51e_cgraph" id="a00109_a0e3f684384218839a140d2d2deeba51e_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="193,5,340,35"/><area shape="rect" id="node5" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="391,5,559,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a0e3f684384218839a140d2d2deeba51e_icgraph.png" border="0" usemap="#a00109_a0e3f684384218839a140d2d2deeba51e_icgraph" alt=""/></div>
+<map name="a00109_a0e3f684384218839a140d2d2deeba51e_icgraph" id="a00109_a0e3f684384218839a140d2d2deeba51e_icgraph">
+<area shape="rect" id="node3" href="a00109.html#acc69f4555e8835468559a4c84167d98a" title="analytic total mass profile for all investigations " alt="" coords="192,5,301,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a05a8ff6130a73c9e54e30f2d6877a001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.M_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>equation 3 from Hernquist 1990 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>3D mass in [Munit] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00534">534</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a05a8ff6130a73c9e54e30f2d6877a001_icgraph.png" border="0" usemap="#a00109_a05a8ff6130a73c9e54e30f2d6877a001_icgraph" alt=""/></div>
+<map name="a00109_a05a8ff6130a73c9e54e30f2d6877a001_icgraph" id="a00109_a05a8ff6130a73c9e54e30f2d6877a001_icgraph">
+<area shape="rect" id="node3" href="a00109.html#acc69f4555e8835468559a4c84167d98a" title="analytic total mass profile for all investigations " alt="" coords="195,5,304,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a48370ec361b05a1c171cc7912267a3bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_analytic.Mabc_analytic </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00415">415</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a48370ec361b05a1c171cc7912267a3bd_cgraph.png" border="0" usemap="#a00109_a48370ec361b05a1c171cc7912267a3bd_cgraph" alt=""/></div>
+<map name="a00109_a48370ec361b05a1c171cc7912267a3bd_cgraph" id="a00109_a48370ec361b05a1c171cc7912267a3bd_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ab202717f773653ddacc20b284fa934a9" title="read analytic values for Walker mock data " alt="" coords="239,5,388,35"/><area shape="rect" id="node5" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="257,59,369,88"/><area shape="rect" id="node7" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562" title="bpar " alt="" coords="437,5,557,35"/><area shape="rect" id="node14" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230" title="S function. " alt="" coords="447,59,548,88"/><area shape="rect" id="node16" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9" title="chi " alt="" coords="443,112,552,141"/><area shape="rect" id="node9" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80" title="start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 ..." alt="" coords="777,7,876,36"/><area shape="rect" id="node11" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6" title="a_parameter " alt="" coords="607,32,727,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3947fe51ecd9f2c264c986703fdbabb7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_analytic.Manalytic </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00440">440</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a3947fe51ecd9f2c264c986703fdbabb7_cgraph.png" border="0" usemap="#a00109_a3947fe51ecd9f2c264c986703fdbabb7_cgraph" alt=""/></div>
+<map name="a00109_a3947fe51ecd9f2c264c986703fdbabb7_cgraph" id="a00109_a3947fe51ecd9f2c264c986703fdbabb7_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ab202717f773653ddacc20b284fa934a9" title="read analytic values for Walker mock data " alt="" coords="207,5,356,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a036415dceeb003a0f60643a0ee65303c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_analytic.MBetaAnalytic </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00431">431</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a036415dceeb003a0f60643a0ee65303c_cgraph.png" border="0" usemap="#a00109_a036415dceeb003a0f60643a0ee65303c_cgraph" alt=""/></div>
+<map name="a00109_a036415dceeb003a0f60643a0ee65303c_cgraph" id="a00109_a036415dceeb003a0f60643a0ee65303c_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ab202717f773653ddacc20b284fa934a9" title="read analytic values for Walker mock data " alt="" coords="239,5,388,35"/><area shape="rect" id="node5" href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db" title="equation in Zhao1996 table p.2 " alt="" coords="243,59,384,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acc69f4555e8835468559a4c84167d98a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Mr </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>analytic total mass profile for all investigations </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00544">544</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_acc69f4555e8835468559a4c84167d98a_cgraph.png" border="0" usemap="#a00109_acc69f4555e8835468559a4c84167d98a_cgraph" alt=""/></div>
+<map name="a00109_acc69f4555e8835468559a4c84167d98a_cgraph" id="a00109_acc69f4555e8835468559a4c84167d98a_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001" title="equation 3 from Hernquist 1990 " alt="" coords="163,5,304,35"/><area shape="rect" id="node5" href="a00109.html#a0e3f684384218839a140d2d2deeba51e" title="calculate mass in 2D radial bins " alt="" coords="164,59,303,88"/><area shape="rect" id="node7" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="353,59,500,88"/><area shape="rect" id="node9" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="551,59,719,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a99ef591985cfdd81b84c621146050183"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Mtot_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rbin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf1</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf2</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return total mass in Walker model NOT USED ANYMORE </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rbin</td><td>radii of bins </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">mf1</td><td>factor rho0 pop 1 </td></tr>
+    <tr><td class="paramname">mf2</td><td>factor rho0 pop 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>total 3D mass for the Walker dataset in [Munit] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00268">268</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a99ef591985cfdd81b84c621146050183_cgraph.png" border="0" usemap="#a00109_a99ef591985cfdd81b84c621146050183_cgraph" alt=""/></div>
+<map name="a00109_a99ef591985cfdd81b84c621146050183_cgraph" id="a00109_a99ef591985cfdd81b84c621146050183_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63" title="return total mass density, stars+DM " alt="" coords="211,5,376,35"/><area shape="rect" id="node5" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="424,5,573,35"/><area shape="rect" id="node7" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="623,5,791,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9e5715d0d0a21443f3efd89e51fbcb6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nr3Dtot_deriv_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot d log rho/d log r </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, not in log </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00215">215</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ac9e5715d0d0a21443f3efd89e51fbcb6_cgraph.png" border="0" usemap="#a00109_ac9e5715d0d0a21443f3efd89e51fbcb6_cgraph" alt=""/></div>
+<map name="a00109_ac9e5715d0d0a21443f3efd89e51fbcb6_cgraph" id="a00109_ac9e5715d0d0a21443f3efd89e51fbcb6_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f" title="return total mass density for Gaia challenge models " alt="" coords="193,13,356,43"/><area shape="rect" id="node5" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="407,13,553,43"/><area shape="rect" id="node7" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="604,13,772,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2407a4725ee996297ef7f75ad841d67"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nr3Dtot_deriv_triax </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot d log rho/d log r </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, not in log </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00205">205</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ac2407a4725ee996297ef7f75ad841d67_cgraph.png" border="0" usemap="#a00109_ac2407a4725ee996297ef7f75ad841d67_cgraph" alt=""/></div>
+<map name="a00109_ac2407a4725ee996297ef7f75ad841d67_cgraph" id="a00109_ac2407a4725ee996297ef7f75ad841d67_cgraph">
+<area shape="rect" id="node3" href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab" title="density for a triaxial halo in Gaia challenge " alt="" coords="193,13,340,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d2126886deeb0839a5a3517acf2cbb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nr3Dtot_deriv_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot d log rho/d log r </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, not in log </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00195">195</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a5d2126886deeb0839a5a3517acf2cbb0_cgraph.png" border="0" usemap="#a00109_a5d2126886deeb0839a5a3517acf2cbb0_cgraph" alt=""/></div>
+<map name="a00109_a5d2126886deeb0839a5a3517acf2cbb0_cgraph" id="a00109_a5d2126886deeb0839a5a3517acf2cbb0_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63" title="return total mass density, stars+DM " alt="" coords="192,13,357,43"/><area shape="rect" id="node5" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="405,13,555,43"/><area shape="rect" id="node7" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="604,13,772,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a54e7d95a4f6b71a5ffb068f14c54f8c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nr3Dtot_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot - d log rho/ d log r for Gaia models </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, not log. </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00239">239</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b640d8b2b95ed3a52cd911c4ed6ce97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nr3Dtot_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot - d log rho/ d log r for Walker models </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in pc, not log. </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00224">224</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f6fc4591a289a8fd99f6f060e406032"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.nu3Dtot_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>give total density for the spherical Gaia challenge dataset </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>3D overall density (DM+stellar population) in [Munit/pc^3] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00177">177</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a6f6fc4591a289a8fd99f6f060e406032_cgraph.png" border="0" usemap="#a00109_a6f6fc4591a289a8fd99f6f060e406032_cgraph" alt=""/></div>
+<map name="a00109_a6f6fc4591a289a8fd99f6f060e406032_cgraph" id="a00109_a6f6fc4591a289a8fd99f6f060e406032_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="231,5,399,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f2e20af11ef24a8aee0f73798ee6200"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Phi </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rho0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phi. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>in [pc] </td></tr>
+    <tr><td class="paramname">alpha</td><td>[1] </td></tr>
     <tr><td class="paramname">beta</td><td>[1] </td></tr>
+    <tr><td class="paramname">gamma</td><td>[1] </td></tr>
+    <tr><td class="paramname">rho0</td><td>[Munit/pc^3] </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00116">116</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ef84725c1d6af90f2e7b339b16dab58"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_physics.betastar </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>calculate betastar from 4 parameters </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
-    <tr><td class="paramname">params</td><td>4 parameters </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00137">137</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00379">379</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_a5ef84725c1d6af90f2e7b339b16dab58_cgraph.png" border="0" usemap="#a00109_a5ef84725c1d6af90f2e7b339b16dab58_cgraph" alt=""/></div>
-<map name="a00109_a5ef84725c1d6af90f2e7b339b16dab58_cgraph" id="a00109_a5ef84725c1d6af90f2e7b339b16dab58_cgraph">
-<area shape="rect" id="node3" href="a00109.html#adedce5dd5acfa1db15deb4e002573ac4" title="calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning ..." alt="" coords="199,5,356,35"/></map>
+<div class="center"><img src="a00109_a2f2e20af11ef24a8aee0f73798ee6200_cgraph.png" border="0" usemap="#a00109_a2f2e20af11ef24a8aee0f73798ee6200_cgraph" alt=""/></div>
+<map name="a00109_a2f2e20af11ef24a8aee0f73798ee6200_cgraph" id="a00109_a2f2e20af11ef24a8aee0f73798ee6200_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562" title="bpar " alt="" coords="165,5,285,35"/><area shape="rect" id="node10" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230" title="S function. " alt="" coords="175,59,276,88"/><area shape="rect" id="node12" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9" title="chi " alt="" coords="171,112,280,141"/><area shape="rect" id="node5" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80" title="start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 ..." alt="" coords="505,7,604,36"/><area shape="rect" id="node7" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6" title="a_parameter " alt="" coords="335,32,455,61"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_a5ef84725c1d6af90f2e7b339b16dab58_icgraph.png" border="0" usemap="#a00109_a5ef84725c1d6af90f2e7b339b16dab58_icgraph" alt=""/></div>
-<map name="a00109_a5ef84725c1d6af90f2e7b339b16dab58_icgraph" id="a00109_a5ef84725c1d6af90f2e7b339b16dab58_icgraph">
-<area shape="rect" id="node3" href="a00109.html#a9ee97079289f6042b861a0a90b3d50b5" title="beta and beta* from beta parameter array " alt="" coords="199,5,316,35"/></map>
+<div class="center"><img src="a00109_a2f2e20af11ef24a8aee0f73798ee6200_icgraph.png" border="0" usemap="#a00109_a2f2e20af11ef24a8aee0f73798ee6200_icgraph" alt=""/></div>
+<map name="a00109_a2f2e20af11ef24a8aee0f73798ee6200_icgraph" id="a00109_a2f2e20af11ef24a8aee0f73798ee6200_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="167,5,348,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a31e8403f44521e1ca01451d4b9d2f05a"></a>
+<a class="anchor" id="ab3cf4be90b59e2d30731ab0fe66791db"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.betastar2beta </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betastar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>map beta* to beta </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">betastar</td><td>float array </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00107">107</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00109_a31e8403f44521e1ca01451d4b9d2f05a_icgraph.png" border="0" usemap="#a00109_a31e8403f44521e1ca01451d4b9d2f05a_icgraph" alt=""/></div>
-<map name="a00109_a31e8403f44521e1ca01451d4b9d2f05a_icgraph" id="a00109_a31e8403f44521e1ca01451d4b9d2f05a_icgraph">
-<area shape="rect" id="node3" href="a00109.html#a9ee97079289f6042b861a0a90b3d50b5" title="beta and beta* from beta parameter array " alt="" coords="233,5,351,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="adedce5dd5acfa1db15deb4e002573ac4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_physics.betastar_4 </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
-    <tr><td class="paramname">params</td><td>4 parameters: asymptote of beta at r-&gt;0, asymptote of beta at r-&gt;infty, speed of change, scale radius at which change takes place </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00122">122</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00109_adedce5dd5acfa1db15deb4e002573ac4_icgraph.png" border="0" usemap="#a00109_adedce5dd5acfa1db15deb4e002573ac4_icgraph" alt=""/></div>
-<map name="a00109_adedce5dd5acfa1db15deb4e002573ac4_icgraph" id="a00109_adedce5dd5acfa1db15deb4e002573ac4_icgraph">
-<area shape="rect" id="node3" href="a00109.html#a5ef84725c1d6af90f2e7b339b16dab58" title="calculate betastar from 4 parameters " alt="" coords="215,5,356,35"/><area shape="rect" id="node5" href="a00109.html#a9ee97079289f6042b861a0a90b3d50b5" title="beta and beta* from beta parameter array " alt="" coords="407,5,524,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7cb9b5d60023f36b7f48800e19de0e38"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def gi_physics.betastar_old </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0turn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00151">151</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5600c94946fa6a33f80bd0169f3e4ee9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_physics.calculate_rho </td>
+          <td class="memname">def gi_analytic.PhiBeta </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>r</em>, </td>
@@ -421,7 +1386,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>M</em>&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>C</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -431,137 +1402,120 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>take enclosed mass, radii, and compute 3D density in shells </p>
+<p>equation in Zhao1996 table p.2 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td>radius in [pc] </td></tr>
-    <tr><td class="paramname">M</td><td>enclosed mass profile, [Munit] </td></tr>
+    <tr><td class="paramname">r</td><td>in [pc] </td></tr>
+    <tr><td class="paramname">beta</td><td>[1] </td></tr>
+    <tr><td class="paramname">C</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00182">182</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae6f17e46bfc4fc5c9e4df89ae11d45b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_physics.calculate_surfdens </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>M</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>take mass(&lt;r) in bins, calc mass in annuli, get surface density </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r</td><td>radius in [pc] </td></tr>
-    <tr><td class="paramname">M</td><td>3D mass profile </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00196">196</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad46b26879a7ef646569c7484876fb12a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_physics.nr </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>dlr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>calculate n(r) at any given radius, as linear interpolation with two asymptotes </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
-    <tr><td class="paramname">dlr</td><td>d log rho/ d log r: asymptote at 0, n(r) for all bins, asymptote at infinity </td></tr>
-    <tr><td class="paramname">pop</td><td>int for population (both, 1, 2, ...) </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00058_source.html#l00030">30</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00423">423</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_ad46b26879a7ef646569c7484876fb12a_icgraph.png" border="0" usemap="#a00109_ad46b26879a7ef646569c7484876fb12a_icgraph" alt=""/></div>
-<map name="a00109_ad46b26879a7ef646569c7484876fb12a_icgraph" id="a00109_ad46b26879a7ef646569c7484876fb12a_icgraph">
-<area shape="rect" id="node3" href="a00109.html#aca6dc48fc8b80cab7f3c1366a6d2a243" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="157,5,269,35"/><area shape="rect" id="node5" href="a00109.html#a919f43b025bf7f226a75bee120a3248e" title="possibly interpolate nu parameters from gp.xepol where they are defined to any radii r0 (typically gp..." alt="" coords="317,5,424,35"/></map>
+<div class="center"><img src="a00109_ab3cf4be90b59e2d30731ab0fe66791db_icgraph.png" border="0" usemap="#a00109_ab3cf4be90b59e2d30731ab0fe66791db_icgraph" alt=""/></div>
+<map name="a00109_ab3cf4be90b59e2d30731ab0fe66791db_icgraph" id="a00109_ab3cf4be90b59e2d30731ab0fe66791db_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a036415dceeb003a0f60643a0ee65303c" title="gi_analytic.MBetaAnalytic" alt="" coords="196,5,377,35"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a919f43b025bf7f226a75bee120a3248e"></a>
+<a class="anchor" id="a036af6b449c7f4d85456e84fb760bc80"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.nu </td>
+          <td class="memname">gi_analytic.q </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
+          <td class="paramname"><em>j</em>&#160;</td>
         </tr>
         <tr>
-          <td class="paramkey"></td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>first integer parameter </td></tr>
+    <tr><td class="paramname">j</td><td>second integer parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>q quantity (see paper) </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00323">323</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a036af6b449c7f4d85456e84fb760bc80_icgraph.png" border="0" usemap="#a00109_a036af6b449c7f4d85456e84fb760bc80_icgraph" alt=""/></div>
+<map name="a00109_a036af6b449c7f4d85456e84fb760bc80_icgraph" id="a00109_a036af6b449c7f4d85456e84fb760bc80_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6" title="a_parameter " alt="" coords="156,5,276,35"/><area shape="rect" id="node5" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562" title="bpar " alt="" coords="325,32,445,61"/><area shape="rect" id="node7" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="493,32,605,61"/><area shape="rect" id="node9" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="655,32,836,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab202717f773653ddacc20b284fa934a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.read_abc </td>
+          <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read analytic values for Walker mock data </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00394">394</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ab202717f773653ddacc20b284fa934a9_icgraph.png" border="0" usemap="#a00109_ab202717f773653ddacc20b284fa934a9_icgraph" alt=""/></div>
+<map name="a00109_ab202717f773653ddacc20b284fa934a9_icgraph" id="a00109_ab202717f773653ddacc20b284fa934a9_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="207,5,388,35"/><area shape="rect" id="node5" href="a00109.html#a036415dceeb003a0f60643a0ee65303c" title="gi_analytic.MBetaAnalytic" alt="" coords="207,59,388,88"/><area shape="rect" id="node7" href="a00109.html#a3947fe51ecd9f2c264c986703fdbabb7" title="gi_analytic.Manalytic" alt="" coords="221,112,373,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0d2718ad8e5fd0faa5357f6451b8d38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rho </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -577,51 +1531,37 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>possibly interpolate nu parameters from gp.xepol where they are defined to any radii r0 (typically gp.rfine) within range of gp.xepol </p>
+<p>analytic total mass density profile for all investigations </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
-    <tr><td class="paramname">vec</td><td>nu parameters in physical space (directly 3D density) </td></tr>
-    <tr><td class="paramname">pop</td><td>id for population, to give the half-light radius </td></tr>
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
     <tr><td class="paramname">gp</td><td>global parameters </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00095">95</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00519">519</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_a919f43b025bf7f226a75bee120a3248e_cgraph.png" border="0" usemap="#a00109_a919f43b025bf7f226a75bee120a3248e_cgraph" alt=""/></div>
-<map name="a00109_a919f43b025bf7f226a75bee120a3248e_cgraph" id="a00109_a919f43b025bf7f226a75bee120a3248e_cgraph">
-<area shape="rect" id="node3" href="a00109.html#aca6dc48fc8b80cab7f3c1366a6d2a243" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="160,5,272,35"/><area shape="rect" id="node5" href="a00109.html#ad46b26879a7ef646569c7484876fb12a" title="calculate n(r) at any given radius, as linear interpolation with two asymptotes " alt="" coords="320,5,424,35"/></map>
+<div class="center"><img src="a00109_ac0d2718ad8e5fd0faa5357f6451b8d38_cgraph.png" border="0" usemap="#a00109_ac0d2718ad8e5fd0faa5357f6451b8d38_cgraph" alt=""/></div>
+<map name="a00109_ac0d2718ad8e5fd0faa5357f6451b8d38_cgraph" id="a00109_ac0d2718ad8e5fd0faa5357f6451b8d38_cgraph">
+<area shape="rect" id="node3" href="a00109.html#aa40f146f722476f816bbc618d318bfa9" title="equation 2 from Hernquist 1990, 3D mass density equation 2b from Baes&amp;Dejonghe 2002 ..." alt="" coords="169,5,319,35"/><area shape="rect" id="node5" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="171,59,317,88"/><area shape="rect" id="node9" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="169,112,319,141"/><area shape="rect" id="node7" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="369,85,537,115"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aca6dc48fc8b80cab7f3c1366a6d2a243"></a>
+<a class="anchor" id="a752578eb13be1a4cd7c801d34bacdb34"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.rho </td>
+          <td class="memname">gi_analytic.rho_gaia </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rhodmpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
+          <td class="paramname"><em>rad</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -637,48 +1577,53 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>calculate density, from interpolated n(r) = -log(rho(r)) using interpolation to left and right of r=r_{*, 1/2} </p>
+<p>give densities for the spherical Gaia challenge dataset </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhodmpar,:</td><td>rho(rstarhalf), asymptote nr 0, nr(xipol), asymptote nr infty </td></tr>
-    <tr><td class="paramname">r0</td><td>radii to calculate density for, in physical units (pc) </td></tr>
-    <tr><td class="paramname">pop</td><td>int for population, 0 all or DM, 1, 2, ... </td></tr>
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
     <tr><td class="paramname">gp</td><td>global parameters </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>3D densities (DM+stellar population) in [Munit/pc^3] </dd></dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00049">49</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00114">114</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_cgraph.png" border="0" usemap="#a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_cgraph" alt=""/></div>
-<map name="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_cgraph" id="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_cgraph">
-<area shape="rect" id="node3" href="a00109.html#ad46b26879a7ef646569c7484876fb12a" title="calculate n(r) at any given radius, as linear interpolation with two asymptotes " alt="" coords="165,5,269,35"/></map>
+<div class="center"><img src="a00109_a752578eb13be1a4cd7c801d34bacdb34_cgraph.png" border="0" usemap="#a00109_a752578eb13be1a4cd7c801d34bacdb34_cgraph" alt=""/></div>
+<map name="a00109_a752578eb13be1a4cd7c801d34bacdb34_cgraph" id="a00109_a752578eb13be1a4cd7c801d34bacdb34_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="204,5,372,35"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_icgraph.png" border="0" usemap="#a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_icgraph" alt=""/></div>
-<map name="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_icgraph" id="a00109_aca6dc48fc8b80cab7f3c1366a6d2a243_icgraph">
-<area shape="rect" id="node3" href="a00109.html#a919f43b025bf7f226a75bee120a3248e" title="possibly interpolate nu parameters from gp.xepol where they are defined to any radii r0 (typically gp..." alt="" coords="165,5,272,35"/></map>
+<div class="center"><img src="a00109_a752578eb13be1a4cd7c801d34bacdb34_icgraph.png" border="0" usemap="#a00109_a752578eb13be1a4cd7c801d34bacdb34_icgraph" alt=""/></div>
+<map name="a00109_a752578eb13be1a4cd7c801d34bacdb34_icgraph" id="a00109_a752578eb13be1a4cd7c801d34bacdb34_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a0e3f684384218839a140d2d2deeba51e" title="calculate mass in 2D radial bins " alt="" coords="216,9,355,39"/><area shape="rect" id="node7" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f" title="return total mass density for Gaia challenge models " alt="" coords="204,67,367,96"/><area shape="rect" id="node11" href="a00109.html#af18007718ecc63a73ce4c572476182ab" title="get projected surface density for Gaia tracer population not based on analytic integral ..." alt="" coords="212,120,359,149"/><area shape="rect" id="node15" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38" title="analytic total mass density profile for all investigations " alt="" coords="229,173,341,203"/><area shape="rect" id="node5" href="a00109.html#acc69f4555e8835468559a4c84167d98a" title="analytic total mass profile for all investigations " alt="" coords="431,5,540,35"/><area shape="rect" id="node9" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6" title="plot d log rho/d log r " alt="" coords="416,58,555,105"/><area shape="rect" id="node13" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="420,128,551,157"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac7f10b52865d798570eef38f92803846"></a>
+<a class="anchor" id="a7cff9308a1bdf28aac4209010fc76f2d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.rhodm_hernquist </td>
+          <td class="memname">def gi_analytic.rho_general </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rscale</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -690,25 +1635,19 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r_DM</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>alpha_DM</em>, </td>
+          <td class="paramname"><em>beta</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>beta_DM</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gamma_DM</em>&#160;</td>
+          <td class="paramname"><em>gamma</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -718,68 +1657,42 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>return hernquist DM density from generalized Hernquist profile </p>
+<p>determine rho(r) for a generalized Hernquist model </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td>radius in [pc] </td></tr>
-    <tr><td class="paramname">rho0</td><td>central 3D density in [Munit/pc^3] </td></tr>
-    <tr><td class="paramname">r_DM</td><td>scale radius of dark matter, [pc] </td></tr>
-    <tr><td class="paramname">alpha_DM</td><td>[1] </td></tr>
-    <tr><td class="paramname">beta_DM</td><td>[1] </td></tr>
-    <tr><td class="paramname">gamma_DM</td><td>[1] central density slope </td></tr>
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">rscale</td><td>scale radius in [pc] </td></tr>
+    <tr><td class="paramname">rho0</td><td>central 3D mass density, in [Munit/pc^3] </td></tr>
+    <tr><td class="paramname">gamma</td><td>inner slope </td></tr>
+    <tr><td class="paramname">alpha</td><td>outer slope </td></tr>
+    <tr><td class="paramname">beta</td><td>steepness of turnover </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>3D Hernquist density in [Munit/pc^3] </dd></dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00018">18</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00033">33</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a7cff9308a1bdf28aac4209010fc76f2d_icgraph.png" border="0" usemap="#a00109_a7cff9308a1bdf28aac4209010fc76f2d_icgraph" alt=""/></div>
+<map name="a00109_a7cff9308a1bdf28aac4209010fc76f2d_icgraph" id="a00109_a7cff9308a1bdf28aac4209010fc76f2d_icgraph">
+<area shape="rect" id="node3" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="237,124,387,153"/><area shape="rect" id="node17" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="239,204,385,233"/><area shape="rect" id="node31" href="a00109.html#a6f6fc4591a289a8fd99f6f060e406032" title="give total density for the spherical Gaia challenge dataset " alt="" coords="224,257,400,287"/><area shape="rect" id="node5" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63" title="return total mass density, stars+DM " alt="" coords="448,44,613,73"/><area shape="rect" id="node11" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="457,97,604,127"/><area shape="rect" id="node15" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38" title="analytic total mass density profile for all investigations " alt="" coords="475,151,587,180"/><area shape="rect" id="node7" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0" title="plot d log rho/d log r " alt="" coords="671,5,809,51"/><area shape="rect" id="node9" href="a00109.html#a99ef591985cfdd81b84c621146050183" title="return total mass in Walker model NOT USED ANYMORE " alt="" coords="663,75,817,104"/><area shape="rect" id="node13" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="675,149,805,179"/><area shape="rect" id="node19" href="a00109.html#a0e3f684384218839a140d2d2deeba51e" title="calculate mass in 2D radial bins " alt="" coords="461,257,600,287"/><area shape="rect" id="node23" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f" title="return total mass density for Gaia challenge models " alt="" coords="449,312,612,341"/><area shape="rect" id="node27" href="a00109.html#af18007718ecc63a73ce4c572476182ab" title="get projected surface density for Gaia tracer population not based on analytic integral ..." alt="" coords="457,204,604,233"/><area shape="rect" id="node21" href="a00109.html#acc69f4555e8835468559a4c84167d98a" title="analytic total mass profile for all investigations " alt="" coords="685,255,795,284"/><area shape="rect" id="node25" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6" title="plot d log rho/d log r " alt="" coords="671,307,809,354"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a429469e37014f638634994f498c8137e"></a>
+<a class="anchor" id="aa40f146f722476f816bbc618d318bfa9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_physics.sig_kap_zet </td>
+          <td class="memname">gi_analytic.rho_hern </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rhodmpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>lbaryonpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>MtoL</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nupar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -795,58 +1708,956 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>General function to calculate sig_los with analytic integral over fitting polynomial'. </p>
+<p>equation 2 from Hernquist 1990, 3D mass density equation 2b from Baes&amp;Dejonghe 2002 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>radius [pc] </td></tr>
-    <tr><td class="paramname">rhodmpar</td><td>[1] </td></tr>
-    <tr><td class="paramname">lbaryonpar</td><td>[1] </td></tr>
-    <tr><td class="paramname">MtoL</td><td>mass-to-light ratio [Msun/Lsun] </td></tr>
-    <tr><td class="paramname">nupar</td><td>1D array 3D tracer density parameters [1] </td></tr>
-    <tr><td class="paramname">betapar</td><td>1D array 3D velocity anisotropy parameters [1] </td></tr>
-    <tr><td class="paramname">pop</td><td>int population to take halflight radius from </td></tr>
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>density in [Munit/pc^3] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00496">496</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aa40f146f722476f816bbc618d318bfa9_icgraph.png" border="0" usemap="#a00109_aa40f146f722476f816bbc618d318bfa9_icgraph" alt=""/></div>
+<map name="a00109_aa40f146f722476f816bbc618d318bfa9_icgraph" id="a00109_aa40f146f722476f816bbc618d318bfa9_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38" title="analytic total mass density profile for all investigations " alt="" coords="207,5,319,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b183d3d721c1cbc2e8350badd65192b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rho_hern2 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gamma</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>find theoretical mass profile of double-Dehnen spheres with stars, according to <a href="http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest">http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">gamma</td><td>inner density slope. default: cusp </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00507">507</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6100916572d3e2ae05e0940bff8f7ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rho_triax </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>density for a triaxial halo in Gaia challenge </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>density in [Munit/pc^3] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00050">50</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_af6100916572d3e2ae05e0940bff8f7ab_icgraph.png" border="0" usemap="#a00109_af6100916572d3e2ae05e0940bff8f7ab_icgraph" alt=""/></div>
+<map name="a00109_af6100916572d3e2ae05e0940bff8f7ab_icgraph" id="a00109_af6100916572d3e2ae05e0940bff8f7ab_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ac2407a4725ee996297ef7f75ad841d67" title="plot d log rho/d log r " alt="" coords="203,5,341,51"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aed8311a022abd5df38231f0a00dd75a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rho_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf1</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf2</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Walker model: read values from theoretical params file, calculate from eq. </p>
+<p>2 generalized Hernquist profiles </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">mf1</td><td>factor to go from rho to rho_star1 </td></tr>
+    <tr><td class="paramname">mf2</td><td>factor to go from rho to rho_star2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>3D density in [Munit/pc^3], for each DM, stellar pop 1, stellar pop 2 (if available) </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00072">72</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aed8311a022abd5df38231f0a00dd75a9_cgraph.png" border="0" usemap="#a00109_aed8311a022abd5df38231f0a00dd75a9_cgraph" alt=""/></div>
+<map name="a00109_aed8311a022abd5df38231f0a00dd75a9_cgraph" id="a00109_aed8311a022abd5df38231f0a00dd75a9_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="204,5,372,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aed8311a022abd5df38231f0a00dd75a9_icgraph.png" border="0" usemap="#a00109_aed8311a022abd5df38231f0a00dd75a9_icgraph" alt=""/></div>
+<map name="a00109_aed8311a022abd5df38231f0a00dd75a9_icgraph" id="a00109_aed8311a022abd5df38231f0a00dd75a9_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63" title="return total mass density, stars+DM " alt="" coords="203,75,368,104"/><area shape="rect" id="node9" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="212,128,359,157"/><area shape="rect" id="node13" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38" title="analytic total mass density profile for all investigations " alt="" coords="229,181,341,211"/><area shape="rect" id="node5" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0" title="plot d log rho/d log r " alt="" coords="425,5,564,51"/><area shape="rect" id="node7" href="a00109.html#a99ef591985cfdd81b84c621146050183" title="return total mass in Walker model NOT USED ANYMORE " alt="" coords="417,75,572,104"/><area shape="rect" id="node11" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="429,128,560,157"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5aec235b8cf6751e45c1769e2c68af2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rhotot_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return total mass density for Gaia challenge models </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in [pc] </td></tr>
     <tr><td class="paramname">gp</td><td>global parameters </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00210">210</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00013_source.html#l00158">158</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a5aec235b8cf6751e45c1769e2c68af2f_cgraph.png" border="0" usemap="#a00109_a5aec235b8cf6751e45c1769e2c68af2f_cgraph" alt=""/></div>
+<map name="a00109_a5aec235b8cf6751e45c1769e2c68af2f_cgraph" id="a00109_a5aec235b8cf6751e45c1769e2c68af2f_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="220,5,367,35"/><area shape="rect" id="node5" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="417,5,585,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a5aec235b8cf6751e45c1769e2c68af2f_icgraph.png" border="0" usemap="#a00109_a5aec235b8cf6751e45c1769e2c68af2f_icgraph" alt=""/></div>
+<map name="a00109_a5aec235b8cf6751e45c1769e2c68af2f_icgraph" id="a00109_a5aec235b8cf6751e45c1769e2c68af2f_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6" title="plot d log rho/d log r " alt="" coords="219,5,357,51"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a169f1e87eddb74ea1b4f1c27998fcd63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.rhotot_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf1</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf2</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return total mass density, stars+DM </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">mf1</td><td>factor to go from DM rho0 to rho0_star1 </td></tr>
+    <tr><td class="paramname">mf2</td><td>factor to go from DM rho0 to rho0_star2 </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>total 3D density in [Munit/pc^3]. in case of Walker dataset, we have that the tracer particles do not contribute to the overall density, thus we use the DM density only </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00254">254</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_cgraph.png" border="0" usemap="#a00109_a169f1e87eddb74ea1b4f1c27998fcd63_cgraph" alt=""/></div>
+<map name="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_cgraph" id="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_cgraph">
+<area shape="rect" id="node3" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="219,5,368,35"/><area shape="rect" id="node5" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="417,5,585,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_icgraph.png" border="0" usemap="#a00109_a169f1e87eddb74ea1b4f1c27998fcd63_icgraph" alt=""/></div>
+<map name="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_icgraph" id="a00109_a169f1e87eddb74ea1b4f1c27998fcd63_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0" title="plot d log rho/d log r " alt="" coords="228,5,367,51"/><area shape="rect" id="node5" href="a00109.html#a99ef591985cfdd81b84c621146050183" title="return total mass in Walker model NOT USED ANYMORE " alt="" coords="220,75,375,104"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af0cb9dc372ce615fdb9841ab769fd230"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.S </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>chi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>S function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+    <tr><td class="paramname">chi</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00361">361</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_af0cb9dc372ce615fdb9841ab769fd230_icgraph.png" border="0" usemap="#a00109_af0cb9dc372ce615fdb9841ab769fd230_icgraph" alt=""/></div>
+<map name="a00109_af0cb9dc372ce615fdb9841ab769fd230_icgraph" id="a00109_af0cb9dc372ce615fdb9841ab769fd230_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200" title="Phi. " alt="" coords="155,5,267,35"/><area shape="rect" id="node5" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd" title="gi_analytic.Mabc_analytic" alt="" coords="316,5,497,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af18007718ecc63a73ce4c572476182ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sig_gaia </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get projected surface density for Gaia tracer population not based on analytic integral </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00166">166</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_af18007718ecc63a73ce4c572476182ab_cgraph.png" border="0" usemap="#a00109_af18007718ecc63a73ce4c572476182ab_cgraph" alt=""/></div>
+<map name="a00109_af18007718ecc63a73ce4c572476182ab_cgraph" id="a00109_af18007718ecc63a73ce4c572476182ab_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="201,5,348,35"/><area shape="rect" id="node5" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="399,5,567,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_af18007718ecc63a73ce4c572476182ab_icgraph.png" border="0" usemap="#a00109_af18007718ecc63a73ce4c572476182ab_icgraph" alt=""/></div>
+<map name="a00109_af18007718ecc63a73ce4c572476182ab_icgraph" id="a00109_af18007718ecc63a73ce4c572476182ab_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="200,5,331,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3dfae3ae61f77d3a36e748fe68fd48e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sig_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>2D surface density in [Munit/pc^2] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00557">557</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_cgraph.png" border="0" usemap="#a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_cgraph" alt=""/></div>
+<map name="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_cgraph" id="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="203,5,304,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_icgraph.png" border="0" usemap="#a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_icgraph" alt=""/></div>
+<map name="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_icgraph" id="a00109_ac3dfae3ae61f77d3a36e748fe68fd48e_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="224,5,355,35"/><area shape="rect" id="node5" href="a00109.html#a1b01c7d2bb53c077787471c91346d263" title="sig_los determined from analytic surfden*sig2 and surfden " alt="" coords="203,59,376,88"/><area shape="rect" id="node7" href="a00109.html#a42b61698774ad5668c249a558428c202" title="sigma_LOS for all investigations " alt="" coords="424,59,560,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a42b61698774ad5668c249a558428c202"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.sig_los </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sigma_LOS for all investigations </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radii in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00614">614</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a42b61698774ad5668c249a558428c202_cgraph.png" border="0" usemap="#a00109_a42b61698774ad5668c249a558428c202_cgraph" alt=""/></div>
+<map name="a00109_a42b61698774ad5668c249a558428c202_cgraph" id="a00109_a42b61698774ad5668c249a558428c202_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a1b01c7d2bb53c077787471c91346d263" title="sig_los determined from analytic surfden*sig2 and surfden " alt="" coords="189,44,363,73"/><area shape="rect" id="node5" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a" title="equation 21 from Baes&amp;Dejonghe 2002 " alt="" coords="416,5,555,51"/><area shape="rect" id="node9" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="411,75,560,104"/><area shape="rect" id="node7" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="608,44,709,73"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b01c7d2bb53c077787471c91346d263"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.sig_los_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sig_los determined from analytic surfden*sig2 and surfden </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sig_LOS for pop in [km/s] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00606">606</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a1b01c7d2bb53c077787471c91346d263_cgraph.png" border="0" usemap="#a00109_a1b01c7d2bb53c077787471c91346d263_cgraph" alt=""/></div>
+<map name="a00109_a1b01c7d2bb53c077787471c91346d263_cgraph" id="a00109_a1b01c7d2bb53c077787471c91346d263_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a" title="equation 21 from Baes&amp;Dejonghe 2002 " alt="" coords="232,5,371,51"/><area shape="rect" id="node7" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="227,75,376,104"/><area shape="rect" id="node5" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="424,44,525,73"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a1b01c7d2bb53c077787471c91346d263_icgraph.png" border="0" usemap="#a00109_a1b01c7d2bb53c077787471c91346d263_icgraph" alt=""/></div>
+<map name="a00109_a1b01c7d2bb53c077787471c91346d263_icgraph" id="a00109_a1b01c7d2bb53c077787471c91346d263_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a42b61698774ad5668c249a558428c202" title="sigma_LOS for all investigations " alt="" coords="227,5,363,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a87143ecad8bcdcb70ed4c6969b06eca0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sig_sig_los_2 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>surface density time sigma_r^2 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sigma*sigma_r^2 </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00650">650</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a87143ecad8bcdcb70ed4c6969b06eca0_cgraph.png" border="0" usemap="#a00109_a87143ecad8bcdcb70ed4c6969b06eca0_cgraph" alt=""/></div>
+<map name="a00109_a87143ecad8bcdcb70ed4c6969b06eca0_cgraph" id="a00109_a87143ecad8bcdcb70ed4c6969b06eca0_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a" title="equation 21 from Baes&amp;Dejonghe 2002 " alt="" coords="192,5,331,51"/><area shape="rect" id="node5" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="379,13,480,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a88edbb0846524b33b4559b97f6be4d2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sig_sig_los_2_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>equation 21 from Baes&amp;Dejonghe 2002 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>surface density * sig_LOS^2 in [(km/s)^2 * Munit/pc^2] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00632">632</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a88edbb0846524b33b4559b97f6be4d2a_cgraph.png" border="0" usemap="#a00109_a88edbb0846524b33b4559b97f6be4d2a_cgraph" alt=""/></div>
+<map name="a00109_a88edbb0846524b33b4559b97f6be4d2a_cgraph" id="a00109_a88edbb0846524b33b4559b97f6be4d2a_cgraph">
+<area shape="rect" id="node3" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="192,13,293,43"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a88edbb0846524b33b4559b97f6be4d2a_icgraph.png" border="0" usemap="#a00109_a88edbb0846524b33b4559b97f6be4d2a_icgraph" alt=""/></div>
+<map name="a00109_a88edbb0846524b33b4559b97f6be4d2a_icgraph" id="a00109_a88edbb0846524b33b4559b97f6be4d2a_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a1b01c7d2bb53c077787471c91346d263" title="sig_los determined from analytic surfden*sig2 and surfden " alt="" coords="192,5,365,35"/><area shape="rect" id="node7" href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0" title="surface density time sigma_r^2 " alt="" coords="209,58,348,105"/><area shape="rect" id="node5" href="a00109.html#a42b61698774ad5668c249a558428c202" title="sigma_LOS for all investigations " alt="" coords="413,5,549,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa7f6977b95e48da505e49d5b01b0ef4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sig_walk </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf1</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mf2</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculate 2D surface density from radius for pop 0, 1, 2 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">mf1</td><td>factor rho0 pop 1 </td></tr>
+    <tr><td class="paramname">mf2</td><td>factor rho0 pop 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00293">293</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_cgraph.png" border="0" usemap="#a00109_aaa7f6977b95e48da505e49d5b01b0ef4_cgraph" alt=""/></div>
+<map name="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_cgraph" id="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_cgraph">
+<area shape="rect" id="node3" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="203,5,352,35"/><area shape="rect" id="node5" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="401,5,569,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_icgraph.png" border="0" usemap="#a00109_aaa7f6977b95e48da505e49d5b01b0ef4_icgraph" alt=""/></div>
+<map name="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_icgraph" id="a00109_aaa7f6977b95e48da505e49d5b01b0ef4_icgraph">
+<area shape="rect" id="node3" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="203,5,333,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a96be530f228bdea4f1b4d515ee0cfd70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.Sigma </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>analytic total mass surface density profile for all investigations </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sigma_0, Sigma_1 </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00567">567</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a96be530f228bdea4f1b4d515ee0cfd70_cgraph.png" border="0" usemap="#a00109_a96be530f228bdea4f1b4d515ee0cfd70_cgraph" alt=""/></div>
+<map name="a00109_a96be530f228bdea4f1b4d515ee0cfd70_cgraph" id="a00109_a96be530f228bdea4f1b4d515ee0cfd70_cgraph">
+<area shape="rect" id="node3" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="184,5,333,35"/><area shape="rect" id="node7" href="a00109.html#af18007718ecc63a73ce4c572476182ab" title="get projected surface density for Gaia tracer population not based on analytic integral ..." alt="" coords="185,59,332,88"/><area shape="rect" id="node13" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="185,112,332,141"/><area shape="rect" id="node5" href="a00109.html#a166e7753be878566cd93b8673f46d7f4" title="equation 33, 34 from Hernquist 1990 " alt="" coords="405,5,507,35"/><area shape="rect" id="node9" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34" title="give densities for the spherical Gaia challenge dataset " alt="" coords="383,59,529,88"/><area shape="rect" id="node11" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d" title="determine rho(r) for a generalized Hernquist model " alt="" coords="580,85,748,115"/><area shape="rect" id="node15" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="381,112,531,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1bbf10aaab090808ec83a578fad2d8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.sigr2 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>analytic total mass surface density profile for all investigations </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>radii in pc </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sigr2 </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00594">594</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_ab1bbf10aaab090808ec83a578fad2d8c_cgraph.png" border="0" usemap="#a00109_ab1bbf10aaab090808ec83a578fad2d8c_cgraph" alt=""/></div>
+<map name="a00109_ab1bbf10aaab090808ec83a578fad2d8c_cgraph" id="a00109_ab1bbf10aaab090808ec83a578fad2d8c_cgraph">
+<area shape="rect" id="node3" href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403" title="sig_r^2, equation 10 of Hernquist 1990 " alt="" coords="176,5,336,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa785b07df75977b2aa9b9a80d6af3403"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.sigr2_hern </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sig_r^2, equation 10 of Hernquist 1990 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radius in [pc] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sig_r^2 in [(km/s)^2] </dd></dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00583">583</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_aa785b07df75977b2aa9b9a80d6af3403_icgraph.png" border="0" usemap="#a00109_aa785b07df75977b2aa9b9a80d6af3403_icgraph" alt=""/></div>
+<map name="a00109_aa785b07df75977b2aa9b9a80d6af3403_icgraph" id="a00109_aa785b07df75977b2aa9b9a80d6af3403_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ab1bbf10aaab090808ec83a578fad2d8c" title="analytic total mass surface density profile for all investigations " alt="" coords="213,5,336,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a166e7753be878566cd93b8673f46d7f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_analytic.X </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>s0</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>equation 33, 34 from Hernquist 1990 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s0,:</td><td>radius, [1] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00013_source.html#l00020">20</a> of file <a class="el" href="a00013_source.html">gi_analytic.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00109_a166e7753be878566cd93b8673f46d7f4_icgraph.png" border="0" usemap="#a00109_a166e7753be878566cd93b8673f46d7f4_icgraph" alt=""/></div>
+<map name="a00109_a166e7753be878566cd93b8673f46d7f4_icgraph" id="a00109_a166e7753be878566cd93b8673f46d7f4_icgraph">
+<area shape="rect" id="node3" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="155,32,304,61"/><area shape="rect" id="node11" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a" title="equation 21 from Baes&amp;Dejonghe 2002 " alt="" coords="160,85,299,131"/><area shape="rect" id="node5" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="373,5,504,35"/><area shape="rect" id="node7" href="a00109.html#a1b01c7d2bb53c077787471c91346d263" title="sig_los determined from analytic surfden*sig2 and surfden " alt="" coords="352,59,525,88"/><area shape="rect" id="node9" href="a00109.html#a42b61698774ad5668c249a558428c202" title="sigma_LOS for all investigations " alt="" coords="573,59,709,88"/><area shape="rect" id="node14" href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0" title="surface density time sigma_r^2 " alt="" coords="369,111,508,158"/></map>
+</div>
+</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a85082edff9919cfce318eeae6ed31d0b"></a>
+<a class="anchor" id="abd9752d58491ad3679484e8fe820fdb2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gi_physics.annu = <a class="el" href="a00109.html#ac7f10b52865d798570eef38f92803846">rhodm_hernquist</a>(gp.xipol, 1.e0, max(gp.xipol)/2., 3, 2, 1)</td>
+          <td class="memname">tuple gi_analytic.asec = lambdax:np.arccos(1./x)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00241">241</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00012_source.html#l00018">18</a> of file <a class="el" href="a00012_source.html">gi_analytic.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af9c06c55922dda1686c521e96605b022"></a>
+<a class="anchor" id="a51aff2b9e9005226a31607ad7abe7a6d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gi_physics.gp = <a class="el" href="a00006.html">gi_params.Params</a>()</td>
+          <td class="memname">tuple gi_analytic.asech = lambdax:np.arccosh(1./x)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00058_source.html#l00240">240</a> of file <a class="el" href="a00058_source.html">gi_physics.py</a>.</p>
+<p>Definition at line <a class="el" href="a00012_source.html#l00017">17</a> of file <a class="el" href="a00012_source.html">gi_analytic.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

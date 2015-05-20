@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grds_write.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/gi_units.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,42 +80,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_b52c632d23613a7c388a3dfabe3e9b98.html">reducedata</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">grds_write.py File Reference</div>  </div>
+<div class="title">gi_units.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>read data from simulation  
+<p>unit definitions unit1__unit2 gives unit1 in terms of unit2 naming convention: m^2/kg =&gt; m2kg_1  
 <a href="#details">More...</a></p>
 
 <p><a href="a00043_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00127"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html">grds_write</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">gi_units</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a2be8e2a9ac0649533c9fc862b584a724"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a2be8e2a9ac0649533c9fc862b584a724">grds_write.disc_sim</a></td></tr>
-<tr class="memdesc:a2be8e2a9ac0649533c9fc862b584a724"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in disc simulation file  <a href="#a2be8e2a9ac0649533c9fc862b584a724">More...</a><br/></td></tr>
-<tr class="separator:a2be8e2a9ac0649533c9fc862b584a724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2ac1996ed6b2e934b2bff7c185fd7127"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a2ac1996ed6b2e934b2bff7c185fd7127">gi_units.day__hr</a> = 24</td></tr>
+<tr class="separator:a2ac1996ed6b2e934b2bff7c185fd7127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d0e8a6bcc0e597f2677cc6c957647d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#af8d0e8a6bcc0e597f2677cc6c957647d">gi_units.hr__min</a> = 60</td></tr>
+<tr class="separator:af8d0e8a6bcc0e597f2677cc6c957647d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f8e481065219263466b029da1f8fdb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a4f8e481065219263466b029da1f8fdb6">gi_units.day__min</a> = day__hr*hr__min</td></tr>
+<tr class="separator:a4f8e481065219263466b029da1f8fdb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19352c9b9095b84b42da460f9bbb75b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a19352c9b9095b84b42da460f9bbb75b6">gi_units.min__s</a> = 60</td></tr>
+<tr class="separator:a19352c9b9095b84b42da460f9bbb75b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603be84ed6a33196f8548979ee86f508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a603be84ed6a33196f8548979ee86f508">gi_units.hr__s</a> = hr__min*min__s</td></tr>
+<tr class="separator:a603be84ed6a33196f8548979ee86f508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869761bc41a2f5d138631371278732bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a869761bc41a2f5d138631371278732bd">gi_units.day__s</a> = day__min*min__s</td></tr>
+<tr class="separator:a869761bc41a2f5d138631371278732bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273dbe43df24d1d226cb1a7d347d3fc7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a273dbe43df24d1d226cb1a7d347d3fc7">gi_units.year__day</a> = 365.25</td></tr>
+<tr class="separator:a273dbe43df24d1d226cb1a7d347d3fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a945f82113e9634e193471a4c6a37d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a3a945f82113e9634e193471a4c6a37d4">gi_units.year__s</a> = year__day*day__s</td></tr>
+<tr class="separator:a3a945f82113e9634e193471a4c6a37d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92838866c309b827351f71f598e1792"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#af92838866c309b827351f71f598e1792">gi_units.century__s</a> = 100</td></tr>
+<tr class="separator:af92838866c309b827351f71f598e1792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f2ac25bd64220bffae6e9979fa97c41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a3f2ac25bd64220bffae6e9979fa97c41">gi_units.arcsec__mas</a> = 1000</td></tr>
+<tr class="separator:a3f2ac25bd64220bffae6e9979fa97c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c61ea57f046c8ca1d1eb2bb611da7aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a6c61ea57f046c8ca1d1eb2bb611da7aa">gi_units.full_circle__rad</a> = 2</td></tr>
+<tr class="separator:a6c61ea57f046c8ca1d1eb2bb611da7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6824fc2ade0bd76e1cbb4f0a6450ea71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a6824fc2ade0bd76e1cbb4f0a6450ea71">gi_units.full_circle__deg</a> = 360</td></tr>
+<tr class="separator:a6824fc2ade0bd76e1cbb4f0a6450ea71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1537e134c3f6ebd5cc6817855ea637"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ada1537e134c3f6ebd5cc6817855ea637">gi_units.rad__deg</a> = full_circle__deg/full_circle__rad</td></tr>
+<tr class="separator:ada1537e134c3f6ebd5cc6817855ea637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f8dbadbd38983d4a905c40411118f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a93f8dbadbd38983d4a905c40411118f4">gi_units.deg__arcmin</a> = 60</td></tr>
+<tr class="separator:a93f8dbadbd38983d4a905c40411118f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dbae36693fef1c8a1a3df17f4baf25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a26dbae36693fef1c8a1a3df17f4baf25">gi_units.rad__arcmin</a> = rad__deg*deg__arcmin</td></tr>
+<tr class="separator:a26dbae36693fef1c8a1a3df17f4baf25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5985f91da0673f660077212837cdb977"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a5985f91da0673f660077212837cdb977">gi_units.arcmin__arcsec</a> = 60</td></tr>
+<tr class="separator:a5985f91da0673f660077212837cdb977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb0e624216c437435b42c7e97e80cbf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a9cb0e624216c437435b42c7e97e80cbf">gi_units.rad__arcsec</a> = rad__arcmin*arcmin__arcsec</td></tr>
+<tr class="separator:a9cb0e624216c437435b42c7e97e80cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a946021128c7f87e76b086a9acb1d2406"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a946021128c7f87e76b086a9acb1d2406">gi_units.km__m</a> = 1000</td></tr>
+<tr class="separator:a946021128c7f87e76b086a9acb1d2406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c86a3ccbd0148c144b62921c5c44814"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a8c86a3ccbd0148c144b62921c5c44814">gi_units.G1__m3kg_1s_2</a> = 6.67398e-11</td></tr>
+<tr class="separator:a8c86a3ccbd0148c144b62921c5c44814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd00e6504c98df84a63efe7a8e1f9b8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a2cd00e6504c98df84a63efe7a8e1f9b8">gi_units.pc__m</a> = 3.08567758e16</td></tr>
+<tr class="separator:a2cd00e6504c98df84a63efe7a8e1f9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5290cc8cfac9698049edeb15d7c2d1a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ab5290cc8cfac9698049edeb15d7c2d1a">gi_units.Msun__kg</a> = 1.981e30</td></tr>
+<tr class="separator:ab5290cc8cfac9698049edeb15d7c2d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c7e93c5ed5c1594734cce33b047979"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ac5c7e93c5ed5c1594734cce33b047979">gi_units.kpc__pc</a> = 1000</td></tr>
+<tr class="separator:ac5c7e93c5ed5c1594734cce33b047979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fcb162479c2929bdfca3712175c7a2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a0fcb162479c2929bdfca3712175c7a2f">gi_units.G1__pcMsun_1km2s_2</a> = G1__m3kg_1s_2*Msun__kg/km__m**2</td></tr>
+<tr class="separator:a0fcb162479c2929bdfca3712175c7a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>read data from simulation </p>
+<div class="textblock"><p>unit definitions unit1__unit2 gives unit1 in terms of unit2 naming convention: m^2/kg =&gt; m2kg_1 </p>
 
-<p>Definition in file <a class="el" href="a00043_source.html">grds_write.py</a>.</p>
+<p>Definition in file <a class="el" href="a00043_source.html">gi_units.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_params Namespace Reference</title>
+<title>GravImage: gauss_distro Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,55 +82,100 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_params Namespace Reference</div>  </div>
+<div class="title">gauss_distro Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html">Params</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#af7c959edeb0d2f1d2e5e640d39e67eac">check_investigate</a></td></tr>
-<tr class="memdesc:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether there is a valid investigation chosen  <a href="#af7c959edeb0d2f1d2e5e640d39e67eac">More...</a><br/></td></tr>
-<tr class="separator:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab487a950eabaaba2cd6ac2363bc260ea"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ab487a950eabaaba2cd6ac2363bc260ea">fig</a> = plt.figure()</td></tr>
+<tr class="separator:ab487a950eabaaba2cd6ac2363bc260ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f63d69c7cccc528cfca04f6a0bbf96"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a79f63d69c7cccc528cfca04f6a0bbf96">ax</a> = fig.add_subplot(1,1,1)</td></tr>
+<tr class="separator:a79f63d69c7cccc528cfca04f6a0bbf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb7d50d80e8a36a4fdf762693882b27d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a> = np.linspace(-5., 5., 100)</td></tr>
+<tr class="separator:afb7d50d80e8a36a4fdf762693882b27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c1c7b266c02326fc119bee8705208d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ad0c1c7b266c02326fc119bee8705208d">y</a> = np.exp(-<a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a>**2/(2*<a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a>))</td></tr>
+<tr class="separator:ad0c1c7b266c02326fc119bee8705208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9324a8ef7c12fb68ee46e7a93620e70c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a> = 1</td></tr>
+<tr class="separator:a9324a8ef7c12fb68ee46e7a93620e70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="af7c959edeb0d2f1d2e5e640d39e67eac"></a>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a79f63d69c7cccc528cfca04f6a0bbf96"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_params.check_investigate </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>inv</em></td><td>)</td>
-          <td></td>
+          <td class="memname">tuple gauss_distro.ax = fig.add_subplot(1,1,1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>check whether there is a valid investigation chosen </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inv</td><td>string </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="a00091_source.html#l00007">7</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
 
-<p>Definition at line <a class="el" href="a00016_source.html#l00013">13</a> of file <a class="el" href="a00016_source.html">gi_params.py</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ab487a950eabaaba2cd6ac2363bc260ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gauss_distro.fig = plt.figure()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00006">6</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9324a8ef7c12fb68ee46e7a93620e70c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gauss_distro.sigma = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00016">16</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb7d50d80e8a36a4fdf762693882b27d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gauss_distro.x = np.linspace(-5., 5., 100)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00009">9</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0c1c7b266c02326fc119bee8705208d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gauss_distro.y = np.exp(-<a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a>**2/(2*<a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00010">10</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

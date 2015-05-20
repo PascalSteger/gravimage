@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/erf.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grd_COM.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,142 +80,187 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_2ca09340385140c39f431843b082c14f.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_be9429b6d98f3738ece5a5ee89294dc4.html">reducedata</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">erf.py</div>  </div>
+<div class="title">grd_COM.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00071.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00090.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00071.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00146.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## \file</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># test inverse of complimentary error function in double precision</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="a00090.html#a242e3bdbb921b4915c955d73c8f4baeb">    9</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00090.html#a242e3bdbb921b4915c955d73c8f4baeb">dierfc_alt</a>(y):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    z = y</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (y &gt; 1):</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        z = 2 - y</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    w = 0.916461398268964 - np.log(z)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    u = np.sqrt(w)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    s = (np.log(u) + 0.488826640273108) / w</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    t = 1 / (u + 0.231729200323405)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    x = u * (1 - s * (s * 0.124610454613712 + 0.5)) -\</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        ((((-0.0728846765585675 * t + 0.269999308670029) * t +\</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        0.150689047360223) * t + 0.116065025341614) * t +\</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        0.499999303439796) * t</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    t = 3.97886080735226 / (x + 3.97886080735226)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    u = t - 0.5</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    s = (((((((((0.00112648096188977922 * u +\</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        1.05739299623423047e-4) * u - 0.00351287146129100025) * u -\</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        7.71708358954120939e-4) * u + 0.00685649426074558612) * u +\</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        0.00339721910367775861) * u - 0.011274916933250487) * u -\</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        0.0118598117047771104) * u + 0.0142961988697898018) * u +\</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        0.0346494207789099922) * u + 0.00220995927012179067</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    s = ((((((((((((s * u - 0.0743424357241784861) * u -\</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        0.105872177941595488) * u + 0.0147297938331485121) * u +\</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        0.316847638520135944) * u + 0.713657635868730364) * u +\</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        1.05375024970847138) * u + 1.21448730779995237) * u +\</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        1.16374581931560831) * u + 0.956464974744799006) * u +\</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        0.686265948274097816) * u + 0.434397492331430115) * u +</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        0.244044510593190935) * t -\</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        z * np.exp(x * x - 0.120782237635245222)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    x += s * (x * s + 1)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (y &gt; 1):</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        x = -x</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> x</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">## \fn dierfc_alt(y)</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># alternative inverse of complimentary error function</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param y</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00090.html#a57bba4d7964b82e34bfcd95fafe79807">   45</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00090.html#a57bba4d7964b82e34bfcd95fafe79807">dierfc</a>(y):</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    y = np.array(y)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    qa=9.16461398268964e-01</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    qb=2.31729200323405e-01</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    qc=4.88826640273108e-01</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    qd=1.24610454613712e-01</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    q0=4.99999303439796e-01</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    q1=1.16065025341614e-01</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    q2=1.50689047360223e-01</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    q3=2.69999308670029e-01</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    q4=-7.28846765585675e-02</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    pa=3.97886080735226000e+00</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    pb=1.20782237635245222e-01</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    p0=2.44044510593190935e-01</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    p1=4.34397492331430115e-01</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    p2=6.86265948274097816e-01</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    p3=9.56464974744799006e-01</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    p4=1.16374581931560831e+00</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    p5=1.21448730779995237e+00</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    p6=1.05375024970847138e+00</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    p7=7.13657635868730364e-01</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    p8=3.16847638520135944e-01</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    p9=1.47297938331485121e-02</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    p10=-1.05872177941595488e-01</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    p11=-7.43424357241784861e-02</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    p12=2.20995927012179067e-03</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    p13=3.46494207789099922e-02</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    p14=1.42961988697898018e-02</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    p15=-1.18598117047771104e-02</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    p16=-1.12749169332504870e-02</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    p17=3.39721910367775861e-03</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    p18=6.85649426074558612e-03</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    p19=-7.71708358954120939e-04</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    p20=-3.51287146129100025e-03</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    p21=1.05739299623423047e-04</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    p22=1.12648096188977922e-03</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># calculate approximative center of mass, assuming constant stellar mass</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># 2D version for Fornax, Sculptor, Sextans, .. observed dwarfs</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal S.P. Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> gi_file <span class="keyword">as</span> gf</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> gi_centering <span class="keyword">import</span> com_shrinkcircle_v_2D</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00146.html#a5104099724164185396f03aae7ea0e16">   16</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00146.html#a5104099724164185396f03aae7ea0e16">concat_pops</a>(x1, x2, y1, y2, vz1, vz2, gp):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    x0 = np.hstack([x1, x2])</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    y0 = np.hstack([y1, y2])</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    vz0 = np.hstack([vz1, vz2])</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    N1  = min(len(x1), gp.ntracer[1-1])</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    N2  = min(len(x2), gp.ntracer[2-1])</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    pm1 = np.hstack([np.ones(N1, dtype=bool), np.zeros(N2, dtype=bool)])</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    pm2 = np.hstack([np.zeros(N1, dtype=bool), np.ones(N2,  dtype=bool)])</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    pm = pm1 + pm2</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> x0, y0, vz0, pm1, pm2, pm</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">## \fn concat_pops(x1, x2, y1, y2, z1, z2, vz1, vz2)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"># concatenate all arrays for two populations</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># @param x1</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"># @param x2</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># @param y1</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param y2</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># @param vz1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"># @param vz2</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">   35</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x, y, vz, Mg, PM, pm):</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> x[pm], y[pm], vz[pm], Mg[pm], PM[pm]</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## \fn select_pm(x, y, comp, vz, Mg, PM, pm)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># extract only parts of the arrays given</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># @param x</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># @param y</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param vz</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param Mg</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param PM</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># @param pm</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00146.html#aba945884398fd062689f840083d889d6">   46</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00146.html#aba945884398fd062689f840083d889d6">run</a>(gp):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">import</span> gr_params</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    gpr = <a class="code" href="a00004.html">gr_params.grParams</a>(gp)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    gpr.fil = gpr.dir+<span class="stringliteral">&quot;/data/tracers.dat&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    delim = [0, 22, 3, 3, 6, 4, 3, 5, 6, 6, 7, 5, 6, 5, 6, 5, 6]</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=<span class="keyword">True</span>, usecols=(0,1),delimiter=delim)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    RAh, RAm, RAs, DEd, DEm, DEs, Vmag, VI, VHel, e_VHel, SigFe, e_SigFe, SigMg, e_SigMg, PM = np.genfromtxt(gpr.fil, skiprows=29, unpack=<span class="keyword">True</span>, usecols=tuple(range(2,17)), delimiter=delim, filling_values=-1)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> gp.pops == 1:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        popass = np.ones(len(ID[1]))</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">elif</span> gp.pops &gt; 1:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        popass = np.loadtxt(gp.files.dir+<span class="stringliteral">&#39;data/popass_&#39;</span>+gp.Rdiff)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># only use stars which have Mg measurements</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    pm = (SigMg&gt;-1)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ID = ID[1][pm]; RAh = RAh[pm]; RAm = RAm[pm]; RAs = RAs[pm]; DEd = DEd[pm]; DEm = DEm[pm]; DEs = DEs[pm]</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    Vmag = Vmag[pm];VI = VI[pm];   VHel = VHel[pm]; e_VHel = e_VHel[pm]; SigFe = SigFe[pm];  e_SigFe = e_SigFe[pm]</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    SigMg = SigMg[pm]; e_SigMg = e_SigMg[pm];  PM = PM[pm]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment"># second step: use stars with high probability of membership</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    pm = (PM&gt;=0.95)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ID = ID[pm]; RAh = RAh[pm]; RAm = RAm[pm]; RAs = RAs[pm]; DEd = DEd[pm]; DEm = DEm[pm]; DEs = DEs[pm]</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    Vmag = Vmag[pm];VI = VI[pm];   VHel = VHel[pm]; e_VHel = e_VHel[pm]; SigFe = SigFe[pm];  e_SigFe = e_SigFe[pm]</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    SigMg = SigMg[pm]; e_SigMg = e_SigMg[pm];  PM = PM[pm]</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    popass = popass[pm]</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    Mg0 = SigMg</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    sig = abs(RAh[0])/RAh[0]</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    RAh = RAh/sig</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    xs = 15*(RAh*3600+RAm*60+RAs)*sig       <span class="comment"># [arcsec/15]</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    sig = abs(DEd[0])/DEd[0]</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    DEd = DEd/sig</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    ys = (DEd*3600+DEm*60+DEs)*sig          <span class="comment"># [arcsec]</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    arcsec = 2.*np.pi/(360.*60.*60) <span class="comment"># [pc]</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment"># remove insensible ranges</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    y[y==0] = 1e-15</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    y[y==1] = 1.-1e-15</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    z=1.*y</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    w=qa-np.log(z)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    u=np.sqrt(w)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    s=(qc+np.log(u))/w</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    t=1/(u+qb)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    x=u*(1-s*(0.5+s*qd))-((((q4*t+q3)*t+q2)*t+q1)*t+q0)*t</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    t=pa/(pa+x)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    u=t-0.5</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    s=(((((((((p22*u+p21)*u+p20)*u+p19)*u+p18)*u+p17)*u+p16)*u+p15)*u+p14)*u+p13)*u+p12</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    s=((((((((((((s*u+p11)*u+p10)*u+p9)*u+p8)*u+p7)*u+p6)*u+p5)*u+p4)*u+p3)*u+p2)*u+p1)*u+p0)*t-z*np.exp(x*x-pb)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    x=x+s*(1+x*s)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> x</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">## \fn dierfc(y)</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"># inverse of complimentary error function from MultiNest implementation</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"># @param y</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    kpc = 1000 <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    DL = {1: <span class="keyword">lambda</span> x: x * (138),<span class="comment">#+/- 8 for Fornax</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          2: <span class="keyword">lambda</span> x: x * (101),<span class="comment">#+/- 5 for Carina</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          3: <span class="keyword">lambda</span> x: x * (79), <span class="comment">#+/- 4 for Sculptor</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          4: <span class="keyword">lambda</span> x: x * (86), <span class="comment">#+/- 4 for Sextans</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;          5: <span class="keyword">lambda</span> x: x * (80)  <span class="comment">#+/- 10 for Draco</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      }[gp.case](kpc)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    xs *= (arcsec*DL) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    ys *= (arcsec*DL) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    PM0 = np.copy(PM)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    x0  = np.copy(xs)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    y0  = np.copy(ys) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    vz0 = np.copy(VHel) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment"># only use stars which are members of the dwarf: exclude pop3 by construction</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">#pm = (PM0 &gt;= gpr.pmsplit) # exclude foreground contamination, outliers</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">#x0, y0, vz0, Mg0, PM0 = select_pm(x0, y0, vz0, Mg0, PM0, pm)</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="a00090.html#a985bbe7699f604fab090b46b62c0006c">  102</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00090.html#a985bbe7699f604fab090b46b62c0006c">ginv</a>(x, mu, sigma):</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment"># parameter(SqrtTwo=1.414213562d0)</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> mu+sigma*np.sqrt(2)*<a class="code" href="a00090.html#a57bba4d7964b82e34bfcd95fafe79807">dierfc</a>(2.*(1.-x))</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">## \fn ginv(x, mu, sigma)</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"># take uniform range [0,1] and return normal pdf centered around mu, with width sigma</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"># sampled with a normal distribution</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"># @param x random variable sampled by MultiNest, uniformly in range [0,1]</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"># @param mu central value</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># @param sigma width of normal distribution</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">from</span> pylab <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="a00090.html#a64fb9735c83ab47cf645734044f6a005">  115</a></span>&#160;    Nsample = 1000</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="a00090.html#ac90322a396d349b99d49c5c48c86b340">  116</a></span>&#160;    x = np.linspace(0, 1, Nsample)</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a00090.html#a2677d243ec5b43a6138273c059c8e381">  117</a></span>&#160;    out = <a class="code" href="a00090.html#a985bbe7699f604fab090b46b62c0006c">ginv</a>(x, 0., 0.1)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    hist(out, np.sqrt(Nsample))</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="a00119.html#a0413892ef0e772a415c5199bc593d873">show</a>()</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    pdb.set_trace()</div>
-<div class="ttc" id="a00090_html_a242e3bdbb921b4915c955d73c8f4baeb"><div class="ttname"><a href="a00090.html#a242e3bdbb921b4915c955d73c8f4baeb">erf.dierfc_alt</a></div><div class="ttdeci">def dierfc_alt</div><div class="ttdoc">alternative inverse of complimentary error function </div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00009">erf.py:9</a></div></div>
-<div class="ttc" id="a00090_html_a985bbe7699f604fab090b46b62c0006c"><div class="ttname"><a href="a00090.html#a985bbe7699f604fab090b46b62c0006c">erf.ginv</a></div><div class="ttdeci">def ginv</div><div class="ttdoc">take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no...</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00102">erf.py:102</a></div></div>
-<div class="ttc" id="a00119_html_a0413892ef0e772a415c5199bc593d873"><div class="ttname"><a href="a00119.html#a0413892ef0e772a415c5199bc593d873">gravimage.show</a></div><div class="ttdeci">def show</div><div class="ttdef"><b>Definition:</b> <a href="a00019_source.html#l00048">gravimage.py:48</a></div></div>
-<div class="ttc" id="a00090_html_a57bba4d7964b82e34bfcd95fafe79807"><div class="ttname"><a href="a00090.html#a57bba4d7964b82e34bfcd95fafe79807">erf.dierfc</a></div><div class="ttdeci">def dierfc</div><div class="ttdoc">inverse of complimentary error function from MultiNest implementation </div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00045">erf.py:45</a></div></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment"># assign population</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> gp.pops == 2:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment"># drawing of populations based on metallicity</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment"># get parameters from function in pymcmetal.py</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">#[p, mu1, sig1, mu2, sig2] = np.loadtxt(gp.files.dir+&#39;metalsplit.dat&#39;)</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">#[pm1, pm2] = np.loadtxt(gp.files.dir+&#39;metalsplit_assignment.dat&#39;)</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        pm1 = (popass==1)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        pm2 = (popass==2)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">elif</span> gp.pops == 1:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        pm1 = (PM &gt;= 0)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        pm2 = (PM &lt;  0) <span class="comment"># assign none, but of same length as xs</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    x1, y1, vz1, Mg1, PM1 = <a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pm1)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    x2, y2, vz2, Mg2, PM2 = <a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pm2)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment"># cutting pm_i to a maximum of ntracers_i particles each:</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    ind1 = np.arange(len(x1))</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    np.random.shuffle(ind1)     <span class="comment"># random.shuffle already changes ind</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    ind1 = ind1[:gp.ntracer[1-1]]</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    ind2 = np.arange(len(x2))</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    np.random.shuffle(ind2)     <span class="comment"># random.shuffle already changes ind</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    ind2 = ind2[:gp.ntracer[2-1]]</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    x1, y1, vz1, Mg1, PMS1 = <a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x1, y1, vz1, Mg1, PM1, ind1)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    x2, y2, vz2, Mg2, PMS2 = <a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x2, y2, vz2, Mg2, PM2, ind2)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    x0, y0, vz0, pm1, pm2, pm = <a class="code" href="a00146.html#a5104099724164185396f03aae7ea0e16">concat_pops</a>(x1, x2, y1, y2, vz1, vz2, gp)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment"># optimum: get 3D center of mass with means</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment"># com_x, com_y, com_z = com_mean(x0,y0,z0,PM0) # 3*[pc],  z component included if available</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    com_x, com_y, com_vz = <a class="code" href="a00111.html#ad8c978a2815c4547b2363011505766d0">com_shrinkcircle_v_2D</a>(x0, y0, vz0, pm) <span class="comment"># [pc], [km/s]</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment"># from now on, work with 2D data only; z0 was only used to get center in (x,y) better</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment"># x0 -= com_x; y0 -= com_y # [pc]</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment"># vz0 -= com_vz #[km/s]</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    R0 = np.sqrt(x0**2+y0**2) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    Rhalf = np.median(R0) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    Rscale = Rhalf <span class="comment"># [pc] overall</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    pop = -1</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">for</span> pmn <span class="keywordflow">in</span> [pm, pm1, pm2]:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        pop = pop+1</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        pmr = (R0&lt;(gp.maxR*Rscale)) <span class="comment"># read max extension for data</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                    <span class="comment"># (rprior*Rscale) from gi_params</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        pmn = pmn*pmr                   <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        print(<span class="stringliteral">&quot;fraction of members = &quot;</span>, 1.0*sum(pmn)/len(pmn))</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        x, y, vz, Mg, PMN = <a class="code" href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pmn)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        R = np.sqrt(x*x+y*y)            <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        Rscalei = np.median(R)          <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        gf.write_Xscale(gp.files.get_scale_file(pop), Rscalei) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        gf.write_data_output(gp.files.get_com_file(pop), x/Rscalei, y/Rscalei, vz, Rscalei) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span> gpr.showplots:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            gpr.show_part_pos(x, y, pmn, Rscale)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">## \fn run(gp)</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"># perform</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="ttc" id="a00146_html_a5104099724164185396f03aae7ea0e16"><div class="ttname"><a href="a00146.html#a5104099724164185396f03aae7ea0e16">grd_COM.concat_pops</a></div><div class="ttdeci">def concat_pops</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00016">grd_COM.py:16</a></div></div>
+<div class="ttc" id="a00146_html_a31a6ee611c6520afa23ca5b2345fa381"><div class="ttname"><a href="a00146.html#a31a6ee611c6520afa23ca5b2345fa381">grd_COM.select_pm</a></div><div class="ttdeci">def select_pm</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00035">grd_COM.py:35</a></div></div>
+<div class="ttc" id="a00146_html_aba945884398fd062689f840083d889d6"><div class="ttname"><a href="a00146.html#aba945884398fd062689f840083d889d6">grd_COM.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">perform </div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00046">grd_COM.py:46</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">gr_params.grParams</a></div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00012">gr_params.py:12</a></div></div>
+<div class="ttc" id="a00111_html_ad8c978a2815c4547b2363011505766d0"><div class="ttname"><a href="a00111.html#ad8c978a2815c4547b2363011505766d0">gi_centering.com_shrinkcircle_v_2D</a></div><div class="ttdeci">def com_shrinkcircle_v_2D</div><div class="ttdef"><b>Definition:</b> <a href="a00062_source.html#l00027">gi_centering.py:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

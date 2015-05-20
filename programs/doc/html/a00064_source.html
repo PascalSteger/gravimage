@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/launch.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/gr_external_data.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,25 +80,154 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_2ca09340385140c39f431843b082c14f.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_be9429b6d98f3738ece5a5ee89294dc4.html">reducedata</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">launch.py</div>  </div>
+<div class="title">gr_external_data.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00064.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment"># launch.py - Python stub loader, loads the module that was made by Cython.</span></div>
+<a href="a00064.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00138.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"># This code is always interpreted, like normal Python.</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># It is not compiled to C.</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> mesh_use</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;mesh_use.mesh_exp(0.0, 1.0, 0.2, 5)</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @ file</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># generate simple disk data ourselves</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) 2013 Pascal Steger, psteger@phys.ethz.ch</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> npr</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> simps</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> gl_units <span class="keyword">as</span> gu</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> gl_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> gl_mc_errors <span class="keyword">as</span> gmcer</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> rand</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00138.html#a68dcfacb74582eb72aa03d0a065341a8">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00138.html#a68dcfacb74582eb72aa03d0a065341a8">write_disk_output_files</a>(Bincenter, Binmin, Binmax, nudat, nuerr, sigz2dat, sigz2err, gp):</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment"># write tracer densities 3D</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    file_nu = open(gp.files.nufiles[0], <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    print(<span class="stringliteral">&#39;Bin centres z [kpc];&#39;</span>,<span class="stringliteral">&#39;Binmin z [kpc];&#39;</span>,<span class="stringliteral">&#39;Binmax z [kpc];&#39;</span>,<span class="stringliteral">&#39;nu(z) [#/pc^3];&#39;</span>,<span class="stringliteral">&#39;error [#/pc^3]&#39;</span>, file=file_nu)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(gp.nbins):</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        print(Bincenter[b], Binmin[b], Binmax[b], nudat[b], nuerr[b], file=file_nu)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    file_nu.close()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    file_sig = open(gp.files.sigfiles[0],<span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    print(<span class="stringliteral">&#39;Bin centres z [kpc];&#39;</span>,<span class="stringliteral">&#39;Binmin z [kpc];&#39;</span>,<span class="stringliteral">&#39;Binmax [kpc];&#39;</span>, <span class="stringliteral">&#39;sigma_z^2(z) [km^2/s^2];&#39;</span>, <span class="stringliteral">&#39;error [km^2/s^2]&#39;</span>, file=file_sig)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(gp.nbins):</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        print(Bincenter[b], Binmin[b], Binmax[b], sigz2dat[b], sigz2err[b], file=file_sig)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    file_sig.close()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00138.html#aa0c623620a2066d0979ff4a6cd54cbe2">   36</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00138.html#aa0c623620a2066d0979ff4a6cd54cbe2">ErSamp_gauss_linear_w_z</a>():</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    fraction_err = 0.05</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    datafile = <span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/Data_Sets/simplenu/simplenu_sigz_raw_sdz_p05_sdvz_5.dat&#39;</span> <span class="comment">#Todo: work out how to un-hard code this</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    data = np.loadtxt(datafile)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    z_data = data[:, 0]</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    z_sampled = []</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> z_val <span class="keywordflow">in</span> z_data:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        z_sampled.append(rand.normal(loc = z_val, scale= z_val*fraction_err))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> z_sampled</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">## \fn write_disk_output_files(Rbin, Binmin, Binmax, nudat, nuerr, Sigdat, Sigerr, Mdat, Merr, sigdat, sigerr, scales, gp)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"># for permanent and consistent data handling</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"># @param Rbin</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"># @param Binmin</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"># @param Binmax</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"># @param nudat</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># @param nuerr</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"># @param Sigdat</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"># @param Sigerr</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"># @param Mdat</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"># @param Merr</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"># @param sigdat</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"># @param sigerr</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"># @param scales</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="a00138.html#a531335670dc21ab5cdeaf9432416edb7">   66</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00138.html#a531335670dc21ab5cdeaf9432416edb7">run</a>(gp):</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> gp.machine == <span class="stringliteral">&#39;lisa_HS_login&#39;</span> <span class="keywordflow">or</span> gp.machine == <span class="stringliteral">&#39;lisa_HS_batch&#39;</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        external_file=<span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/Data_Sets/&#39;</span> + gp.external_data_file</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">elif</span> gp.machine == <span class="stringliteral">&#39;lisa_SS_login&#39;</span> <span class="keywordflow">or</span> gp.machine == <span class="stringliteral">&#39;lisa_SS_batch&#39;</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        external_file=<span class="stringliteral">&#39;/home/sofia/darcoda/gravlite/Data_Sets/&#39;</span> + gp.external_data_file</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    external_data = np.loadtxt(external_file)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    z_data = external_data[:, 0] <span class="comment">#[kpc]</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    v_data = external_data[:, 1] <span class="comment">#[km/s]</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">#Population Splitting</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> gp.ntracer_pops &gt; 1:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        print(<span class="stringliteral">&#39;More than one population&#39;</span>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">#DO POPULATION SPLITTING</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment"># Bin data, constant number of tracers per bin.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment"># First, calculate binmins, binmaxes, and bin centres</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> gp.binning == <span class="stringliteral">&#39;consttr&#39;</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        binmin, binmax, bincentermed = gh.bin_r_const_tracers(z_data, gp.nbins)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">elif</span> gp.binning == <span class="stringliteral">&#39;linspace&#39;</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        binmin, binmax, bincentermed = gh.bin_r_linear(0., round(max(z_data),1), gp.nbins)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment"># Then calculate tracer number density [#stars/kpc^3], [#stars/kpc^3], [km/s], [km/s]</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    nu_data, nu_err_pois, sigz2_data, sigz2_err_pois, Ntr_per_bin = gh.nu_sig_from_bins(binmin, binmax, z_data, v_data)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment"># Use MC to estimate errors on nu</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;simplenu&#39;</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        z_sampler = ErSamp_gauss_linear_w_z</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    nu_err_meas = gmcer.mc_nu_error(z_sampler, gp.mc_err_N_iters, binmin, binmax, bincentermed)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">#Combine nu errors in quadrature</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    nu_err_tot = np.sqrt(nu_err_pois**2 + nu_err_meas**2)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">#Combine sig (vel disp) errors</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Ntr = len(z_data) <span class="comment">#Number of tracers</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    sigz2_err_tot = sigz2_err_pois + np.sqrt(2/Ntr_per_bin)*gp.vz_SDerr_meas**2</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">#Output data to file</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="a00138.html#a68dcfacb74582eb72aa03d0a065341a8">write_disk_output_files</a>(bincentermed, binmin, binmax, nu_data, nu_err_tot, sigz2_data, sigz2_err_tot, gp)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">#Set central nu prior range</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    gp.nu_C_max = 2.*Ntr/(binmax[0]-binmin[0])</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    gp.nu_C_min = 0.1*Ntr/(binmax[-1]-binmin[0])</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">#Temp:</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    gp.nu_C_max = 3.E4</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    gp.nu_C_min = 1.E3</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">import</span> gr_params <span class="comment">#WHAT DOES THIS DO.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    gpr = gr_params.Params(gp)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> gpr.showplots:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        nuscaleb = nu_zth[np.argmin(np.abs(zth-z0))]</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        plt.loglog(zth, nu_zth/nuscaleb, <span class="stringliteral">&#39;b.-&#39;</span>)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        nuscaler = nu_dat_bin1[np.argmin(np.abs(zth-z0))]</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        plt.loglog(zth, nu_dat_bin1/nuscaler, <span class="stringliteral">&#39;r.-&#39;</span>)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> gp.dat</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">## \fn run(gp)</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"># Read in data from JR&#39;s simple 1D mock</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"># Bin it, calculate nu and sigma, output it to file</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">import</span> gl_params</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a00138.html#adbe4bfd8168d6d3208a9e74befe332ba">  132</a></span>&#160;    gp = gl_params.Params()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="a00138.html#a531335670dc21ab5cdeaf9432416edb7">run</a>(gp)</div>
+<div class="ttc" id="a00138_html_a68dcfacb74582eb72aa03d0a065341a8"><div class="ttname"><a href="a00138.html#a68dcfacb74582eb72aa03d0a065341a8">gr_external_data.write_disk_output_files</a></div><div class="ttdeci">def write_disk_output_files</div><div class="ttdef"><b>Definition:</b> <a href="a00064_source.html#l00020">gr_external_data.py:20</a></div></div>
+<div class="ttc" id="a00138_html_aa0c623620a2066d0979ff4a6cd54cbe2"><div class="ttname"><a href="a00138.html#aa0c623620a2066d0979ff4a6cd54cbe2">gr_external_data.ErSamp_gauss_linear_w_z</a></div><div class="ttdeci">def ErSamp_gauss_linear_w_z</div><div class="ttdef"><b>Definition:</b> <a href="a00064_source.html#l00036">gr_external_data.py:36</a></div></div>
+<div class="ttc" id="a00138_html_a531335670dc21ab5cdeaf9432416edb7"><div class="ttname"><a href="a00138.html#a531335670dc21ab5cdeaf9432416edb7">gr_external_data.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">Read in data from JR&amp;#39;s simple 1D mock Bin it, calculate nu and sigma, output it to file...</div><div class="ttdef"><b>Definition:</b> <a href="a00064_source.html#l00066">gr_external_data.py:66</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

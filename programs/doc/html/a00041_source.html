@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grd_photo_for.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/gi_multinest_helper.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,125 +80,98 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_b52c632d23613a7c388a3dfabe3e9b98.html">reducedata</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">grd_photo_for.py</div>  </div>
+<div class="title">gi_multinest_helper.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00125.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00125.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># calculate approximative center of mass, assuming constant stellar mass</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># 2D version for Fornax only, based on photometric deBoer+2013 data</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal S.P. Steger, pascal@steger.aero</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> gi_file <span class="keyword">as</span> gf</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> gi_centering <span class="keyword">import</span> com_shrinkcircle_2D</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## Interfaces with multinest output files</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># Hamish Silverwood, GRAPPA, UvA, 15 January 2015</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> gl_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> pickle</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;sys.path.insert(0, <span class="stringliteral">&#39;plotting/&#39;</span>)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> plot_profiles <span class="keyword">import</span> correct_E_error</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00125.html#a7019fe057d748766de3960d845eb9478">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#a7019fe057d748766de3960d845eb9478">concat_pops</a>(x1, x2, y1, y2, vz1, vz2, gp):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    x0 = np.hstack([x1, x2])</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    y0 = np.hstack([y1, y2])</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    vz0 = np.hstack([vz1, vz2])</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    N1  = min(len(x1), gp.ntracer[1-1])</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    N2  = min(len(x2), gp.ntracer[2-1])</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    pm1 = np.hstack([np.ones(N1, dtype=bool), np.zeros(N2, dtype=bool)])</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    pm2 = np.hstack([np.zeros(N1, dtype=bool), np.ones(N2,  dtype=bool)])</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    pm = pm1 + pm2</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> x0, y0, vz0, pm1, pm2, pm</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">## \fn concat_pops(x1, x2, y1, y2, z1, z2, vz1, vz2)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"># concatenate all arrays for two populations</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"># @param x1</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># @param x2</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"># @param y1</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># @param y2</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param vz1</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># @param vz2</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00125.html#a89066f284d3b8614af8d5ec86f18440b">   34</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#a89066f284d3b8614af8d5ec86f18440b">select_pm</a>(x, y, vz, Mg, PM, pm):</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> x[pm], y[pm], vz[pm], Mg[pm], PM[pm]</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">## \fn select_pm(x, y, comp, vz, Mg, PM, pm)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"># extract only parts of the arrays given</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># @param x</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># @param y</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># @param vz</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param Mg</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param PM</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param pm</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, paracube_filename, profile_filename, investigation, case, timestamp):</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment"># Takes a file with points defined in the multinest cube, output file with profiles</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment"># as per the pc2.save type</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">#Pull in parameters from the run basepath</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment"># load stored parameters</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ip.insert_sys_path(basepath_ts+<span class="stringliteral">&#39;programs/&#39;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">import</span> gl_params <span class="keyword">as</span> glp</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ip.remove_first()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    gp = glp.Params(timestamp, investigation, int(case))</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">import</span> gl_class_cube <span class="keyword">as</span> glcc</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">from</span> gl_loglike <span class="keyword">import</span> geom_loglike</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">import</span> gl_file <span class="keyword">as</span> glf</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment"># Import the bin centres used for the run</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    gp.dat = glf.get_binned_data_noscale(gp)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    nu_1_data = np.loadtxt(basepath_ts +<span class="stringliteral">&#39;/nu/nu_1.txt&#39;</span>, skiprows=1)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    gp.z_bincenters = nu_1_data[:,0]</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    gp.z_binmins = nu_1_data[:,1]</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    gp.z_binmaxs = nu_1_data[:,2]</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    gp.z_all_pts = np.append([0.0], gp.z_bincenters)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="a00167.html#a8a89b3451465b041ef01dcf3dd83b217">correct_E_error</a>(basepath_ts + paracube_filename)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00125.html#a9bd36dcf200e04bbbcfbe74f02002eb5">   45</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#a9bd36dcf200e04bbbcfbe74f02002eb5">run</a>(gp):</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">import</span> gr_params</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    gpr = <a class="code" href="a00004.html">gr_params.grParams</a>(gp)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    gpr.fil = gpr.dir+<span class="stringliteral">&quot;/deBoer/table1.dat&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ALL = np.loadtxt(gpr.fil)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    RAh = ALL[:,0]</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    RAm = ALL[:,1]</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    RAs = ALL[:,2]</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    DEd = ALL[:,3]</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    DEm = ALL[:,4]</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    DEs = ALL[:,5]</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment"># that&#39;s all we read in for now. Crude assumptions: each star belongs to Fornax, and has mass 1Msun</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># only use stars which are members of the dwarf</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    sig = abs(RAh[0])/RAh[0]</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    RAh = RAh/sig</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    xs = 15*(RAh*3600+RAm*60+RAs)*sig       <span class="comment"># [arcsec/15]</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    sig = abs(DEd[0])/DEd[0]</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    DEd = DEd/sig</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ys = (DEd*3600+DEm*60+DEs)*sig          <span class="comment"># [arcsec]</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    arcsec = 2.*np.pi/(360.*60.*60) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    kpc = 1000 <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    DL = {1: <span class="keyword">lambda</span> x: x * (138),<span class="comment">#+/- 8 for Fornax</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          2: <span class="keyword">lambda</span> x: x * (101),<span class="comment">#+/- 5 for Carina</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          3: <span class="keyword">lambda</span> x: x * (79), <span class="comment">#+/- 4 for Sculptor</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          4: <span class="keyword">lambda</span> x: x * (86), <span class="comment">#+/- 4 for Sextans</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          5: <span class="keyword">lambda</span> x: x * (80)  <span class="comment">#+/- 10 for Draco</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      }[gp.case](kpc)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    xs *= (arcsec*DL) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ys *= (arcsec*DL) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    x0 = np.copy(xs)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    y0 = np.copy(ys) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    com_x, com_y = <a class="code" href="a00096.html#a77f2fcb4ca1005066cf1e972b4af114f">com_shrinkcircle_2D</a>(x0, y0) <span class="comment"># [pc], [km/s]</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment"># from now on, work with 2D data only; z0 was only used to get center in (x,y) better</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment"># x0 -= com_x; y0 -= com_y # [pc]</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment"># vz0 -= com_vz #[km/s]</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    R0 = np.sqrt(x0**2+y0**2) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Rhalf = np.median(R0) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Rscale = Rhalf <span class="comment"># [pc] overall</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    pop = 0</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    pmr = (R0&lt;(gp.maxR*Rscale)) <span class="comment"># read max extension for data (rprior*Rscale) from gi_params</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    x=1.*x0[pmr]</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    y=1.*y0[pmr]</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    R = np.sqrt(x*x+y*y)            <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    Rscalei = np.median(R)          <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    gf.write_Xscale(gp.files.get_scale_file(pop), Rscalei) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    gf.write_data_output(gp.files.get_com_file(pop), x/Rscalei, y/Rscalei, np.zeros(len(x)), Rscalei) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">## \fn run(gp)</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"># main functionality: get center of mass of deBoer data</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment"># for debugging input issues here:</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">import</span> gi_params</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="a00125.html#a73ea8751bdd5c50c6c4914cff6144c88">  100</a></span>&#160;    gp = <a class="code" href="a00006.html">gi_params.Params</a>()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment"># instead of run(gp), use the code directly, such that after execution, the variables are available</span></div>
-<div class="ttc" id="a00125_html_a7019fe057d748766de3960d845eb9478"><div class="ttname"><a href="a00125.html#a7019fe057d748766de3960d845eb9478">grd_photo_for.concat_pops</a></div><div class="ttdeci">def concat_pops</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00015">grd_photo_for.py:15</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="a00006.html">gi_params.Params</a></div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00026">gi_params.py:26</a></div></div>
-<div class="ttc" id="a00125_html_a89066f284d3b8614af8d5ec86f18440b"><div class="ttname"><a href="a00125.html#a89066f284d3b8614af8d5ec86f18440b">grd_photo_for.select_pm</a></div><div class="ttdeci">def select_pm</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00034">grd_photo_for.py:34</a></div></div>
-<div class="ttc" id="a00125_html_a9bd36dcf200e04bbbcfbe74f02002eb5"><div class="ttname"><a href="a00125.html#a9bd36dcf200e04bbbcfbe74f02002eb5">grd_photo_for.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">main functionality: get center of mass of deBoer data </div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00045">grd_photo_for.py:45</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">gr_params.grParams</a></div><div class="ttdef"><b>Definition:</b> <a href="a00034_source.html#l00012">gr_params.py:12</a></div></div>
-<div class="ttc" id="a00096_html_a77f2fcb4ca1005066cf1e972b4af114f"><div class="ttname"><a href="a00096.html#a77f2fcb4ca1005066cf1e972b4af114f">gi_centering.com_shrinkcircle_2D</a></div><div class="ttdeci">def com_shrinkcircle_2D</div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00128">gi_centering.py:128</a></div></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    paracube_data = np.loadtxt(basepath_ts + paracube_filename, dtype=<span class="stringliteral">&#39;a&#39;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    gp.plotting_flag = <span class="keyword">True</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span> iter <span class="keywordflow">in</span> range(0, len(paracube_data[:,0])):</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">#print(&#39;Iter = &#39;, iter)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        paracube = paracube_data[iter,:]</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        paracube = paracube.astype(<span class="stringliteral">&#39;float&#39;</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">#pdb.set_trace()</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            temp_profile = <a class="code" href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">geom_loglike</a>(paracube, gp.ndim, gp.ndim+1, gp)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        temp_profile.x0 = gp.z_bincenters</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        temp_profile.xbins = np.hstack([gp.z_binmins, gp.z_binmaxs[-1]])</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        with open(gp.files.outdir+profile_filename, <span class="stringliteral">&#39;ab&#39;</span>) <span class="keyword">as</span> fi:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            pickle.dump(temp_profile, fi)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00125.html#af825942b04e68ac0912dab296ba822c2">   70</a></span>&#160;    parser = OptionParser()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-i&quot;</span>, <span class="stringliteral">&quot;--investigation&quot;</span>, dest=<span class="stringliteral">&quot;investigation&quot;</span>, default=<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-c&quot;</span>, <span class="stringliteral">&quot;--case&quot;</span>, dest=<span class="stringliteral">&quot;case&quot;</span>, default=0)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-t&quot;</span>, <span class="stringliteral">&quot;--timestamp&quot;</span>, dest=<span class="stringliteral">&quot;timestamp&quot;</span>, default=<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    (options, args) = parser.parse_args()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00125.html#a8eb9eaf32822aff6d1ccd850cc852cf6">   76</a></span>&#160;    basepath_ts=<span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/gravimage/DT&#39;</span> + str(options.investigation) + <span class="stringliteral">&#39;/&#39;</span> + str(options.case) + <span class="stringliteral">&#39;/&#39;</span> + str(options.timestamp) +<span class="stringliteral">&#39;/&#39;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, <span class="stringliteral">&quot;phys_live.point&quot;</span>, <span class="stringliteral">&quot;phys_live_profiles.save&quot;</span>, <span class="stringliteral">&#39;simplenu&#39;</span>, options.case, str(options.timestamp))</div>
+<div class="ttc" id="a00125_html_af663a44c7c1e9b6da91081950ea5bf97"><div class="ttname"><a href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">gi_multinest_helper.paracube_to_profile</a></div><div class="ttdeci">def paracube_to_profile</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00015">gi_multinest_helper.py:15</a></div></div>
+<div class="ttc" id="a00167_html_a8a89b3451465b041ef01dcf3dd83b217"><div class="ttname"><a href="a00167.html#a8a89b3451465b041ef01dcf3dd83b217">plop.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00054_source.html#l00048">plop.py:48</a></div></div>
+<div class="ttc" id="a00123_html_ac840f1eb9037c7ceb08dc8ecfccc5bf9"><div class="ttname"><a href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></div><div class="ttdeci">def geom_loglike</div><div class="ttdoc">define log likelihood function to be called by pyMultinest and plot_profiles disk version ...</div><div class="ttdef"><b>Definition:</b> <a href="a00024_source.html#l00018">gi_loglike.py:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:23 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

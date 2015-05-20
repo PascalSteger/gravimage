@@ -149,7 +149,7 @@ class ProfileCollection():
         self.M95hi.x0 = x0
         self.M99hi.x0 = x0
         self.Mmax.x0  = x0
-    ## \fn set_x0(self, x0)
+    ## \fn set_x0(self, x0, Binmin, Binmax)
     # set radii for 1sigma, 2sigma profiles
     # @param x0 radii in pc
     # @param Binmin minimal radii of bins in [pc]
@@ -292,7 +292,7 @@ class ProfileCollection():
             self.analytic.set_prof('Sig', anSig[pop] , pop, gp)#/ Signorm, pop, gp)
             self.analytic.set_prof('sig', -np.ones(len(r0)), pop, gp)
         return
-    ## \fn set_analytic(x0, gp)
+    ## \fn set_analytic(self, x0, gp)
     # set analytic curves (later shown in blue)
     # @param x0 radius in [pc]
     # @param gp global parameters
@@ -495,7 +495,7 @@ class ProfileCollection():
                         print('rhalf = ', xx, ' pc')
                         ax.axvline(xx, color='green', lw=0.5, alpha=0.7)
                         ihalf = kk
-    ## \fn plot_Xscale_3D(ax, gp)
+    ## \fn plot_Xscale_3D(self, ax, gp)
     # plot 3D half-light radii, based on median nu model
     # @param ax axis object
     # @param gp global parameters
@@ -575,16 +575,61 @@ class ProfileCollection():
     # @param ax axis object to plot into
     # @param prof string
     # @param pop int
-    # @param gp
+    # @param gp global parameters
+
+    def fill_nice_txt(self, ax, prof, pop, gp):
+        M99lo = self.M99lo.get_prof(prof, pop)
+        M95lo = self.M95lo.get_prof(prof, pop)
+        M68lo = self.M68lo.get_prof(prof, pop)
+        Mmedi = self.Mmedi.get_prof(prof, pop)
+        r0    = gp.xepol
+        M68hi = self.M68hi.get_prof(prof, pop)
+        M95hi = self.M95hi.get_prof(prof, pop)
+        M99hi = self.M99hi.get_prof(prof, pop)
+        ax.fill_between(r0, M99lo, M99hi, color='black', alpha=0.1, lw=0.1)
+        ax.plot(r0, M99lo, color='black', lw=0.4)
+        ax.plot(r0, M99hi, color='black', lw=0.3)
+        ax.fill_between(r0, M95lo, M95hi, color='black', alpha=0.2, lw=0.1)
+        ax.plot(r0, M95lo, color='black', lw=0.4)
+        ax.plot(r0, M95hi, color='black', lw=0.3)
+        ax.fill_between(r0, M68lo, M68hi, color='black', alpha=0.4, lw=0.1)
+        ax.plot(r0, M68lo, color='black', lw=0.4)
+        ax.plot(r0, M68hi, color='black', lw=0.3)
+        ax.plot(r0, Mmedi, 'r', lw=1)
+        if prof == 'Sig' or prof == 'sig':
+            for pop in range(gp.pops):
+                ax.axvline(gp.Xscale[pop+1], color='blue', lw=0.5) # [pc]
+        else:
+            self.plot_Xscale_3D(ax, gp)
+        ax.set_xlim([r0[0], r0[-1]])
+        if prof == 'beta' or prof == 'betastar':
+            self.broaden_lim('beta', pop, -1, 1)
+            self.broaden_lim('betastar', pop, -1, 1)
+        elif prof == 'nr':
+            self.broaden_lim('nr', pop, -0.5, 5)
+        elif prof == 'nrnu':
+            self.broaden_lim('nrnu', pop, 0., max(M95hi))
+        elif prof == 'M':
+            self.broaden_lim('M', 0, min(M68lo), max(M68hi))
+        elif prof == 'rho':
+            self.broaden_lim('rho', 0, min(M68lo), max(M68hi))
+        elif prof == 'nu':
+            self.broaden_lim('nu', pop, min(M68lo), max(M68hi))
+        return
+    ## \fn fill_nice_txt(self, ax, prof, pop, gp)
+    # plot filled region for 1sigma and 2sigma confidence interval from only .txt outputs
+    # @param ax axis object to plot into
+    # @param prof string
+    # @param pop int
+    # @param gp global parameters
 
     def plot_profile(self, basename, prof, pop, gp):
-        gh.LOG(1, 'prof '+str(prof)+', pop '+str(pop)+', run '+basename)
+        gh.LOG(1, 'prof ' + str(prof) + ', pop ' + str(pop) + ', run ' + basename)
         fig = plt.figure()
         ax  = fig.add_subplot(111)
         if prof != 'chi2':
             ax.set_xscale('log')
-        if prof == 'rho' or prof == 'J' or prof == 'Sig' or\
-           prof == 'M' or prof == 'nu':
+        if prof == 'rho' or prof == 'J' or prof == 'Sig' or prof == 'M' or prof == 'nu':
             ax.set_yscale('log')
         self.plot_labels(ax, prof, pop, gp)
         if len(self.profs)>0:
@@ -594,8 +639,7 @@ class ProfileCollection():
                     # do include all chi^2 values for plot
                     goodchi.append(self.chis[k])
                 print('plotting profile chi for '+str(len(goodchi))+' models')
-                bins, edges = np.histogram(np.log10(goodchi), range=[-2,6], \
-                                           bins=max(6,np.sqrt(len(goodchi))),\
+                bins, edges = np.histogram(np.log10(goodchi), range=[-2,6], bins=max(6,np.sqrt(len(goodchi))),\
                                            density=True)
                 ax.step(edges[1:], bins, where='pre')
                 plt.draw()
@@ -623,6 +667,37 @@ class ProfileCollection():
             plt.draw()
         else:
             gh.LOG(1, 'empty self.profs')
+            pdb.set_trace()
+        fig.savefig(basename+'output/pdf/prof_'+prof+'_'+str(pop)+'.pdf')
+        return 1
+    ## \fn plot_profile(self, basename, prof, pop, gp)
+    # plot single profile
+    # @param basename
+    # @param prof string of profile to look at
+    # @param pop population number
+    # @param gp global parameters
+
+
+    def plot_txtprofile(self, basename, prof, pop, gp):
+        gh.LOG(1, 'prof ' + str(prof) + ', pop ' + str(pop) + ', run ' + basename)
+        fig = plt.figure()
+        ax  = fig.add_subplot(111)
+        ax.set_xscale('log')
+        if prof == 'rho' or prof == 'J' or prof == 'Sig' or prof == 'M' or prof == 'nu':
+            ax.set_yscale('log')
+        self.plot_labels(ax, prof, pop, gp)
+        self.fill_nice_txt(ax, prof, pop, gp)
+        # TODO: replace above
+        if prof == 'Sig' or prof == 'sig':
+            self.plot_data(ax, basename, prof, pop, gp)
+
+        if (gp.investigate == 'gaia' or gp.investigate=='triax') and prof != 'sig' or (gp.investigate=='walk' and prof!='sig' and prof!='nu' and prof!='Sig'):
+            r0 = self.analytic.x0
+            y0 = self.analytic.get_prof(prof, pop)
+            self.broaden_lim(prof, pop, min(y0), max(y0))
+            ax.plot(r0, y0, 'b--', lw=2)
+        ax.set_ylim(self.ranges[prof+str(pop)])
+        plt.draw()
         fig.savefig(basename+'output/pdf/prof_'+prof+'_'+str(pop)+'.pdf')
         return 1
     ## \fn plot_profile(self, basename, prof, pop, gp)

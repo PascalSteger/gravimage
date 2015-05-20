@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/gi_data.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_analytic.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,282 +80,727 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_dd24ee3e64a33da7b27d9c9d3211d3c8.html">sphere</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">gi_data.py</div>  </div>
+<div class="title">gi_analytic.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00013.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00102.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00013.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># read in data and store it in an appropriate class</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal Steger, pascal@steger.aero</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># @ingroup gravimage</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># all analytic profiles from gi_physics</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) GPL v3 2015 ETHZ Pascal Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> gi_project <span class="keyword">as</span> gip</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> splrep, splev</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00102.html#a7fe598aeb05831a032ee8f6011b7beff">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00102.html#a7fe598aeb05831a032ee8f6011b7beff">introduce_points_in_between</a>(r0, gp):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    rmin = np.log10(min(r0))</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    rmax = np.log10(max(r0))</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> np.logspace(rmin, rmax, gp.nfine)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">## \fn introduce_points_in_between(r0, gp)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># get gp.fine points logarithmically spaced points</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># @param r0 [pc] gp.xipol</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># @param gp global parameter</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00002.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00002.html">Datafile</a>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00002.html#a123e4a94e9bafdd8501f193f11543115">   25</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a123e4a94e9bafdd8501f193f11543115">__init__</a>(self):</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">## smallest radius of the data bins, in [pc]</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">   27</a></span>&#160;        self.<a class="code" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">binmin</a> = []</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">## centers of bins</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">   29</a></span>&#160;        self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a> = []</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">## biggest radius of the data bins, in [pc]</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">   31</a></span>&#160;        self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a> = []</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">## keep mass profile</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">   33</a></span>&#160;        self.<a class="code" href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">Mr</a> = []</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">   34</a></span>&#160;        self.<a class="code" href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">Mrerr</a> = []</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">   35</a></span>&#160;        self.<a class="code" href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">Mhalf</a> = []</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">   36</a></span>&#160;        self.<a class="code" href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">rhalf</a> = []</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">## keep radial profile of the tracer density, averaged in 2D-rings</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00002.html#a6468b7785749ae289a35c41b9d101069">   38</a></span>&#160;        self.<a class="code" href="a00002.html#a6468b7785749ae289a35c41b9d101069">nu</a> = []</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00002.html#af285bffbe7414399fe25cdda0b731868">   39</a></span>&#160;        self.<a class="code" href="a00002.html#af285bffbe7414399fe25cdda0b731868">nuerr</a> = []</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">   40</a></span>&#160;        self.<a class="code" href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">nu_epol</a> = []</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">   41</a></span>&#160;        self.<a class="code" href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">nuerr_epol</a> = []</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">## to keep the nr parameters</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a00002.html#afe7c5bd635a24e99f1456df808092b81">   43</a></span>&#160;        self.<a class="code" href="a00002.html#afe7c5bd635a24e99f1456df808092b81">nuhalf</a> = []</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">   44</a></span>&#160;        self.<a class="code" href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">nrnu</a> = []</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">   45</a></span>&#160;        self.<a class="code" href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">nrnuerr</a> = []</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">   46</a></span>&#160;        self.<a class="code" href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">Sig</a> = []</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">   47</a></span>&#160;        self.<a class="code" href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">Sigerr</a> = []</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">## keep line of sight velocity dispersion profile, in [km/s]</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">   49</a></span>&#160;        self.<a class="code" href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">sig</a> = []</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">## keep error of sigdat</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">   51</a></span>&#160;        self.<a class="code" href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">sigerr</a> = []</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">## keep fourth velocity moment of the LOS velocities</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">   53</a></span>&#160;        self.<a class="code" href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">kap</a> = []</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">## keep errors of kapdat</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a00002.html#aca99456177f80323c6a54b6791734d95">   55</a></span>&#160;        self.<a class="code" href="a00002.html#aca99456177f80323c6a54b6791734d95">kaperr</a> = []</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">## \fn __init__(self)</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># constructor: set all initial values</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00002.html#a6b59c5ac60b55492174db9eef738385e">   60</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a6b59c5ac60b55492174db9eef738385e">read_Sig</a>(self, gp):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            print(<span class="stringliteral">&#39;read_Sig on file &#39;</span>, gp.files.Sigfiles[pop])</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            Sigx, binmin, binmax, Sigdat, Sigerr = gh.readcol5(gp.files.Sigfiles[pop])</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment"># 3*[rscale], [Sig0], [Sig0]</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="comment"># switch to Munit (msun) and pc here</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            Sigx    = Sigx[:]    * gp.Xscale[pop]         <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            Sigdat  = Sigdat[:]  * gp.Sig0pc[pop]          <span class="comment"># [Munit/pc^2]</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            Sigerr  = Sigerr[:]  * gp.Sig0pc[pop]          <span class="comment"># [Munit/pc^2]</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="comment"># take the overall bins for rbin, binmin, binmax vals</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> pop == 0:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a> = Sigx                                 <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                self.<a class="code" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">binmin</a> = binmin * gp.Xscale[pop]           <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a> = binmax * gp.Xscale[pop]           <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                gp.xipol = self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>                            <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                minr = min(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>)                           <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                maxr = max(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>)                           <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                gp.xepol = np.hstack([minr/8., minr/4., minr/2.,\</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                      self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>, \</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                      2*maxr, 4*maxr, 8*maxr]) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                gp.xfine = <a class="code" href="a00102.html#a7fe598aeb05831a032ee8f6011b7beff">introduce_points_in_between</a>(gp.xepol, gp)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="comment"># deproject,</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment"># takes [pc], 2* [Munit/pc^2], gives [pc], 2* [Munit/pc^3],</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="comment"># already normalized to same total mass</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">if</span> gp.geom == <span class="stringliteral">&#39;sphere&#39;</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                Sigdatnu, Sigerrnu = gh.complete_nu(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>, Sigdat, Sigerr, gp.xfine)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                dummyx, nudatnu, nuerrnu, Mrnu = gip.Sig_NORM_rho(gp.xfine, Sigdatnu, Sigerrnu, gp)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                self.nu_epol.append(gh.linipollog(gp.xfine, nudatnu, gp.xepol))</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                self.nuerr_epol.append(gh.linipollog(gp.xfine, nuerrnu, gp.xepol))</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                nudat = gh.linipollog(gp.xfine, nudatnu, gp.xipol)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                nuerr = gh.linipollog(gp.xfine, nuerrnu, gp.xipol)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                Mr = gh.linipollog(gp.xfine, Mrnu, gp.xipol)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                self.Mr.append(Mr) <span class="comment"># [Munit]</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                Mhalf = Mr[-1]/2.     <span class="comment"># [Munit]</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                self.Mhalf.append(Mhalf) <span class="comment"># [Munit]</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="comment"># spline interpolation with M as x axis, to get half-mass of system:</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                splpar_M = splrep(np.log(Mr), np.log(self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a>), s=0.01)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                r_half = np.exp(splev(np.log(Mhalf), splpar_M)) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                self.rhalf.append(r_half) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="comment"># spline interpolation of nu at r_half:</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                splpar_nu = splrep(np.log(gp.xipol), np.log(nudat), s=0.01)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                nuhalf = np.exp(splev(np.log(r_half), splpar_nu)) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                self.nuhalf.append(nuhalf)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="comment"># [Munit/pc^3]</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="comment"># calculate n(r) parameters as used in gi_physics from the nu(r) profile</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                rleft = gp.xfine[gp.xfine &lt;= r_half]</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                rleft = rleft[::-1]</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                rright= gp.xfine[gp.xfine &gt; r_half]</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                nuleft = nudatnu[gp.xfine &lt;= r_half]</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                nuleft = nuleft[::-1]</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                nuright = nudatnu[gp.xfine &gt; r_half]</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                rlast = 1.*r_half</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                nulast = 1.*nuhalf</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                sloperight = []</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">for</span> r0 <span class="keywordflow">in</span> rright:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    i = np.argmin(np.abs(rright - r0))</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    Deltanu = -(np.log(nuright[i]) - np.log(nulast))</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    Deltar  = np.log(rright[i]) - np.log(rlast)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    sloperight.append(Deltanu/Deltar)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    nulast = nuright[i]</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                    rlast = rright[i]</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                rlast = 1.*r_half</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                nulast = 1.*nuhalf</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                slopeleft = []</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="comment"># work through the array from the left, from r_half</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">for</span> r0 <span class="keywordflow">in</span> rleft:</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    i = np.argmin(np.abs(rleft - r0))</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    Deltanu = np.log(nuleft[i]) - np.log(nulast)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    Deltar  = np.log(rlast) - np.log(rleft[i])</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    slopeleft.append(Deltanu/Deltar)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    nulast = nuleft[i]</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    rlast = rleft[i]</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="comment"># inverse order of slopeleft to have it sorted according increasing r</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                slopeleft = slopeleft[::-1]</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                slopes = np.hstack([slopeleft, sloperight])</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                nrpar = 1.*slopes[:-1]</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="comment">#Deltalogr = np.log(gp.xfine[1:]) - np.log(gp.xfine[:-1])</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <span class="comment">#nrpar = (slopes[1:]-slopes[:-1])/Deltalogr</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                spl_nrpar = splrep(gp.xfine[:-1], nrpar, k=1)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                nre = splev( gp.xipol, spl_nrpar)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                extleft = splev(gp.xepol[0:3], spl_nrpar) <span class="comment"># np.array([nrpar[0], nrpar[0], nrpar[0]])</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                extright = splev(gp.xepol[-3:], spl_nrpar) <span class="comment">#[nrpar[-1], nrpar[-1], nrpar[-1]])</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                maxnre = max(nre)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                self.nrnu.append(np.hstack([nuhalf, nre[0], extleft, nre, extright, nre[-1]]))</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="comment"># checking for correct n(r) profile, have to wait for pop==1</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="comment"># if pop==1:</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment"># from pylab import plot, xscale</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="comment"># import gi_analytic as ga</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment"># testnu = ga.rho_gaia(gp.xfine,gp)[pop]</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="comment"># testnrnu = -gh.derivipol(np.log(testnu), np.log(gp.xfine))</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="comment"># plot(gp.xfine, testnrnu, &#39;b-&#39;)</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                <span class="comment"># plot(gp.xfine[:-1], nrpar, &#39;r.-&#39;)</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="comment"># xscale(&#39;log&#39;)</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                errnre = np.ones(1+len(extleft)+len(nre)+len(extright)+1)*maxnre/10.</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(5):</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    errnre[k] *= 5</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    errnre[-k] *= 5</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                self.nrnuerr.append(np.hstack([nuhalf/3.,</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                                               errnre]))</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="comment"># import gi_physics as phys</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="comment"># from pylab import loglog, axvline, axhline, plot, xscale, clf</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="comment"># loglog(gp.xepol, self.nu_epol[0], &#39;b.-&#39;, lw=1)</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="comment"># axvline(r_half)</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="comment"># axhline(nuhalf)</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="comment"># rh = phys.rho(gp.xepol, self.nrnu, 0, gp)</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="comment"># rhmin = phys.rho(gp.xepol, self.nrnu - self.nrnuerr, 0, gp)</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="comment"># rhmax = phys.rho(gp.xepol, self.nrnu + self.nrnuerr, 0, gp)</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="comment"># loglog(gp.xepol, rh, &#39;r.-&#39;, linewidth=2)</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="comment"># loglog(gp.xepol, rhmin, &#39;g.-&#39;)</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="comment"># loglog(gp.xepol, rhmax, &#39;g--&#39;)</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="comment"># clf()</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="comment"># plot(gp.xfine[:-1], nrpar, &#39;.-&#39;)</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="comment"># plot(gp.xipol, nre, &#39;.-&#39;)</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="comment"># xscale(&#39;log&#39;)</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                <span class="comment"># axvline(r_half)</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <span class="comment"># print(nrpar)</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                gh.LOG(1, <span class="stringliteral">&#39;working in disc symmetry: reading nu directly&#39;</span>)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                dummy1, dummy2, dummy3, nudat, nuerr = \</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                        gh.readcol5(gp.files.nufiles[pop])</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                self.nuhalf.append(nudat[round(len(nudat)/2)]) <span class="comment">#HS ToDo: check validity of this</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            self.Sig.append(Sigdat)    <span class="comment"># [Munit/pc^2]</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            self.Sigerr.append(Sigerr) <span class="comment"># [Munit/pc^2]</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            self.nu.append(nudat)      <span class="comment"># [Munit/pc^3]</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            self.nuerr.append(nuerr)   <span class="comment"># [Munit/pc^3]</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">## \fn read_Sig(self, gp)</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment"># read surface density of tracer stars, deproject, renormalize</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="a00002.html#a5e6910741858780b44be0055363b900f">  192</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a5e6910741858780b44be0055363b900f">read_sig</a>(self, gp):</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="comment"># only ever use the tracer particles for velocity information</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        self.sig.append(np.zeros(gp.nipol))</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        self.sigerr.append(np.zeros(gp.nipol))</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops):</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            print(<span class="stringliteral">&#39;read_sig on file &#39;</span>, gp.files.sigfiles[pop+1])</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop+1])</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="comment"># 3*[Xscale], [maxsiglos], [maxsiglos]</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="comment"># change to km/s here</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            self.sig.append(sigdat[:] * gp.maxsiglos[pop+1]) <span class="comment"># [km/s]</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            self.sigerr.append(sigerr[:] * gp.maxsiglos[pop+1]) <span class="comment"># [km/s]</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">## \fn read_sig(self, gp)</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment"># read in line of sight velocity dispersion for tracer particles</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">  208</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">read_kappa</a>(self, gp):</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            Dummy1, Dummy2, Dummy3, kapdat, kaperr = gh.readcol5(gp.files.kappafiles[pop])</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="comment"># 3*[Xscale], [1], [1]</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            self.kap.append(kapdat) <span class="comment"># [1]</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            self.kaperr.append(kaperr) <span class="comment"># [1]</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">## \fn read_kappa(self, gp)</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment"># read in line of sight velocity kurtosis</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">  219</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">read_zeta</a>(self, gp):</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            D1,D2,D3,zetaa,zetaaerr=gh.readcol5(gp.files.zetaafiles[pop])</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            self.zetaa.append(zetaa)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            self.zetaaerr.append(zetaaerr)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            D1,D2,D3,zetab,zetaberr=gh.readcol5(gp.files.zetabfiles[pop])</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            self.zetab.append(zetab)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            self.zetaberr.append(zetaberr)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">## \fn read_zeta(self, gp)</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment"># read zeta profiles</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="a00002.html#a965d67234617721c5ba5bc541c456fc9">  233</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a965d67234617721c5ba5bc541c456fc9">__repr__</a>(self):</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Datafile class, call gp.dat.rbin, .Sig, .sig&quot;</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">## \fn __repr__(self)</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment"># string representation for ipython</span></div>
-<div class="ttc" id="a00002_html_a965d67234617721c5ba5bc541c456fc9"><div class="ttname"><a href="a00002.html#a965d67234617721c5ba5bc541c456fc9">gi_data.Datafile.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00233">gi_data.py:233</a></div></div>
-<div class="ttc" id="a00002_html_a39c18a9a94b941e63f3eee8212f4ee6a"><div class="ttname"><a href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">gi_data.Datafile.Mrerr</a></div><div class="ttdeci">Mrerr</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00034">gi_data.py:34</a></div></div>
-<div class="ttc" id="a00002_html_a2b5ad00f045ba2dcca62d2d80692f666"><div class="ttname"><a href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">gi_data.Datafile.nuerr_epol</a></div><div class="ttdeci">nuerr_epol</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00041">gi_data.py:41</a></div></div>
-<div class="ttc" id="a00002_html_a6b59c5ac60b55492174db9eef738385e"><div class="ttname"><a href="a00002.html#a6b59c5ac60b55492174db9eef738385e">gi_data.Datafile.read_Sig</a></div><div class="ttdeci">def read_Sig</div><div class="ttdoc">read surface density of tracer stars, deproject, renormalize </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00060">gi_data.py:60</a></div></div>
-<div class="ttc" id="a00002_html_accac7fdb65e8ea5e004d7f478be525d6"><div class="ttname"><a href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">gi_data.Datafile.Mr</a></div><div class="ttdeci">Mr</div><div class="ttdoc">keep mass profile </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00033">gi_data.py:33</a></div></div>
-<div class="ttc" id="a00002_html_a56b8d8c16508017d6651b2cff4ce204d"><div class="ttname"><a href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">gi_data.Datafile.sig</a></div><div class="ttdeci">sig</div><div class="ttdoc">keep line of sight velocity dispersion profile, in [km/s] </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00049">gi_data.py:49</a></div></div>
-<div class="ttc" id="a00002_html_a73770223e20c1bbfc9a1b71ede664cd9"><div class="ttname"><a href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">gi_data.Datafile.Sig</a></div><div class="ttdeci">Sig</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00046">gi_data.py:46</a></div></div>
-<div class="ttc" id="a00002_html_acf963de7d143398e23921d9b8b9ea34b"><div class="ttname"><a href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">gi_data.Datafile.nrnu</a></div><div class="ttdeci">nrnu</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00044">gi_data.py:44</a></div></div>
-<div class="ttc" id="a00002_html_a980c3d0754cbf47b9ef0fdbce3f58bec"><div class="ttname"><a href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">gi_data.Datafile.nu_epol</a></div><div class="ttdeci">nu_epol</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00040">gi_data.py:40</a></div></div>
-<div class="ttc" id="a00002_html_a01e0cbf88e7634d9bec7b0561f752fa0"><div class="ttname"><a href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">gi_data.Datafile.read_zeta</a></div><div class="ttdeci">def read_zeta</div><div class="ttdoc">read zeta profiles </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00219">gi_data.py:219</a></div></div>
-<div class="ttc" id="a00002_html_a52d0520b0d1a7b60ec0ffb0f54dbba91"><div class="ttname"><a href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">gi_data.Datafile.kap</a></div><div class="ttdeci">kap</div><div class="ttdoc">keep fourth velocity moment of the LOS velocities </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00053">gi_data.py:53</a></div></div>
-<div class="ttc" id="a00002_html_af285bffbe7414399fe25cdda0b731868"><div class="ttname"><a href="a00002.html#af285bffbe7414399fe25cdda0b731868">gi_data.Datafile.nuerr</a></div><div class="ttdeci">nuerr</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00039">gi_data.py:39</a></div></div>
-<div class="ttc" id="a00002_html_a934ae402c9888b87c0cf4191188df2a4"><div class="ttname"><a href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">gi_data.Datafile.Mhalf</a></div><div class="ttdeci">Mhalf</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00035">gi_data.py:35</a></div></div>
-<div class="ttc" id="a00002_html_af36870c8d2121ffa1bf652d9c9b82b70"><div class="ttname"><a href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">gi_data.Datafile.nrnuerr</a></div><div class="ttdeci">nrnuerr</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00045">gi_data.py:45</a></div></div>
-<div class="ttc" id="a00102_html_a7fe598aeb05831a032ee8f6011b7beff"><div class="ttname"><a href="a00102.html#a7fe598aeb05831a032ee8f6011b7beff">gi_data.introduce_points_in_between</a></div><div class="ttdeci">def introduce_points_in_between</div><div class="ttdoc">get gp.fine points logarithmically spaced points </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00015">gi_data.py:15</a></div></div>
-<div class="ttc" id="a00002_html_ace53aae31c19299a019d8b9fd74dfee6"><div class="ttname"><a href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">gi_data.Datafile.rhalf</a></div><div class="ttdeci">rhalf</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00036">gi_data.py:36</a></div></div>
-<div class="ttc" id="a00002_html_afac398d78b5926bb5ce4a7ac2c86a582"><div class="ttname"><a href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">gi_data.Datafile.rbin</a></div><div class="ttdeci">rbin</div><div class="ttdoc">centers of bins </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00029">gi_data.py:29</a></div></div>
-<div class="ttc" id="a00002_html_a390ccc39e4e181a648b6762541a0fb8a"><div class="ttname"><a href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">gi_data.Datafile.binmax</a></div><div class="ttdeci">binmax</div><div class="ttdoc">biggest radius of the data bins, in [pc] </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00031">gi_data.py:31</a></div></div>
-<div class="ttc" id="a00002_html_a437be9045eda8d2f8db7632d44d538e9"><div class="ttname"><a href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">gi_data.Datafile.sigerr</a></div><div class="ttdeci">sigerr</div><div class="ttdoc">keep error of sigdat </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00051">gi_data.py:51</a></div></div>
-<div class="ttc" id="a00002_html_a5e6910741858780b44be0055363b900f"><div class="ttname"><a href="a00002.html#a5e6910741858780b44be0055363b900f">gi_data.Datafile.read_sig</a></div><div class="ttdeci">def read_sig</div><div class="ttdoc">read in line of sight velocity dispersion for tracer particles </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00192">gi_data.py:192</a></div></div>
-<div class="ttc" id="a00002_html_a772dbc9553b1f852d2dd7b47f2869b59"><div class="ttname"><a href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">gi_data.Datafile.read_kappa</a></div><div class="ttdeci">def read_kappa</div><div class="ttdoc">read in line of sight velocity kurtosis </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00208">gi_data.py:208</a></div></div>
-<div class="ttc" id="a00002_html_a6468b7785749ae289a35c41b9d101069"><div class="ttname"><a href="a00002.html#a6468b7785749ae289a35c41b9d101069">gi_data.Datafile.nu</a></div><div class="ttdeci">nu</div><div class="ttdoc">keep radial profile of the tracer density, averaged in 2D-rings </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00038">gi_data.py:38</a></div></div>
-<div class="ttc" id="a00002_html_a88d2e7e46ae892f01c07a9040ad6d7c7"><div class="ttname"><a href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">gi_data.Datafile.binmin</a></div><div class="ttdeci">binmin</div><div class="ttdoc">smallest radius of the data bins, in [pc] </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00027">gi_data.py:27</a></div></div>
-<div class="ttc" id="a00002_html_a95ea670292f023fc6e45e35ef1e675c8"><div class="ttname"><a href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">gi_data.Datafile.Sigerr</a></div><div class="ttdeci">Sigerr</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00047">gi_data.py:47</a></div></div>
-<div class="ttc" id="a00002_html_afe7c5bd635a24e99f1456df808092b81"><div class="ttname"><a href="a00002.html#afe7c5bd635a24e99f1456df808092b81">gi_data.Datafile.nuhalf</a></div><div class="ttdeci">nuhalf</div><div class="ttdoc">to keep the nr parameters </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00043">gi_data.py:43</a></div></div>
-<div class="ttc" id="a00002_html"><div class="ttname"><a href="a00002.html">gi_data.Datafile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00024">gi_data.py:24</a></div></div>
-<div class="ttc" id="a00002_html_a123e4a94e9bafdd8501f193f11543115"><div class="ttname"><a href="a00002.html#a123e4a94e9bafdd8501f193f11543115">gi_data.Datafile.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor: set all initial values </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00025">gi_data.py:25</a></div></div>
-<div class="ttc" id="a00002_html_aca99456177f80323c6a54b6791734d95"><div class="ttname"><a href="a00002.html#aca99456177f80323c6a54b6791734d95">gi_data.Datafile.kaperr</a></div><div class="ttdeci">kaperr</div><div class="ttdoc">keep errors of kapdat </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00055">gi_data.py:55</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> gi_units <span class="keyword">as</span> gu</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> gi_project <span class="keyword">as</span> gip</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;asech = <span class="keyword">lambda</span> x: np.arccosh(1./x)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;asec  = <span class="keyword">lambda</span> x: np.arccos(1./x)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00109.html#a166e7753be878566cd93b8673f46d7f4">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a166e7753be878566cd93b8673f46d7f4">X</a>(s0):</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Xout = np.zeros(len(s0))</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(s0)):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        s = s0[i]                       <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">if</span> s&lt;=1.:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            Xout[i] = (1.-s**2)**(-0.5)*<a class="code" href="a00109.html#a51aff2b9e9005226a31607ad7abe7a6d">asech</a>(s) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            Xout[i] = (s**2-1.)**(-0.5)*<a class="code" href="a00109.html#abd9752d58491ad3679484e8fe820fdb2">asec</a>(s) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> Xout                         <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">## \fn X(s0)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># equation 33, 34 from Hernquist 1990</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param s0: radius, [1]</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(r0, rscale, rho0, alpha, beta, gamma):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment"># rho_DM(r) = rho_0 (r/r_DM)^(-gamma_DM) *</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">#             (1+(r/r_DM)^alpha_DM)^((gamma_DM-beta_DM)/alpha_DM)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    tmp = 1.*rho0                       <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    tmp = tmp * (r0/rscale)**(-gamma)   <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    tmp = tmp * (1.+(r0/rscale)**alpha)**((gamma-beta)/alpha) <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> np.array(tmp)                          <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">## \fn rho_general(r0, rscale, rho0, alpha, beta, gamma):</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># determine rho(r) for a generalized Hernquist model</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param rscale scale radius in [pc]</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># @param rho0 central 3D mass density, in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"># @param gamma inner slope</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"># @param alpha outer slope</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"># @param beta steepness of turnover</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"># @return 3D Hernquist density in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab">   50</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab">rho_triax</a>(rad, gp):</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    alpha = 1.</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    beta = 4.</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    rs = 1500.                          <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> gp.case &lt;= 4:               <span class="comment"># core</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        gamma = 0.23</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        rhos  = 1.177E-1                <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">elif</span> gp.case &gt; 4 <span class="keywordflow">and</span> gp.case &lt;=8:             <span class="comment"># cusp</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        gamma = 1.</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        rhos  = 5.522E-2                <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;wrong case for triax system&#39;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    rho = rhos</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    rho /= (rad/rs)**gamma</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    rho /= (1+(rad/rs)**(1/alpha))**(alpha*(beta-gamma))</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> rho</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">## \fn rho_triax(rad, gp)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"># density for a triaxial halo in Gaia challenge</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"># @return density in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">   72</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a>(rad, gp, mf1=1, mf2=1):</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment"># rho_DM(r) = rho_0 (r/r_DM)^(-gamma_DM) *</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">#             (1+(r/r_DM)^alpha_DM)^((gamma_DM-beta_DM)/alpha_DM)</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment"># need values for rho0, r_DM, alpha_DM, beta_DM, gamma_DM</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment"># and the corresponding variables for the stellar component</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    A = np.loadtxt(gp.files.analytic, unpack=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    gamma_star1 = A[7]</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    beta_star1  = A[8]</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    alpha_star1 = 2.0</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    r_star1     = 1000*A[9] <span class="comment">#[pc] # both description of filename and file content is wrong</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment"># name is rstar/10 in three digits, file content is given in kpc</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    gamma_star2 = A[11]</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    beta_star2  = A[12]</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    alpha_star2 = 2.0</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    r_star2     = 1000.*A[13] <span class="comment">#[pc]</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    gamma_DM    = A[15]</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    beta_DM     = A[16]</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    r_DM        = A[17] <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    alpha_DM    = A[18]</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    rho0        = A[19] <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment"># attention: the stellar tracers in Walker&#39;s datasets do not have mass density profile!</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    rho0star1    = rho0*mf1</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment"># rho(r, rscale, rho0, alpha, beta, gamma):</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">#  (2*[pc], or 2*[rcore]), [Munit/pc^3], 3*[1]</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    rhodm    = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_DM, rho0, alpha_DM, beta_DM, gamma_DM) <span class="comment"># [msun/pc^3]</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    rhostar1 = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_star1, rho0star1, alpha_star1, beta_star1, gamma_star1)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> gp.pops==1:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> rhodm, rhostar1</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment"># [msun/pc^3]</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">#ntracer2  = gp.ntracer[2]</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    rho0star2 = rho0*mf2<span class="comment">#/1.e6*ntracer2</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    rhostar2  = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_star2, rho0star2, alpha_star2, beta_star2, gamma_star2)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> rhodm, rhostar1, rhostar2                 <span class="comment"># 3* [Munit/pc^3]</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">## \fn rho_walk(rad, gp, mf1, mf2)</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"># Walker model: read values from theoretical params file,</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"># calculate from eq. 2 generalized Hernquist profiles</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># @param mf1 factor to go from rho to rho_star1</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"># @param mf2 factor to go from rho to rho_star2</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"># @return 3D density in [Munit/pc^3], for each DM, stellar pop 1, stellar pop 2 (if available)</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">  114</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span> gp.investigate != <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;wrong investigation!&#39;</span>)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    alpha_star1 = 2.</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    alpha_DM = 1.</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    beta_DM = 3.</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> gp.case == 9 <span class="keywordflow">or</span> gp.case == 10:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        alpha_star1 = 0.5</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        beta_DM = 4.</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM,rho0 = gp.files.params</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> gamma_star1 == 0.1:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        nu0 = 2.2e7/r_star1**3</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">elif</span> gamma_star1 == 1.0:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        nu0 = 1.5e7/r_star1**3</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    gh.LOG(2, <span class="stringliteral">&#39;  analytic rho_gaia:&#39;</span>)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    gh.LOG(2, <span class="stringliteral">&#39;   rho0 = &#39;</span>,rho0)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    gh.LOG(2, <span class="stringliteral">&#39;   r_DM = &#39;</span>, r_DM)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    gh.LOG(2, <span class="stringliteral">&#39;   r_star1 = &#39;</span>, r_star1)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    rhodm = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_DM, rho0, alpha_DM, beta_DM, gamma_DM)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    rhostar1 = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_star1, nu0, alpha_star1, beta_star1, gamma_star1)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> rhodm, rhostar1</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">## \fn rho_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"># give densities for the spherical Gaia challenge dataset</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment"># @return 3D densities (DM+stellar population) in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="a00109.html#a0e3f684384218839a140d2d2deeba51e">  141</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a0e3f684384218839a140d2d2deeba51e">M_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    rhodm, rhostar = <a class="code" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a>(rad, gp)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment"># 3D radius here</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM, rho0 = gp.files.params</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span> gamma_DM == 1:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        s = rad/r_DM</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        Mstar = 4.*np.pi*rho0*r_DM**3*(1/(1+s)+np.log(1+s)-1) <span class="comment"># [Msun]</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        Mdm = gip.rho_INT_Sum_MR(rad, rhodm, gp)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        Mstar = gip.rho_INT_Sum_MR(rad, rhostar, gp)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment"># from here on, we assume to work on 2D radii</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">return</span> Mdm, Mstar</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">## \fn M_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"># calculate mass in 2D radial bins</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment"># @param rad radius in pc, 3D</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f">  158</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f">rhotot_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    rhodm, rhostar1 = <a class="code" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a>(rad, gp)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> rhodm</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">## \fn rhotot_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"># return total mass density for Gaia challenge models</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"># @param rad radii in [pc]</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="a00109.html#af18007718ecc63a73ce4c572476182ab">  166</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#af18007718ecc63a73ce4c572476182ab">Sig_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    rhodm, rhostar1 = <a class="code" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a>(rad, gp)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    Sigdm = gip.rho_INT_Sig(rad, rhodm, gp)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    Sigstar = gip.rho_INT_Sig(rad, rhostar1, gp)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">return</span> Sigdm, Sigstar</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">## \fn Sig_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment"># get projected surface density for Gaia tracer population</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"># not based on analytic integral</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment"># @param rad radii in [pc]</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="a00109.html#a6f6fc4591a289a8fd99f6f060e406032">  177</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a6f6fc4591a289a8fd99f6f060e406032">nu3Dtot_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">if</span> gp.investigate != <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;wrong investigation!&#39;</span>)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    alpha_star1 = 2.</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">#alpha_DM = 1.</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    beta_DM = 3.</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span> gp.case == 9 <span class="keywordflow">or</span> gp.case == 10:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        alpha_star1 = 0.5</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="comment">#beta_DM = 4.</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM, rho0 = gp.files.params</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    nustar1 = <a class="code" href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">rho_general</a>(rad, r_star1, rho0, alpha_star1, beta_star1, gamma_star1)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">return</span> nustar1</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">## \fn nu3Dtot_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"># give total density for the spherical Gaia challenge dataset</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment"># @return 3D overall density (DM+stellar population) in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0">  195</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0">nr3Dtot_deriv_walk</a>(rad, gp):</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    lrho = np.log(<a class="code" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">rhotot_walk</a>(rad, gp))</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    lr   = np.log(rad)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">return</span> -gh.derivcoarse(lrho, lr)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">## \fn nr3Dtot_deriv_walk(rad, gp)</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment"># plot d log rho/d log r</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment"># @param rad radius in pc, not in log</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="a00109.html#ac2407a4725ee996297ef7f75ad841d67">  205</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ac2407a4725ee996297ef7f75ad841d67">nr3Dtot_deriv_triax</a>(rad, gp):</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    lrho = np.log(<a class="code" href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab">rho_triax</a>(rad, gp))</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    lr   = np.log(rad)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">return</span> -gh.derivcoarse(lrho, lr)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">## \fn nr3Dtot_deriv_triax(rad, gp)</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"># plot d log rho/d log r</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"># @param rad radius in pc, not in log</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6">  215</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6">nr3Dtot_deriv_gaia</a>(rad):</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    lrho = np.log(<a class="code" href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f">rhotot_gaia</a>(rad))</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    lr   = np.log(rad)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">return</span> -gh.derivcoarse(lrho, lr)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">## \fn nr3Dtot_deriv_gaia(rad)</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"># plot d log rho/d log r</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"># @param rad radius in pc, not in log</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="a00109.html#a2b640d8b2b95ed3a52cd911c4ed6ce97">  224</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a2b640d8b2b95ed3a52cd911c4ed6ce97">nr3Dtot_walk</a>(rad, gp):</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM, rho0 = gp.files.params</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">if</span> gamma_DM == 0:</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        nr = 3*rad/(r_DM+rad)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">elif</span> gamma_DM == 1:</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        nr = 2*rad/(r_DM+rad)+1</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;unknown gamma_DM = &#39;</span>, gamma_DM)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        nr = 0.*rad</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">return</span> nr</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">## \fn nr3Dtot_walk(rad, gp)</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"># plot - d log rho/ d log r for Walker models</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"># @param rad radius in pc, not log.</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="a00109.html#a54e7d95a4f6b71a5ffb068f14c54f8c2">  239</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a54e7d95a4f6b71a5ffb068f14c54f8c2">nr3Dtot_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM, rho0 = gp.files.params</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">if</span> gamma_DM == 0:</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        nr = 3*rad/(r_DM+rad)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">elif</span> gamma_DM == 1:</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        nr = 2*rad/(r_DM+rad)+1</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;unknown gamma_DM = &#39;</span>, gamma_DM)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        nr = 0.*rad</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">return</span> nr</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">## \fn nr3Dtot_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"># plot - d log rho/ d log r for Gaia models</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"># @param rad radius in pc, not log.</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">  254</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">rhotot_walk</a>(rad, gp, mf1=1, mf2=1):</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span> gp.pops==1:</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        rhodm, rhostar1 = <a class="code" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a>(rad, gp, mf1, mf2)         <span class="comment"># 3* [msun/pc^3]</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">elif</span> gp.pops==2:</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        rhodm, rhostar1, rhostar2 = <a class="code" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a>(rad, gp, mf1, mf2)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> rhodm               <span class="comment"># [msun/pc^3]</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">## \fn rhotot_walk(rad, gp, mf1, mf2)</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"># return total mass density, stars+DM</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"># @param mf1 factor to go from DM rho0 to rho0_star1</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"># @param mf2 factor to go from DM rho0 to rho0_star2</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"># @return total 3D density in [Munit/pc^3]. in case of Walker dataset, we have that the tracer particles do not contribute to the overall density, thus we use the DM density only</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="a00109.html#a99ef591985cfdd81b84c621146050183">  268</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a99ef591985cfdd81b84c621146050183">Mtot_walk</a>(rbin, gp, mf1 = 1, mf2 = 1):</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment"># based on underlying binned data</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment"># rhotot = rhotot_walk(rad, gp, mf1, mf2)</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment"># Mtot = gip.rho_SUM_Mr(rad, rhotot)</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment"># better method using quad numeric integration scheme with continuous rhotot_walk</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keyword">def </span>igra(r):</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">return</span> 4.*np.pi*r**2*<a class="code" href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">rhotot_walk</a>(r, gp, mf1, mf2)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    Mtot = np.zeros(gp.nipol)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    meps = np.zeros(gp.nipol)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(gp.nipol):</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        out = quad(igra, 0, rbin[i], limit=100, full_output=0) <span class="comment">#or np.inf</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        Mtot[i] = out[0]</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        meps[i] = out[1]</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment"># gh.LOG(1, &#39;errors: &#39;,meps)</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">return</span> Mtot</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">## \fn Mtot_walk(rbin, gp, mf1, mf2)</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"># return total mass in Walker model</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment"># NOT USED ANYMORE</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment"># @param rbin radii of bins</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment"># @param mf1 factor rho0 pop 1</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment"># @param mf2 factor rho0 pop 2</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment"># @return total 3D mass for the Walker dataset in [Munit]</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4">  293</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4">Sig_walk</a>(rad, gp, mf1=1, mf2=1):</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    rhodm, rhostar1, rhostar2 = <a class="code" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a>(rad, gp, mf1, mf2)     <span class="comment"># 3* [msun/pc^3]</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    Sig_star1 = gip.rho_INT_Sig(rad, rhostar1, gp) <span class="comment"># [msun/pc^2]</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    Sig_star2 = gip.rho_INT_Sig(rad, rhostar2, gp) <span class="comment"># [msun/pc^2]</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">return</span> Sig_star1+Sig_star2, Sig_star1, Sig_star2               <span class="comment"># 3* [msun/pc^2]</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">## \fn Sig_walk(rad, gp, mf1, mf2)</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"># calculate 2D surface density from radius for pop 0, 1, 2</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"># @param mf1 factor rho0 pop 1</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"># @param mf2 factor rho0 pop 2</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7">  305</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7">beta_walk</a>(rad, gp):</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment"># Osipkov-Merritt anisotropy profile with r_a/r_* = 10^4 for isotropic models</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    A = np.loadtxt(gp.files.analytic, unpack=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    rars1  = A[10]</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    rs1    = A[9] * 1000. <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    rbyrs1 = rad/rs1</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    beta1  = rbyrs1**2 / (rars1**2+rbyrs1**2)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    rars2  = A[14]</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    rs2    = A[13] * 1000. <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    rbyrs2 = rad/rs2</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    beta2  = rbyrs2**2 / (rars2**2+rbyrs2**2)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> -1, beta1, beta2</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">## \fn beta_walk(rad, gp)</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment"># calculate Osipkov-Merritt velocity anisotropy profile, for pop 0 (dummy), 1, 2</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment"># @param gp</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">  323</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">q</a>(i,j):</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">from</span> scipy.misc <span class="keyword">import</span> factorial</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> i &gt;= j <span class="keywordflow">and</span> j &gt;= 0:</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span> (-1.)**j*factorial(i)/(factorial(j)*factorial(i-j))</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordflow">return</span> 0.</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">## \fn q(i,j)</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment"># start analytic generalized Hernquist profiles following equation (17) from Zhao 1996</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment"># @param i first integer parameter</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment"># @param j second integer parameter</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment"># @return q quantity (see paper)</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6">  335</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6">apar</a>(i, alpha, beta, gamma, rho0):</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    C = rho0</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">return</span> 4.*np.pi*alpha*C/(alpha*(3-gamma)+i)*<a class="code" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">q</a>(alpha*(beta-3.)-1.,i)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">## \fn apar(i,alpha,beta,gamma,rho0)</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment"># a_parameter</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment"># @param i int</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment"># @param alpha see Zhao 1996</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment"># @param beta see Zhao 1996</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"># @param gamma see Zhao 1996</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"># @param rho0 central density</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562">  346</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562">bpar</a>(i, alpha, beta, gamma, rho0):</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    out = 0.</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">if</span> i &gt; 0:</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;adjust range stepsize to +1 in analytic b()!&#39;</span>)</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0,i-1,-1):</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        out += <a class="code" href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">q</a>(alpha-1,j)*<a class="code" href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6">apar</a>(i-j,alpha,beta,gamma,rho0)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordflow">return</span> out</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">## \fn bpar(i,alpha,beta,gamma,rho0)</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment"># bpar</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment"># @param i see Zhao 1996</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment"># @param alpha see Zhao 1996</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment"># @param beta see Zhao 1996</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment"># @param gamma see Zhao 1996</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment"># @param rho0 central density</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230">  361</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230">S</a>(i,chi):</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">if</span> i==0:</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">return</span> -np.log(chi)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keywordflow">return</span> (1.-chi**i)/i</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">## \fn S(i,chi)</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment"># S function</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment"># @param i</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment"># @param chi</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9">  371</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9">chi</a>(r,alpha):</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    ra = r**(1./alpha)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">return</span> ra/(1.+ra)</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment">## \fn chi(r,alpha)</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment"># chi</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment"># @param r radius in [pc]</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment"># @param alpha</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno"><a class="line" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200">  379</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200">Phi</a>(r,alpha,beta,gamma,rho0):</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    out=0.</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">if</span> alpha*(beta-2)-2&gt;=0:</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;adjust range stepsize to +1 in analytic Phi!&#39;</span>)</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0,alpha*(beta-2)-2-1,-1):</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        out += <a class="code" href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562">bpar</a>(i,alpha,beta,gamma,rho0)*<a class="code" href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230">S</a>(alpha*(2-gamma)+i,<a class="code" href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9">chi</a>(r,alpha))</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordflow">return</span> -out</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">## \fn Phi(r,alpha,beta,gamma,rho0)</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment"># Phi</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment"># @param r in [pc]</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"># @param alpha [1]</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment"># @param beta [1]</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"># @param gamma [1]</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment"># @param rho0 [Munit/pc^3]</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="a00109.html#ab202717f773653ddacc20b284fa934a9">  394</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ab202717f773653ddacc20b284fa934a9">read_abc</a>(gp):</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    A = np.loadtxt(gp.files.analytic, unpack=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    alpha_star1 = 2</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    beta_star1  = int(A[8])</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    gamma_star1 = int(A[7])</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    r_star1     = 1000*A[9] <span class="comment">#[pc] # both description of filename and file contents are wrong</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="comment"># name is rstar/10 in three digits, file content is given in kpc</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    alpha_star2 = 2</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    beta_star2  = int(A[12])</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    gamma_star2 = int(A[11])</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    r_star2     = 1000.*A[13] <span class="comment">#[pc]</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    alpha_DM    = int(A[18])</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    beta_DM     = int(A[16])</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    gamma_DM    = int(A[15])</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    r_DM        = A[17] <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    rho0        = A[19] <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">return</span> alpha_DM, beta_DM, gamma_DM, rho0, r_DM</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">## \fn read_abc(gp)</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment"># read analytic values for Walker mock data</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
+<div class="line"><a name="l00415"></a><span class="lineno"><a class="line" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd">  415</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a48370ec361b05a1c171cc7912267a3bd">Mabc_analytic</a>(r, gp):</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="comment"># read in rho0, alpha, beta, gamma</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    alpha,beta,gamma,rho0,r_DM = <a class="code" href="a00109.html#ab202717f773653ddacc20b284fa934a9">read_abc</a>(gp)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span> -<a class="code" href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200">Phi</a>(r,alpha,beta,gamma,rho0)*r/gu.G1__pcMsun_1km2s_2    <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">## \fn Mabc_analytic(r)</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"># calculate enclosed mass</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
+<div class="line"><a name="l00423"></a><span class="lineno"><a class="line" href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db">  423</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db">PhiBeta</a>(r,beta,C):</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordflow">return</span> -C/r*(1.-(1.+r)**(3-beta))</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">## \fn PhiBeta(r,beta,C):</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"># equation in Zhao1996 table p.2</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"># @param r in [pc]</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"># @param beta [1]</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"># @param C</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="a00109.html#a036415dceeb003a0f60643a0ee65303c">  431</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a036415dceeb003a0f60643a0ee65303c">MBetaAnalytic</a>(r, gp):</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    alpha,beta,gamma,rho0,r_DM = <a class="code" href="a00109.html#ab202717f773653ddacc20b284fa934a9">read_abc</a>(gp)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    r /= r_DM</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordflow">return</span> -<a class="code" href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db">PhiBeta</a>(r,beta,rho0)*r/gu.G1__pcMsun_1km2s_2 <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">## \fn MBetaAnalytic(r)</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment"># MBetaAnalytic</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment"># @param r in [pc]</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
+<div class="line"><a name="l00440"></a><span class="lineno"><a class="line" href="a00109.html#a3947fe51ecd9f2c264c986703fdbabb7">  440</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a3947fe51ecd9f2c264c986703fdbabb7">Manalytic</a>(r, gp):</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    alpha,beta,gamma,rho0,r_DM = <a class="code" href="a00109.html#ab202717f773653ddacc20b284fa934a9">read_abc</a>(gp)</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordflow">return</span> 4*np.pi*rho0*(1./(1.+r/r_DM)+np.log(1.+r/r_DM)-1.)</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">## \fn Manalytic(r)</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment"># analytic mass profile</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="comment"># @param r radius in [pc]</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="line" href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344">  448</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344">beta_gaia</a>(rad, gp):</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordflow">if</span> gp.investigate != <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;wrong investigation!&#39;</span>)</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">if</span> gp.case == 9 <span class="keywordflow">or</span> gp.case == 10:</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="comment"># constant tangential velocity anisotropy of beta=-0.5</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordflow">return</span> rad*0.0-0.5, rad*0.0-0.5</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    beta_star1, r_DM, gamma_star1, r_star1, r_a1, gamma_DM, rho0 = gp.files.params</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    beta = rad**2/(rad**2+r_a1**2)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keywordflow">return</span> beta, beta</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">## \fn beta_gaia(rad, gp)</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment"># Osipkov-Merritt velocity anisotropy profile, for pop 0, pop 1</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment"># @param rad radius in [pc]</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
+<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd">  462</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd">beta_hern</a>(rad):</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">return</span> 0.*rad, 0.*rad</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">## \fn beta_hern(rad)</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment"># analytic value for beta in Hernquist case</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment"># @param rad radius [pc]</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
+<div class="line"><a name="l00468"></a><span class="lineno"><a class="line" href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be">  468</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be">beta_triax</a>(rad):</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    eta = 0.5</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    rsbeta = 810.                       <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    beta0 = 0.</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    betainf = 0.5</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    beta = (rsbeta**eta*beta0+rad**eta*betainf)/(rad**eta+rsbeta**eta)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordflow">return</span> beta</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">## \fn beta_triax(rad)</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment"># calculate velocity anisotropy for Dehnen-Wilkinson triaxial model</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment"># @param rad in [pc]</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;</div>
+<div class="line"><a name="l00479"></a><span class="lineno"><a class="line" href="a00109.html#a4905352a707cba3122aa20a880c8f876">  479</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a4905352a707cba3122aa20a880c8f876">beta</a>(rad, gp):</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordflow">if</span> gp.investigate ==<span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd">beta_hern</a>(rad)</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keywordflow">elif</span> gp.investigate ==<span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344">beta_gaia</a>(rad, gp)</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span>:</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7">beta_walk</a>(rad, gp)</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;triax&#39;</span>:</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be">beta_triax</a>(rad)</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.beta not defined&#39;</span>)</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        pdb.set_trace()</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">## \fn beta(rad, gp)</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment"># analytic profile for all investigations</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;</div>
+<div class="line"><a name="l00496"></a><span class="lineno"><a class="line" href="a00109.html#aa40f146f722476f816bbc618d318bfa9">  496</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#aa40f146f722476f816bbc618d318bfa9">rho_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    s = r0/gp.ana                              <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    rho = gp.anM/(2.*np.pi*gp.ana**3)/(s*(1+s)**3) <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">return</span> rho, rho</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">## \fn rho_hern(r0, gp)</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment"># equation 2 from Hernquist 1990, 3D mass density</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment"># equation 2b from Baes&amp;Dejonghe 2002</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment"># @return density in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
+<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="a00109.html#a2b183d3d721c1cbc2e8350badd65192b">  507</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a2b183d3d721c1cbc2e8350badd65192b">rho_hern2</a>(r0, gp, gamma = 1):</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    rho0 = M*(3.-gamma)/(4.*np.pi*gp.ana**3)</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    rho0 *= (r0/gp.ana)**(-gamma)</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    rho0 *= (1.+r0/gp.ana)**(gamma-4.)</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="keywordflow">return</span> rho0, rho0</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">## \fn rho_hern2(r0, gp, gamma = 1)</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment"># find theoretical mass profile of double-Dehnen spheres with stars,</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment"># according to http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment"># @param r0 radius in pc</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment"># @param gamma inner density slope. default: cusp</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
+<div class="line"><a name="l00519"></a><span class="lineno"><a class="line" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38">  519</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38">rho</a>(r0, gp):</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#aa40f146f722476f816bbc618d318bfa9">rho_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">rho_gaia</a>(r0, gp)</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span>:</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">rho_walk</a>(r0, gp)</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.rho not defined&#39;</span>)</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        pdb.set_trace()</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">## \fn rho(rad, gp)</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment"># analytic total mass density profile for all investigations</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
+<div class="line"><a name="l00534"></a><span class="lineno"><a class="line" href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001">  534</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001">M_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    s = r0/gp.ana                            <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    Mr =  gp.anM*s**2/(1.+s)**2             <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keywordflow">return</span> Mr, Mr</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">## \fn M_hern(r0, gp)</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment"># equation 3 from Hernquist 1990</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment"># @return 3D mass in [Munit]</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
+<div class="line"><a name="l00544"></a><span class="lineno"><a class="line" href="a00109.html#acc69f4555e8835468559a4c84167d98a">  544</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#acc69f4555e8835468559a4c84167d98a">Mr</a>(r0, gp):</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001">M_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a0e3f684384218839a140d2d2deeba51e">M_gaia</a>(r0, gp)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.Mr not defined&#39;</span>)</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        pdb.set_trace()</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">## \fn Mr(rad, gp)</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment"># analytic total mass profile for all investigations</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;</div>
+<div class="line"><a name="l00557"></a><span class="lineno"><a class="line" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">  557</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">Sig_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    s = np.array(r0)/gp.ana                                          <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    Sigma =  gp.anM/(2.*np.pi*gp.ana**2)*((2.+s**2)*<a class="code" href="a00109.html#a166e7753be878566cd93b8673f46d7f4">X</a>(s)-3.)/((1.-s**2)**2) <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keywordflow">return</span> Sigma, Sigma</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">## \fn Sig_hern(r0, gp)</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment"># surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment"># @return 2D surface density in [Munit/pc^2]</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
+<div class="line"><a name="l00567"></a><span class="lineno"><a class="line" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70">  567</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70">Sigma</a>(r0, gp):</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">Sig_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#af18007718ecc63a73ce4c572476182ab">Sig_gaia</a>(r0, gp)</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span>:</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4">Sig_walk</a>(r0, gp)</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.Sigma not defined&#39;</span>)</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        pdb.set_trace()</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">## \fn Sigma(rad, gp)</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="comment"># analytic total mass surface density profile for all investigations</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment"># @return Sigma_0, Sigma_1</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;</div>
+<div class="line"><a name="l00583"></a><span class="lineno"><a class="line" href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403">  583</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403">sigr2_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    s = np.array(r0)/gp.ana          <span class="comment"># [pc/1000pc]</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    G1 = 1</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keywordflow">return</span> G1*gp.anM/gp.ana*s*(1+s)**3*np.log(1.+1./s)-\</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;           G1*gp.anM/(12.*gp.ana)*s/(s+1)*(25.+52.*s+42.*s**2+12.*s**3) <span class="comment"># [(km/s)^2]</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="comment">## \fn sigr2_hern(r0, gp)</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment"># sig_r^2, equation 10 of Hernquist 1990</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment"># @return sig_r^2 in [(km/s)^2]</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;</div>
+<div class="line"><a name="l00594"></a><span class="lineno"><a class="line" href="a00109.html#ab1bbf10aaab090808ec83a578fad2d8c">  594</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#ab1bbf10aaab090808ec83a578fad2d8c">sigr2</a>(r0, gp):</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403">sigr2_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.sigr2 not defined&#39;</span>)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="keywordflow">return</span> 0*r0-1</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="comment">## \fn sigr2(rad, gp)</span></div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="comment"># analytic total mass surface density profile for all investigations</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="comment"># @return sigr2</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
+<div class="line"><a name="l00606"></a><span class="lineno"><a class="line" href="a00109.html#a1b01c7d2bb53c077787471c91346d263">  606</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a1b01c7d2bb53c077787471c91346d263">sig_los_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="keywordflow">return</span> np.sqrt(<a class="code" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">Sig_sig_los_2_hern</a>(r0, gp)/<a class="code" href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">Sig_hern</a>(r0, gp)[1])</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment">## \fn sig_los_hern(r0, gp)</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment"># sig_los determined from analytic surfden*sig2 and surfden</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment"># @return sig_LOS for pop  in [km/s]</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;</div>
+<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="a00109.html#a42b61698774ad5668c249a558428c202">  614</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a42b61698774ad5668c249a558428c202">sig_los</a>(r0, gp):</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a1b01c7d2bb53c077787471c91346d263">sig_los_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.sig_los not defined&#39;</span>)</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keywordflow">return</span> 0*r0-1</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="comment">## \fn sig_los(r0, gp)</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="comment"># sigma_LOS for all investigations</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="comment"># @param r0 radii in pc</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;</div>
+<div class="line"><a name="l00625"></a><span class="lineno"><a class="line" href="a00109.html#a711e08ba47be0559c70371edc69e9226">  625</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a711e08ba47be0559c70371edc69e9226">kappa_hern</a>(r0):</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keywordflow">return</span> 3.*np.ones(len(r0))          <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">## \fn kappa_hern(r0)</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment"># analyitc value for the fourth order momentum of the LOS velocity</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment"># @return 3 for Gaussian velocity distribution</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;</div>
+<div class="line"><a name="l00632"></a><span class="lineno"><a class="line" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">  632</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">Sig_sig_los_2_hern</a>(r0, gp):</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="comment"># \sigma_p = \sigma_projected = \sigma_{LOS}</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keywordflow">if</span> gp.investigate != <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;wrong investigation&#39;</span>)</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;        pdb.set_trace()</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    s = r0/gp.ana                            <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    G1 = 1</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordflow">return</span> G1*gp.anM**2/(12.*np.pi*gp.ana**3)*(1./(2.*(1.-s**2)**3)\</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                                          *(-3.*s**2*<a class="code" href="a00109.html#a166e7753be878566cd93b8673f46d7f4">X</a>(s)\</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                                          *(8.*s**6-28.*s**4+35.*s**2-20.)\</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                                          -24.*s**6+68.*s**4-65.*s**2+6.)\</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                                          -6.*np.pi*s) <span class="comment"># [(km/s)^2 * Munit/pc^2]</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">## \fn Sig_sig_los_2_hern(r0, gp)</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment"># equation 21 from Baes&amp;Dejonghe 2002</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment"># @param r0 radius in [pc]</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment"># @return surface density * sig_LOS^2 in [(km/s)^2 * Munit/pc^2]</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;</div>
+<div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0">  650</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0">Sig_sig_los_2</a>(r0, gp):</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">Sig_sig_los_2_hern</a>(r0, gp)</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;ga.Sig_sig_los_2 not defined&#39;</span>)</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        <span class="keywordflow">return</span> 0.*r0-1</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">## \fn Sig_sig_los_2(rad, gp)</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment"># surface density time sigma_r^2</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment"># @param rad radii in pc</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment"># @return Sigma*sigma_r^2</span></div>
+<div class="ttc" id="a00109_html_a036415dceeb003a0f60643a0ee65303c"><div class="ttname"><a href="a00109.html#a036415dceeb003a0f60643a0ee65303c">gi_analytic.MBetaAnalytic</a></div><div class="ttdeci">def MBetaAnalytic</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00431">gi_analytic.py:431</a></div></div>
+<div class="ttc" id="a00109_html_a51aff2b9e9005226a31607ad7abe7a6d"><div class="ttname"><a href="a00109.html#a51aff2b9e9005226a31607ad7abe7a6d">gi_analytic.asech</a></div><div class="ttdeci">tuple asech</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00017">gi_analytic.py:17</a></div></div>
+<div class="ttc" id="a00109_html_ab3cf4be90b59e2d30731ab0fe66791db"><div class="ttname"><a href="a00109.html#ab3cf4be90b59e2d30731ab0fe66791db">gi_analytic.PhiBeta</a></div><div class="ttdeci">def PhiBeta</div><div class="ttdoc">equation in Zhao1996 table p.2 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00423">gi_analytic.py:423</a></div></div>
+<div class="ttc" id="a00109_html_acc69f4555e8835468559a4c84167d98a"><div class="ttname"><a href="a00109.html#acc69f4555e8835468559a4c84167d98a">gi_analytic.Mr</a></div><div class="ttdeci">def Mr</div><div class="ttdoc">analytic total mass profile for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00544">gi_analytic.py:544</a></div></div>
+<div class="ttc" id="a00109_html_ad689b0a80b55d65bd395f19ef43c6562"><div class="ttname"><a href="a00109.html#ad689b0a80b55d65bd395f19ef43c6562">gi_analytic.bpar</a></div><div class="ttdeci">def bpar</div><div class="ttdoc">bpar </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00346">gi_analytic.py:346</a></div></div>
+<div class="ttc" id="a00109_html_ab31963d39dfe3bbe4f48fdedf16fe1bd"><div class="ttname"><a href="a00109.html#ab31963d39dfe3bbe4f48fdedf16fe1bd">gi_analytic.beta_hern</a></div><div class="ttdeci">def beta_hern</div><div class="ttdoc">analytic value for beta in Hernquist case </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00462">gi_analytic.py:462</a></div></div>
+<div class="ttc" id="a00109_html_a88edbb0846524b33b4559b97f6be4d2a"><div class="ttname"><a href="a00109.html#a88edbb0846524b33b4559b97f6be4d2a">gi_analytic.Sig_sig_los_2_hern</a></div><div class="ttdeci">def Sig_sig_los_2_hern</div><div class="ttdoc">equation 21 from Baes&amp;amp;Dejonghe 2002 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00632">gi_analytic.py:632</a></div></div>
+<div class="ttc" id="a00109_html_a2b183d3d721c1cbc2e8350badd65192b"><div class="ttname"><a href="a00109.html#a2b183d3d721c1cbc2e8350badd65192b">gi_analytic.rho_hern2</a></div><div class="ttdeci">def rho_hern2</div><div class="ttdoc">find theoretical mass profile of double-Dehnen spheres with stars, according to http://www.astrosim.net/code/doku.php?id=home:codetest:massmodel:sphericaltest </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00507">gi_analytic.py:507</a></div></div>
+<div class="ttc" id="a00109_html_a87143ecad8bcdcb70ed4c6969b06eca0"><div class="ttname"><a href="a00109.html#a87143ecad8bcdcb70ed4c6969b06eca0">gi_analytic.Sig_sig_los_2</a></div><div class="ttdeci">def Sig_sig_los_2</div><div class="ttdoc">surface density time sigma_r^2 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00650">gi_analytic.py:650</a></div></div>
+<div class="ttc" id="a00109_html_a99ef591985cfdd81b84c621146050183"><div class="ttname"><a href="a00109.html#a99ef591985cfdd81b84c621146050183">gi_analytic.Mtot_walk</a></div><div class="ttdeci">def Mtot_walk</div><div class="ttdoc">return total mass in Walker model NOT USED ANYMORE </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00268">gi_analytic.py:268</a></div></div>
+<div class="ttc" id="a00109_html_a42b61698774ad5668c249a558428c202"><div class="ttname"><a href="a00109.html#a42b61698774ad5668c249a558428c202">gi_analytic.sig_los</a></div><div class="ttdeci">def sig_los</div><div class="ttdoc">sigma_LOS for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00614">gi_analytic.py:614</a></div></div>
+<div class="ttc" id="a00109_html_a16bafa1cdffb61f2f89318f93d4d9344"><div class="ttname"><a href="a00109.html#a16bafa1cdffb61f2f89318f93d4d9344">gi_analytic.beta_gaia</a></div><div class="ttdeci">def beta_gaia</div><div class="ttdoc">Osipkov-Merritt velocity anisotropy profile, for pop 0, pop 1. </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00448">gi_analytic.py:448</a></div></div>
+<div class="ttc" id="a00109_html_a752578eb13be1a4cd7c801d34bacdb34"><div class="ttname"><a href="a00109.html#a752578eb13be1a4cd7c801d34bacdb34">gi_analytic.rho_gaia</a></div><div class="ttdeci">def rho_gaia</div><div class="ttdoc">give densities for the spherical Gaia challenge dataset </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00114">gi_analytic.py:114</a></div></div>
+<div class="ttc" id="a00109_html_a166e7753be878566cd93b8673f46d7f4"><div class="ttname"><a href="a00109.html#a166e7753be878566cd93b8673f46d7f4">gi_analytic.X</a></div><div class="ttdeci">def X</div><div class="ttdoc">equation 33, 34 from Hernquist 1990 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00020">gi_analytic.py:20</a></div></div>
+<div class="ttc" id="a00109_html_a54e7d95a4f6b71a5ffb068f14c54f8c2"><div class="ttname"><a href="a00109.html#a54e7d95a4f6b71a5ffb068f14c54f8c2">gi_analytic.nr3Dtot_gaia</a></div><div class="ttdeci">def nr3Dtot_gaia</div><div class="ttdoc">plot - d log rho/ d log r for Gaia models </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00239">gi_analytic.py:239</a></div></div>
+<div class="ttc" id="a00109_html_a3947fe51ecd9f2c264c986703fdbabb7"><div class="ttname"><a href="a00109.html#a3947fe51ecd9f2c264c986703fdbabb7">gi_analytic.Manalytic</a></div><div class="ttdeci">def Manalytic</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00440">gi_analytic.py:440</a></div></div>
+<div class="ttc" id="a00109_html_ac0d2718ad8e5fd0faa5357f6451b8d38"><div class="ttname"><a href="a00109.html#ac0d2718ad8e5fd0faa5357f6451b8d38">gi_analytic.rho</a></div><div class="ttdeci">def rho</div><div class="ttdoc">analytic total mass density profile for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00519">gi_analytic.py:519</a></div></div>
+<div class="ttc" id="a00109_html_ab202717f773653ddacc20b284fa934a9"><div class="ttname"><a href="a00109.html#ab202717f773653ddacc20b284fa934a9">gi_analytic.read_abc</a></div><div class="ttdeci">def read_abc</div><div class="ttdoc">read analytic values for Walker mock data </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00394">gi_analytic.py:394</a></div></div>
+<div class="ttc" id="a00109_html_ac3dfae3ae61f77d3a36e748fe68fd48e"><div class="ttname"><a href="a00109.html#ac3dfae3ae61f77d3a36e748fe68fd48e">gi_analytic.Sig_hern</a></div><div class="ttdeci">def Sig_hern</div><div class="ttdoc">surface density of Hernquist profile, equation 3 from Baes&amp;amp;Dejonghe 2002 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00557">gi_analytic.py:557</a></div></div>
+<div class="ttc" id="a00109_html_a169f1e87eddb74ea1b4f1c27998fcd63"><div class="ttname"><a href="a00109.html#a169f1e87eddb74ea1b4f1c27998fcd63">gi_analytic.rhotot_walk</a></div><div class="ttdeci">def rhotot_walk</div><div class="ttdoc">return total mass density, stars+DM </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00254">gi_analytic.py:254</a></div></div>
+<div class="ttc" id="a00109_html_a968c7d38e42a0c6a3f5af32a4d39c8be"><div class="ttname"><a href="a00109.html#a968c7d38e42a0c6a3f5af32a4d39c8be">gi_analytic.beta_triax</a></div><div class="ttdeci">def beta_triax</div><div class="ttdoc">calculate velocity anisotropy for Dehnen-Wilkinson triaxial model </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00468">gi_analytic.py:468</a></div></div>
+<div class="ttc" id="a00109_html_a5c5b4b1195b39706a43a4f05f58567a9"><div class="ttname"><a href="a00109.html#a5c5b4b1195b39706a43a4f05f58567a9">gi_analytic.chi</a></div><div class="ttdeci">def chi</div><div class="ttdoc">chi </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00371">gi_analytic.py:371</a></div></div>
+<div class="ttc" id="a00109_html_aed8311a022abd5df38231f0a00dd75a9"><div class="ttname"><a href="a00109.html#aed8311a022abd5df38231f0a00dd75a9">gi_analytic.rho_walk</a></div><div class="ttdeci">def rho_walk</div><div class="ttdoc">Walker model: read values from theoretical params file, calculate from eq. </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00072">gi_analytic.py:72</a></div></div>
+<div class="ttc" id="a00109_html_a2f2e20af11ef24a8aee0f73798ee6200"><div class="ttname"><a href="a00109.html#a2f2e20af11ef24a8aee0f73798ee6200">gi_analytic.Phi</a></div><div class="ttdeci">def Phi</div><div class="ttdoc">Phi. </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00379">gi_analytic.py:379</a></div></div>
+<div class="ttc" id="a00109_html_aaa7f6977b95e48da505e49d5b01b0ef4"><div class="ttname"><a href="a00109.html#aaa7f6977b95e48da505e49d5b01b0ef4">gi_analytic.Sig_walk</a></div><div class="ttdeci">def Sig_walk</div><div class="ttdoc">calculate 2D surface density from radius for pop 0, 1, 2 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00293">gi_analytic.py:293</a></div></div>
+<div class="ttc" id="a00109_html_a0e3f684384218839a140d2d2deeba51e"><div class="ttname"><a href="a00109.html#a0e3f684384218839a140d2d2deeba51e">gi_analytic.M_gaia</a></div><div class="ttdeci">def M_gaia</div><div class="ttdoc">calculate mass in 2D radial bins </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00141">gi_analytic.py:141</a></div></div>
+<div class="ttc" id="a00109_html_a5d2126886deeb0839a5a3517acf2cbb0"><div class="ttname"><a href="a00109.html#a5d2126886deeb0839a5a3517acf2cbb0">gi_analytic.nr3Dtot_deriv_walk</a></div><div class="ttdeci">def nr3Dtot_deriv_walk</div><div class="ttdoc">plot d log rho/d log r </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00195">gi_analytic.py:195</a></div></div>
+<div class="ttc" id="a00109_html_a6f6fc4591a289a8fd99f6f060e406032"><div class="ttname"><a href="a00109.html#a6f6fc4591a289a8fd99f6f060e406032">gi_analytic.nu3Dtot_gaia</a></div><div class="ttdeci">def nu3Dtot_gaia</div><div class="ttdoc">give total density for the spherical Gaia challenge dataset </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00177">gi_analytic.py:177</a></div></div>
+<div class="ttc" id="a00109_html_ac2407a4725ee996297ef7f75ad841d67"><div class="ttname"><a href="a00109.html#ac2407a4725ee996297ef7f75ad841d67">gi_analytic.nr3Dtot_deriv_triax</a></div><div class="ttdeci">def nr3Dtot_deriv_triax</div><div class="ttdoc">plot d log rho/d log r </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00205">gi_analytic.py:205</a></div></div>
+<div class="ttc" id="a00109_html_a96be530f228bdea4f1b4d515ee0cfd70"><div class="ttname"><a href="a00109.html#a96be530f228bdea4f1b4d515ee0cfd70">gi_analytic.Sigma</a></div><div class="ttdeci">def Sigma</div><div class="ttdoc">analytic total mass surface density profile for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00567">gi_analytic.py:567</a></div></div>
+<div class="ttc" id="a00109_html_a7527d07c2c3909bd955ffd8073558fb6"><div class="ttname"><a href="a00109.html#a7527d07c2c3909bd955ffd8073558fb6">gi_analytic.apar</a></div><div class="ttdeci">def apar</div><div class="ttdoc">a_parameter </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00335">gi_analytic.py:335</a></div></div>
+<div class="ttc" id="a00109_html_af18007718ecc63a73ce4c572476182ab"><div class="ttname"><a href="a00109.html#af18007718ecc63a73ce4c572476182ab">gi_analytic.Sig_gaia</a></div><div class="ttdeci">def Sig_gaia</div><div class="ttdoc">get projected surface density for Gaia tracer population not based on analytic integral ...</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00166">gi_analytic.py:166</a></div></div>
+<div class="ttc" id="a00109_html_a19bc447bfdeb4389cadb2115438aafd7"><div class="ttname"><a href="a00109.html#a19bc447bfdeb4389cadb2115438aafd7">gi_analytic.beta_walk</a></div><div class="ttdeci">def beta_walk</div><div class="ttdoc">calculate Osipkov-Merritt velocity anisotropy profile, for pop 0 (dummy), 1, 2 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00305">gi_analytic.py:305</a></div></div>
+<div class="ttc" id="a00109_html_a1b01c7d2bb53c077787471c91346d263"><div class="ttname"><a href="a00109.html#a1b01c7d2bb53c077787471c91346d263">gi_analytic.sig_los_hern</a></div><div class="ttdeci">def sig_los_hern</div><div class="ttdoc">sig_los determined from analytic surfden*sig2 and surfden </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00606">gi_analytic.py:606</a></div></div>
+<div class="ttc" id="a00109_html_a2b640d8b2b95ed3a52cd911c4ed6ce97"><div class="ttname"><a href="a00109.html#a2b640d8b2b95ed3a52cd911c4ed6ce97">gi_analytic.nr3Dtot_walk</a></div><div class="ttdeci">def nr3Dtot_walk</div><div class="ttdoc">plot - d log rho/ d log r for Walker models </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00224">gi_analytic.py:224</a></div></div>
+<div class="ttc" id="a00109_html_a48370ec361b05a1c171cc7912267a3bd"><div class="ttname"><a href="a00109.html#a48370ec361b05a1c171cc7912267a3bd">gi_analytic.Mabc_analytic</a></div><div class="ttdeci">def Mabc_analytic</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00415">gi_analytic.py:415</a></div></div>
+<div class="ttc" id="a00109_html_ab1bbf10aaab090808ec83a578fad2d8c"><div class="ttname"><a href="a00109.html#ab1bbf10aaab090808ec83a578fad2d8c">gi_analytic.sigr2</a></div><div class="ttdeci">def sigr2</div><div class="ttdoc">analytic total mass surface density profile for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00594">gi_analytic.py:594</a></div></div>
+<div class="ttc" id="a00109_html_af6100916572d3e2ae05e0940bff8f7ab"><div class="ttname"><a href="a00109.html#af6100916572d3e2ae05e0940bff8f7ab">gi_analytic.rho_triax</a></div><div class="ttdeci">def rho_triax</div><div class="ttdoc">density for a triaxial halo in Gaia challenge </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00050">gi_analytic.py:50</a></div></div>
+<div class="ttc" id="a00109_html_a05a8ff6130a73c9e54e30f2d6877a001"><div class="ttname"><a href="a00109.html#a05a8ff6130a73c9e54e30f2d6877a001">gi_analytic.M_hern</a></div><div class="ttdeci">def M_hern</div><div class="ttdoc">equation 3 from Hernquist 1990 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00534">gi_analytic.py:534</a></div></div>
+<div class="ttc" id="a00109_html_a036af6b449c7f4d85456e84fb760bc80"><div class="ttname"><a href="a00109.html#a036af6b449c7f4d85456e84fb760bc80">gi_analytic.q</a></div><div class="ttdeci">def q</div><div class="ttdoc">start analytic generalized Hernquist profiles following equation (17) from Zhao 1996 ...</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00323">gi_analytic.py:323</a></div></div>
+<div class="ttc" id="a00109_html_a7cff9308a1bdf28aac4209010fc76f2d"><div class="ttname"><a href="a00109.html#a7cff9308a1bdf28aac4209010fc76f2d">gi_analytic.rho_general</a></div><div class="ttdeci">def rho_general</div><div class="ttdoc">determine rho(r) for a generalized Hernquist model </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00033">gi_analytic.py:33</a></div></div>
+<div class="ttc" id="a00109_html_aa785b07df75977b2aa9b9a80d6af3403"><div class="ttname"><a href="a00109.html#aa785b07df75977b2aa9b9a80d6af3403">gi_analytic.sigr2_hern</a></div><div class="ttdeci">def sigr2_hern</div><div class="ttdoc">sig_r^2, equation 10 of Hernquist 1990 </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00583">gi_analytic.py:583</a></div></div>
+<div class="ttc" id="a00109_html_af0cb9dc372ce615fdb9841ab769fd230"><div class="ttname"><a href="a00109.html#af0cb9dc372ce615fdb9841ab769fd230">gi_analytic.S</a></div><div class="ttdeci">def S</div><div class="ttdoc">S function. </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00361">gi_analytic.py:361</a></div></div>
+<div class="ttc" id="a00109_html_abd9752d58491ad3679484e8fe820fdb2"><div class="ttname"><a href="a00109.html#abd9752d58491ad3679484e8fe820fdb2">gi_analytic.asec</a></div><div class="ttdeci">tuple asec</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00018">gi_analytic.py:18</a></div></div>
+<div class="ttc" id="a00109_html_ac9e5715d0d0a21443f3efd89e51fbcb6"><div class="ttname"><a href="a00109.html#ac9e5715d0d0a21443f3efd89e51fbcb6">gi_analytic.nr3Dtot_deriv_gaia</a></div><div class="ttdeci">def nr3Dtot_deriv_gaia</div><div class="ttdoc">plot d log rho/d log r </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00215">gi_analytic.py:215</a></div></div>
+<div class="ttc" id="a00109_html_a5aec235b8cf6751e45c1769e2c68af2f"><div class="ttname"><a href="a00109.html#a5aec235b8cf6751e45c1769e2c68af2f">gi_analytic.rhotot_gaia</a></div><div class="ttdeci">def rhotot_gaia</div><div class="ttdoc">return total mass density for Gaia challenge models </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00158">gi_analytic.py:158</a></div></div>
+<div class="ttc" id="a00109_html_aa40f146f722476f816bbc618d318bfa9"><div class="ttname"><a href="a00109.html#aa40f146f722476f816bbc618d318bfa9">gi_analytic.rho_hern</a></div><div class="ttdeci">def rho_hern</div><div class="ttdoc">equation 2 from Hernquist 1990, 3D mass density equation 2b from Baes&amp;amp;Dejonghe 2002 ...</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00496">gi_analytic.py:496</a></div></div>
+<div class="ttc" id="a00109_html_a711e08ba47be0559c70371edc69e9226"><div class="ttname"><a href="a00109.html#a711e08ba47be0559c70371edc69e9226">gi_analytic.kappa_hern</a></div><div class="ttdeci">def kappa_hern</div><div class="ttdoc">analyitc value for the fourth order momentum of the LOS velocity </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00625">gi_analytic.py:625</a></div></div>
+<div class="ttc" id="a00109_html_a4905352a707cba3122aa20a880c8f876"><div class="ttname"><a href="a00109.html#a4905352a707cba3122aa20a880c8f876">gi_analytic.beta</a></div><div class="ttdeci">def beta</div><div class="ttdoc">analytic profile for all investigations </div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00479">gi_analytic.py:479</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:22 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

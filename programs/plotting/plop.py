@@ -111,6 +111,53 @@ def pcload_single_entries(basename, gp):
 # @param basename string
 # @param gp global parameters
 
+def pccreate(basename, gp):
+    import gi_collection as glc
+    pc = glc.ProfileCollection(gp.pops, gp.nepol)
+    import re
+    tmp = re.split('/DT', basename)[-1]
+    path = str.join('/', re.split('/', tmp)[:-1])
+    # get number of iterations from run_info file
+    import gi_base as gb
+    bp = gb.get_basepath()
+    fil = open(bp+"/run_info", "r")
+    for line in fil:
+        if re.search(path, line):
+            line2 = re.sub(r'\n', '', line)
+            if not re.search("File ", line2):
+                runparams = line2
+    fil.close()
+    numofmodels = int(re.split('\t', runparams)[2])
+    current = 0
+    with open(basename+'.txt', 'rb') as fi:
+        weights = []
+        cubes = []
+        for line in fi:
+            line = line.strip()
+            weight = line[0]
+            m2lnL = line[1]
+            cube = line[2:]
+            weights.append(weight)
+            cubes.append(cube)
+
+    import weighted
+    L99 = weighted.quantile(cubes, weights, 0.01)
+    L95 = weighted.quantile(cubes, weights, 0.05)
+    L68 = weighted.quantile(cubes, weights, 0.32)
+    MED = weighted.quantile(cubes, weights, 0.50)
+    H68 = weighted.quantile(cubes, weights, 0.68)
+    H95 = weighted.quantile(cubes, weights, 0.95)
+    H99 = weighted.quantile(cubes, weights, 0.99)
+
+        #except EOFError:
+        #    pass
+
+    return L99, L95, L68, MED, H68, H95, H99
+## \fn pccreate(basename, gp)
+# load all data into [chi^2, profiles] pairs, and add to a profile collection, from .txt file
+# @param basename string
+# @param gp global parameters
+
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-i", "--investigation", dest="investigate", default="", help="investigation to plot")
@@ -227,7 +274,7 @@ if __name__ == '__main__':
 
     pcall.plot_profile(basename+tt+'/', 'rho', 0, gp)
     pcall.plot_profile(basename+tt+'/', 'nr', 0, gp)
-    pcall.plot_profile(basename+tt+'/', 'J', 0, gp)
+    #pcall.plot_profile(basename+tt+'/', 'J', 0, gp)
     if gp.investigate == 'obs':
         pcall.plot_profile(basename+tt+'/', 'Sig', 0, gp)
         pcall.plot_profile(basename+tt+'/', 'nu', 0, gp)

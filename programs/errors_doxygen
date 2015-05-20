@@ -1,0 +1,21 @@
+/home/psteger/sci/darcoda/gravimage/programs/disk/gi_params.py:184: warning: no uniquely matching class member found for 
+  gi_params.Params::__init__
+Possible candidates:
+  def gi_params.Params::__init__' at line 25 of file /home/psteger/sci/darcoda/gravimage/programs/disk/gi_params.py
+  def gi_params.Params::__init__' at line 27 of file /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_params.py
+
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py:275: warning: no matching class member found for 
+  gl_collection.ProfileCollection::set_analytic
+Possible candidates:
+  def gi_collection.ProfileCollection::set_analytic
+  def gl_collection.ProfileCollection::set_analytic
+
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py:567: warning: no matching class member found for 
+  gl_collection.ProfileCollection::plot_Xscale_3D
+Possible candidates:
+  def gi_collection.ProfileCollection::plot_Xscale_3D
+  def gl_collection.ProfileCollection::plot_Xscale_3D
+
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_cube.py:241: warning: argument 'pa' of command @param is not found in the argument list of gi_class_cube::map_MtoL(par,gp)
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_profiles.py:38: warning: argument 'ntracer_pops' of command @param is not found in the argument list of gi_class_profiles.Profiles::__init__(self,pops,nepol)
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_profiles.py:38: warning: argument 'nbins' of command @param is not found in the argument list of gi_class_profiles.Profiles::__init__(self,pops,nepol)

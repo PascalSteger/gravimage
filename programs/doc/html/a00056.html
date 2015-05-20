@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_int.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/plotting/plot_profiles_batch.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,68 +80,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_60b9633940c651ab084eca5ea7119699.html">sphere</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_d634850895433f7ab5aae948813f928f.html">plotting</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_int.py File Reference</div>  </div>
+<div class="title">plot_profiles_batch.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>all integrals from <a class="el" href="a00109.html">gi_physics</a>  
+<p>plot all profiles of a given run modified by Hamish Silverwood for batch running, 24 October 2014  
 <a href="#details">More...</a></p>
 
 <p><a href="a00056_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00105"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html">gi_int</a></td></tr>
+<tr class="memitem:a00169"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html">plot_profiles_batch</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a8d2c39026c26a97d7b9de04c9c283a75">gi_int.int_poly_inf</a></td></tr>
-<tr class="memdesc:a8d2c39026c26a97d7b9de04c9c283a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate polynomial from r0[k] to infinity assume log(integrand) = A + B*r; B = poly[0] &lt; 0, A = poly[1]  <a href="#a8d2c39026c26a97d7b9de04c9c283a75">More...</a><br/></td></tr>
-<tr class="separator:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4627af4bccde0dbe1bafef26ba016260"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a4627af4bccde0dbe1bafef26ba016260">gi_int.correct_first_bin</a></td></tr>
-<tr class="memdesc:a4627af4bccde0dbe1bafef26ba016260"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate back to first bin, with splines  <a href="#a4627af4bccde0dbe1bafef26ba016260">More...</a><br/></td></tr>
-<tr class="separator:a4627af4bccde0dbe1bafef26ba016260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#abc4571d7472a35afcc57b3cfec89bcd4">gi_int.ant_intbeta</a></td></tr>
-<tr class="memdesc:abc4571d7472a35afcc57b3cfec89bcd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)  <a href="#abc4571d7472a35afcc57b3cfec89bcd4">More...</a><br/></td></tr>
-<tr class="separator:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a86332c13eed6a13f4b7dc4e4c960b207">gi_int.g</a></td></tr>
-<tr class="memdesc:a86332c13eed6a13f4b7dc4e4c960b207"><td class="mdescLeft">&#160;</td><td class="mdescRight">function from Lokas+2005, eq.  <a href="#a86332c13eed6a13f4b7dc4e4c960b207">More...</a><br/></td></tr>
-<tr class="separator:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a657add5cfa9ee1a48db389246d6d6bb5">gi_int.varepsilon</a></td></tr>
-<tr class="memdesc:a657add5cfa9ee1a48db389246d6d6bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return e^{-2 int_r_min^r beta(s)/s ds}, to be used in sigma_r^2 calc  <a href="#a657add5cfa9ee1a48db389246d6d6bb5">More...</a><br/></td></tr>
-<tr class="separator:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#aa25d61ce3efbf854f6323ee6ad42d810">gi_int.ant_sigkaplos</a></td></tr>
-<tr class="memdesc:aa25d61ce3efbf854f6323ee6ad42d810"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa, and virial parameters from Richardson,Fairbairn 2014 all on gp.nfine logarithmically spaced radii, and store outcome on lookup table  <a href="#aa25d61ce3efbf854f6323ee6ad42d810">More...</a><br/></td></tr>
-<tr class="separator:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab237071931f4fd85416c04350d8f241a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ab237071931f4fd85416c04350d8f241a">gi_int.zeta</a></td></tr>
-<tr class="memdesc:ab237071931f4fd85416c04350d8f241a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014  <a href="#ab237071931f4fd85416c04350d8f241a">More...</a><br/></td></tr>
-<tr class="separator:ab237071931f4fd85416c04350d8f241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a851345fa7cfbc535b7de72338cb782fa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a851345fa7cfbc535b7de72338cb782fa">gi_int.kappa</a></td></tr>
-<tr class="separator:a851345fa7cfbc535b7de72338cb782fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7f980c6b66313572041be28fe01814"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a3a7f980c6b66313572041be28fe01814">gi_int.smooth_ext</a></td></tr>
-<tr class="memdesc:a3a7f980c6b66313572041be28fe01814"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate to high radii with linear extrapolation NOT USED ANYMORE  <a href="#a3a7f980c6b66313572041be28fe01814">More...</a><br/></td></tr>
-<tr class="separator:a3a7f980c6b66313572041be28fe01814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#adb4f91dec2092b7f85206392a3b5f7a0">gi_int.smooth_fun</a></td></tr>
-<tr class="memdesc:adb4f91dec2092b7f85206392a3b5f7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">smooth function y(x) NOT USED ANYMORE  <a href="#adb4f91dec2092b7f85206392a3b5f7a0">More...</a><br/></td></tr>
-<tr class="separator:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a29ebb0462ff59b741829b4e9b078d5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a4a29ebb0462ff59b741829b4e9b078d5">plot_profiles_batch.prepare_output_folder</a></td></tr>
+<tr class="memdesc:a4a29ebb0462ff59b741829b4e9b078d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">create directory structure in output folder  <a href="#a4a29ebb0462ff59b741829b4e9b078d5">More...</a><br/></td></tr>
+<tr class="separator:a4a29ebb0462ff59b741829b4e9b078d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6981636be4c259d7f35df9a42c5afb71"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a6981636be4c259d7f35df9a42c5afb71">plot_profiles_batch.correct_E_error</a></td></tr>
+<tr class="memdesc:a6981636be4c259d7f35df9a42c5afb71"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way  <a href="#a6981636be4c259d7f35df9a42c5afb71">More...</a><br/></td></tr>
+<tr class="separator:a6981636be4c259d7f35df9a42c5afb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e785ab7385d6c09c8e97d97ca6cba98"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a2e785ab7385d6c09c8e97d97ca6cba98">plot_profiles_batch.read_models</a></td></tr>
+<tr class="memdesc:a2e785ab7385d6c09c8e97d97ca6cba98"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in all models, concatenate them  <a href="#a2e785ab7385d6c09c8e97d97ca6cba98">More...</a><br/></td></tr>
+<tr class="separator:a2e785ab7385d6c09c8e97d97ca6cba98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abffd34b1158703b6124a14f588ea8946"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#abffd34b1158703b6124a14f588ea8946">plot_profiles_batch.pcload_single_entries</a></td></tr>
+<tr class="memdesc:abffd34b1158703b6124a14f588ea8946"><td class="mdescLeft">&#160;</td><td class="mdescRight">load all data into [chi^2, profiles] pairs, and add to a profile collection  <a href="#abffd34b1158703b6124a14f588ea8946">More...</a><br/></td></tr>
+<tr class="separator:abffd34b1158703b6124a14f588ea8946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2640743931a87b94f5679a6b41dd48db"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a2640743931a87b94f5679a6b41dd48db">plot_profiles_batch.run</a></td></tr>
+<tr class="memdesc:a2640743931a87b94f5679a6b41dd48db"><td class="mdescLeft">&#160;</td><td class="mdescRight">call all model read-in, and profile-plotting routines  <a href="#a2640743931a87b94f5679a6b41dd48db">More...</a><br/></td></tr>
+<tr class="separator:a2640743931a87b94f5679a6b41dd48db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3da8181ce928dbb1c46d40b8a6616431"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a3da8181ce928dbb1c46d40b8a6616431">plot_profiles_batch.basename</a> = sys.argv[1]</td></tr>
+<tr class="separator:a3da8181ce928dbb1c46d40b8a6616431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae418dae39df993999bc56ecb982af5"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#adae418dae39df993999bc56ecb982af5">plot_profiles_batch.timestamp</a> = sys.argv[1]</td></tr>
+<tr class="separator:adae418dae39df993999bc56ecb982af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a29e7a3614a905fa32c4a241ff559a9"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html#a0a29e7a3614a905fa32c4a241ff559a9">plot_profiles_batch.gp</a> = glp.Params(timestamp)</td></tr>
+<tr class="memdesc:a0a29e7a3614a905fa32c4a241ff559a9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00161.html#a15af94783486d90b06ac1a20d64edc02" title="remove first entry in sys.path and thus reverse insert_sys_path ">ip.remove_first()</a>; <a class="el" href="a00161.html#a15af94783486d90b06ac1a20d64edc02" title="remove first entry in sys.path and thus reverse insert_sys_path ">ip.remove_first()</a> # uncomment to include most recent  <a href="#a0a29e7a3614a905fa32c4a241ff559a9">More...</a><br/></td></tr>
+<tr class="separator:a0a29e7a3614a905fa32c4a241ff559a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>all integrals from <a class="el" href="a00109.html">gi_physics</a> </p>
+<div class="textblock"><p>plot all profiles of a given run modified by Hamish Silverwood for batch running, 24 October 2014 </p>
 
-<p>Definition in file <a class="el" href="a00056_source.html">gi_int.py</a>.</p>
+<p>Definition in file <a class="el" href="a00056_source.html">plot_profiles_batch.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grd_COM.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/gi_data.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,194 +80,318 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_b52c632d23613a7c388a3dfabe3e9b98.html">reducedata</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">grd_COM.py</div>  </div>
+<div class="title">gi_data.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00037.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00121.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00037.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00117.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># calculate approximative center of mass, assuming constant stellar mass</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># 2D version for Fornax, Sculptor, Sextans, .. observed dwarfs</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal S.P. Steger, pascal@steger.aero</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># read in data and store it in an appropriate class</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) GPL v3 2015 Pascal Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pdb</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> gi_file <span class="keyword">as</span> gf</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> gi_centering <span class="keyword">import</span> com_shrinkcircle_v_2D</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00121.html#a5104099724164185396f03aae7ea0e16">   16</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00121.html#a5104099724164185396f03aae7ea0e16">concat_pops</a>(x1, x2, y1, y2, vz1, vz2, gp):</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    x0 = np.hstack([x1, x2])</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    y0 = np.hstack([y1, y2])</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    vz0 = np.hstack([vz1, vz2])</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    N1  = min(len(x1), gp.ntracer[1-1])</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    N2  = min(len(x2), gp.ntracer[2-1])</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    pm1 = np.hstack([np.ones(N1, dtype=bool), np.zeros(N2, dtype=bool)])</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    pm2 = np.hstack([np.zeros(N1, dtype=bool), np.ones(N2,  dtype=bool)])</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    pm = pm1 + pm2</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> x0, y0, vz0, pm1, pm2, pm</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">## \fn concat_pops(x1, x2, y1, y2, z1, z2, vz1, vz2)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"># concatenate all arrays for two populations</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># @param x1</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"># @param x2</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># @param y1</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param y2</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># @param vz1</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"># @param vz2</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">   35</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x, y, vz, Mg, PM, pm):</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> x[pm], y[pm], vz[pm], Mg[pm], PM[pm]</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## \fn select_pm(x, y, comp, vz, Mg, PM, pm)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># extract only parts of the arrays given</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># @param x</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># @param y</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param vz</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param Mg</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param PM</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># @param pm</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00121.html#aba945884398fd062689f840083d889d6">   46</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00121.html#aba945884398fd062689f840083d889d6">run</a>(gp):</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">import</span> gr_params</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    gpr = <a class="code" href="a00004.html">gr_params.grParams</a>(gp)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    gpr.fil = gpr.dir+<span class="stringliteral">&quot;/data/tracers.dat&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    delim = [0,22,3,3,6,4,3,5,6,6,7,5,6,5,6,5,6]</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=<span class="keyword">True</span>, usecols=(0,1),delimiter=delim)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    RAh,RAm,RAs,DEd,DEm,DEs,Vmag,VI, VHel,e_VHel,SigFe,e_SigFe, SigMg,e_SigMg,PM = np.genfromtxt(gpr.fil, skiprows=29, unpack=<span class="keyword">True</span>, usecols=tuple(range(2,17)), delimiter=delim, filling_values=-1)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment"># only use stars which have Mg measurements</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    pm = (SigMg&gt;-1) <span class="comment"># (PM&gt;=0.95)*</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    print(<span class="stringliteral">&quot;f_members = &quot;</span>, gh.pretty(1.*sum(pm)/len(pm)))</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ID=ID[1][pm]</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    RAh=RAh[pm]</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    RAm=RAm[pm]</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    RAs=RAs[pm]</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    DEd=DEd[pm]</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    DEm=DEm[pm]</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    DEs=DEs[pm]</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Vmag = Vmag[pm]</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    VI=VI[pm]</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    VHel=VHel[pm]</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    e_VHel=e_VHel[pm]</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    SigFe=SigFe[pm]</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    e_SigFe=e_SigFe[pm]</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    SigMg=SigMg[pm]</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    e_SigMg=e_SigMg[pm]</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    PM=PM[pm]</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Mg0 = SigMg</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    sig = abs(RAh[0])/RAh[0]</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">#print(&#39;RAh: signum = &#39;,gh.pretty(sig))</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    RAh = RAh/sig</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    xs = 15*(RAh*3600+RAm*60+RAs)*sig       <span class="comment"># [arcsec/15]</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    sig = abs(DEd[0])/DEd[0]</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">#print(&#39;DEd: signum = &#39;, gh.pretty(sig))</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    DEd = DEd/sig</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    ys = (DEd*3600+DEm*60+DEs)*sig          <span class="comment"># [arcsec]</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    arcsec = 2.*np.pi/(360.*60.*60) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    kpc = 1000 <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    DL = {1: <span class="keyword">lambda</span> x: x * (138),<span class="comment">#+/- 8 for Fornax</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          2: <span class="keyword">lambda</span> x: x * (101),<span class="comment">#+/- 5 for Carina</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          3: <span class="keyword">lambda</span> x: x * (79), <span class="comment">#+/- 4 for Sculptor</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          4: <span class="keyword">lambda</span> x: x * (86), <span class="comment">#+/- 4 for Sextans</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;          5: <span class="keyword">lambda</span> x: x * (80)  <span class="comment">#+/- 10 for Draco</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      }[gp.case](kpc)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    xs *= (arcsec*DL) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ys *= (arcsec*DL) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    PM0 = np.copy(PM)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    x0 = np.copy(xs)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    y0 = np.copy(ys) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    vz0 = np.copy(VHel) <span class="comment"># [km/s]</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment"># only use stars which are members of the dwarf: exclude pop3 by construction</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">#pm = (PM0 &gt;= gpr.pmsplit) # exclude foreground contamination, outliers</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">#x0, y0, vz0, Mg0, PM0 = select_pm(x0, y0, vz0, Mg0, PM0, pm)</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment"># assign population</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">if</span> gp.pops == 2:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment"># drawing of populations based on metallicity</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment"># get parameters from function in pymcmetal.py</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">#[p, mu1, sig1, mu2, sig2] = np.loadtxt(gp.files.dir+&#39;metalsplit.dat&#39;)</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">#[pm1, pm2] = np.loadtxt(gp.files.dir+&#39;metalsplit_assignment.dat&#39;)</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        popass = np.loadtxt(gp.files.dir+<span class="stringliteral">&#39;popass&#39;</span>)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        pm1 = (popass==1)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        pm2 = (popass==2)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">elif</span> gp.pops == 1:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        pm1 = (PM &gt;= 0)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        pm2 = (PM &lt;  0) <span class="comment"># assign none, but of same length as xs</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    x1, y1, vz1, Mg1, PM1 = <a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pm1)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    x2, y2, vz2, Mg2, PM2 = <a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pm2)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment"># cutting pm_i to a maximum of ntracers_i particles each:</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    ind1 = np.arange(len(x1))</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    np.random.shuffle(ind1)     <span class="comment"># random.shuffle already changes ind</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    ind1 = ind1[:gp.ntracer[1-1]]</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    ind2 = np.arange(len(x2))</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    np.random.shuffle(ind2)     <span class="comment"># random.shuffle already changes ind</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    ind2 = ind2[:gp.ntracer[2-1]]</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    x1, y1, vz1, Mg1, PMS1 = <a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x1, y1, vz1, Mg1, PM1, ind1)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    x2, y2, vz2, Mg2, PMS2 = <a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x2, y2, vz2, Mg2, PM2, ind2)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    x0, y0, vz0, pm1, pm2, pm = <a class="code" href="a00121.html#a5104099724164185396f03aae7ea0e16">concat_pops</a>(x1, x2, y1, y2, vz1, vz2, gp)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment"># optimum: get 3D center of mass with means</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment"># com_x, com_y, com_z = com_mean(x0,y0,z0,PM0) # 3*[pc],  z component included if available</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> gi_project <span class="keyword">as</span> gip</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> splrep, splev</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00002.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00002.html">Datafile</a>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00002.html#a123e4a94e9bafdd8501f193f11543115">   16</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a123e4a94e9bafdd8501f193f11543115">__init__</a>(self):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="comment">## smallest radius of the data bins, in [pc]</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">   18</a></span>&#160;        self.<a class="code" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">binmin</a> = []</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">## centers of bins</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">   20</a></span>&#160;        self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a> = []</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">## biggest radius of the data bins, in [pc]</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">   22</a></span>&#160;        self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a> = []</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">## keep mass profile</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">   24</a></span>&#160;        self.<a class="code" href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">Mr</a> = []</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">   25</a></span>&#160;        self.<a class="code" href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">Mrerr</a> = []</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">   26</a></span>&#160;        self.<a class="code" href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">Mhalf</a> = []</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">   27</a></span>&#160;        self.<a class="code" href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">rhalf</a> = []</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">## keep radial profile of the tracer density, averaged in 2D-rings</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00002.html#a6468b7785749ae289a35c41b9d101069">   29</a></span>&#160;        self.<a class="code" href="a00002.html#a6468b7785749ae289a35c41b9d101069">nu</a> = []</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00002.html#af285bffbe7414399fe25cdda0b731868">   30</a></span>&#160;        self.<a class="code" href="a00002.html#af285bffbe7414399fe25cdda0b731868">nuerr</a> = []</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">   31</a></span>&#160;        self.<a class="code" href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">nu_epol</a> = []</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">   32</a></span>&#160;        self.<a class="code" href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">nuerr_epol</a> = []</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">## to keep the nr parameters</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00002.html#afe7c5bd635a24e99f1456df808092b81">   34</a></span>&#160;        self.<a class="code" href="a00002.html#afe7c5bd635a24e99f1456df808092b81">nuhalf</a> = []</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">   35</a></span>&#160;        self.<a class="code" href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">nrnu</a> = []</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">   36</a></span>&#160;        self.<a class="code" href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">nrnuerr</a> = []</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">   37</a></span>&#160;        self.<a class="code" href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">Sig</a> = []</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">   38</a></span>&#160;        self.<a class="code" href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">Sigerr</a> = []</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">## keep mean error bar of surface density profile</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00002.html#a93135736c28e62d30c3bf61f8f538bae">   40</a></span>&#160;        self.<a class="code" href="a00002.html#a93135736c28e62d30c3bf61f8f538bae">barSig</a> = []</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">## sphere: keep line of sight velocity dispersion profile, in [km/s]</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">   42</a></span>&#160;        self.<a class="code" href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">sig</a> = []</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">## sphere: keep error of sigdat</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">   44</a></span>&#160;        self.<a class="code" href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">sigerr</a> = []</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00002.html#a7a6e9006f0c81c2fcca999b5963e682d">   45</a></span>&#160;        self.<a class="code" href="a00002.html#a7a6e9006f0c81c2fcca999b5963e682d">barsig</a> = []</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">## disk: keep line of sight velocity dispersion profile, in [km/s]</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a00002.html#ab8352f2658cb5ed3f2140bc9aa0aefbc">   47</a></span>&#160;        self.<a class="code" href="a00002.html#ab8352f2658cb5ed3f2140bc9aa0aefbc">sigz2</a> = []</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">## disk: keep error of sigdat</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00002.html#affa605e0a9a413d877e67fd826f511e6">   49</a></span>&#160;        self.<a class="code" href="a00002.html#affa605e0a9a413d877e67fd826f511e6">sigz2err</a> = []</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">## keep fourth velocity moment of the LOS velocities</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">   53</a></span>&#160;        self.<a class="code" href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">kap</a> = []</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">## keep errors of kapdat</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a00002.html#aca99456177f80323c6a54b6791734d95">   55</a></span>&#160;        self.<a class="code" href="a00002.html#aca99456177f80323c6a54b6791734d95">kaperr</a> = []</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">## \fn __init__(self)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># constructor: set all initial values</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00002.html#a6b59c5ac60b55492174db9eef738385e">   60</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a6b59c5ac60b55492174db9eef738385e">read_Sig</a>(self, gp):</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            Sigx, binmin, binmax, Sigdat, Sigerr = gh.readcol5(gp.files.Sigfiles[pop])</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment"># 3*[rscale], [Sig0], [Sig0]</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment"># switch to Munit (msun) and pc here</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            Sigx    = Sigx[:]    * gp.Xscale[pop]         <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            Sigdat  = Sigdat[:]  * gp.Sig0pc[pop]          <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            Sigerr  = Sigerr[:]  * gp.Sig0pc[pop]          <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment"># take the overall bins for rbin, binmin, binmax vals</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> pop == 0:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a> = Sigx                                 <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                self.<a class="code" href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">binmin</a> = binmin * gp.Xscale[pop]           <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a> = binmax * gp.Xscale[pop]           <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                gp.xipol = self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>                            <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                minr = min(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>)                           <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                maxr = max(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>)                           <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                gp.xepol = np.hstack([minr/8., minr/4., minr/2., self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>, 2*maxr, 4*maxr, 8*maxr]) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                gp.xfine = gh.introduce_points_in_between(gp.xepol, gp)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment"># deproject,</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="comment"># takes [pc], 2* [Munit/pc^2], gives [pc], 2* [Munit/pc^3],</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment"># already normalized to same total mass</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span> gp.geom == <span class="stringliteral">&#39;sphere&#39;</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                Sigdatnu, Sigerrnu = gh.complete_nu(self.<a class="code" href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">rbin</a>, Sigdat, Sigerr, gp.xfine)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                dummyx, nudatnu, nuerrnu, Mrnu = gip.Sig_NORM_rho(gp.xfine, Sigdatnu, Sigerrnu, gp)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                self.nu_epol.append(gh.linipollog(gp.xfine, nudatnu, gp.xepol))</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                self.nuerr_epol.append(gh.linipollog(gp.xfine, nuerrnu, gp.xepol))</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                nudat = gh.linipollog(gp.xfine, nudatnu, gp.xipol)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                nuerr = gh.linipollog(gp.xfine, nuerrnu, gp.xipol)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                Mr = gh.linipollog(gp.xfine, Mrnu, gp.xipol)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                self.Mr.append(Mr) <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                Mhalf = Mr[-1]/2.     <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                self.Mhalf.append(Mhalf) <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="comment"># spline interpolation with M as x axis, to get half-mass of system:</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                splpar_M = splrep(np.log(Mr), np.log(self.<a class="code" href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">binmax</a>), s=0.01)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                r_half = np.exp(splev(np.log(Mhalf), splpar_M)) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                self.rhalf.append(r_half) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment"># spline interpolation of nu at r_half:</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                splpar_nu = splrep(np.log(gp.xipol), np.log(nudat), s=0.01)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                nuhalf = np.exp(splev(np.log(r_half), splpar_nu)) <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                self.nuhalf.append(nuhalf)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="comment"># calculate n(r) parameters as used in gi_physics from the nu(r) profile</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                rleft = gp.xfine[gp.xfine &lt;= r_half]</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                rleft = rleft[::-1]</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                rright= gp.xfine[gp.xfine &gt; r_half]</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                nuleft = nudatnu[gp.xfine &lt;= r_half]</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                nuleft = nuleft[::-1]</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                nuright = nudatnu[gp.xfine &gt; r_half]</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                rlast = 1.*r_half</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                nulast = 1.*nuhalf</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                sloperight = []</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">for</span> r0 <span class="keywordflow">in</span> rright:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    i = np.argmin(np.abs(rright - r0))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    Deltanu = -(np.log(nuright[i]) - np.log(nulast))</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    Deltar  = np.log(rright[i]) - np.log(rlast)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    sloperight.append(Deltanu/Deltar)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    nulast = nuright[i]</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    rlast = rright[i]</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                rlast = 1.*r_half</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                nulast = 1.*nuhalf</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                slopeleft = []</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="comment"># work through the array from the left, from r_half</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">for</span> r0 <span class="keywordflow">in</span> rleft:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    i = np.argmin(np.abs(rleft - r0))</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    Deltanu = np.log(nuleft[i]) - np.log(nulast)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    Deltar  = np.log(rlast) - np.log(rleft[i])</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    slopeleft.append(Deltanu/Deltar)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    nulast = nuleft[i]</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    rlast = rleft[i]</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="comment"># inverse order of slopeleft to have it sorted according increasing r</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                slopeleft = slopeleft[::-1]</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                slopes = np.hstack([slopeleft, sloperight])</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                nrpar = 1.*slopes[:-1]</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="comment"># Deltalogr = np.log(gp.xfine[1:]) - np.log(gp.xfine[:-1])</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="comment"># nrpar = (slopes[1:]-slopes[:-1])/Deltalogr</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                spl_nrpar = splrep(gp.xfine[:-1], nrpar, k=1)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                nre = splev( gp.xipol, spl_nrpar)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                extleft = splev(gp.xepol[0:3], spl_nrpar) <span class="comment"># np.array([nrpar[0], nrpar[0], nrpar[0]])</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                extright = splev(gp.xepol[-3:], spl_nrpar) <span class="comment">#[nrpar[-1], nrpar[-1], nrpar[-1]])</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                maxnre = max(nre)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                self.nrnu.append(np.hstack([nuhalf, nre[0], extleft, nre, extright, nre[-1]]))</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    com_x, com_y, com_vz = <a class="code" href="a00096.html#ad8c978a2815c4547b2363011505766d0">com_shrinkcircle_v_2D</a>(x0, y0, vz0, pm) <span class="comment"># [pc], [km/s]</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment"># from now on, work with 2D data only; z0 was only used to get center in (x,y) better</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment"># x0 -= com_x; y0 -= com_y # [pc]</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment"># vz0 -= com_vz #[km/s]</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    R0 = np.sqrt(x0**2+y0**2) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    Rhalf = np.median(R0) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    Rscale = Rhalf <span class="comment"># [pc] overall</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <span class="comment"># checking for correct n(r) profile, have to wait for pop==1</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="comment"># if pop==1:</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="comment"># from pylab import plot, xscale</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="comment"># import gi_analytic as ga</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="comment"># testnu = ga.rho_gaia(gp.xfine,gp)[pop]</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment"># testnrnu = -gh.derivipol(np.log(testnu), np.log(gp.xfine))</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="comment"># plot(gp.xfine, testnrnu, &#39;b-&#39;)</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment"># plot(gp.xfine[:-1], nrpar, &#39;r.-&#39;)</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="comment"># xscale(&#39;log&#39;)</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    pop = -1</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">for</span> pmn <span class="keywordflow">in</span> [pm, pm1, pm2]:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        pop = pop+1</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        pmr = (R0&lt;(gp.maxR*Rscale)) <span class="comment"># read max extension for data</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                    <span class="comment"># (rprior*Rscale) from gi_params</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        pmn = pmn*pmr                   <span class="comment"># [1]</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        print(<span class="stringliteral">&quot;fraction of members = &quot;</span>, 1.0*sum(pmn)/len(pmn))</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        x, y, vz, Mg, PMN = <a class="code" href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">select_pm</a>(x0, y0, vz0, Mg0, PM0, pmn)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        R = np.sqrt(x*x+y*y)            <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        Rscalei = np.median(R)          <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        gf.write_Xscale(gp.files.get_scale_file(pop), Rscalei) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        gf.write_data_output(gp.files.get_com_file(pop), x/Rscalei, y/Rscalei, vz, Rscalei) <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">if</span> gpr.showplots:</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            gpr.show_part_pos(x, y, pmn, Rscale)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">## \fn run(gp)</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"># perform</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"># @param gp global parameters</span></div>
-<div class="ttc" id="a00121_html_a5104099724164185396f03aae7ea0e16"><div class="ttname"><a href="a00121.html#a5104099724164185396f03aae7ea0e16">grd_COM.concat_pops</a></div><div class="ttdeci">def concat_pops</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00016">grd_COM.py:16</a></div></div>
-<div class="ttc" id="a00121_html_aba945884398fd062689f840083d889d6"><div class="ttname"><a href="a00121.html#aba945884398fd062689f840083d889d6">grd_COM.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">perform </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00046">grd_COM.py:46</a></div></div>
-<div class="ttc" id="a00121_html_a31a6ee611c6520afa23ca5b2345fa381"><div class="ttname"><a href="a00121.html#a31a6ee611c6520afa23ca5b2345fa381">grd_COM.select_pm</a></div><div class="ttdeci">def select_pm</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00035">grd_COM.py:35</a></div></div>
-<div class="ttc" id="a00096_html_ad8c978a2815c4547b2363011505766d0"><div class="ttname"><a href="a00096.html#ad8c978a2815c4547b2363011505766d0">gi_centering.com_shrinkcircle_v_2D</a></div><div class="ttdeci">def com_shrinkcircle_v_2D</div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00027">gi_centering.py:27</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">gr_params.grParams</a></div><div class="ttdef"><b>Definition:</b> <a href="a00034_source.html#l00012">gr_params.py:12</a></div></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                errnre = np.ones(1+len(extleft)+len(nre)+len(extright)+1)*maxnre/10.</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">for</span> k <span class="keywordflow">in</span> np.arange(1,4):</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    errnre[k-1] *= 5</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    errnre[-k] *= 5</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                self.nrnuerr.append(np.hstack([nuhalf/3., errnre]))</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <span class="comment"># import gi_physics as phys</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="comment"># from pylab import loglog, axvline, axhline, plot, xscale, clf</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="comment"># loglog(gp.xepol, self.nu_epol[0], &#39;b.-&#39;, lw=1)</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="comment"># axvline(r_half)</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="comment"># axhline(nuhalf)</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="comment"># rh = phys.rho(gp.xepol, self.nrnu, 0, gp)</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="comment"># rhmin = phys.rho(gp.xepol, self.nrnu - self.nrnuerr, 0, gp)</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="comment"># rhmax = phys.rho(gp.xepol, self.nrnu + self.nrnuerr, 0, gp)</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="comment"># loglog(gp.xepol, rh, &#39;r.-&#39;, linewidth=2)</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="comment"># loglog(gp.xepol, rhmin, &#39;g.-&#39;)</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="comment"># loglog(gp.xepol, rhmax, &#39;g--&#39;)</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="comment"># clf()</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="comment"># plot(gp.xfine[:-1], nrpar, &#39;.-&#39;)</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="comment"># plot(gp.xipol, nre, &#39;.-&#39;)</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="comment"># xscale(&#39;log&#39;)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="comment"># axvline(r_half)</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="comment"># print(nrpar)</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                gh.LOG(1, <span class="stringliteral">&#39;working in disk symmetry: reading nu directly&#39;</span>)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                dummy1, dummy2, dummy3, nudat, nuerr = \</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                        gh.readcol5(gp.files.nufiles[pop])</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                self.nuhalf.append(nudat[round(len(nudat)/2)]) <span class="comment">#HS ToDo: check validity of this</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            self.Sig.append(Sigdat)    <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            self.Sigerr.append(Sigerr) <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            self.barSig.append(np.mean(Sigerr))</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            self.nu.append(nudat)      <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            self.nuerr.append(nuerr)   <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">## \fn read_Sig(self, gp)</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment"># read surface density of tracer stars, deproject, renormalize</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="a00002.html#a5e6910741858780b44be0055363b900f">  189</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a5e6910741858780b44be0055363b900f">read_sig</a>(self, gp):</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span> gp.geom == <span class="stringliteral">&#39;sphere&#39;</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="comment"># only ever use the tracer particles for velocity information</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            self.sig.append(np.zeros(gp.nipol))</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            self.sigerr.append(np.zeros(gp.nipol))</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops):</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                print(<span class="stringliteral">&#39;read_sig on file &#39;</span>, gp.files.sigfiles[pop+1])</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop+1])</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="comment"># 3*[Xscale], [maxsiglos], [maxsiglos]</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                <span class="comment"># change to km/s here</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                self.sig.append(sigdat[:] * gp.maxsiglos[pop+1]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                self.sigerr.append(sigerr[:] * gp.maxsiglos[pop+1]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                self.barsig.append(np.mean(sigerr[:]*gp.maxsiglos[pop+1]))</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">elif</span> gp.geom == <span class="stringliteral">&#39;disk&#39;</span>:</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                print(<span class="stringliteral">&#39;read sig&#39;</span>)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                pdb.set_trace()</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                Dummy1, Dummy2, Dummy3, sigdat, sigerr = gh.readcol5(gp.files.sigfiles[pop])</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="comment"># 3*[Xscale], [maxsiglos], [maxsiglos]</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                <span class="comment"># change to km/s here</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                self.sig.append(sigdat[:] * gp.maxsiglos[pop]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                self.sigerr.append(sigerr[:] * gp.maxsiglos[pop]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">## \fn read_sig(self, gp)</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment"># read in line of sight velocity dispersion for tracer particles</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="a00002.html#a06a5a729f410845312ee9066b71c1e90">  216</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a06a5a729f410845312ee9066b71c1e90">read_sigz2</a>(self, gp):</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        dummy, dummy, dummy, sigz2dat, sigz2err = gh.readcol5(gp.files.sigfiles[0])</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        self.sigz2.append(sigz2dat[:]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        self.sigz2err.append(sigz2err[:]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">## \fn read_sig(self, gp)</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment"># read in line of sight velocity dispersion</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment"># H Silverwood 20/11/14</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="a00002.html#a9a8ddd7136dbd59b919db5a48384c2f2">  227</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a9a8ddd7136dbd59b919db5a48384c2f2">read_nu</a>(self, gp):</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        bincenters, binmins, binmaxs, nudat, nuerr = gh.readcol5(gp.files.nufiles[0])</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        self.nu.append(nudat[:]) <span class="comment"># [#stars/kpc^3]</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        self.nuerr.append(nuerr[:])</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        gp.z_bincenters = bincenters <span class="comment"># [kpc]</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        gp.z_binmins = binmins</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        gp.z_binmaxs = binmaxs</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="comment">#gp.z_all_pts = np.append(np.append([0.0], bincenters), [binmaxs[-1]]) #[kpc]</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        gp.z_all_pts = np.append([0.0], bincenters)  <span class="comment">#[kpc]</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment">## \fn read_nu(self, gp)</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="comment"># for disk only?</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">  239</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">read_kappa</a>(self, gp):</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            Dummy1, Dummy2, Dummy3, kapdat, kaperr = gh.readcol5(gp.files.kappafiles[pop])</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="comment"># 3*[Xscale], [1], [1]</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            self.kap.append(kapdat) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            self.kaperr.append(kaperr) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">## \fn read_kappa(self, gp)</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment"># read in line of sight velocity kurtosis</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">  250</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">read_zeta</a>(self, gp):</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(gp.pops+1):</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            D1,D2,D3,zetaa,zetaaerr=gh.readcol5(gp.files.zetaafiles[pop])</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            self.zetaa.append(zetaa)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            self.zetaaerr.append(zetaaerr)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            D1,D2,D3,zetab,zetaberr=gh.readcol5(gp.files.zetabfiles[pop])</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            self.zetab.append(zetab)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            self.zetaberr.append(zetaberr)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="comment">## \fn read_zeta(self, gp)</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment"># read zeta profiles</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="a00002.html#a965d67234617721c5ba5bc541c456fc9">  264</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00002.html#a965d67234617721c5ba5bc541c456fc9">__repr__</a>(self):</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Datafile class, call gp.dat.rbin, .Sig, .sig&quot;</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">## \fn __repr__(self)</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment"># string representation for ipython</span></div>
+<div class="ttc" id="a00002_html_a965d67234617721c5ba5bc541c456fc9"><div class="ttname"><a href="a00002.html#a965d67234617721c5ba5bc541c456fc9">gi_data.Datafile.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00264">gi_data.py:264</a></div></div>
+<div class="ttc" id="a00002_html_ab8352f2658cb5ed3f2140bc9aa0aefbc"><div class="ttname"><a href="a00002.html#ab8352f2658cb5ed3f2140bc9aa0aefbc">gi_data.Datafile.sigz2</a></div><div class="ttdeci">sigz2</div><div class="ttdoc">disk: keep line of sight velocity dispersion profile, in [km/s] </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00047">gi_data.py:47</a></div></div>
+<div class="ttc" id="a00002_html_a39c18a9a94b941e63f3eee8212f4ee6a"><div class="ttname"><a href="a00002.html#a39c18a9a94b941e63f3eee8212f4ee6a">gi_data.Datafile.Mrerr</a></div><div class="ttdeci">Mrerr</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00025">gi_data.py:25</a></div></div>
+<div class="ttc" id="a00002_html_a2b5ad00f045ba2dcca62d2d80692f666"><div class="ttname"><a href="a00002.html#a2b5ad00f045ba2dcca62d2d80692f666">gi_data.Datafile.nuerr_epol</a></div><div class="ttdeci">nuerr_epol</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00032">gi_data.py:32</a></div></div>
+<div class="ttc" id="a00002_html_a6b59c5ac60b55492174db9eef738385e"><div class="ttname"><a href="a00002.html#a6b59c5ac60b55492174db9eef738385e">gi_data.Datafile.read_Sig</a></div><div class="ttdeci">def read_Sig</div><div class="ttdoc">read surface density of tracer stars, deproject, renormalize </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00060">gi_data.py:60</a></div></div>
+<div class="ttc" id="a00002_html_accac7fdb65e8ea5e004d7f478be525d6"><div class="ttname"><a href="a00002.html#accac7fdb65e8ea5e004d7f478be525d6">gi_data.Datafile.Mr</a></div><div class="ttdeci">Mr</div><div class="ttdoc">keep mass profile </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00024">gi_data.py:24</a></div></div>
+<div class="ttc" id="a00002_html_a56b8d8c16508017d6651b2cff4ce204d"><div class="ttname"><a href="a00002.html#a56b8d8c16508017d6651b2cff4ce204d">gi_data.Datafile.sig</a></div><div class="ttdeci">sig</div><div class="ttdoc">sphere: keep line of sight velocity dispersion profile, in [km/s] </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00042">gi_data.py:42</a></div></div>
+<div class="ttc" id="a00002_html_a9a8ddd7136dbd59b919db5a48384c2f2"><div class="ttname"><a href="a00002.html#a9a8ddd7136dbd59b919db5a48384c2f2">gi_data.Datafile.read_nu</a></div><div class="ttdeci">def read_nu</div><div class="ttdoc">for disk only? </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00227">gi_data.py:227</a></div></div>
+<div class="ttc" id="a00002_html_a73770223e20c1bbfc9a1b71ede664cd9"><div class="ttname"><a href="a00002.html#a73770223e20c1bbfc9a1b71ede664cd9">gi_data.Datafile.Sig</a></div><div class="ttdeci">Sig</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00037">gi_data.py:37</a></div></div>
+<div class="ttc" id="a00002_html_acf963de7d143398e23921d9b8b9ea34b"><div class="ttname"><a href="a00002.html#acf963de7d143398e23921d9b8b9ea34b">gi_data.Datafile.nrnu</a></div><div class="ttdeci">nrnu</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00035">gi_data.py:35</a></div></div>
+<div class="ttc" id="a00002_html_a06a5a729f410845312ee9066b71c1e90"><div class="ttname"><a href="a00002.html#a06a5a729f410845312ee9066b71c1e90">gi_data.Datafile.read_sigz2</a></div><div class="ttdeci">def read_sigz2</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00216">gi_data.py:216</a></div></div>
+<div class="ttc" id="a00002_html_a980c3d0754cbf47b9ef0fdbce3f58bec"><div class="ttname"><a href="a00002.html#a980c3d0754cbf47b9ef0fdbce3f58bec">gi_data.Datafile.nu_epol</a></div><div class="ttdeci">nu_epol</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00031">gi_data.py:31</a></div></div>
+<div class="ttc" id="a00002_html_a01e0cbf88e7634d9bec7b0561f752fa0"><div class="ttname"><a href="a00002.html#a01e0cbf88e7634d9bec7b0561f752fa0">gi_data.Datafile.read_zeta</a></div><div class="ttdeci">def read_zeta</div><div class="ttdoc">read zeta profiles </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00250">gi_data.py:250</a></div></div>
+<div class="ttc" id="a00002_html_a52d0520b0d1a7b60ec0ffb0f54dbba91"><div class="ttname"><a href="a00002.html#a52d0520b0d1a7b60ec0ffb0f54dbba91">gi_data.Datafile.kap</a></div><div class="ttdeci">kap</div><div class="ttdoc">keep fourth velocity moment of the LOS velocities </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00053">gi_data.py:53</a></div></div>
+<div class="ttc" id="a00002_html_af285bffbe7414399fe25cdda0b731868"><div class="ttname"><a href="a00002.html#af285bffbe7414399fe25cdda0b731868">gi_data.Datafile.nuerr</a></div><div class="ttdeci">nuerr</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00030">gi_data.py:30</a></div></div>
+<div class="ttc" id="a00002_html_a7a6e9006f0c81c2fcca999b5963e682d"><div class="ttname"><a href="a00002.html#a7a6e9006f0c81c2fcca999b5963e682d">gi_data.Datafile.barsig</a></div><div class="ttdeci">barsig</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00045">gi_data.py:45</a></div></div>
+<div class="ttc" id="a00002_html_a934ae402c9888b87c0cf4191188df2a4"><div class="ttname"><a href="a00002.html#a934ae402c9888b87c0cf4191188df2a4">gi_data.Datafile.Mhalf</a></div><div class="ttdeci">Mhalf</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00026">gi_data.py:26</a></div></div>
+<div class="ttc" id="a00002_html_af36870c8d2121ffa1bf652d9c9b82b70"><div class="ttname"><a href="a00002.html#af36870c8d2121ffa1bf652d9c9b82b70">gi_data.Datafile.nrnuerr</a></div><div class="ttdeci">nrnuerr</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00036">gi_data.py:36</a></div></div>
+<div class="ttc" id="a00002_html_ace53aae31c19299a019d8b9fd74dfee6"><div class="ttname"><a href="a00002.html#ace53aae31c19299a019d8b9fd74dfee6">gi_data.Datafile.rhalf</a></div><div class="ttdeci">rhalf</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00027">gi_data.py:27</a></div></div>
+<div class="ttc" id="a00002_html_a93135736c28e62d30c3bf61f8f538bae"><div class="ttname"><a href="a00002.html#a93135736c28e62d30c3bf61f8f538bae">gi_data.Datafile.barSig</a></div><div class="ttdeci">barSig</div><div class="ttdoc">keep mean error bar of surface density profile </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00040">gi_data.py:40</a></div></div>
+<div class="ttc" id="a00002_html_afac398d78b5926bb5ce4a7ac2c86a582"><div class="ttname"><a href="a00002.html#afac398d78b5926bb5ce4a7ac2c86a582">gi_data.Datafile.rbin</a></div><div class="ttdeci">rbin</div><div class="ttdoc">centers of bins </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00020">gi_data.py:20</a></div></div>
+<div class="ttc" id="a00002_html_a390ccc39e4e181a648b6762541a0fb8a"><div class="ttname"><a href="a00002.html#a390ccc39e4e181a648b6762541a0fb8a">gi_data.Datafile.binmax</a></div><div class="ttdeci">binmax</div><div class="ttdoc">biggest radius of the data bins, in [pc] </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00022">gi_data.py:22</a></div></div>
+<div class="ttc" id="a00002_html_affa605e0a9a413d877e67fd826f511e6"><div class="ttname"><a href="a00002.html#affa605e0a9a413d877e67fd826f511e6">gi_data.Datafile.sigz2err</a></div><div class="ttdeci">sigz2err</div><div class="ttdoc">disk: keep error of sigdat </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00049">gi_data.py:49</a></div></div>
+<div class="ttc" id="a00002_html_a437be9045eda8d2f8db7632d44d538e9"><div class="ttname"><a href="a00002.html#a437be9045eda8d2f8db7632d44d538e9">gi_data.Datafile.sigerr</a></div><div class="ttdeci">sigerr</div><div class="ttdoc">sphere: keep error of sigdat </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00044">gi_data.py:44</a></div></div>
+<div class="ttc" id="a00002_html_a5e6910741858780b44be0055363b900f"><div class="ttname"><a href="a00002.html#a5e6910741858780b44be0055363b900f">gi_data.Datafile.read_sig</a></div><div class="ttdeci">def read_sig</div><div class="ttdoc">read in line of sight velocity dispersion for tracer particles </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00189">gi_data.py:189</a></div></div>
+<div class="ttc" id="a00002_html_a772dbc9553b1f852d2dd7b47f2869b59"><div class="ttname"><a href="a00002.html#a772dbc9553b1f852d2dd7b47f2869b59">gi_data.Datafile.read_kappa</a></div><div class="ttdeci">def read_kappa</div><div class="ttdoc">read in line of sight velocity kurtosis </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00239">gi_data.py:239</a></div></div>
+<div class="ttc" id="a00002_html_a6468b7785749ae289a35c41b9d101069"><div class="ttname"><a href="a00002.html#a6468b7785749ae289a35c41b9d101069">gi_data.Datafile.nu</a></div><div class="ttdeci">nu</div><div class="ttdoc">keep radial profile of the tracer density, averaged in 2D-rings </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00029">gi_data.py:29</a></div></div>
+<div class="ttc" id="a00002_html_a88d2e7e46ae892f01c07a9040ad6d7c7"><div class="ttname"><a href="a00002.html#a88d2e7e46ae892f01c07a9040ad6d7c7">gi_data.Datafile.binmin</a></div><div class="ttdeci">binmin</div><div class="ttdoc">smallest radius of the data bins, in [pc] </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00018">gi_data.py:18</a></div></div>
+<div class="ttc" id="a00002_html_a95ea670292f023fc6e45e35ef1e675c8"><div class="ttname"><a href="a00002.html#a95ea670292f023fc6e45e35ef1e675c8">gi_data.Datafile.Sigerr</a></div><div class="ttdeci">Sigerr</div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00038">gi_data.py:38</a></div></div>
+<div class="ttc" id="a00002_html_afe7c5bd635a24e99f1456df808092b81"><div class="ttname"><a href="a00002.html#afe7c5bd635a24e99f1456df808092b81">gi_data.Datafile.nuhalf</a></div><div class="ttdeci">nuhalf</div><div class="ttdoc">to keep the nr parameters </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00034">gi_data.py:34</a></div></div>
+<div class="ttc" id="a00002_html"><div class="ttname"><a href="a00002.html">gi_data.Datafile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00015">gi_data.py:15</a></div></div>
+<div class="ttc" id="a00002_html_a123e4a94e9bafdd8501f193f11543115"><div class="ttname"><a href="a00002.html#a123e4a94e9bafdd8501f193f11543115">gi_data.Datafile.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor: set all initial values </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00016">gi_data.py:16</a></div></div>
+<div class="ttc" id="a00002_html_aca99456177f80323c6a54b6791734d95"><div class="ttname"><a href="a00002.html#aca99456177f80323c6a54b6791734d95">gi_data.Datafile.kaperr</a></div><div class="ttdeci">kaperr</div><div class="ttdoc">keep errors of kapdat </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00055">gi_data.py:55</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:23 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/check_proj.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_physics.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,41 +80,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_2ca09340385140c39f431843b082c14f.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_dd24ee3e64a33da7b27d9c9d3211d3c8.html">sphere</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">check_proj.py File Reference</div>  </div>
+<div class="title">gi_physics.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>check deprojection and projection of nu  
+<p>all functions working on spherical coordinates  
 <a href="#details">More...</a></p>
 
 <p><a href="a00029_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00086"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00086.html">check_proj</a></td></tr>
+<tr class="memitem:a00128"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html">gi_physics</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a44d003aa123ea6d308b198a404061181"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00086.html#a44d003aa123ea6d308b198a404061181">check_proj.run</a></td></tr>
-<tr class="separator:a44d003aa123ea6d308b198a404061181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f10b52865d798570eef38f92803846"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#ac7f10b52865d798570eef38f92803846">gi_physics.rhodm_hernquist</a></td></tr>
+<tr class="memdesc:ac7f10b52865d798570eef38f92803846"><td class="mdescLeft">&#160;</td><td class="mdescRight">return hernquist DM density from generalized Hernquist profile  <a href="#ac7f10b52865d798570eef38f92803846">More...</a><br/></td></tr>
+<tr class="separator:ac7f10b52865d798570eef38f92803846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46b26879a7ef646569c7484876fb12a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#ad46b26879a7ef646569c7484876fb12a">gi_physics.nr</a></td></tr>
+<tr class="memdesc:ad46b26879a7ef646569c7484876fb12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate n(r) at any given radius, as linear interpolation with two asymptotes  <a href="#ad46b26879a7ef646569c7484876fb12a">More...</a><br/></td></tr>
+<tr class="separator:ad46b26879a7ef646569c7484876fb12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#aca6dc48fc8b80cab7f3c1366a6d2a243">gi_physics.rho</a></td></tr>
+<tr class="memdesc:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate density, from interpolated n(r) = -d ln(rho(r))/ d ln(r) using interpolation to left and right of r=r_{*, 1/2}  <a href="#aca6dc48fc8b80cab7f3c1366a6d2a243">More...</a><br/></td></tr>
+<tr class="separator:aca6dc48fc8b80cab7f3c1366a6d2a243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e8403f44521e1ca01451d4b9d2f05a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a31e8403f44521e1ca01451d4b9d2f05a">gi_physics.betastar2beta</a></td></tr>
+<tr class="memdesc:a31e8403f44521e1ca01451d4b9d2f05a"><td class="mdescLeft">&#160;</td><td class="mdescRight">map beta* to beta  <a href="#a31e8403f44521e1ca01451d4b9d2f05a">More...</a><br/></td></tr>
+<tr class="separator:a31e8403f44521e1ca01451d4b9d2f05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#ac6e28178b0d9ab1b561f64ba5ddeb815">gi_physics.beta2betastar</a></td></tr>
+<tr class="memdesc:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="mdescLeft">&#160;</td><td class="mdescRight">get back betastar from a beta  <a href="#ac6e28178b0d9ab1b561f64ba5ddeb815">More...</a><br/></td></tr>
+<tr class="separator:ac6e28178b0d9ab1b561f64ba5ddeb815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedce5dd5acfa1db15deb4e002573ac4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#adedce5dd5acfa1db15deb4e002573ac4">gi_physics.betastar_4</a></td></tr>
+<tr class="memdesc:adedce5dd5acfa1db15deb4e002573ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning  <a href="#adedce5dd5acfa1db15deb4e002573ac4">More...</a><br/></td></tr>
+<tr class="separator:adedce5dd5acfa1db15deb4e002573ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef84725c1d6af90f2e7b339b16dab58"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a5ef84725c1d6af90f2e7b339b16dab58">gi_physics.betastar</a></td></tr>
+<tr class="memdesc:a5ef84725c1d6af90f2e7b339b16dab58"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate betastar from 4 parameters  <a href="#a5ef84725c1d6af90f2e7b339b16dab58">More...</a><br/></td></tr>
+<tr class="separator:a5ef84725c1d6af90f2e7b339b16dab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee97079289f6042b861a0a90b3d50b5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a9ee97079289f6042b861a0a90b3d50b5">gi_physics.beta</a></td></tr>
+<tr class="memdesc:a9ee97079289f6042b861a0a90b3d50b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">beta and beta* from beta parameter array  <a href="#a9ee97079289f6042b861a0a90b3d50b5">More...</a><br/></td></tr>
+<tr class="separator:a9ee97079289f6042b861a0a90b3d50b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a5600c94946fa6a33f80bd0169f3e4ee9">gi_physics.calculate_rho</a></td></tr>
+<tr class="memdesc:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">take enclosed mass, radii, and compute 3D density in shells  <a href="#a5600c94946fa6a33f80bd0169f3e4ee9">More...</a><br/></td></tr>
+<tr class="separator:a5600c94946fa6a33f80bd0169f3e4ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#ae6f17e46bfc4fc5c9e4df89ae11d45b6">gi_physics.calculate_surfdens</a></td></tr>
+<tr class="memdesc:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">take mass(&lt;r) in bins, calc mass in annuli, get surface density  <a href="#ae6f17e46bfc4fc5c9e4df89ae11d45b6">More...</a><br/></td></tr>
+<tr class="separator:ae6f17e46bfc4fc5c9e4df89ae11d45b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429469e37014f638634994f498c8137e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a429469e37014f638634994f498c8137e">gi_physics.sig_kap_zet</a></td></tr>
+<tr class="memdesc:a429469e37014f638634994f498c8137e"><td class="mdescLeft">&#160;</td><td class="mdescRight">General function to calculate sig_los with analytic integral over fitting polynomial'.  <a href="#a429469e37014f638634994f498c8137e">More...</a><br/></td></tr>
+<tr class="separator:a429469e37014f638634994f498c8137e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af9c06c55922dda1686c521e96605b022"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#af9c06c55922dda1686c521e96605b022">gi_physics.gp</a> = <a class="el" href="a00007.html">gi_params.Params</a>()</td></tr>
+<tr class="separator:af9c06c55922dda1686c521e96605b022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85082edff9919cfce318eeae6ed31d0b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00128.html#a85082edff9919cfce318eeae6ed31d0b">gi_physics.annu</a> = rhodm_hernquist(gp.xipol, 1.e0, max(gp.xipol)/2., 3, 2, 1)</td></tr>
+<tr class="separator:a85082edff9919cfce318eeae6ed31d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>check deprojection and projection of nu </p>
+<div class="textblock"><p>all functions working on spherical coordinates </p>
 
-<p>Definition in file <a class="el" href="a00029_source.html">check_proj.py</a>.</p>
+<p>Definition in file <a class="el" href="a00029_source.html">gi_physics.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

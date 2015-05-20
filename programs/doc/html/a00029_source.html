@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/check_proj.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/sphere/gi_physics.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,134 +80,227 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_2ca09340385140c39f431843b082c14f.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_dd24ee3e64a33da7b27d9c9d3211d3c8.html">sphere</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">check_proj.py</div>  </div>
+<div class="title">gi_physics.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00029.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00029.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># check deprojection and projection of nu</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># all functions working on spherical coordinates</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) 2015 Pascal Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) GPL v3 2015 ETHZ Pascal Steger, pascal@steger.aero</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pdb</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> pylab <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;ion()</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;ip.insert_sys_path(<span class="stringliteral">&#39;/home/psteger/sci/darcoda/gravimage/programs/reducedata/&#39;</span>)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> gi_params <span class="keyword">as</span> gp</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> gi_project <span class="keyword">as</span> gip</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00086.html#a44d003aa123ea6d308b198a404061181">   21</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00086.html#a44d003aa123ea6d308b198a404061181">run</a>(gp):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Rscale = []; Dens0Rscale = []; Dens0pc = []; Totmass_Tracers = []</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    rscale = []; dens0Rscale = []; dens0pc = []; totmass_tracers = []</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> range(3):</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        A = np.loadtxt(gp.files.get_scale_file(pop), unpack=<span class="keyword">False</span>, skiprows=1)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        Rscale.append(A[0])</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        Dens0Rscale.append(A[1])</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        Dens0pc.append(A[2])</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        Totmass_Tracers.append(A[3])</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        B = np.loadtxt(gp.files.get_scale_file(pop)+<span class="stringliteral">&#39;_3D&#39;</span>, unpack=<span class="keyword">False</span>, skiprows=1)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        rscale.append(B[0])</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        dens0Rscale.append(B[1])</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        dens0pc.append(B[2])</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        totmass_tracers.append(B[3])</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        print(<span class="stringliteral">&#39;#######  working on component &#39;</span>,pop)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        print(<span class="stringliteral">&#39;input: &#39;</span>,gp.files.get_com_file(pop)+<span class="stringliteral">&#39;_3D&#39;</span>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment"># start from data centered on COM already:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> gfile.bufcount(gp.files.get_com_file(pop)+<span class="stringliteral">&#39;_3D&#39;</span>)&lt;2: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Rbin,Binmin,Binmax,Dens,Denserr = np.loadtxt(gp.files.Sigfiles[pop],\</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                                     skiprows=1,usecols=(0,1,2,3,4),\</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                                     unpack=<span class="keyword">True</span>) <span class="comment"># 3*[Rscale], [km/s]</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        Rbin*=Rscale[pop]; Binmin*=Rscale[pop]; Binmax*=Rscale[pop]; Dens*=Dens0pc[pop]; Denserr*=Dens0pc[pop]</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        rbin,binmin,binmax,dens,denserr = np.loadtxt(gp.files.Sigfiles[pop]+<span class="stringliteral">&#39;_3D&#39;</span>,\</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                                     skiprows=1,usecols=(0,1,2,3,4),\</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                                     unpack=<span class="keyword">True</span>) <span class="comment"># 3*[Rscale], [km/s]</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        rbin*=rscale[pop]; binmin*=rscale[pop]; binmax*=rscale[pop]; dens*=dens0pc[pop]; denserr*=dens0pc[pop]</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        ion()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        f=figure(figsize=(6,3))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ax1 = f.add_subplot(121)                         <span class="comment"># Sig</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        ax2 = f.add_subplot(122, sharex=ax1)             <span class="comment"># nu</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        ax1.plot(Rbin, Dens,<span class="stringliteral">&#39;b&#39;</span>,lw=1)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        lbound = Dens-Denserr; lbound[lbound&lt;1e-6] = 1e-6</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ubound = Dens+Denserr;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        ax1.fill_between(Rbin,lbound,ubound,alpha=0.5,color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">        ax1.set_yscale(</span><span class="stringliteral">&#39;log&#39;</span>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        ax1.set_xlim([0,np.max(Binmax)])</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        ax1.set_ylim([np.min(lbound),np.max(ubound)])</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ax1.set_xlabel(<span class="stringliteral">r&#39;$R [R_c]$&#39;</span>)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ax1.set_ylabel(<span class="stringliteral">r&#39;$\nu_{2D}(R)/\nu_{2D}(0)$&#39;</span>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            ax1.plot(Rbin, gip.rho_INT_Sig(Rbin, dens, denserr, gp))</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            ax1.plot(Rbin, gip.rho_INT_Sig(Rbin, <a class="code" href="a00111.html#ad9ed85a7fc07bafe883c3a565efd3884">Sig_INT_rho</a>(Rbin,Dens,Denserr),denserr, gp))</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> detail:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            print(<span class="stringliteral">&#39;rho_INT_Sig giving NaN in plotting&#39;</span>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        draw()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        ax2.plot(rbin, dens,<span class="stringliteral">&#39;b&#39;</span>,lw=1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        lbound = dens-denserr; lbound[lbound&lt;1e-6] = 1e-6</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        ubound = dens+denserr;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        ax2.fill_between(rbin,lbound,ubound,alpha=0.5,color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">        ax2.set_yscale(</span><span class="stringliteral">&#39;log&#39;</span>)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        ax2.set_xlim([0,np.max(binmax)])</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ax2.set_ylim([np.min(lbound),np.max(ubound)])</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ax2.set_xlabel(<span class="stringliteral">r&#39;$r [R_c]$&#39;</span>)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        ax2.set_ylabel(<span class="stringliteral">r&#39;$\nu(r)/\nu(0)$&#39;</span>)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        ax2.yaxis.tick_right()</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        ax2.yaxis.set_label_position(<span class="stringliteral">&quot;right&quot;</span>)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        draw()</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment"># projSig = rho_INT_Sig(rbin, dens)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment"># projSig = test(rbin, binmin, binmax, dens)</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment"># ax1.plot(rbin, projSig)</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        ax2.plot(rbin, gip.Sig_INT_rho(Rbin,Dens,Denserr),color=<span class="stringliteral">&#39;green&#39;</span>)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        draw()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        ioff(); <a class="code" href="a00119.html#a0413892ef0e772a415c5199bc593d873">show</a>()</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">## run(gp)</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"># check for projection and deprojection artefacts</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">import</span> gi_params</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    gp = <a class="code" href="a00006.html">gi_params.Params</a>()</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="a00086.html#a44d003aa123ea6d308b198a404061181">run</a>(gp)</div>
-<div class="ttc" id="a00111_html_ad9ed85a7fc07bafe883c3a565efd3884"><div class="ttname"><a href="a00111.html#ad9ed85a7fc07bafe883c3a565efd3884">gi_project.Sig_INT_rho</a></div><div class="ttdeci">def Sig_INT_rho</div><div class="ttdoc">Abel transformation to get 3D mass density from 2D surface density see appendix in Mamon Boue 2009...</div><div class="ttdef"><b>Definition:</b> <a href="a00060_source.html#l00239">gi_project.py:239</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="a00006.html">gi_params.Params</a></div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00026">gi_params.py:26</a></div></div>
-<div class="ttc" id="a00119_html_a0413892ef0e772a415c5199bc593d873"><div class="ttname"><a href="a00119.html#a0413892ef0e772a415c5199bc593d873">gravimage.show</a></div><div class="ttdeci">def show</div><div class="ttdef"><b>Definition:</b> <a href="a00019_source.html#l00048">gravimage.py:48</a></div></div>
-<div class="ttc" id="a00086_html_a44d003aa123ea6d308b198a404061181"><div class="ttname"><a href="a00086.html#a44d003aa123ea6d308b198a404061181">check_proj.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">run all commands inside check_proj </div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00026">check_proj.py:26</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> splrep, splint</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> gi_int <span class="keyword">as</span> gi</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00128.html#ac7f10b52865d798570eef38f92803846">   16</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#ac7f10b52865d798570eef38f92803846">rhodm_hernquist</a>(r, rho0, r_DM, alpha_DM, beta_DM, gamma_DM):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> rho0*(r/r_DM)**(-gamma_DM)*\</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      (1+(r/r_DM)**alpha_DM)**((gamma_DM-beta_DM)/alpha_DM)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">## \fn rhodm_hernquist(r,rho0,r_DM,alpha_DM,beta_DM,gamma_DM)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># return hernquist DM density from generalized Hernquist profile</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># @param r radius in [pc]</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># @param rho0 central 3D density in [Munit/pc^3]</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"># @param r_DM scale radius of dark matter, [pc]</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"># @param alpha_DM [1]</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"># @param beta_DM [1]</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"># @param gamma_DM [1] central density slope</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00128.html#ad46b26879a7ef646569c7484876fb12a">   28</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#ad46b26879a7ef646569c7484876fb12a">nr</a>(r0, dlr, pop, gp):</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment"># extend asymptotes to 0, and high radius</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    rnu = np.hstack([r0[0]/gp.rinfty, r0, gp.rinfty*r0[-1]])</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment"># up: common radii r0, but different scale radius for each pop</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    logrnu = np.log(rnu/gp.dat.rhalf[pop])</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    dlrnu = -1.*dlr</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment"># use linear spline interpolation for dn/dlogr (logr)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">#pdb.set_trace()</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    spline_n = splrep(logrnu, dlrnu, k=1)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment"># output to evaluate spline at any points in between</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> spline_n</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">## \fn nr(r0, dlr, pop, gp)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># calculate n(r) at any given radius, as linear interpolation with two asymptotes</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param r0 radii [pc]</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param dlr d log rho/ d log r: asymptote at 0, n(r) for all bins, asymptote at infinity</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param pop int for population (both, 1, 2, ...)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00128.html#aca6dc48fc8b80cab7f3c1366a6d2a243">   46</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a587602e29b78cd3b916ed73b4bf9f301">rho</a>(r0, rhodmpar, pop, gp):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    gh.sanitize_vector(rhodmpar, gp.nrho, 0, 1e30, gp.debug)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    vec = 1.*rhodmpar <span class="comment"># make a new copy so we do not overwrite rhodmpar</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    rho_at_rhalf = vec[0]</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    vec = vec[1:]</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment"># get spline representation on gp.xepol, where rhodmpar are defined on</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    spline_n = <a class="code" href="a00128.html#ad46b26879a7ef646569c7484876fb12a">nr</a>(gp.xepol, vec, pop, gp)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment"># and apply it to these radii, which may be anything in between</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment"># self.Xscale is determined in 2D, not 3D</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment"># use gp.dat.rhalf[0]</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rs =  np.log(r0/gp.dat.rhalf[pop]) <span class="comment"># have to integrate in d log(r)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    lnrright = []</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    lnrleft = []</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> np.rank(rs) == 0:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> rs&gt;0:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            lnrright.append(rs)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            lnrleft.append(rs)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        lnrright = rs[(rs&gt;=0.)]</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        lnrleft  = rs[(rs&lt;0.)]</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        lnrleft  = lnrleft[::-1] <span class="comment"># inverse order</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    lnrhoright = []</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> np.arange(0, len(lnrright)):</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        lnrhoright.append(np.log(rho_at_rhalf) + splint(0., lnrright[i], spline_n))</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                           <span class="comment"># integration along dlog(r) instead of dr</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    lnrholeft = []</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> np.arange(0, len(lnrleft)):</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        lnrholeft.append(np.log(rho_at_rhalf) + splint(0., lnrleft[i], spline_n))</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    tmp = np.exp(np.hstack([lnrholeft[::-1], lnrhoright])) <span class="comment"># still defined on ln(r)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    gh.checkpositive(tmp, <span class="stringliteral">&#39;rho()&#39;</span>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> tmp</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">## \fn rho(r0, rhodmpar, pop, gp)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"># calculate density, from interpolated n(r) = -d ln(rho(r))/ d ln(r)</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"># using interpolation to left and right of r=r_{*, 1/2}</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"># @param rhodmpar: rho(rstarhalf), asymptote nr 0, nr(xepol), asymptote nr infty</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"># @param r0 radii to calculate density for, in physical units (pc)</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"># @param pop int for population, 0 all or DM, 1, 2, ...</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="a00128.html#a31e8403f44521e1ca01451d4b9d2f05a">   89</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a31e8403f44521e1ca01451d4b9d2f05a">betastar2beta</a>(betastar):</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment"># beta^* = \frac{sig_r^2-sig_t^2}{sig_r^2+sig_t^2}</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment"># betastar is in [-1,1]</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment"># and symmetric</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> 2.*betastar/(1.+betastar)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">## \fn betastar2beta(betastar)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"># map beta* to beta</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"># @param betastar float array</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a00128.html#ac6e28178b0d9ab1b561f64ba5ddeb815">   98</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#ac6e28178b0d9ab1b561f64ba5ddeb815">beta2betastar</a>(beta):</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> beta/(2.-beta)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">## \fn beta2betastar(beta)</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"># get back betastar from a beta</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"># @param beta [1]</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a00128.html#adedce5dd5acfa1db15deb4e002573ac4">  104</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#adedce5dd5acfa1db15deb4e002573ac4">betastar_4</a>(r0, params, gp):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    gh.sanitize_vector(params, gp.nbeta, -1, max(gp.xepol), gp.debug)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    a0 = params[0]</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    a1 = params[1]</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    alpha = params[2]</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    s0 = np.log(r0/np.exp(params[3])) <span class="comment"># r_s=params[3] is given in log</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    betatmp = (a0-a1)/(1+np.exp(alpha*s0))+a1</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> betatmp</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">## \fn betastar_4(r0, params, gp)</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"># calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"># @param r0 radii [pc]</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment"># @param params 4 parameters: asymptote of beta at r-&gt;0, asymptote of beta at r-&gt;infty, speed of change, scale radius at which change takes place</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="a00128.html#a5ef84725c1d6af90f2e7b339b16dab58">  118</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a5ef84725c1d6af90f2e7b339b16dab58">betastar</a>(r0, params, gp):</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    bs = <a class="code" href="a00128.html#adedce5dd5acfa1db15deb4e002573ac4">betastar_4</a>(r0, params, gp)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(r0)):</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> bs[k] &lt; min(gp.minbetastar_0, gp.minbetastar_inf):</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            bs[k] = min(gp.minbetastar_0, gp.minbetastar_inf)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span> bs[k] &gt; max(gp.maxbetastar_0, gp.maxbetastar_inf):</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            bs[k] = max(gp.maxbetastar_0, gp.maxbetastar_inf)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> bs</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">## \fn betastar(r0, params, gp)</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"># calculate betastar from 4 parameters</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"># @param r0 radii [pc]</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"># @param params 4 parameters</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a00128.html#a9ee97079289f6042b861a0a90b3d50b5">  132</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a9ee97079289f6042b861a0a90b3d50b5">beta</a>(r0, params, gp):</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    bstar = <a class="code" href="a00128.html#a5ef84725c1d6af90f2e7b339b16dab58">betastar</a>(r0, params, gp)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    betatmp = <a class="code" href="a00128.html#a31e8403f44521e1ca01451d4b9d2f05a">betastar2beta</a>(bstar)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> betatmp, bstar</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">## \fn beta(r0, params, gp)</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"># beta and beta* from beta parameter array</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"># @param r0 radii [pc]</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment"># @param params array, see gi_class_cube</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="a00128.html#a5600c94946fa6a33f80bd0169f3e4ee9">  142</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a5600c94946fa6a33f80bd0169f3e4ee9">calculate_rho</a>(r, M):</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    r0 = np.hstack([0,r])                         <span class="comment"># [lunit]</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    M0 = np.hstack([0,M])</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    deltaM   = M0[1:]-M0[:-1]                     <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    gh.checkpositive(deltaM,  <span class="stringliteral">&#39;unphysical negative mass increment encountered&#39;</span>)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    deltavol = 4./3.*np.pi*(r0[1:]**3-r0[:-1]**3) <span class="comment"># [lunit^3]</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    rho     = deltaM / deltavol                  <span class="comment"># [Munit/lunit^3]</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    gh.checkpositive(rho, <span class="stringliteral">&#39;rho in calculate_rho&#39;</span>)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> rho                                   <span class="comment"># [Munit/lunit^3]</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">## \fn calculate_rho(r, M)</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment"># take enclosed mass, radii, and compute 3D density in shells</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"># @param r radius in [pc]</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"># @param M enclosed mass profile, [Munit]</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a00128.html#ae6f17e46bfc4fc5c9e4df89ae11d45b6">  156</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#ae6f17e46bfc4fc5c9e4df89ae11d45b6">calculate_surfdens</a>(r, M):</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    r0 = np.hstack([0,r])                         <span class="comment"># [lunit]</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    M0 = np.hstack([0,M])                         <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    deltaM = M0[1:]-M0[:-1]                       <span class="comment"># [Munit]</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    gh.checkpositive(deltaM, <span class="stringliteral">&#39;unphysical negative mass increment encountered&#39;</span>)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    deltavol = np.pi*(r0[1:]**2 - r0[:-1]**2)        <span class="comment"># [lunit^2]</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    Sig = deltaM/deltavol                           <span class="comment"># [Munit/lunit^2]</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    gh.checkpositive(Sig, <span class="stringliteral">&#39;Sig in calculate_surfdens&#39;</span>)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> Sig                                      <span class="comment"># [Munit/lunit^2]</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">## \fn calculate_surfdens(r, M)</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"># take mass(&lt;r) in bins, calc mass in annuli, get surface density</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"># @param r radius in [pc]</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment"># @param M 3D mass profile</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="a00128.html#a429469e37014f638634994f498c8137e">  170</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a429469e37014f638634994f498c8137e">sig_kap_zet</a>(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp):</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    siglos2, kaplos4, zetaa, zetab = gi.ant_sigkaplos(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    siglos  = np.sqrt(siglos2)           <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span> gp.usekappa:</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        kaplos4 = kaplos4surf/Sig</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="comment"># takes [Munit/pc^2 (km/s)^2], gives back [(km/s)^2]</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        kaplos  = kaplos4/(siglos2**2)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="comment"># - 3.0 # subtract 3.0 for Gaussian distribution in Fisher version.</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        kaplos = 3.*np.ones(len(siglos))</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">return</span> siglos, kaplos, zetaa, zetab  <span class="comment"># [km/s], [1]</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">## \fn sig_kap_zet(r0, rhodmpar, lbaryonpar, MtoL, nupar, betapar, pop, gp)</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"># General function to calculate sig_los</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"># with analytic integral over fitting polynomial&#39;</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"># @param r0 radius [pc]</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"># @param rhodmpar [1]</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"># @param lbaryonpar [1]</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"># @param MtoL mass-to-light ratio [Msun/Lsun]</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"># @param nupar 1D array 3D tracer density parameters [1]</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"># @param betapar 1D array 3D velocity anisotropy parameters [1]</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"># @param pop int population to take halflight radius from</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment"># check whether backward-calculation of parameters is done correctly</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">import</span> gi_params</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="a00128.html#af9c06c55922dda1686c521e96605b022">  196</a></span>&#160;    gp = <a class="code" href="a00007.html">gi_params.Params</a>()</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a00128.html#a85082edff9919cfce318eeae6ed31d0b">  197</a></span>&#160;    annu = <a class="code" href="a00128.html#ac7f10b52865d798570eef38f92803846">rhodm_hernquist</a>(gp.xipol, 1.e0, max(gp.xipol)/2., 3, 2, 1)</div>
+<div class="ttc" id="a00128_html_a5ef84725c1d6af90f2e7b339b16dab58"><div class="ttname"><a href="a00128.html#a5ef84725c1d6af90f2e7b339b16dab58">gi_physics.betastar</a></div><div class="ttdeci">def betastar</div><div class="ttdoc">calculate betastar from 4 parameters </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00118">gi_physics.py:118</a></div></div>
+<div class="ttc" id="a00128_html_a31e8403f44521e1ca01451d4b9d2f05a"><div class="ttname"><a href="a00128.html#a31e8403f44521e1ca01451d4b9d2f05a">gi_physics.betastar2beta</a></div><div class="ttdeci">def betastar2beta</div><div class="ttdoc">map beta* to beta </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00089">gi_physics.py:89</a></div></div>
+<div class="ttc" id="a00128_html_ae6f17e46bfc4fc5c9e4df89ae11d45b6"><div class="ttname"><a href="a00128.html#ae6f17e46bfc4fc5c9e4df89ae11d45b6">gi_physics.calculate_surfdens</a></div><div class="ttdeci">def calculate_surfdens</div><div class="ttdoc">take mass(&amp;lt;r) in bins, calc mass in annuli, get surface density </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00156">gi_physics.py:156</a></div></div>
+<div class="ttc" id="a00128_html_ad46b26879a7ef646569c7484876fb12a"><div class="ttname"><a href="a00128.html#ad46b26879a7ef646569c7484876fb12a">gi_physics.nr</a></div><div class="ttdeci">def nr</div><div class="ttdoc">calculate n(r) at any given radius, as linear interpolation with two asymptotes </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00028">gi_physics.py:28</a></div></div>
+<div class="ttc" id="a00128_html_a5600c94946fa6a33f80bd0169f3e4ee9"><div class="ttname"><a href="a00128.html#a5600c94946fa6a33f80bd0169f3e4ee9">gi_physics.calculate_rho</a></div><div class="ttdeci">def calculate_rho</div><div class="ttdoc">take enclosed mass, radii, and compute 3D density in shells </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00142">gi_physics.py:142</a></div></div>
+<div class="ttc" id="a00128_html_ac7f10b52865d798570eef38f92803846"><div class="ttname"><a href="a00128.html#ac7f10b52865d798570eef38f92803846">gi_physics.rhodm_hernquist</a></div><div class="ttdeci">def rhodm_hernquist</div><div class="ttdoc">return hernquist DM density from generalized Hernquist profile </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00016">gi_physics.py:16</a></div></div>
+<div class="ttc" id="a00128_html_adedce5dd5acfa1db15deb4e002573ac4"><div class="ttname"><a href="a00128.html#adedce5dd5acfa1db15deb4e002573ac4">gi_physics.betastar_4</a></div><div class="ttdeci">def betastar_4</div><div class="ttdoc">calculate betastar from sigmoid with 4 parameters, using exp directly, with explicit meaning ...</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00104">gi_physics.py:104</a></div></div>
+<div class="ttc" id="a00128_html_a587602e29b78cd3b916ed73b4bf9f301"><div class="ttname"><a href="a00128.html#a587602e29b78cd3b916ed73b4bf9f301">gi_physics.rho</a></div><div class="ttdeci">def rho</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00018">gi_physics.py:18</a></div></div>
+<div class="ttc" id="a00128_html_a9ee97079289f6042b861a0a90b3d50b5"><div class="ttname"><a href="a00128.html#a9ee97079289f6042b861a0a90b3d50b5">gi_physics.beta</a></div><div class="ttdeci">def beta</div><div class="ttdoc">beta and beta* from beta parameter array </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00132">gi_physics.py:132</a></div></div>
+<div class="ttc" id="a00128_html_ac6e28178b0d9ab1b561f64ba5ddeb815"><div class="ttname"><a href="a00128.html#ac6e28178b0d9ab1b561f64ba5ddeb815">gi_physics.beta2betastar</a></div><div class="ttdeci">def beta2betastar</div><div class="ttdoc">get back betastar from a beta </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00098">gi_physics.py:98</a></div></div>
+<div class="ttc" id="a00128_html_a429469e37014f638634994f498c8137e"><div class="ttname"><a href="a00128.html#a429469e37014f638634994f498c8137e">gi_physics.sig_kap_zet</a></div><div class="ttdeci">def sig_kap_zet</div><div class="ttdoc">General function to calculate sig_los with analytic integral over fitting polynomial&amp;#39;. </div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00170">gi_physics.py:170</a></div></div>
+<div class="ttc" id="a00007_html"><div class="ttname"><a href="a00007.html">gi_params.Params</a></div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00024">gi_params.py:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:23 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

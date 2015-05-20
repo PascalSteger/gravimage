@@ -48,7 +48,7 @@ class Params():
                           # triax (1-4:core, 5-8:cusp), obs (1:for,car,scl,sex,dra)
 
         print(' case : ', self.case)
-        self.pops = 2 # number of stellar tracer populations, if changed: set getnewdata=True!
+        self.pops = 1 # number of stellar tracer populations, if changed: set getnewdata=True!
         # Set number of tracer stars to look at
         self.ntracer = [1e6, 1e6] # pop0, pop1, pop2, ..., pop_N
 
@@ -86,8 +86,12 @@ class Params():
         else:
             N_nu = self.pops*self.nrho
 
-        # ndim has nrho for rho, N_nu, (self.nbeta + 2) per population
-        self.ndim = self.nrho + N_nu + self.pops*(self.nbeta + 2)
+        # ndim has nrho for rho, N_nu, (self.nbeta + 2 (if hyperparameters)) per population
+        self.hyperparameters = True
+        self.nperpop = 1.*self.nbeta
+        if self.hyperparameters:
+            self.nperpop += 2
+        self.ndim = self.nrho + N_nu + self.pops*self.nperpop
         self.nlive = 100*self.ndim
         self.err = 1e300    # chi^2 for models which are impossible
         self.minsig = 0.1   # hyperparameter range sampled from 1/(minsig*mean(sig)) .. max

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_data Namespace Reference</title>
+<title>GravImage: BiWeight Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,40 +82,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gi_data Namespace Reference</div>  </div>
+<div class="title">BiWeight Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">Datafile</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7fe598aeb05831a032ee8f6011b7beff"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a7fe598aeb05831a032ee8f6011b7beff">introduce_points_in_between</a></td></tr>
-<tr class="memdesc:a7fe598aeb05831a032ee8f6011b7beff"><td class="mdescLeft">&#160;</td><td class="mdescRight">get gp.fine points logarithmically spaced points  <a href="#a7fe598aeb05831a032ee8f6011b7beff">More...</a><br/></td></tr>
-<tr class="separator:a7fe598aeb05831a032ee8f6011b7beff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e5ef102bbbcf0c3e0c2697ca572b83c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">stddevbiweight</a></td></tr>
+<tr class="memdesc:a0e5ef102bbbcf0c3e0c2697ca572b83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PURPOSE: Estimation of the scale ('dispersion') of a distribution, resistant for outliers and robust for a broad range of non-Gaussian underlying populations.  <a href="#a0e5ef102bbbcf0c3e0c2697ca572b83c">More...</a><br/></td></tr>
+<tr class="separator:a0e5ef102bbbcf0c3e0c2697ca572b83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29a73d62880e90ca27cbef0a7f197fd8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">meanbiweight</a></td></tr>
+<tr class="memdesc:a29a73d62880e90ca27cbef0a7f197fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimation of the central location ('mean') of a distribution, resistant for outliers and robust for a broad range of non-Gaussian underlying populations.  <a href="#a29a73d62880e90ca27cbef0a7f197fd8">More...</a><br/></td></tr>
+<tr class="separator:a29a73d62880e90ca27cbef0a7f197fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a7fe598aeb05831a032ee8f6011b7beff"></a>
+<a class="anchor" id="a29a73d62880e90ca27cbef0a7f197fd8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_data.introduce_points_in_between </td>
+          <td class="memname">def BiWeight.meanbiweight </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
+          <td class="paramname"><em>vector</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
+          <td class="paramname"><em>itmax</em> = <code>10</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>fracmin</em> = <code>[]</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>1e-24</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ci_perc</em> = <code>95</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ci_mean</em> = <code>True</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ci_std</em> = <code>True</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -125,23 +152,104 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>get gp.fine points logarithmically spaced points </p>
+<p>Estimation of the central location ('mean') of a distribution, resistant for outliers and robust for a broad range of non-Gaussian underlying populations. </p>
+<p>REFERENCES: Beers, T. C., Flynn, K., &amp; Gebhardt, K. 1990, AJ, 100, 32 Hoaglin, D. C., Mostelle, F., &amp; Tukey, J. W. 1983, Understanding Robust and Exploratory Data Analysis (Wiley, New York) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>[pc] gp.xipol </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameter </td></tr>
+    <tr><td class="paramname">vector</td><td>= distribution in vector form </td></tr>
+    <tr><td class="paramname">itmax</td><td>=10 = maximum number of iterations used in determination of the central location; default 10 </td></tr>
+    <tr><td class="paramname">fracmin</td><td>=[] = minimum fractional change in median absolute deviation (MAD), used as convergence criterion in iteration; default 0.03*sqrt(0.5/(n-1)), with n number of vector elements </td></tr>
+    <tr><td class="paramname">eps</td><td>=1e-24 = small number: iteration is stopped if MAD &lt; EPS; default 1.0e-24 </td></tr>
+    <tr><td class="paramname">ci_perc</td><td>=95 = default confidence interval (95), 1sigma=68.4 </td></tr>
+    <tr><td class="paramname">ci_mean</td><td>=True -&gt; if True (default) the code output the confidence interval for the mean as output[2] and output[3], else ouput[2]=output[3]=0 </td></tr>
+    <tr><td class="paramname">ci_std</td><td>=True -&gt; if True (default) the code output the confidence interval for the standard deviation as output[4] and output[5], else output[4]=output[5]=0 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>mean = central location of the distribution STDDEV = scale of the distribution ci_mean[0],ci_mean[1]= confidence interval for the mean (default 95%) ci_std[0],ci_std[1]= confidence interval for the mean (default 95%) </dd></dl>
 
-<p>Definition at line <a class="el" href="a00013_source.html#l00015">15</a> of file <a class="el" href="a00013_source.html">gi_data.py</a>.</p>
+<p>Definition at line <a class="el" href="a00011_source.html#l00090">90</a> of file <a class="el" href="a00011_source.html">BiWeight.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00102_a29a73d62880e90ca27cbef0a7f197fd8_cgraph.png" border="0" usemap="#a00102_a29a73d62880e90ca27cbef0a7f197fd8_cgraph" alt=""/></div>
+<map name="a00102_a29a73d62880e90ca27cbef0a7f197fd8_cgraph" id="a00102_a29a73d62880e90ca27cbef0a7f197fd8_cgraph">
+<area shape="rect" id="node3" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c" title="PURPOSE: Estimation of the scale (&#39;dispersion&#39;) of a distribution, resistant for outliers and robust ..." alt="" coords="223,5,396,35"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00102_a7fe598aeb05831a032ee8f6011b7beff_icgraph.png" border="0" usemap="#a00102_a7fe598aeb05831a032ee8f6011b7beff_icgraph" alt=""/></div>
-<map name="a00102_a7fe598aeb05831a032ee8f6011b7beff_icgraph" id="a00102_a7fe598aeb05831a032ee8f6011b7beff_icgraph">
-<area shape="rect" id="node3" href="a00002.html#a6b59c5ac60b55492174db9eef738385e" title="read surface density of tracer stars, deproject, renormalize " alt="" coords="231,13,409,43"/></map>
+<div class="center"><img src="a00102_a29a73d62880e90ca27cbef0a7f197fd8_icgraph.png" border="0" usemap="#a00102_a29a73d62880e90ca27cbef0a7f197fd8_icgraph" alt=""/></div>
+<map name="a00102_a29a73d62880e90ca27cbef0a7f197fd8_icgraph" id="a00102_a29a73d62880e90ca27cbef0a7f197fd8_icgraph">
+<area shape="rect" id="node3" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c" title="PURPOSE: Estimation of the scale (&#39;dispersion&#39;) of a distribution, resistant for outliers and robust ..." alt="" coords="223,5,396,35"/><area shape="rect" id="node6" href="a00139.html#a859783fbbb6d8184207a0333b7ecafa9" title="gr_MCMCbin.run" alt="" coords="245,59,373,88"/><area shape="rect" id="node10" href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6" title="grt_siglos.run" alt="" coords="256,112,363,141"/><area shape="rect" id="node8" href="a00120.html#a4b923a7552baf5bf5aaa08b256dd9eb1" title="get data, bin it anew (e.g. " alt="" coords="447,85,561,115"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e5ef102bbbcf0c3e0c2697ca572b83c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BiWeight.stddevbiweight </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>zero</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>1e-20</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PURPOSE: Estimation of the scale ('dispersion') of a distribution, resistant for outliers and robust for a broad range of non-Gaussian underlying populations. </p>
+<hr/>
+<p> REFERENCES: Beers, T. C., Flynn, K., &amp; Gebhardt, K. 1990, AJ, 100, 32 Hoaglin, D. C., Mostelle, F., &amp; Tukey, J. W. 1983, Understanding Robust and Exploratory Data Analysis (Wiley, New York) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>= distribution in vector form </td></tr>
+    <tr><td class="paramname">zero</td><td>= set this keyword to force the scale to be calculated w.r.t. zero central location, e.g. in the case the vector elements are residuals of some fit </td></tr>
+    <tr><td class="paramname">eps</td><td>= small number: zero scale if median absolute deviation MAD &lt; EPS </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>stddev = scale of the distribution, -1 in case of failure </dd></dl>
+
+<p>Definition at line <a class="el" href="a00011_source.html#l00045">45</a> of file <a class="el" href="a00011_source.html">BiWeight.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_cgraph.png" border="0" usemap="#a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_cgraph" alt=""/></div>
+<map name="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_cgraph" id="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_cgraph">
+<area shape="rect" id="node3" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8" title="Estimation of the central location (&#39;mean&#39;) of a distribution, resistant for outliers and robust for ..." alt="" coords="231,5,396,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_icgraph.png" border="0" usemap="#a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_icgraph" alt=""/></div>
+<map name="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_icgraph" id="a00102_a0e5ef102bbbcf0c3e0c2697ca572b83c_icgraph">
+<area shape="rect" id="node3" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8" title="Estimation of the central location (&#39;mean&#39;) of a distribution, resistant for outliers and robust for ..." alt="" coords="231,32,396,61"/><area shape="rect" id="node6" href="a00139.html#a859783fbbb6d8184207a0333b7ecafa9" title="gr_MCMCbin.run" alt="" coords="445,5,573,35"/><area shape="rect" id="node10" href="a00157.html#a1ce8e382296d58f979c6cf977c62f5b6" title="grt_siglos.run" alt="" coords="456,59,563,88"/><area shape="rect" id="node8" href="a00120.html#a4b923a7552baf5bf5aaa08b256dd9eb1" title="get data, bin it anew (e.g. " alt="" coords="623,32,737,61"/></map>
 </div>
 </p>
 
@@ -150,7 +258,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

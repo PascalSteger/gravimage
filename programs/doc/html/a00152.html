@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: split3 Namespace Reference</title>
+<title>GravImage: grds_write Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,132 +82,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">split3 Namespace Reference</div>  </div>
+<div class="title">grds_write Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8b3acaa199b28fdc8eaffcde2fad9a07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#a8b3acaa199b28fdc8eaffcde2fad9a07">Npoints</a> = 3600</td></tr>
-<tr class="separator:a8b3acaa199b28fdc8eaffcde2fad9a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad346f45b14de1ec93ad7817da801616c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#ad346f45b14de1ec93ad7817da801616c">y</a> = np.random.normal(1, 0.5, <a class="el" href="a00152.html#a8b3acaa199b28fdc8eaffcde2fad9a07">Npoints</a>)</td></tr>
-<tr class="separator:ad346f45b14de1ec93ad7817da801616c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e27a11c7044f9620f08e01d2da6c70c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#a7e27a11c7044f9620f08e01d2da6c70c">x</a> = np.random.uniform(0,2000,<a class="el" href="a00152.html#a8b3acaa199b28fdc8eaffcde2fad9a07">Npoints</a>)</td></tr>
-<tr class="separator:a7e27a11c7044f9620f08e01d2da6c70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1485375e15d01377c13700865aa797d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#a1485375e15d01377c13700865aa797d6">Nbin</a> = 12</td></tr>
-<tr class="separator:a1485375e15d01377c13700865aa797d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaafa232d38d15a6dafb6e1e08f1af91d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#aaafa232d38d15a6dafb6e1e08f1af91d">ybins</a> = np.linspace(min(<a class="el" href="a00152.html#ad346f45b14de1ec93ad7817da801616c">y</a>), max(<a class="el" href="a00152.html#ad346f45b14de1ec93ad7817da801616c">y</a>), num=30)</td></tr>
-<tr class="separator:aaafa232d38d15a6dafb6e1e08f1af91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefacb35b241e962ee19c78365d21b116"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#aefacb35b241e962ee19c78365d21b116">extent</a> = [min(xbins), max(xbins), min(<a class="el" href="a00152.html#aaafa232d38d15a6dafb6e1e08f1af91d">ybins</a>), max(<a class="el" href="a00152.html#aaafa232d38d15a6dafb6e1e08f1af91d">ybins</a>)]</td></tr>
-<tr class="separator:aefacb35b241e962ee19c78365d21b116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7043d3fa8a817909aa17dd9430fa7a82"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#a7043d3fa8a817909aa17dd9430fa7a82">im</a> = ax.imshow(H.T, <a class="el" href="a00152.html#aefacb35b241e962ee19c78365d21b116">extent</a>=<a class="el" href="a00152.html#aefacb35b241e962ee19c78365d21b116">extent</a>, aspect='auto', interpolation='nearest', cmap=plt.cm.binary)</td></tr>
-<tr class="separator:a7043d3fa8a817909aa17dd9430fa7a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0eeba80b597f11302d0838457a44ac70"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html#a0eeba80b597f11302d0838457a44ac70">disk_sim</a></td></tr>
+<tr class="memdesc:a0eeba80b597f11302d0838457a44ac70"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in disk simulation file  <a href="#a0eeba80b597f11302d0838457a44ac70">More...</a><br/></td></tr>
+<tr class="separator:a0eeba80b597f11302d0838457a44ac70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="aefacb35b241e962ee19c78365d21b116"></a>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a0eeba80b597f11302d0838457a44ac70"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list split3.extent = [min(xbins), max(xbins), min(<a class="el" href="a00152.html#aaafa232d38d15a6dafb6e1e08f1af91d">ybins</a>), max(<a class="el" href="a00152.html#aaafa232d38d15a6dafb6e1e08f1af91d">ybins</a>)]</td>
+          <td class="memname">grds_write.disk_sim </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00081_source.html#l00019">19</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
+<p>read in disk simulation file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-</div>
-</div>
-<a class="anchor" id="a7043d3fa8a817909aa17dd9430fa7a82"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple split3.im = ax.imshow(H.T, <a class="el" href="a00152.html#aefacb35b241e962ee19c78365d21b116">extent</a>=<a class="el" href="a00152.html#aefacb35b241e962ee19c78365d21b116">extent</a>, aspect='auto', interpolation='nearest', cmap=plt.cm.binary)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00020">20</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1485375e15d01377c13700865aa797d6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int split3.Nbin = 12</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00013">13</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8b3acaa199b28fdc8eaffcde2fad9a07"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int split3.Npoints = 3600</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00008">8</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7e27a11c7044f9620f08e01d2da6c70c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple split3.x = np.random.uniform(0,2000,<a class="el" href="a00152.html#a8b3acaa199b28fdc8eaffcde2fad9a07">Npoints</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00010">10</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad346f45b14de1ec93ad7817da801616c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple split3.y = np.random.normal(1, 0.5, <a class="el" href="a00152.html#a8b3acaa199b28fdc8eaffcde2fad9a07">Npoints</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00009">9</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaafa232d38d15a6dafb6e1e08f1af91d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple split3.ybins = np.linspace(min(<a class="el" href="a00152.html#ad346f45b14de1ec93ad7817da801616c">y</a>), max(<a class="el" href="a00152.html#ad346f45b14de1ec93ad7817da801616c">y</a>), num=30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00081_source.html#l00015">15</a> of file <a class="el" href="a00081_source.html">split3.py</a>.</p>
+<p>Definition at line <a class="el" href="a00077_source.html#l00020">20</a> of file <a class="el" href="a00077_source.html">grds_write.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grh_com.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/import_path.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,47 +80,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_f8e1dd9ad6942213353b1be8bbee6ffa.html">sci</a></li><li class="navelem"><a class="el" href="dir_30ff591c6c2b5879fc2e139aede17482.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_6eeeb45f27769e9c4256bdc4d6aa3608.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_cd7ffac45616c0a418b35d984bd62a44.html">programs</a></li><li class="navelem"><a class="el" href="dir_b52c632d23613a7c388a3dfabe3e9b98.html">reducedata</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">grh_com.py File Reference</div>  </div>
+<div class="title">import_path.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>read simulation files (x,y,z, vx,vy,vz), center, cut to N particles, write 2D x,y,vlos  
+<p>import file with full path specification, only once, setting back sys.path you need to specify PYTHONPATH to include the gravimage/programs  
 <a href="#details">More...</a></p>
 
 <p><a href="a00045_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">grh_com</a></td></tr>
+<tr class="memitem:a00161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html">import_path</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa4d7d5480b30722e2f902cf71d8758bb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#aa4d7d5480b30722e2f902cf71d8758bb">grh_com.run</a></td></tr>
-<tr class="separator:aa4d7d5480b30722e2f902cf71d8758bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a2a527a9b30ea53066d91e4950d395b65"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a2a527a9b30ea53066d91e4950d395b65">grh_com.gp</a> = <a class="el" href="a00006.html">gi_params.Params</a>()</td></tr>
-<tr class="separator:a2a527a9b30ea53066d91e4950d395b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad612e988f262cef532a95e2979431efe"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#ad612e988f262cef532a95e2979431efe">import_path.insert_sys_path</a></td></tr>
+<tr class="memdesc:ad612e988f262cef532a95e2979431efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert full path at the beginning of sys.path and thus make it the first directory to be scanned  <a href="#ad612e988f262cef532a95e2979431efe">More...</a><br/></td></tr>
+<tr class="separator:ad612e988f262cef532a95e2979431efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15af94783486d90b06ac1a20d64edc02"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#a15af94783486d90b06ac1a20d64edc02">import_path.remove_first</a></td></tr>
+<tr class="memdesc:a15af94783486d90b06ac1a20d64edc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove first entry in sys.path and thus reverse insert_sys_path  <a href="#a15af94783486d90b06ac1a20d64edc02">More...</a><br/></td></tr>
+<tr class="separator:a15af94783486d90b06ac1a20d64edc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f2f97489e95c4494855af057f80ba83"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#a8f2f97489e95c4494855af057f80ba83">import_path.remove_third</a></td></tr>
+<tr class="memdesc:a8f2f97489e95c4494855af057f80ba83"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove third entry (where <a class="el" href="a00127.html">gi_params</a> was stored for timestamped restart runs)  <a href="#a8f2f97489e95c4494855af057f80ba83">More...</a><br/></td></tr>
+<tr class="separator:a8f2f97489e95c4494855af057f80ba83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a896f53e3cf5adb7bb47d751ad7f8fb51"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#a896f53e3cf5adb7bb47d751ad7f8fb51">import_path.import_path</a></td></tr>
+<tr class="memdesc:a896f53e3cf5adb7bb47d751ad7f8fb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Import a file with full path specification.  <a href="#a896f53e3cf5adb7bb47d751ad7f8fb51">More...</a><br/></td></tr>
+<tr class="separator:a896f53e3cf5adb7bb47d751ad7f8fb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe9be6d857e7626f087e15fe89d7635e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#afe9be6d857e7626f087e15fe89d7635e">import_path.set_geometry</a></td></tr>
+<tr class="memdesc:afe9be6d857e7626f087e15fe89d7635e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get right directory for geometry-dependent imports  <a href="#afe9be6d857e7626f087e15fe89d7635e">More...</a><br/></td></tr>
+<tr class="separator:afe9be6d857e7626f087e15fe89d7635e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>read simulation files (x,y,z, vx,vy,vz), center, cut to N particles, write 2D x,y,vlos </p>
+<div class="textblock"><p>import file with full path specification, only once, setting back sys.path you need to specify PYTHONPATH to include the gravimage/programs </p>
 
-<p>Definition in file <a class="el" href="a00045_source.html">grh_com.py</a>.</p>
+<p>Definition in file <a class="el" href="a00045_source.html">import_path.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 6 2015 08:37:24 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

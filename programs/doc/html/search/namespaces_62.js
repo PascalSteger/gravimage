@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['biweight',['BiWeight',['../a00085.html',1,'']]]
+  ['biweight',['BiWeight',['../a00102.html',1,'']]]
 ];
