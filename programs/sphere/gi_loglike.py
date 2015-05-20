@@ -73,13 +73,14 @@ def geom_loglike(cube, ndim, nparams, gp):
         #tmp_Signu = pool.apply_async(gip.rho_param_INT_Sig, [gp.xepol, nupar, pop, gp])
         off += offstep
 
-        offstep = 1
-        tmp_hyperSig = cube[off:off+offstep]
-        off += offstep
+        if gp.hyperparameters:
+            offstep = 1
+            tmp_hyperSig = cube[off:off+offstep]
+            off += offstep
 
-        offstep = 1
-        tmp_hypersig = cube[off:off+offstep]
-        off += offstep
+            offstep = 1
+            tmp_hypersig = cube[off:off+offstep]
+            off += offstep
 
         offstep = gp.nbeta
         if gp.chi2_Sig_converged <= 0:
