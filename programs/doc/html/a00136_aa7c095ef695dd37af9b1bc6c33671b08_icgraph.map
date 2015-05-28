@@ -1,0 +1,5 @@
+<map id="gl_select_run.bufcount" name="gl_select_run.bufcount">
+<area shape="rect" id="node3" href="$a00136.html#a5048f979ce8bad73c63783652bbc4341" title="remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest a..." alt="" coords="217,5,372,51"/>
+<area shape="rect" id="node5" href="$a00136.html#a685f5173e52399473536ada1715fad1e" title="return all working or completed MCMC run directories " alt="" coords="423,35,548,82"/>
+<area shape="rect" id="node7" href="$a00136.html#ad602f4e637be01fdc5e49351d29fc6ee" title="display possible runs of the current investigation method, select one " alt="" coords="599,44,727,73"/>
+</map>

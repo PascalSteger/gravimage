@@ -107,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> pdb</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00113.html#ae4b9f1873baeeab109b2e630b02ecb1d">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#ae4b9f1873baeeab109b2e630b02ecb1d">dierfc</a>(y):</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00114.html#ae4b9f1873baeeab109b2e630b02ecb1d">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#ae4b9f1873baeeab109b2e630b02ecb1d">dierfc</a>(y):</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    y = np.array(y)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    qa = 9.16461398268964e-01</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    qb = 2.31729200323405e-01</div>
@@ -164,11 +164,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"># inverse of complimentary error function from MultiNest implementation</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"># @param y vector</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00113.html#a90887efbfa1981be8be66f143dd439c0">   77</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(x, mu, sigma):</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00114.html#a90887efbfa1981be8be66f143dd439c0">   77</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(x, mu, sigma):</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment"># parameter(SqrtTwo=1.414213562d0)</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    v_mu = mu*np.ones(len(x))</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    v_sigma = sigma*np.ones(len(x))</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> v_mu+v_sigma*np.sqrt(2)*<a class="code" href="a00113.html#ae4b9f1873baeeab109b2e630b02ecb1d">dierfc</a>(2.*(np.ones(len(x))-x))</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> v_mu+v_sigma*np.sqrt(2)*<a class="code" href="a00114.html#ae4b9f1873baeeab109b2e630b02ecb1d">dierfc</a>(2.*(np.ones(len(x))-x))</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">## \fn ginv(x, mu, sigma)</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"># take uniform range [0,1] and return normal pdf centered around mu, with width sigma</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"># sampled with a normal distribution</span></div>
@@ -176,7 +176,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"># @param mu central value</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"># @param sigma width of normal distribution</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(params, prof, pop, gp):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(params, prof, pop, gp):</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    gh.sanitize_vector(params, gp.nrho, 0, 1, gp.debug)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    nr = np.zeros(gp.nepol) <span class="comment"># to hold the n(r) = dlog(rho)/dlog(r) values</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment"># get offset and n(r) profiles, calculate rho</span></div>
@@ -191,9 +191,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment"># work directly with the dn(r)/dlog(r) parameters here</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    dnrdlrparams = params[1:]</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> gp.monotonic:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        gpar = <a class="code" href="a00113.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(np.array(dnrdlrparams)/2.+0.5, 0., gp.nrtol)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        gpar = <a class="code" href="a00114.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(np.array(dnrdlrparams)/2.+0.5, 0., gp.nrtol)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        gpar = <a class="code" href="a00113.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(dnrdlrparams, 0., gp.nrtol)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        gpar = <a class="code" href="a00114.html#a90887efbfa1981be8be66f143dd439c0">ginv</a>(dnrdlrparams, 0., gp.nrtol)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment"># set the innermost nr parameter starting from nrasym0 parameter instead of 0</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    deltalogr = (np.log(gp.xepol[0])-np.log(gp.xepol[0]/gp.rinfty))</div>
@@ -230,7 +230,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment"># @param pop population int, 0 for rho*, 1,2,... for tracer densities</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a00113.html#ad8a9912c9921b56e67bd08d62d03684a">  143</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(params, pop, gp):</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a00114.html#ad8a9912c9921b56e67bd08d62d03684a">  143</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(params, pop, gp):</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    meannr = gp.dat.nrnu[pop]</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    stdnr = gp.dat.nrnuerr[pop]</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    nrdata = (np.array(params)-0.5)*2.*stdnr+meannr</div>
@@ -244,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"># @param pop population int</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment"># @param gp global parameter</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="a00113.html#ab9f7bb90327283ddff06767e9598a185">  157</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#ab9f7bb90327283ddff06767e9598a185">map_nr_tracers</a>(params, pop, gp):</div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="a00114.html#ab9f7bb90327283ddff06767e9598a185">  157</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#ab9f7bb90327283ddff06767e9598a185">map_nr_tracers</a>(params, pop, gp):</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    gh.sanitize_vector(params, gp.nrho, 0, 1, gp.debug)</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment"># first, if we already have a Sig-converged run, use the parameters as stored</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span> gp.getSigdata:</div>
@@ -299,7 +299,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"># @param pop population int, 0 for rho*, 1,2,... for tracer densities</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="a00113.html#a9588c5189f92f54907d441c60c74b3ae">  212</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a9588c5189f92f54907d441c60c74b3ae">map_betastar_sigmoid</a>(params, gp):</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="a00114.html#a9588c5189f92f54907d441c60c74b3ae">  212</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a9588c5189f92f54907d441c60c74b3ae">map_betastar_sigmoid</a>(params, gp):</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    gh.sanitize_vector(params, gp.nbeta, 0, 1, gp.debug)</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    bdiff = gp.maxbetastar_0-gp.minbetastar_0</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    a0 = params[0]*bdiff + gp.minbetastar_0  <span class="comment"># a0</span></div>
@@ -321,17 +321,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment"># @param params parameter vector, size 4</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(par, gp):</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    gh.sanitize_scalar(par, 0, 1, gp.debug)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(pp, gp):</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    gh.sanitize_scalar(pp, 0, 1, gp.debug)</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    scale = gp.MtoLmax - gp.MtoLmin</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    MtoL = par*scale+gp.MtoLmin</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    MtoL = pp*scale+gp.MtoLmin</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">return</span> MtoL</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">## \fn map_MtoL(par, gp)</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">## \fn map_MtoL(pp, gp)</span></div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"># map [0,1] to MtoL flat prior</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"># @param par scalar</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"># @param gp global parameters holding MtoL{min,max}</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"># @param pp float in [0,1]</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"># @param gp global parameters holding MtoLmin, MtoLmax</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="a00113.html#a740903ba0d0735b1d7c5b47361c6d74d">  244</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(param, prof, pop, gp):</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="a00114.html#a740903ba0d0735b1d7c5b47361c6d74d">  244</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(param, prof, pop, gp):</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">if</span> prof == <span class="stringliteral">&#39;Sig&#39;</span>:</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        bs = gp.dat.barSig[pop-1]</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">elif</span> prof == <span class="stringliteral">&#39;sig&#39;</span>:</div>
@@ -364,7 +364,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        pc = self.<a class="code" href="a00001.html#a93eccb9209e80846f15e75d09e173180">cube</a></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="comment"># DM density rho, set in parametrization of n(r)</span></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        offstep = gp.nrho</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        tmp_nr = <a class="code" href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(pc[0:offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        tmp_nr = <a class="code" href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(pc[0:offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            pc[off+i] = tmp_nr[i]</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        off += offstep</div>
@@ -372,34 +372,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="comment"># rho* only for observations</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;obs&#39;</span>:</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            offstep = gp.nrho</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            tmp_rhostar = <a class="code" href="a00113.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(pc[off:off+offstep], 0, gp)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            tmp_rhostar = <a class="code" href="a00114.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(pc[off:off+offstep], 0, gp)</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                pc[off+i] = tmp_rhostar[i]</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            off += offstep</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            offstep = 1</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            pc[off] = <a class="code" href="a00113.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(pc[off], gp)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            pc[off] = <a class="code" href="a00114.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(pc[off], gp)</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            off += offstep</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> range(1, gp.pops+1): <span class="comment"># nu1, nu2, and further</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            offstep = gp.nrho</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            tmp_nu = <a class="code" href="a00113.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(pc[off:off+offstep], pop, gp)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            tmp_nu = <a class="code" href="a00114.html#ad8a9912c9921b56e67bd08d62d03684a">map_nr_data</a>(pc[off:off+offstep], pop, gp)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                pc[off+i] = tmp_nu[i]</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            off += offstep</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            offstep = 1</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            tmp_hyperSig = <a class="code" href="a00113.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(pc[off:off+offstep], <span class="stringliteral">&#39;Sig&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            tmp_hyperSig = <a class="code" href="a00114.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(pc[off:off+offstep], <span class="stringliteral">&#39;Sig&#39;</span>, pop, gp)</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            pc[off] = tmp_hyperSig</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            off += offstep</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            offstep = 1</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            tmp_hypersig = <a class="code" href="a00113.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(pc[off:off+offstep], <span class="stringliteral">&#39;sig&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            tmp_hypersig = <a class="code" href="a00114.html#a740903ba0d0735b1d7c5b47361c6d74d">map_hypersig</a>(pc[off:off+offstep], <span class="stringliteral">&#39;sig&#39;</span>, pop, gp)</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            pc[off] = tmp_hypersig</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            off += offstep</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            offstep = gp.nbeta</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            tmp_betastar = <a class="code" href="a00113.html#a9588c5189f92f54907d441c60c74b3ae">map_betastar_sigmoid</a>(pc[off:off+offstep], gp)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            tmp_betastar = <a class="code" href="a00114.html#a9588c5189f92f54907d441c60c74b3ae">map_betastar_sigmoid</a>(pc[off:off+offstep], gp)</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                pc[off+i] = tmp_betastar[i]</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            off += offstep</div>
@@ -431,23 +431,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment"># Common base class for all parameter sets</span></div>
 <div class="ttc" id="a00001_html_a02852d134f6a5deb1ec9d0acf36cb420"><div class="ttname"><a href="a00001.html#a02852d134f6a5deb1ec9d0acf36cb420">gi_class_cube.Cube.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00349">gi_class_cube.py:349</a></div></div>
 <div class="ttc" id="a00001_html_a93eccb9209e80846f15e75d09e173180"><div class="ttname"><a href="a00001.html#a93eccb9209e80846f15e75d09e173180">gi_class_cube.Cube.cube</a></div><div class="ttdeci">cube</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00278">gi_class_cube.py:278</a></div></div>
-<div class="ttc" id="a00113_html_a740903ba0d0735b1d7c5b47361c6d74d"><div class="ttname"><a href="a00113.html#a740903ba0d0735b1d7c5b47361c6d74d">gi_class_cube.map_hypersig</a></div><div class="ttdeci">def map_hypersig</div><div class="ttdoc">map [0,1] to [1/(gp.maxSS * mean(SS)), 1/(gp.minSS * mean(SS))], SS=&amp;quot;s i g&amp;quot; return hyperparameter ...</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00244">gi_class_cube.py:244</a></div></div>
-<div class="ttc" id="a00113_html_ad8a9912c9921b56e67bd08d62d03684a"><div class="ttname"><a href="a00113.html#ad8a9912c9921b56e67bd08d62d03684a">gi_class_cube.map_nr_data</a></div><div class="ttdeci">def map_nr_data</div><div class="ttdoc">create nr params </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00143">gi_class_cube.py:143</a></div></div>
 <div class="ttc" id="a00001_html"><div class="ttname"><a href="a00001.html">gi_class_cube.Cube</a></div><div class="ttdoc">Common base class for all parameter sets. </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00274">gi_class_cube.py:274</a></div></div>
-<div class="ttc" id="a00113_html_ae98bb05e7a37badaed7a780c087b401a"><div class="ttname"><a href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">gi_class_cube.map_nr</a></div><div class="ttdeci">def map_nr</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space prior on dn/dlnr: &amp;lt; nrscale and possibly a ...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00133">gi_class_cube.py:133</a></div></div>
+<div class="ttc" id="a00114_html_ae98bb05e7a37badaed7a780c087b401a"><div class="ttname"><a href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">gi_class_cube.map_nr</a></div><div class="ttdeci">def map_nr</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space prior on dn/dlnr: &amp;lt; nrscale and possibly a ...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00133">gi_class_cube.py:133</a></div></div>
+<div class="ttc" id="a00114_html_ab9f7bb90327283ddff06767e9598a185"><div class="ttname"><a href="a00114.html#ab9f7bb90327283ddff06767e9598a185">gi_class_cube.map_nr_tracers</a></div><div class="ttdeci">def map_nr_tracers</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space setting all n(r&amp;lt;r_nrlim)&amp;lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00157">gi_class_cube.py:157</a></div></div>
+<div class="ttc" id="a00114_html_ae4b9f1873baeeab109b2e630b02ecb1d"><div class="ttname"><a href="a00114.html#ae4b9f1873baeeab109b2e630b02ecb1d">gi_class_cube.dierfc</a></div><div class="ttdeci">def dierfc</div><div class="ttdoc">inverse of complimentary error function from MultiNest implementation </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00020">gi_class_cube.py:20</a></div></div>
 <div class="ttc" id="a00001_html_aa866aa722da9a1d475e8ee4a437553a9"><div class="ttname"><a href="a00001.html#aa866aa722da9a1d475e8ee4a437553a9">gi_class_cube.Cube.convert_to_parameter_space</a></div><div class="ttdeci">def convert_to_parameter_space</div><div class="ttdoc">convert [0,1]^ndim to parameter space such that values in cube are the parameters we need for rho...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00284">gi_class_cube.py:284</a></div></div>
-<div class="ttc" id="a00113_html_ae4b9f1873baeeab109b2e630b02ecb1d"><div class="ttname"><a href="a00113.html#ae4b9f1873baeeab109b2e630b02ecb1d">gi_class_cube.dierfc</a></div><div class="ttdeci">def dierfc</div><div class="ttdoc">inverse of complimentary error function from MultiNest implementation </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00020">gi_class_cube.py:20</a></div></div>
-<div class="ttc" id="a00113_html_ab9f7bb90327283ddff06767e9598a185"><div class="ttname"><a href="a00113.html#ab9f7bb90327283ddff06767e9598a185">gi_class_cube.map_nr_tracers</a></div><div class="ttdeci">def map_nr_tracers</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space setting all n(r&amp;lt;r_nrlim)&amp;lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00157">gi_class_cube.py:157</a></div></div>
-<div class="ttc" id="a00113_html_aa18d30fd4e863889929cff838e05e42e"><div class="ttname"><a href="a00113.html#aa18d30fd4e863889929cff838e05e42e">gi_class_cube.map_MtoL</a></div><div class="ttdeci">def map_MtoL</div><div class="ttdoc">map [0,1] to MtoL flat prior </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00221">gi_class_cube.py:221</a></div></div>
+<div class="ttc" id="a00114_html_aa18d30fd4e863889929cff838e05e42e"><div class="ttname"><a href="a00114.html#aa18d30fd4e863889929cff838e05e42e">gi_class_cube.map_MtoL</a></div><div class="ttdeci">def map_MtoL</div><div class="ttdoc">map [0,1] to MtoL flat prior </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00221">gi_class_cube.py:221</a></div></div>
+<div class="ttc" id="a00114_html_ad8a9912c9921b56e67bd08d62d03684a"><div class="ttname"><a href="a00114.html#ad8a9912c9921b56e67bd08d62d03684a">gi_class_cube.map_nr_data</a></div><div class="ttdeci">def map_nr_data</div><div class="ttdoc">create nr params </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00143">gi_class_cube.py:143</a></div></div>
 <div class="ttc" id="a00001_html_abebc092e122659ceee0ebd226ad5a48a"><div class="ttname"><a href="a00001.html#abebc092e122659ceee0ebd226ad5a48a">gi_class_cube.Cube.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor, with modes depending on locpop </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00275">gi_class_cube.py:275</a></div></div>
-<div class="ttc" id="a00113_html_a90887efbfa1981be8be66f143dd439c0"><div class="ttname"><a href="a00113.html#a90887efbfa1981be8be66f143dd439c0">gi_class_cube.ginv</a></div><div class="ttdeci">def ginv</div><div class="ttdoc">take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no...</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00077">gi_class_cube.py:77</a></div></div>
 <div class="ttc" id="a00001_html_ab08a16e06beb8b875f411f71df655e68"><div class="ttname"><a href="a00001.html#ab08a16e06beb8b875f411f71df655e68">gi_class_cube.Cube.copy</a></div><div class="ttdeci">def copy</div><div class="ttdoc">copy constructor </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00352">gi_class_cube.py:352</a></div></div>
+<div class="ttc" id="a00114_html_a9588c5189f92f54907d441c60c74b3ae"><div class="ttname"><a href="a00114.html#a9588c5189f92f54907d441c60c74b3ae">gi_class_cube.map_betastar_sigmoid</a></div><div class="ttdeci">def map_betastar_sigmoid</div><div class="ttdoc">mapping beta parameters from [0,1] to full param space </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00212">gi_class_cube.py:212</a></div></div>
+<div class="ttc" id="a00114_html_a740903ba0d0735b1d7c5b47361c6d74d"><div class="ttname"><a href="a00114.html#a740903ba0d0735b1d7c5b47361c6d74d">gi_class_cube.map_hypersig</a></div><div class="ttdeci">def map_hypersig</div><div class="ttdoc">map [0,1] to [1/(gp.maxSS * mean(SS)), 1/(gp.minSS * mean(SS))], SS=&amp;quot;s i g&amp;quot; return hyperparameter ...</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00244">gi_class_cube.py:244</a></div></div>
+<div class="ttc" id="a00114_html_a90887efbfa1981be8be66f143dd439c0"><div class="ttname"><a href="a00114.html#a90887efbfa1981be8be66f143dd439c0">gi_class_cube.ginv</a></div><div class="ttdeci">def ginv</div><div class="ttdoc">take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no...</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00077">gi_class_cube.py:77</a></div></div>
 <div class="ttc" id="a00001_html_ae2e9a59e9c645aeeda2dee73518f82b7"><div class="ttname"><a href="a00001.html#ae2e9a59e9c645aeeda2dee73518f82b7">gi_class_cube.Cube.pops</a></div><div class="ttdeci">pops</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00276">gi_class_cube.py:276</a></div></div>
-<div class="ttc" id="a00113_html_a9588c5189f92f54907d441c60c74b3ae"><div class="ttname"><a href="a00113.html#a9588c5189f92f54907d441c60c74b3ae">gi_class_cube.map_betastar_sigmoid</a></div><div class="ttdeci">def map_betastar_sigmoid</div><div class="ttdoc">mapping beta parameters from [0,1] to full param space </div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00212">gi_class_cube.py:212</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

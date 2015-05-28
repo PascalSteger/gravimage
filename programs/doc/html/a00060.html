@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/check_proj.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/pymcmetal.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,48 +80,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_be9429b6d98f3738ece5a5ee89294dc4.html">reducedata</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">check_proj.py File Reference</div>  </div>
+<div class="title">pymcmetal.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>check deprojection and projection of nu  
+<p>MCMC to split stellar tracers into two populations assuming split by age is traced by age and thus metallicity only.  
 <a href="#details">More...</a></p>
 
 <p><a href="a00060_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00103"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html">check_proj</a></td></tr>
+<tr class="memitem:a00173"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html">pymcmetal</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a44d003aa123ea6d308b198a404061181"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html#a44d003aa123ea6d308b198a404061181">check_proj.run</a></td></tr>
-<tr class="memdesc:a44d003aa123ea6d308b198a404061181"><td class="mdescLeft">&#160;</td><td class="mdescRight">run all commands inside <a class="el" href="a00103.html">check_proj</a>  <a href="#a44d003aa123ea6d308b198a404061181">More...</a><br/></td></tr>
-<tr class="separator:a44d003aa123ea6d308b198a404061181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a0255309fc3d304fffd1f97791e6a5fd8"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html#a0255309fc3d304fffd1f97791e6a5fd8">check_proj.gp</a> = <a class="el" href="a00007.html">gi_params.Params</a>()</td></tr>
-<tr class="separator:a0255309fc3d304fffd1f97791e6a5fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331ea88f0dac4acb3e0bcec6a6467660"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a331ea88f0dac4acb3e0bcec6a6467660">pymcmetal.assign_pop</a></td></tr>
+<tr class="memdesc:a331ea88f0dac4acb3e0bcec6a6467660"><td class="mdescLeft">&#160;</td><td class="mdescRight">get possible assignment to populations  <a href="#a331ea88f0dac4acb3e0bcec6a6467660">More...</a><br/></td></tr>
+<tr class="separator:a331ea88f0dac4acb3e0bcec6a6467660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224dd5afbc0560a715c1a4a01f398072"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a224dd5afbc0560a715c1a4a01f398072">pymcmetal.plot_traces</a></td></tr>
+<tr class="memdesc:a224dd5afbc0560a715c1a4a01f398072"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot all traces  <a href="#a224dd5afbc0560a715c1a4a01f398072">More...</a><br/></td></tr>
+<tr class="separator:a224dd5afbc0560a715c1a4a01f398072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafca09f47560efa6eea57e858bb11b5a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#aafca09f47560efa6eea57e858bb11b5a">pymcmetal.bimodal_gauss</a></td></tr>
+<tr class="memdesc:aafca09f47560efa6eea57e858bb11b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">run MCMC to get regression on bimodal normal distribution <a href="http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb">http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb</a>  <a href="#aafca09f47560efa6eea57e858bb11b5a">More...</a><br/></td></tr>
+<tr class="separator:aafca09f47560efa6eea57e858bb11b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017c86d8c133610605999a83ae1f4673"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a017c86d8c133610605999a83ae1f4673">pymcmetal.run</a></td></tr>
+<tr class="separator:a017c86d8c133610605999a83ae1f4673"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>check deprojection and projection of nu </p>
+<div class="textblock"><p>MCMC to split stellar tracers into two populations assuming split by age is traced by age and thus metallicity only. </p>
 
-<p>Definition in file <a class="el" href="a00060_source.html">check_proj.py</a>.</p>
+<p>Definition in file <a class="el" href="a00060_source.html">pymcmetal.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

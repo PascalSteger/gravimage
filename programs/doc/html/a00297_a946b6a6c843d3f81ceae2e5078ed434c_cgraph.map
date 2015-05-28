@@ -1,5 +1,0 @@
-<map id="gl_physics.sigz" name="gl_physics.sigz">
-<area shape="rect" id="node3" href="$a00297.html#a1f70d603a30b23187bbe93725ee7f3b6" title="calculate density, from interpolated n(r) = &#45;log(rho(r)) using interpolation to left and right of r=r..." alt="" coords="171,5,283,35"/>
-<area shape="rect" id="node7" href="$a00297.html#a01ef73a82334563d9d64b600662b267e" title="General function to calculate the Kz force law: Non&#45;parametric Kz function here. " alt="" coords="175,59,279,88"/>
-<area shape="rect" id="node5" href="$a00297.html#a3040b3ad02f326bbc2f2db86602e3080" title="calculate n(r) at any given radius, as linear interpolation with two asymptotes " alt="" coords="331,5,435,35"/>
-</map>

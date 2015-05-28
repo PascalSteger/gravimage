@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gauss_distro Namespace Reference</title>
+<title>GravImage: fitting_beta Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,100 +82,355 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gauss_distro Namespace Reference</div>  </div>
+<div class="title">fitting_beta Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af74086cdec437952b3c5425bb3e842d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#af74086cdec437952b3c5425bb3e842d7">analytic_beta</a></td></tr>
+<tr class="separator:af74086cdec437952b3c5425bb3e842d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af28237bc3f65aa9ff4b47d3f9cd80edd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#af28237bc3f65aa9ff4b47d3f9cd80edd">modelbetaj</a></td></tr>
+<tr class="separator:af28237bc3f65aa9ff4b47d3f9cd80edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b94dd4ec00bbafcaadc2aeafb6446f2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a9b94dd4ec00bbafcaadc2aeafb6446f2">modelbeta_sigmoid</a></td></tr>
+<tr class="separator:a9b94dd4ec00bbafcaadc2aeafb6446f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b15d1920333e57f94fb75e111001f42"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a2b15d1920333e57f94fb75e111001f42">modelbeta4</a></td></tr>
+<tr class="separator:a2b15d1920333e57f94fb75e111001f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab487a950eabaaba2cd6ac2363bc260ea"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ab487a950eabaaba2cd6ac2363bc260ea">fig</a> = plt.figure()</td></tr>
-<tr class="separator:ab487a950eabaaba2cd6ac2363bc260ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f63d69c7cccc528cfca04f6a0bbf96"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a79f63d69c7cccc528cfca04f6a0bbf96">ax</a> = fig.add_subplot(1,1,1)</td></tr>
-<tr class="separator:a79f63d69c7cccc528cfca04f6a0bbf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb7d50d80e8a36a4fdf762693882b27d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a> = np.linspace(-5., 5., 100)</td></tr>
-<tr class="separator:afb7d50d80e8a36a4fdf762693882b27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c1c7b266c02326fc119bee8705208d"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ad0c1c7b266c02326fc119bee8705208d">y</a> = np.exp(-<a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a>**2/(2*<a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a>))</td></tr>
-<tr class="separator:ad0c1c7b266c02326fc119bee8705208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9324a8ef7c12fb68ee46e7a93620e70c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a> = 1</td></tr>
-<tr class="separator:a9324a8ef7c12fb68ee46e7a93620e70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc0a9ab81e1bf9b5438d141ddabd433"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a9bc0a9ab81e1bf9b5438d141ddabd433">gp</a> = gl_params.Params()</td></tr>
+<tr class="separator:a9bc0a9ab81e1bf9b5438d141ddabd433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a852930366a8a81901705cffd4576b565"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a852930366a8a81901705cffd4576b565">x</a> = gp.xipol</td></tr>
+<tr class="separator:a852930366a8a81901705cffd4576b565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac675ca3a25d2efed44f075816b2d11b3"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ac675ca3a25d2efed44f075816b2d11b3">y</a> = <a class="el" href="a00108.html#af74086cdec437952b3c5425bb3e842d7">analytic_beta</a>(<a class="el" href="a00108.html#a852930366a8a81901705cffd4576b565">x</a>)</td></tr>
+<tr class="separator:ac675ca3a25d2efed44f075816b2d11b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3595781628d0f98a3d6cea8264fcae6"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ac3595781628d0f98a3d6cea8264fcae6">fig</a> = plt.figure(facecolor='white')</td></tr>
+<tr class="separator:ac3595781628d0f98a3d6cea8264fcae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6acb6656748d9e39e91d70544340014"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ad6acb6656748d9e39e91d70544340014">rect1</a> = [left, 0.4, width, 0.55]</td></tr>
+<tr class="separator:ad6acb6656748d9e39e91d70544340014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b18ce575d60294200da3ebbe63f16fb"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a2b18ce575d60294200da3ebbe63f16fb">rect2</a> = [left, 0.2, width, 0.2]</td></tr>
+<tr class="separator:a2b18ce575d60294200da3ebbe63f16fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab6bb28c965eb49a4d60d046d28d7e5"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a6ab6bb28c965eb49a4d60d046d28d7e5">ax1</a> = fig.add_axes(<a class="el" href="a00108.html#ad6acb6656748d9e39e91d70544340014">rect1</a>)</td></tr>
+<tr class="separator:a6ab6bb28c965eb49a4d60d046d28d7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eae1c93451b14e663713ca8ee426104"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a1eae1c93451b14e663713ca8ee426104">ax2</a> = fig.add_axes(<a class="el" href="a00108.html#a2b18ce575d60294200da3ebbe63f16fb">rect2</a>, sharex=<a class="el" href="a00108.html#a6ab6bb28c965eb49a4d60d046d28d7e5">ax1</a>)</td></tr>
+<tr class="separator:a1eae1c93451b14e663713ca8ee426104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8e5b7071a78940fd417c88ca055df6"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a3d8e5b7071a78940fd417c88ca055df6">legend</a> = ax1.legend(loc='upper left', shadow=False, borderpad=0.2, labelspacing=0.1, handletextpad=0.1, borderaxespad=0.3)</td></tr>
+<tr class="separator:a3d8e5b7071a78940fd417c88ca055df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe445e54295dbc299436bc44ae580b5"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#aefe445e54295dbc299436bc44ae580b5">frame</a> = legend.get_frame()</td></tr>
+<tr class="separator:aefe445e54295dbc299436bc44ae580b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="af74086cdec437952b3c5425bb3e842d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def fitting_beta.analytic_beta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00019">19</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b15d1920333e57f94fb75e111001f42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def fitting_beta.modelbeta4 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00045">45</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b94dd4ec00bbafcaadc2aeafb6446f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def fitting_beta.modelbeta_sigmoid </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00038">38</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af28237bc3f65aa9ff4b47d3f9cd80edd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def fitting_beta.modelbetaj </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00033">33</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a79f63d69c7cccc528cfca04f6a0bbf96"></a>
+<a class="anchor" id="a6ab6bb28c965eb49a4d60d046d28d7e5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gauss_distro.ax = fig.add_subplot(1,1,1)</td>
+          <td class="memname">tuple fitting_beta.ax1 = fig.add_axes(<a class="el" href="a00108.html#ad6acb6656748d9e39e91d70544340014">rect1</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00091_source.html#l00007">7</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+<p>Definition at line <a class="el" href="a00091_source.html#l00057">57</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab487a950eabaaba2cd6ac2363bc260ea"></a>
+<a class="anchor" id="a1eae1c93451b14e663713ca8ee426104"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gauss_distro.fig = plt.figure()</td>
+          <td class="memname">tuple fitting_beta.ax2 = fig.add_axes(<a class="el" href="a00108.html#a2b18ce575d60294200da3ebbe63f16fb">rect2</a>, sharex=<a class="el" href="a00108.html#a6ab6bb28c965eb49a4d60d046d28d7e5">ax1</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00091_source.html#l00006">6</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+<p>Definition at line <a class="el" href="a00091_source.html#l00058">58</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9324a8ef7c12fb68ee46e7a93620e70c"></a>
+<a class="anchor" id="ac3595781628d0f98a3d6cea8264fcae6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gauss_distro.sigma = 1</td>
+          <td class="memname">tuple fitting_beta.fig = plt.figure(facecolor='white')</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00091_source.html#l00016">16</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+<p>Definition at line <a class="el" href="a00091_source.html#l00053">53</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="afb7d50d80e8a36a4fdf762693882b27d"></a>
+<a class="anchor" id="aefe445e54295dbc299436bc44ae580b5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gauss_distro.x = np.linspace(-5., 5., 100)</td>
+          <td class="memname">tuple fitting_beta.frame = legend.get_frame()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00091_source.html#l00009">9</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+<p>Definition at line <a class="el" href="a00091_source.html#l00079">79</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad0c1c7b266c02326fc119bee8705208d"></a>
+<a class="anchor" id="a9bc0a9ab81e1bf9b5438d141ddabd433"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple gauss_distro.y = np.exp(-<a class="el" href="a00108.html#afb7d50d80e8a36a4fdf762693882b27d">x</a>**2/(2*<a class="el" href="a00108.html#a9324a8ef7c12fb68ee46e7a93620e70c">sigma</a>))</td>
+          <td class="memname">tuple fitting_beta.gp = gl_params.Params()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00091_source.html#l00010">10</a> of file <a class="el" href="a00091_source.html">gauss_distro.py</a>.</p>
+<p>Definition at line <a class="el" href="a00091_source.html#l00010">10</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d8e5b7071a78940fd417c88ca055df6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple fitting_beta.legend = ax1.legend(loc='upper left', shadow=False, borderpad=0.2, labelspacing=0.1, handletextpad=0.1, borderaxespad=0.3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00077">77</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6acb6656748d9e39e91d70544340014"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list fitting_beta.rect1 = [left, 0.4, width, 0.55]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00055">55</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b18ce575d60294200da3ebbe63f16fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list fitting_beta.rect2 = [left, 0.2, width, 0.2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00056">56</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a852930366a8a81901705cffd4576b565"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">fitting_beta.x = gp.xipol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00029">29</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac675ca3a25d2efed44f075816b2d11b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple fitting_beta.y = <a class="el" href="a00108.html#af74086cdec437952b3c5425bb3e842d7">analytic_beta</a>(<a class="el" href="a00108.html#a852930366a8a81901705cffd4576b565">x</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00091_source.html#l00031">31</a> of file <a class="el" href="a00091_source.html">fitting_beta.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

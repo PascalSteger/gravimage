@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/split3.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/split.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,38 +85,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">split3.py</div>  </div>
+<div class="title">split.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00096.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00175.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;plt.ion()</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># Generate some data</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="a00175.html#a8b3acaa199b28fdc8eaffcde2fad9a07">    8</a></span>&#160;Npoints = 3600</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="a00175.html#ad346f45b14de1ec93ad7817da801616c">    9</a></span>&#160;y = np.random.normal(1, 0.5, Npoints)</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00175.html#a7e27a11c7044f9620f08e01d2da6c70c">   10</a></span>&#160;x = np.random.uniform(0,2000,Npoints)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;y*=np.log(x+1)</div>
+<a href="a00096.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00175.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> npr</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> matplotlib</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">#matplotlib.use(&#39;pdf&#39;)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00175.html#a9cc5ecf68cedf80ddbe6b107f05c19b6">   11</a></span>&#160;fig = plt.figure()</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00175.html#a1485375e15d01377c13700865aa797d6">   13</a></span>&#160;Nbin = 12</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;countinbinx, xbins = np.histogram(x, Nbin)</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00175.html#aaafa232d38d15a6dafb6e1e08f1af91d">   15</a></span>&#160;ybins = np.linspace(min(y), max(y), num=30)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;H, xedges, yedges = np.histogram2d(x, y, bins=[xbins, ybins])</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;fig, ax = plt.subplots(figsize=(8, 8), dpi=80, facecolor=<span class="stringliteral">&#39;w&#39;</span>, edgecolor=<span class="stringliteral">&#39;k&#39;</span>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00175.html#aefacb35b241e962ee19c78365d21b116">   19</a></span>&#160;extent = [min(xbins), max(xbins), min(ybins), max(ybins)]</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00175.html#a7043d3fa8a817909aa17dd9430fa7a82">   20</a></span>&#160;im = ax.imshow(H.T, extent=extent, aspect=<span class="stringliteral">&#39;auto&#39;</span>, interpolation=<span class="stringliteral">&#39;nearest&#39;</span>, cmap=plt.cm.binary) <span class="comment">#plt.cm.Blues)</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;fig.colorbar(im)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;plt.draw()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;plt.show()</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;pdb.set_trace()</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00175.html#a47496bf5999f258f0e4ae82a715428a3">   13</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00175.html#a47496bf5999f258f0e4ae82a715428a3">myerrorbar</a>(models, nbins, binmin, binmax):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    histo, yedges = np.histogram(models, nbins)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    locminy = yedges[0]</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    locmaxy = yedges[-1]</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    plt.imshow(np.array([histo.T,histo.T]).T,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;               extent=[binmin, binmax, yedges.min(), yedges.max()],</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;               cmap=plt.cm.Blues)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> locminy, locmaxy</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00175.html#a393400f60a56e937396ca377f757a00a">   22</a></span>&#160;N = 3</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;dummy, bins = np.histogram(npr.uniform(0,1,100),N)</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00175.html#ac06d798fcb63da784aafff7fb794a952">   24</a></span>&#160;binmin = bins[:-1]</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00175.html#a76ce29d0f16cc488352c4b21379bc590">   25</a></span>&#160;binmax = bins[1:]</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00175.html#a8681af0bad9174a9894726b25bd2d1f0">   26</a></span>&#160;ax0 = fig.add_subplot(int(str(N)+str(1)+str(1)))</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00175.html#a00af4f38473b7b867ceca7471468d542">   27</a></span>&#160;miny = 1.5</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00175.html#a599edb67738d985d28e70fce36192cda">   28</a></span>&#160;maxy = 1.5</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(N):</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00175.html#a2d5314a8c23d2e84ff79adf30d9bcab1">   30</a></span>&#160;    model = npr.normal(1.5,0.3, 100)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    fig.add_subplot(int(str(N)+str(i+1)+str(1)), sharey=ax0)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    numiny, numaxy = <a class="code" href="a00175.html#a47496bf5999f258f0e4ae82a715428a3">myerrorbar</a>(model, 10, binmin[i], binmax[i])</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    miny = min(numiny, miny)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    maxy = max(numaxy, maxy)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ax0.set_ylim([miny, maxy])</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    plt.draw()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;plt.show()</div>
+<div class="ttc" id="a00175_html_a47496bf5999f258f0e4ae82a715428a3"><div class="ttname"><a href="a00175.html#a47496bf5999f258f0e4ae82a715428a3">split.myerrorbar</a></div><div class="ttdeci">def myerrorbar</div><div class="ttdef"><b>Definition:</b> <a href="a00096_source.html#l00013">split.py:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

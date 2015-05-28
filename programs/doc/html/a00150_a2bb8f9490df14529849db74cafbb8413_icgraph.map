@@ -1,6 +1,0 @@
-<map id="select_run.get_prof" name="select_run.get_prof">
-<area shape="rect" id="node3" href="$a00007.html#ae26dd935f13736538b1bee5aab33be1c" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="205,48,469,77"/>
-<area shape="rect" id="node9" href="$a00007.html#a8824eef93dbe7969d7768b030cd73175" title="calculate J from Sig from rho " alt="" coords="199,101,476,131"/>
-<area shape="rect" id="node5" href="$a00007.html#a309ee5e22c30cc152547c952154f3e92" title="sort all profiles, in a parallel way " alt="" coords="525,5,757,51"/>
-<area shape="rect" id="node7" href="$a00007.html#afcdbff9dcfd6d17f8bf1edd6d05228bf" title="plot filled region with grayscale propto # models in log bin " alt="" coords="527,74,756,121"/>
-</map>

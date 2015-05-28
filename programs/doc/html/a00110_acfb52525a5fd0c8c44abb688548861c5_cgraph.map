@@ -1,5 +1,0 @@
-<map id="gi_project.Sig_NORM_rho" name="gi_project.Sig_NORM_rho">
-<area shape="rect" id="node3" href="$a00110.html#ad9ed85a7fc07bafe883c3a565efd3884" title="Abel transformation to get 3D mass density from 2D surface density see appendix in Mamon Boue 2009..." alt="" coords="245,5,411,35"/>
-<area shape="rect" id="node5" href="$a00110.html#ab58f68a20310e024f0d44dde5906740c" title="take 3D density, calculate summed 3D mass " alt="" coords="243,59,413,88"/>
-<area shape="rect" id="node7" href="$a00110.html#a25414bd4c84e9b078243cbebd39c118f" title="calculate enclosed mass from summing up (density in rings)*(ring surface) " alt="" coords="240,112,416,141"/>
-</map>

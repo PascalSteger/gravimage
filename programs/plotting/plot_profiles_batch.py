@@ -84,7 +84,7 @@ def read_models(basename):
 
 
 def pcload_single_entries(basename, gp):
-    import gl_collection as glc
+    import gi_collection_disk as glc
     pc = glc.ProfileCollection(gp.ntracer_pops, gp.nbins)
     with open(basename+'pc2.save', 'rb') as fi:
         dum = pickle.load(fi) # dummy variable, was used to create file
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     ip.remove_first()
     # uncomment following to use stored collection, loglike, all other modules
     #ip.insert_sys_path(basename+'sphere')
-    #import gl_collection as glc
+    #import gi_collection_disk as glc
     ##ip.remove_first(); ip.remove_first() # uncomment to include most recent
     gp = glp.Params(timestamp)
     gp.pops = sr.get_pops(basename)

@@ -1,8 +1,0 @@
-<map id="gl_collection.ProfileCollection.plot_profile" name="gl_collection.ProfileCollection.plot_profile">
-<area shape="rect" id="node3" href="$a00007.html#a99a7b511da29d545074f45c2e5087946" title="draw x and y labels " alt="" coords="307,5,536,51"/>
-<area shape="rect" id="node5" href="$a00007.html#a3ce8065e3bbc8d87ed3f1ffff916e9b8" title="write ascii file with chi2 information " alt="" coords="285,75,557,104"/>
-<area shape="rect" id="node7" href="$a00007.html#a93ac471fc0e678d22094ebf60c411ff6" title="plot filled region for 1sigma and 2sigma confidence interval " alt="" coords="295,128,548,157"/>
-<area shape="rect" id="node11" href="$a00007.html#a9116eee2b4de8708f22fcaaa8cad258e" title="plot 30 sample profiles on top of the model {1,2} sig boundaries " alt="" coords="307,181,536,227"/>
-<area shape="rect" id="node13" href="$a00007.html#a1906e5badb37a56f3078353aee33b560" title="plot data as blue shaded region " alt="" coords="288,251,555,280"/>
-<area shape="rect" id="node9" href="$a00007.html#add5b8e253db42aed06b0b10270b425ec" title="plot 3D half&#45;light radii, based on median nu model " alt="" coords="607,119,836,166"/>
-</map>

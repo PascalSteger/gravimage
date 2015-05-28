@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_physics.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00028.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00128.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00028.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00130.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"># New rho function:</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00128.html#a587602e29b78cd3b916ed73b4bf9f301">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a587602e29b78cd3b916ed73b4bf9f301">rho</a>(zvec, kpar, rho0):</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00130.html#a587602e29b78cd3b916ed73b4bf9f301">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#a587602e29b78cd3b916ed73b4bf9f301">rho</a>(zvec, kpar, rho0):</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    logrho0 = math.log(rho0)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    logrho = np.array(logrho0 + integrate.cumtrapz(-kpar,zvec,initial=0.))</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    rhovec = np.exp(logrho)</div>
@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"># @param zvec: vector of z, at which k(z) is given (requirs z[0] != 0.)</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># New function for calculating the surface density</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00128.html#a4e453d1efc2f45290fd5c09e6a239833">   29</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a4e453d1efc2f45290fd5c09e6a239833">Sig</a>(zvec, rhovec):</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00130.html#a4e453d1efc2f45290fd5c09e6a239833">   29</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#a4e453d1efc2f45290fd5c09e6a239833">Sig</a>(zvec, rhovec):</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Sigvec = 2.*np.array(integrate.cumtrapz(rhovec,zvec,initial=0.))</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> Sigvec</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># calculate (total) surface density from the density, using trapezoidal rule</span></div>
@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"># @param zvec: z-vector, at which rho/Sig(z) is given (requires z[0] != 0.)</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># New function for calculating the z-dir velocity dispersion</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00128.html#a92732fc2738af11d4626e33d5b69b781">   39</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a92732fc2738af11d4626e33d5b69b781">sigz2</a>(zvec,Sigvec,nuvec,C):</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00130.html#a92732fc2738af11d4626e33d5b69b781">   39</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#a92732fc2738af11d4626e33d5b69b781">sigz2</a>(zvec,Sigvec,nuvec,C):</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    G1 = 4.299e-6  <span class="comment"># Newton&#39;s constant in (km)^2*kpc/(Msun*s^2)</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Kzvec = -2.*constants.pi*G1*Sigvec</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    integral = integrate.cumtrapz(nuvec*Kzvec,zvec,initial=0.) + C</div>
@@ -146,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"># outputs sigvec at z = zvec[1:], eg diskards first z point</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a00128.html#af1072ef7adbb8976b79b2438ef539b43">   59</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#af1072ef7adbb8976b79b2438ef539b43">tilt</a>(zipol, param, gp):</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a00130.html#af1072ef7adbb8976b79b2438ef539b43">   59</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#af1072ef7adbb8976b79b2438ef539b43">tilt</a>(zipol, param, gp):</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    tilttmp = 0.</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(gp.nbeta):</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        tilttmp += param[i]*(zipol/max(zipol))**i</div>
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00128.html#a7ea7be08c7e00c151142610891274eb9">   72</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a7ea7be08c7e00c151142610891274eb9">kappa</a>(xipol, Kz):</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00130.html#a7ea7be08c7e00c151142610891274eb9">   72</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#a7ea7be08c7e00c151142610891274eb9">kappa</a>(xipol, Kz):</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    z0 = xipol</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    kzpar = -np.hstack([Kz[0]/z0[0], (Kz[1:]-Kz[:-1])/(z0[1:]-z0[:-1])])</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> kzpar</div>
@@ -169,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"># @param Kz acceleration in z direction</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a00128.html#aa16fce8e135eb7481c4b570c6e78b872">   82</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#aa16fce8e135eb7481c4b570c6e78b872">sig_rz</a>(z, zpars, tpars):</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a00130.html#aa16fce8e135eb7481c4b570c6e78b872">   82</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#aa16fce8e135eb7481c4b570c6e78b872">sig_rz</a>(z, zpars, tpars):</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment"># Mirror prior</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    tparsu = abs(tpars)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
@@ -190,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"># @param tpars tilt parameters: Rsun, hr, hsig</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a00128.html#a659d70cfceec116b30646fd068e6409f">  103</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00128.html#a659d70cfceec116b30646fd068e6409f">rho_baryon_simplenu</a>(zvec, params):</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a00130.html#a659d70cfceec116b30646fd068e6409f">  103</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00130.html#a659d70cfceec116b30646fd068e6409f">rho_baryon_simplenu</a>(zvec, params):</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    G1 = 4.299e-6 <span class="comment"># Newton&#39;s constant in (km)^2*kpc/(Msun*s^2)</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    K=params[0]</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    D=params[1]</div>
@@ -202,17 +202,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"># @param zvec [kpc]</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"># @param K [kpc s^-2], baryon force parameter</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"># @param D [kpc], baryon disk scale height</span></div>
-<div class="ttc" id="a00128_html_a4e453d1efc2f45290fd5c09e6a239833"><div class="ttname"><a href="a00128.html#a4e453d1efc2f45290fd5c09e6a239833">gi_physics.Sig</a></div><div class="ttdeci">def Sig</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00029">gi_physics.py:29</a></div></div>
-<div class="ttc" id="a00128_html_a659d70cfceec116b30646fd068e6409f"><div class="ttname"><a href="a00128.html#a659d70cfceec116b30646fd068e6409f">gi_physics.rho_baryon_simplenu</a></div><div class="ttdeci">def rho_baryon_simplenu</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00103">gi_physics.py:103</a></div></div>
-<div class="ttc" id="a00128_html_a7ea7be08c7e00c151142610891274eb9"><div class="ttname"><a href="a00128.html#a7ea7be08c7e00c151142610891274eb9">gi_physics.kappa</a></div><div class="ttdeci">def kappa</div><div class="ttdoc">calculate vertical force from Kz </div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00072">gi_physics.py:72</a></div></div>
-<div class="ttc" id="a00128_html_a92732fc2738af11d4626e33d5b69b781"><div class="ttname"><a href="a00128.html#a92732fc2738af11d4626e33d5b69b781">gi_physics.sigz2</a></div><div class="ttdeci">def sigz2</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00039">gi_physics.py:39</a></div></div>
-<div class="ttc" id="a00128_html_a587602e29b78cd3b916ed73b4bf9f301"><div class="ttname"><a href="a00128.html#a587602e29b78cd3b916ed73b4bf9f301">gi_physics.rho</a></div><div class="ttdeci">def rho</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00018">gi_physics.py:18</a></div></div>
-<div class="ttc" id="a00128_html_af1072ef7adbb8976b79b2438ef539b43"><div class="ttname"><a href="a00128.html#af1072ef7adbb8976b79b2438ef539b43">gi_physics.tilt</a></div><div class="ttdeci">def tilt</div><div class="ttdoc">return sum of polynomials for tilt as fct of radius TODO: get tilt size from Garbari+2011 ...</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00059">gi_physics.py:59</a></div></div>
-<div class="ttc" id="a00128_html_aa16fce8e135eb7481c4b570c6e78b872"><div class="ttname"><a href="a00128.html#aa16fce8e135eb7481c4b570c6e78b872">gi_physics.sig_rz</a></div><div class="ttdeci">def sig_rz</div><div class="ttdoc">General function to describe the tilt profile. </div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00082">gi_physics.py:82</a></div></div>
+<div class="ttc" id="a00130_html_a659d70cfceec116b30646fd068e6409f"><div class="ttname"><a href="a00130.html#a659d70cfceec116b30646fd068e6409f">gi_physics.rho_baryon_simplenu</a></div><div class="ttdeci">def rho_baryon_simplenu</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00103">gi_physics.py:103</a></div></div>
+<div class="ttc" id="a00130_html_a92732fc2738af11d4626e33d5b69b781"><div class="ttname"><a href="a00130.html#a92732fc2738af11d4626e33d5b69b781">gi_physics.sigz2</a></div><div class="ttdeci">def sigz2</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00039">gi_physics.py:39</a></div></div>
+<div class="ttc" id="a00130_html_af1072ef7adbb8976b79b2438ef539b43"><div class="ttname"><a href="a00130.html#af1072ef7adbb8976b79b2438ef539b43">gi_physics.tilt</a></div><div class="ttdeci">def tilt</div><div class="ttdoc">return sum of polynomials for tilt as fct of radius TODO: get tilt size from Garbari+2011 ...</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00059">gi_physics.py:59</a></div></div>
+<div class="ttc" id="a00130_html_a587602e29b78cd3b916ed73b4bf9f301"><div class="ttname"><a href="a00130.html#a587602e29b78cd3b916ed73b4bf9f301">gi_physics.rho</a></div><div class="ttdeci">def rho</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00018">gi_physics.py:18</a></div></div>
+<div class="ttc" id="a00130_html_a7ea7be08c7e00c151142610891274eb9"><div class="ttname"><a href="a00130.html#a7ea7be08c7e00c151142610891274eb9">gi_physics.kappa</a></div><div class="ttdeci">def kappa</div><div class="ttdoc">calculate vertical force from Kz </div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00072">gi_physics.py:72</a></div></div>
+<div class="ttc" id="a00130_html_aa16fce8e135eb7481c4b570c6e78b872"><div class="ttname"><a href="a00130.html#aa16fce8e135eb7481c4b570c6e78b872">gi_physics.sig_rz</a></div><div class="ttdeci">def sig_rz</div><div class="ttdoc">General function to describe the tilt profile. </div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00082">gi_physics.py:82</a></div></div>
+<div class="ttc" id="a00130_html_a4e453d1efc2f45290fd5c09e6a239833"><div class="ttname"><a href="a00130.html#a4e453d1efc2f45290fd5c09e6a239833">gi_physics.Sig</a></div><div class="ttdeci">def Sig</div><div class="ttdef"><b>Definition:</b> <a href="a00028_source.html#l00029">gi_physics.py:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

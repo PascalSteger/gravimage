@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gl_output.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00051.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00134.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython</span></div>
+<a href="a00051.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00135.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
@@ -100,16 +100,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> pdb, csv</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00005.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00005.html">Output</a>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00005.html#aef11a0aea173187b737ccb8d03e7bdbe">   14</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00005.html#aef11a0aea173187b737ccb8d03e7bdbe">__init__</a> (self):</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00005.html#a80d07478cab14df0b448c43c6bdbc25a">   15</a></span>&#160;        self.<a class="code" href="a00005.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a> = []</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00005.html#ae11b6ab9b78c95fe478ccfc0faabdadd">   16</a></span>&#160;        self.<a class="code" href="a00005.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a> = []</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00006.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00006.html">Output</a>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00006.html#aef11a0aea173187b737ccb8d03e7bdbe">   14</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00006.html#aef11a0aea173187b737ccb8d03e7bdbe">__init__</a> (self):</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00006.html#a80d07478cab14df0b448c43c6bdbc25a">   15</a></span>&#160;        self.<a class="code" href="a00006.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a> = []</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00006.html#ae11b6ab9b78c95fe478ccfc0faabdadd">   16</a></span>&#160;        self.<a class="code" href="a00006.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a> = []</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">## \fn __init__ (self)</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment"># constructor, with descriptor and data in array format</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00005.html#af77d06d7fa5321d0aa77dfc657de17c3">   22</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00005.html#af77d06d7fa5321d0aa77dfc657de17c3">add</a>(self, d, vec):</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00006.html#af77d06d7fa5321d0aa77dfc657de17c3">   22</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00006.html#af77d06d7fa5321d0aa77dfc657de17c3">add</a>(self, d, vec):</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.descriptions.append(d)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        self.arrays.append(vec)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment"># \fn add(d, vec)</span></div>
@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment"># @param vec np.array of floats</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00005.html#aae6e40349f747240d7b29d5110ac5d7f">   31</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00005.html#aae6e40349f747240d7b29d5110ac5d7f">write_old</a>(self, filename):</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00006.html#aae6e40349f747240d7b29d5110ac5d7f">   31</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00006.html#aae6e40349f747240d7b29d5110ac5d7f">write_old</a>(self, filename):</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        with open(filename, <span class="stringliteral">&#39;w&#39;</span>) <span class="keyword">as</span> csvfile:</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            csvw = csv.writer(csvfile, delimiter=<span class="stringliteral">&#39;,&#39;</span>)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> column <span class="keywordflow">in</span> zip(*[s <span class="keywordflow">for</span> s <span class="keywordflow">in</span> self.container]):</div>
@@ -129,36 +129,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment"># @param filename string</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00005.html#ae92f70a886d23a7561f300a69f11a619">   42</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00005.html#ae92f70a886d23a7561f300a69f11a619">write</a>(self, filename):</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        headers = <span class="stringliteral">&quot;,&quot;</span>.join(self.<a class="code" href="a00005.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00006.html#ae92f70a886d23a7561f300a69f11a619">   42</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00006.html#ae92f70a886d23a7561f300a69f11a619">write</a>(self, filename):</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        headers = <span class="stringliteral">&quot;,&quot;</span>.join(self.<a class="code" href="a00006.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a>)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        csvfile = open(filename, <span class="stringliteral">&#39;wb&#39;</span>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        np.savetxt(csvfile, np.transpose(np.array(self.<a class="code" href="a00005.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a>)), header=headers, delimiter=<span class="stringliteral">&quot;,&quot;</span>)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        np.savetxt(csvfile, np.transpose(np.array(self.<a class="code" href="a00006.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a>)), header=headers, delimiter=<span class="stringliteral">&quot;,&quot;</span>)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        csvfile.close()</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">## \fn write(self, filename)</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment"># write file to csv file</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment"># @param filename string</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a00005.html#a8ee7afdf3c5e021f7169928d05204453">   52</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00005.html#a8ee7afdf3c5e021f7169928d05204453">__repr__</a>(self):</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Output: &quot;</span>+self.<a class="code" href="a00005.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a>+<span class="stringliteral">&quot; &quot;</span>+self.<a class="code" href="a00005.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a00006.html#a8ee7afdf3c5e021f7169928d05204453">   52</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00006.html#a8ee7afdf3c5e021f7169928d05204453">__repr__</a>(self):</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Output: &quot;</span>+self.<a class="code" href="a00006.html#a80d07478cab14df0b448c43c6bdbc25a">descriptions</a>+<span class="stringliteral">&quot; &quot;</span>+self.<a class="code" href="a00006.html#ae11b6ab9b78c95fe478ccfc0faabdadd">arrays</a></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">## \fn __repr__(self)</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment"># string representation for ipython</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">## \class Output</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"># class for generating ASCII output files from plot_multinest</span></div>
-<div class="ttc" id="a00005_html_ae92f70a886d23a7561f300a69f11a619"><div class="ttname"><a href="a00005.html#ae92f70a886d23a7561f300a69f11a619">gl_output.Output.write</a></div><div class="ttdeci">def write</div><div class="ttdoc">write file to csv file </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00042">gl_output.py:42</a></div></div>
-<div class="ttc" id="a00005_html_aae6e40349f747240d7b29d5110ac5d7f"><div class="ttname"><a href="a00005.html#aae6e40349f747240d7b29d5110ac5d7f">gl_output.Output.write_old</a></div><div class="ttdeci">def write_old</div><div class="ttdoc">old routine for output to file </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00031">gl_output.py:31</a></div></div>
-<div class="ttc" id="a00005_html_aef11a0aea173187b737ccb8d03e7bdbe"><div class="ttname"><a href="a00005.html#aef11a0aea173187b737ccb8d03e7bdbe">gl_output.Output.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor, with descriptor and data in array format </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00014">gl_output.py:14</a></div></div>
-<div class="ttc" id="a00005_html"><div class="ttname"><a href="a00005.html">gl_output.Output</a></div><div class="ttdoc">class for generating ASCII output files from plot_multinest </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00013">gl_output.py:13</a></div></div>
-<div class="ttc" id="a00005_html_a80d07478cab14df0b448c43c6bdbc25a"><div class="ttname"><a href="a00005.html#a80d07478cab14df0b448c43c6bdbc25a">gl_output.Output.descriptions</a></div><div class="ttdeci">descriptions</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00015">gl_output.py:15</a></div></div>
-<div class="ttc" id="a00005_html_ae11b6ab9b78c95fe478ccfc0faabdadd"><div class="ttname"><a href="a00005.html#ae11b6ab9b78c95fe478ccfc0faabdadd">gl_output.Output.arrays</a></div><div class="ttdeci">arrays</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00016">gl_output.py:16</a></div></div>
-<div class="ttc" id="a00005_html_a8ee7afdf3c5e021f7169928d05204453"><div class="ttname"><a href="a00005.html#a8ee7afdf3c5e021f7169928d05204453">gl_output.Output.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00052">gl_output.py:52</a></div></div>
-<div class="ttc" id="a00005_html_af77d06d7fa5321d0aa77dfc657de17c3"><div class="ttname"><a href="a00005.html#af77d06d7fa5321d0aa77dfc657de17c3">gl_output.Output.add</a></div><div class="ttdeci">def add</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00022">gl_output.py:22</a></div></div>
+<div class="ttc" id="a00006_html_ae11b6ab9b78c95fe478ccfc0faabdadd"><div class="ttname"><a href="a00006.html#ae11b6ab9b78c95fe478ccfc0faabdadd">gl_output.Output.arrays</a></div><div class="ttdeci">arrays</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00016">gl_output.py:16</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="a00006.html">gl_output.Output</a></div><div class="ttdoc">class for generating ASCII output files from plot_multinest </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00013">gl_output.py:13</a></div></div>
+<div class="ttc" id="a00006_html_af77d06d7fa5321d0aa77dfc657de17c3"><div class="ttname"><a href="a00006.html#af77d06d7fa5321d0aa77dfc657de17c3">gl_output.Output.add</a></div><div class="ttdeci">def add</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00022">gl_output.py:22</a></div></div>
+<div class="ttc" id="a00006_html_ae92f70a886d23a7561f300a69f11a619"><div class="ttname"><a href="a00006.html#ae92f70a886d23a7561f300a69f11a619">gl_output.Output.write</a></div><div class="ttdeci">def write</div><div class="ttdoc">write file to csv file </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00042">gl_output.py:42</a></div></div>
+<div class="ttc" id="a00006_html_a8ee7afdf3c5e021f7169928d05204453"><div class="ttname"><a href="a00006.html#a8ee7afdf3c5e021f7169928d05204453">gl_output.Output.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00052">gl_output.py:52</a></div></div>
+<div class="ttc" id="a00006_html_aae6e40349f747240d7b29d5110ac5d7f"><div class="ttname"><a href="a00006.html#aae6e40349f747240d7b29d5110ac5d7f">gl_output.Output.write_old</a></div><div class="ttdeci">def write_old</div><div class="ttdoc">old routine for output to file </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00031">gl_output.py:31</a></div></div>
+<div class="ttc" id="a00006_html_a80d07478cab14df0b448c43c6bdbc25a"><div class="ttname"><a href="a00006.html#a80d07478cab14df0b448c43c6bdbc25a">gl_output.Output.descriptions</a></div><div class="ttdeci">descriptions</div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00015">gl_output.py:15</a></div></div>
+<div class="ttc" id="a00006_html_aef11a0aea173187b737ccb8d03e7bdbe"><div class="ttname"><a href="a00006.html#aef11a0aea173187b737ccb8d03e7bdbe">gl_output.Output.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor, with descriptor and data in array format </div><div class="ttdef"><b>Definition:</b> <a href="a00051_source.html#l00014">gl_output.py:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:39 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

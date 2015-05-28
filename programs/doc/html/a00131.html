@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_timing Namespace Reference</title>
+<title>GravImage: gi_priors Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,99 +82,150 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gi_timing Namespace Reference</div>  </div>
+<div class="title">gi_priors Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a68bb14a12911dab27013afca632ffab3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#a68bb14a12911dab27013afca632ffab3">profile</a></td></tr>
-<tr class="separator:a68bb14a12911dab27013afca632ffab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab75986f0ad1087d23e900c661a8ea530"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#ab75986f0ad1087d23e900c661a8ea530">print_prof_data</a></td></tr>
-<tr class="separator:ab75986f0ad1087d23e900c661a8ea530"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a644044dc442b4425e20955cba60c50da"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#a644044dc442b4425e20955cba60c50da">clear_prof_data</a></td></tr>
-<tr class="separator:a644044dc442b4425e20955cba60c50da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a141632c943d31701b98c41d7d414b7ba"><td class="memItemLeft" align="right" valign="top">dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#a141632c943d31701b98c41d7d414b7ba">PROF_DATA</a> = {}</td></tr>
-<tr class="separator:a141632c943d31701b98c41d7d414b7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb4137d602624a5ccc714ae86ea3f511"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#acb4137d602624a5ccc714ae86ea3f511">check_tilt</a></td></tr>
+<tr class="memdesc:acb4137d602624a5ccc714ae86ea3f511"><td class="mdescLeft">&#160;</td><td class="mdescRight">check that tilt is physically possible TODO: sensible values, e.g.  <a href="#acb4137d602624a5ccc714ae86ea3f511">More...</a><br/></td></tr>
+<tr class="separator:acb4137d602624a5ccc714ae86ea3f511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a8df72fb426b6d6fb38faee6468e5ce"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#a0a8df72fb426b6d6fb38faee6468e5ce">check_bprior</a></td></tr>
+<tr class="memdesc:a0a8df72fb426b6d6fb38faee6468e5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">check that observed tracer mass is less than total mass  <a href="#a0a8df72fb426b6d6fb38faee6468e5ce">More...</a><br/></td></tr>
+<tr class="separator:a0a8df72fb426b6d6fb38faee6468e5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1898e0c1690cb9e36f319ed8d25e3de8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html#a1898e0c1690cb9e36f319ed8d25e3de8">check_beta</a></td></tr>
+<tr class="memdesc:a1898e0c1690cb9e36f319ed8d25e3de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">check that beta is bound and not jumping  <a href="#a1898e0c1690cb9e36f319ed8d25e3de8">More...</a><br/></td></tr>
+<tr class="separator:a1898e0c1690cb9e36f319ed8d25e3de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a644044dc442b4425e20955cba60c50da"></a>
+<a class="anchor" id="a1898e0c1690cb9e36f319ed8d25e3de8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def gi_timing.clear_prof_data </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00042_source.html#l00033">33</a> of file <a class="el" href="a00042_source.html">gi_timing.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab75986f0ad1087d23e900c661a8ea530"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def gi_timing.print_prof_data </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00042_source.html#l00025">25</a> of file <a class="el" href="a00042_source.html">gi_timing.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a68bb14a12911dab27013afca632ffab3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def gi_timing.profile </td>
+          <td class="memname">gi_priors.check_beta </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>fn</em></td><td>)</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00042_source.html#l00007">7</a> of file <a class="el" href="a00042_source.html">gi_timing.py</a>.</p>
+<p>check that beta is bound and not jumping </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beta</td><td>physical beta, to be in the range ]-infty,1] </td></tr>
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00031_source.html#l00016">16</a> of file <a class="el" href="a00031_source.html">gi_priors.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00131_a1898e0c1690cb9e36f319ed8d25e3de8_cgraph.png" border="0" usemap="#a00131_a1898e0c1690cb9e36f319ed8d25e3de8_cgraph" alt=""/></div>
+<map name="a00131_a1898e0c1690cb9e36f319ed8d25e3de8_cgraph" id="a00131_a1898e0c1690cb9e36f319ed8d25e3de8_cgraph">
+<area shape="rect" id="node3" href="a00123.html#a14923b8bceed0787b9cc1cb429ce6118" title="print debugging message if level is important enough " alt="" coords="205,5,320,35"/><area shape="rect" id="node5" href="a00124.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="229,59,296,88"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a141632c943d31701b98c41d7d414b7ba"></a>
+<a class="anchor" id="a0a8df72fb426b6d6fb38faee6468e5ce"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">dictionary gi_timing.PROF_DATA = {}</td>
+          <td class="memname">gi_priors.check_bprior </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rhocheck</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>nucheck</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00042_source.html#l00005">5</a> of file <a class="el" href="a00042_source.html">gi_timing.py</a>.</p>
+<p>check that observed tracer mass is less than total mass </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhocheck</td><td>density profile in [Munit/pc^3] </td></tr>
+    <tr><td class="paramname">nucheck</td><td>density profile in [Munit/pc^3] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00030_source.html#l00024">24</a> of file <a class="el" href="a00030_source.html">gi_priors.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb4137d602624a5ccc714ae86ea3f511"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_priors.check_tilt </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>tmp_tilt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check that tilt is physically possible TODO: sensible values, e.g. </p>
+<p>percentage of K_z </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tmp_tilt</td><td>tilt profile </td></tr>
+    <tr><td class="paramname">gp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00030_source.html#l00015">15</a> of file <a class="el" href="a00030_source.html">gi_priors.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

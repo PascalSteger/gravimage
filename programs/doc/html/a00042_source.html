@@ -88,13 +88,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_timing.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00042.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00131.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/bash python3</span></div>
+<a href="a00042.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00133.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/bash python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> time</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> functools <span class="keyword">import</span> wraps</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00131.html#a141632c943d31701b98c41d7d414b7ba">    5</a></span>&#160;PROF_DATA = {}</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00133.html#a141632c943d31701b98c41d7d414b7ba">    5</a></span>&#160;PROF_DATA = {}</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00131.html#a68bb14a12911dab27013afca632ffab3">    7</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00131.html#a68bb14a12911dab27013afca632ffab3">profile</a>(fn):</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00133.html#a68bb14a12911dab27013afca632ffab3">    7</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00133.html#a68bb14a12911dab27013afca632ffab3">profile</a>(fn):</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    @wraps(fn)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">def </span>with_profiling(*args, **kwargs):</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        start_time = time.time()</div>
@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> with_profiling</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00131.html#ab75986f0ad1087d23e900c661a8ea530">   25</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00131.html#ab75986f0ad1087d23e900c661a8ea530">print_prof_data</a>():</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00133.html#ab75986f0ad1087d23e900c661a8ea530">   25</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00133.html#ab75986f0ad1087d23e900c661a8ea530">print_prof_data</a>():</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> fname, data <span class="keywordflow">in</span> PROF_DATA.items():</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        max_time = max(data[1])</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        avg_time = sum(data[1]) / len(data[1])</div>
@@ -120,17 +120,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        print(<span class="stringliteral">&quot;Execution time max: &quot;</span>+str(max_time)+\</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;              <span class="stringliteral">&quot;, average: &quot;</span> + str(avg_time))</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00131.html#a644044dc442b4425e20955cba60c50da">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00131.html#a644044dc442b4425e20955cba60c50da">clear_prof_data</a>():</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00133.html#a644044dc442b4425e20955cba60c50da">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00133.html#a644044dc442b4425e20955cba60c50da">clear_prof_data</a>():</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">global</span> PROF_DATA</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    PROF_DATA = {}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="ttc" id="a00131_html_ab75986f0ad1087d23e900c661a8ea530"><div class="ttname"><a href="a00131.html#ab75986f0ad1087d23e900c661a8ea530">gi_timing.print_prof_data</a></div><div class="ttdeci">def print_prof_data</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00025">gi_timing.py:25</a></div></div>
-<div class="ttc" id="a00131_html_a68bb14a12911dab27013afca632ffab3"><div class="ttname"><a href="a00131.html#a68bb14a12911dab27013afca632ffab3">gi_timing.profile</a></div><div class="ttdeci">def profile</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00007">gi_timing.py:7</a></div></div>
-<div class="ttc" id="a00131_html_a644044dc442b4425e20955cba60c50da"><div class="ttname"><a href="a00131.html#a644044dc442b4425e20955cba60c50da">gi_timing.clear_prof_data</a></div><div class="ttdeci">def clear_prof_data</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00033">gi_timing.py:33</a></div></div>
+<div class="ttc" id="a00133_html_ab75986f0ad1087d23e900c661a8ea530"><div class="ttname"><a href="a00133.html#ab75986f0ad1087d23e900c661a8ea530">gi_timing.print_prof_data</a></div><div class="ttdeci">def print_prof_data</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00025">gi_timing.py:25</a></div></div>
+<div class="ttc" id="a00133_html_a68bb14a12911dab27013afca632ffab3"><div class="ttname"><a href="a00133.html#a68bb14a12911dab27013afca632ffab3">gi_timing.profile</a></div><div class="ttdeci">def profile</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00007">gi_timing.py:7</a></div></div>
+<div class="ttc" id="a00133_html_a644044dc442b4425e20955cba60c50da"><div class="ttname"><a href="a00133.html#a644044dc442b4425e20955cba60c50da">gi_timing.clear_prof_data</a></div><div class="ttdeci">def clear_prof_data</div><div class="ttdef"><b>Definition:</b> <a href="a00042_source.html#l00033">gi_timing.py:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

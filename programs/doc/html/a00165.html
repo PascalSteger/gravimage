@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: newsplit Namespace Reference</title>
+<title>GravImage: new_fitting_beta Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,116 +82,175 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">newsplit Namespace Reference</div>  </div>
+<div class="title">new_fitting_beta Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a95d3309dc051b796d05a7b8f9c7e4464"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">analytic_beta</a></td></tr>
+<tr class="separator:a95d3309dc051b796d05a7b8f9c7e4464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96eeb9500832a1386a087ebb90935dd5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a96eeb9500832a1386a087ebb90935dd5">model_beta</a></td></tr>
+<tr class="memdesc:a96eeb9500832a1386a087ebb90935dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">map [0,1] to [-1,1] with a polynomial  <a href="#a96eeb9500832a1386a087ebb90935dd5">More...</a><br/></td></tr>
+<tr class="separator:a96eeb9500832a1386a087ebb90935dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a17c5a5920b8bdbb01b776fa0a9e3d837"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a17c5a5920b8bdbb01b776fa0a9e3d837">fig</a> = plt.figure()</td></tr>
-<tr class="separator:a17c5a5920b8bdbb01b776fa0a9e3d837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0fbb0090c0711831769d9a36efef63c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#aa0fbb0090c0711831769d9a36efef63c">xval</a> = npr.normal(9, 3, 100)</td></tr>
-<tr class="separator:aa0fbb0090c0711831769d9a36efef63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3792e1eb9b268f3801db16ed09d6d35e"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a3792e1eb9b268f3801db16ed09d6d35e">yval</a> = npr.normal(1, 0.5, 100)</td></tr>
-<tr class="separator:a3792e1eb9b268f3801db16ed09d6d35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32a6d2272493548c3056fe6ae9549fed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a32a6d2272493548c3056fe6ae9549fed">nbins</a> = 12</td></tr>
-<tr class="separator:a32a6d2272493548c3056fe6ae9549fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93120a84f01bcafd3295b9047231399"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#af93120a84f01bcafd3295b9047231399">extent</a> = [binmin, binmax, yedges.min(), yedges.max()]</td></tr>
-<tr class="separator:af93120a84f01bcafd3295b9047231399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9100be47fe322b8d683abb1b063393e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a9100be47fe322b8d683abb1b063393e4">cmap</a> = plt.cm.Blues)</td></tr>
-<tr class="separator:a9100be47fe322b8d683abb1b063393e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadef9650e5927c40080ad4e1cf6eb023"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#aadef9650e5927c40080ad4e1cf6eb023">gp</a> = gl_params.Params()</td></tr>
+<tr class="separator:aadef9650e5927c40080ad4e1cf6eb023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c3449257ec86785f7e69e88489caf6"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#ad5c3449257ec86785f7e69e88489caf6">fig</a> = plt.figure()</td></tr>
+<tr class="separator:ad5c3449257ec86785f7e69e88489caf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a6e5b171dab188d5ae0bbe1b39e2c6"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a80a6e5b171dab188d5ae0bbe1b39e2c6">ax</a> = fig.add_subplot(1,1,1)</td></tr>
+<tr class="separator:a80a6e5b171dab188d5ae0bbe1b39e2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad733123caeb0f730e20158782edb69e9"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#ad733123caeb0f730e20158782edb69e9">x</a> = np.linspace(0, 3e3, 20)</td></tr>
+<tr class="separator:ad733123caeb0f730e20158782edb69e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa730bf890e3f40fa774da42fbefaccd2"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#aa730bf890e3f40fa774da42fbefaccd2">y</a> = <a class="el" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">analytic_beta</a>(<a class="el" href="a00165.html#ad733123caeb0f730e20158782edb69e9">x</a>, <a class="el" href="a00165.html#aadef9650e5927c40080ad4e1cf6eb023">gp</a>)</td></tr>
+<tr class="separator:aa730bf890e3f40fa774da42fbefaccd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a95d3309dc051b796d05a7b8f9c7e4464"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def new_fitting_beta.analytic_beta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00094_source.html#l00016">16</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96eeb9500832a1386a087ebb90935dd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">new_fitting_beta.model_beta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>r0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>map [0,1] to [-1,1] with a polynomial </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r0</td><td>radii [pc] </td></tr>
+    <tr><td class="paramname">vec</td><td>normalized ai, s.t. abs(sum(ai)) = 1 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00094_source.html#l00023">23</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a9100be47fe322b8d683abb1b063393e4"></a>
+<a class="anchor" id="a80a6e5b171dab188d5ae0bbe1b39e2c6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">newsplit.cmap = plt.cm.Blues)</td>
+          <td class="memname">tuple new_fitting_beta.ax = fig.add_subplot(1,1,1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00094_source.html#l00021">21</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
+<p>Definition at line <a class="el" href="a00094_source.html#l00045">45</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af93120a84f01bcafd3295b9047231399"></a>
+<a class="anchor" id="ad5c3449257ec86785f7e69e88489caf6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list newsplit.extent = [binmin, binmax, yedges.min(), yedges.max()]</td>
+          <td class="memname">tuple new_fitting_beta.fig = plt.figure()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00094_source.html#l00020">20</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
+<p>Definition at line <a class="el" href="a00094_source.html#l00044">44</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a17c5a5920b8bdbb01b776fa0a9e3d837"></a>
+<a class="anchor" id="aadef9650e5927c40080ad4e1cf6eb023"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple newsplit.fig = plt.figure()</td>
+          <td class="memname">tuple new_fitting_beta.gp = gl_params.Params()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00094_source.html#l00007">7</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
+<p>Definition at line <a class="el" href="a00094_source.html#l00010">10</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a32a6d2272493548c3056fe6ae9549fed"></a>
+<a class="anchor" id="ad733123caeb0f730e20158782edb69e9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int newsplit.nbins = 12</td>
+          <td class="memname">tuple new_fitting_beta.x = np.linspace(0, 3e3, 20)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00094_source.html#l00013">13</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
+<p>Definition at line <a class="el" href="a00094_source.html#l00047">47</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa0fbb0090c0711831769d9a36efef63c"></a>
+<a class="anchor" id="aa730bf890e3f40fa774da42fbefaccd2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple newsplit.xval = npr.normal(9, 3, 100)</td>
+          <td class="memname">tuple new_fitting_beta.y = <a class="el" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">analytic_beta</a>(<a class="el" href="a00165.html#ad733123caeb0f730e20158782edb69e9">x</a>, <a class="el" href="a00165.html#aadef9650e5927c40080ad4e1cf6eb023">gp</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00094_source.html#l00010">10</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3792e1eb9b268f3801db16ed09d6d35e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple newsplit.yval = npr.normal(1, 0.5, 100)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00094_source.html#l00011">11</a> of file <a class="el" href="a00094_source.html">newsplit.py</a>.</p>
+<p>Definition at line <a class="el" href="a00094_source.html#l00049">49</a> of file <a class="el" href="a00094_source.html">new_fitting_beta.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_class_cube.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00016.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00113.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00016.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00114.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> scipy.special</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00113.html#a0adfe7b980784a0b32f74ee9ede1997f">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a0adfe7b980784a0b32f74ee9ede1997f">map_tilt_slope</a>(vec, gp):</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00114.html#a0adfe7b980784a0b32f74ee9ede1997f">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a0adfe7b980784a0b32f74ee9ede1997f">map_tilt_slope</a>(vec, gp):</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    T = np.zeros(len(vec))</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    T[0] = vec[0] <span class="comment"># uniformly between 0 and 1</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> np.arange(1,len(vec)):</div>
@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"># @param gp</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00113.html#a7dc40e36b4a861fa1889df406ff10a74">   38</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a7dc40e36b4a861fa1889df406ff10a74">map_tiltstar</a>(pa, gp):</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00114.html#a7dc40e36b4a861fa1889df406ff10a74">   38</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a7dc40e36b4a861fa1889df406ff10a74">map_tiltstar</a>(pa, gp):</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">#pdb.set_trace()</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    off = 0</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment"># tilt parameters : [0,1] -&gt;  some range, e.g. [-1,1]</span></div>
@@ -142,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"># mapping tilt parameters from [0,1] to full parameter space</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"># @param pa parameter array</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">   55</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(params, prof, pop, gp):</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">   55</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(params, prof, pop, gp):</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment"># params[0] for central value of rho or nu</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment"># params[1] for central value of kz (for rho or nu)</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">#pdb.set_trace()</span></div>
@@ -207,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> np.hstack([rhonu_C, kz_C, kz_vector])</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="a00113.html#af69623625523f72b663a95ec93eccf47">  120</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#af69623625523f72b663a95ec93eccf47">map_simplenu_baryon</a>(params, gp):</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="a00114.html#af69623625523f72b663a95ec93eccf47">  120</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#af69623625523f72b663a95ec93eccf47">map_simplenu_baryon</a>(params, gp):</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment"># Input: two multinest cube params, [0,1]</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment"># Output: K and D parameters for simplenu baryon model</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment"># H Silverwood 3/02/15</span></div>
@@ -220,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> np.array([K, D])</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">  133</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(params, prof, pop, gp):</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">  133</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">map_nr</a>(params, prof, pop, gp):</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    gh.sanitize_vector(params, gp.nrho, 0, 1, gp.debug)</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    nr = np.zeros(gp.nepol) <span class="comment"># to hold the n(r) = dlog(rho)/dlog(r) values</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
@@ -293,7 +293,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="a00113.html#a07bcbb94b8b83f2e40a23870a550494f">  206</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a07bcbb94b8b83f2e40a23870a550494f">map_nu</a>(pa, gp):</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="a00114.html#a07bcbb94b8b83f2e40a23870a550494f">  206</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a07bcbb94b8b83f2e40a23870a550494f">map_nu</a>(pa, gp):</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment"># TODO: assertion len(pa)=gp.nepol</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(pa)):</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        pa[i] = 10**(pa[i]*(gp.maxlog10nu-gp.minlog10nu)+gp.minlog10nu)</div>
@@ -308,7 +308,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="a00113.html#aa18d30fd4e863889929cff838e05e42e">  221</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(pa, gp):</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="a00114.html#aa18d30fd4e863889929cff838e05e42e">  221</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#aa18d30fd4e863889929cff838e05e42e">map_MtoL</a>(pa, gp):</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    scale = gp.MtoLmax - gp.MtoLmin</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    pa = pa*scale+gp.MtoLmin</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> pa</div>
@@ -317,7 +317,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"># @param pa scalar</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"># @param gp global parameters holding MtoL{min,max}</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="a00113.html#a7b77a3c5e681cced0e940f6c2e862914">  230</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(params, prof, pop, gp):</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="a00114.html#a7b77a3c5e681cced0e940f6c2e862914">  230</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(params, prof, pop, gp):</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">if</span> prof == <span class="stringliteral">&#39;rho&#39;</span>:</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        rhonu_C_max = gp.rho_C_max</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        rhonu_C_min = gp.rho_C_min</div>
@@ -355,7 +355,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">return</span> np.hstack([rhonu_C, rhonu_vector])</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="a00113.html#aa2dd8f27b7618924166399842e4f4186">  268</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#aa2dd8f27b7618924166399842e4f4186">map_constdm</a>(params, prof, pop, gp):</div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="a00114.html#aa2dd8f27b7618924166399842e4f4186">  268</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00114.html#aa2dd8f27b7618924166399842e4f4186">map_constdm</a>(params, prof, pop, gp):</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    rhoC = gp.rho_C_min + (gp.rho_C_max-gp.rho_C_min)*params[0]</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">return</span> [rhoC]</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
@@ -386,13 +386,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="comment">#Dark Matter mass profile parameters: rho_C, kz_C, kz_vector</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">if</span> gp.darkmattermodel == <span class="stringliteral">&#39;const_dm&#39;</span>:</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            offstep = 1</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            tmp_DM = <a class="code" href="a00113.html#aa2dd8f27b7618924166399842e4f4186">map_constdm</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            tmp_DM = <a class="code" href="a00114.html#aa2dd8f27b7618924166399842e4f4186">map_constdm</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">elif</span> gp.darkmattermodel == <span class="stringliteral">&#39;kz_dm&#39;</span>:</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            offstep = gp.nrhonu + 1</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">if</span> gp.scan_rhonu_space:</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                tmp_DM = <a class="code" href="a00113.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                tmp_DM = <a class="code" href="a00114.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                tmp_DM = <a class="code" href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                tmp_DM = <a class="code" href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            pc[off+i] = tmp_DM[i]</div>
@@ -403,9 +403,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">for</span> baryon_pop <span class="keywordflow">in</span> range(0, gp.nbaryon_pops):</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            offstep = gp.nbaryon_params</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="keywordflow">if</span> gp.baryonmodel == <span class="stringliteral">&#39;simplenu_baryon&#39;</span>:</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                tmp_baryon = <a class="code" href="a00113.html#af69623625523f72b663a95ec93eccf47">map_simplenu_baryon</a>(pc[off:off+offstep], gp)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                tmp_baryon = <a class="code" href="a00114.html#af69623625523f72b663a95ec93eccf47">map_simplenu_baryon</a>(pc[off:off+offstep], gp)</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <span class="keywordflow">elif</span> gp.baryonmodel == <span class="stringliteral">&#39;kz_baryon&#39;</span>:</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                tmp_baryon = <a class="code" href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, baryon_pop, gp)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                tmp_baryon = <a class="code" href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;rho&#39;</span>, baryon_pop, gp)</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                pc[off+i] = tmp_baryon[i]</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            off += offstep</div>
@@ -414,9 +414,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">for</span> tracer_pop <span class="keywordflow">in</span> range(0, gp.ntracer_pops):</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            offstep = gp.nrhonu + 1</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="keywordflow">if</span> gp.scan_rhonu_space:</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                tmp_tracer = <a class="code" href="a00113.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(pc[off:off+offstep], <span class="stringliteral">&#39;nu&#39;</span>, tracer_pop, gp)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                tmp_tracer = <a class="code" href="a00114.html#a7b77a3c5e681cced0e940f6c2e862914">map_rhonu</a>(pc[off:off+offstep], <span class="stringliteral">&#39;nu&#39;</span>, tracer_pop, gp)</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                tmp_tracer = <a class="code" href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;nu&#39;</span>, tracer_pop, gp)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                tmp_tracer = <a class="code" href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">map_kr</a>(pc[off:off+offstep], <span class="stringliteral">&#39;nu&#39;</span>, tracer_pop, gp)</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(offstep):</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                pc[off+i] = tmp_tracer[i]</div>
@@ -450,24 +450,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment"># Common base class for all parameter sets</span></div>
 <div class="ttc" id="a00001_html_a02852d134f6a5deb1ec9d0acf36cb420"><div class="ttname"><a href="a00001.html#a02852d134f6a5deb1ec9d0acf36cb420">gi_class_cube.Cube.__repr__</a></div><div class="ttdeci">def __repr__</div><div class="ttdoc">string representation for ipython </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00349">gi_class_cube.py:349</a></div></div>
 <div class="ttc" id="a00001_html_a93eccb9209e80846f15e75d09e173180"><div class="ttname"><a href="a00001.html#a93eccb9209e80846f15e75d09e173180">gi_class_cube.Cube.cube</a></div><div class="ttdeci">cube</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00278">gi_class_cube.py:278</a></div></div>
-<div class="ttc" id="a00113_html_a4b99215085a0f61b8250d74a5ee07170"><div class="ttname"><a href="a00113.html#a4b99215085a0f61b8250d74a5ee07170">gi_class_cube.map_kr</a></div><div class="ttdeci">def map_kr</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00055">gi_class_cube.py:55</a></div></div>
+<div class="ttc" id="a00114_html_a7b77a3c5e681cced0e940f6c2e862914"><div class="ttname"><a href="a00114.html#a7b77a3c5e681cced0e940f6c2e862914">gi_class_cube.map_rhonu</a></div><div class="ttdeci">def map_rhonu</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00230">gi_class_cube.py:230</a></div></div>
 <div class="ttc" id="a00001_html"><div class="ttname"><a href="a00001.html">gi_class_cube.Cube</a></div><div class="ttdoc">Common base class for all parameter sets. </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00274">gi_class_cube.py:274</a></div></div>
-<div class="ttc" id="a00113_html_ae98bb05e7a37badaed7a780c087b401a"><div class="ttname"><a href="a00113.html#ae98bb05e7a37badaed7a780c087b401a">gi_class_cube.map_nr</a></div><div class="ttdeci">def map_nr</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space prior on dn/dlnr: &amp;lt; nrscale and possibly a ...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00133">gi_class_cube.py:133</a></div></div>
-<div class="ttc" id="a00113_html_a7dc40e36b4a861fa1889df406ff10a74"><div class="ttname"><a href="a00113.html#a7dc40e36b4a861fa1889df406ff10a74">gi_class_cube.map_tiltstar</a></div><div class="ttdeci">def map_tiltstar</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00038">gi_class_cube.py:38</a></div></div>
+<div class="ttc" id="a00114_html_a7dc40e36b4a861fa1889df406ff10a74"><div class="ttname"><a href="a00114.html#a7dc40e36b4a861fa1889df406ff10a74">gi_class_cube.map_tiltstar</a></div><div class="ttdeci">def map_tiltstar</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00038">gi_class_cube.py:38</a></div></div>
+<div class="ttc" id="a00114_html_ae98bb05e7a37badaed7a780c087b401a"><div class="ttname"><a href="a00114.html#ae98bb05e7a37badaed7a780c087b401a">gi_class_cube.map_nr</a></div><div class="ttdeci">def map_nr</div><div class="ttdoc">mapping rho parameters from [0,1] to full parameter space prior on dn/dlnr: &amp;lt; nrscale and possibly a ...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00133">gi_class_cube.py:133</a></div></div>
+<div class="ttc" id="a00114_html_a0adfe7b980784a0b32f74ee9ede1997f"><div class="ttname"><a href="a00114.html#a0adfe7b980784a0b32f74ee9ede1997f">gi_class_cube.map_tilt_slope</a></div><div class="ttdeci">def map_tilt_slope</div><div class="ttdoc">map [0, 1] to [-infty, 1] for each </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00024">gi_class_cube.py:24</a></div></div>
 <div class="ttc" id="a00001_html_aa866aa722da9a1d475e8ee4a437553a9"><div class="ttname"><a href="a00001.html#aa866aa722da9a1d475e8ee4a437553a9">gi_class_cube.Cube.convert_to_parameter_space</a></div><div class="ttdeci">def convert_to_parameter_space</div><div class="ttdoc">convert [0,1]^ndim to parameter space such that values in cube are the parameters we need for rho...</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00284">gi_class_cube.py:284</a></div></div>
-<div class="ttc" id="a00113_html_aa2dd8f27b7618924166399842e4f4186"><div class="ttname"><a href="a00113.html#aa2dd8f27b7618924166399842e4f4186">gi_class_cube.map_constdm</a></div><div class="ttdeci">def map_constdm</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00268">gi_class_cube.py:268</a></div></div>
-<div class="ttc" id="a00113_html_a07bcbb94b8b83f2e40a23870a550494f"><div class="ttname"><a href="a00113.html#a07bcbb94b8b83f2e40a23870a550494f">gi_class_cube.map_nu</a></div><div class="ttdeci">def map_nu</div><div class="ttdoc">map tracer densities, directly if used, put self.maxlog10nu = 4. </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00206">gi_class_cube.py:206</a></div></div>
-<div class="ttc" id="a00113_html_aa18d30fd4e863889929cff838e05e42e"><div class="ttname"><a href="a00113.html#aa18d30fd4e863889929cff838e05e42e">gi_class_cube.map_MtoL</a></div><div class="ttdeci">def map_MtoL</div><div class="ttdoc">map [0,1] to MtoL flat prior </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00221">gi_class_cube.py:221</a></div></div>
+<div class="ttc" id="a00114_html_aa18d30fd4e863889929cff838e05e42e"><div class="ttname"><a href="a00114.html#aa18d30fd4e863889929cff838e05e42e">gi_class_cube.map_MtoL</a></div><div class="ttdeci">def map_MtoL</div><div class="ttdoc">map [0,1] to MtoL flat prior </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00221">gi_class_cube.py:221</a></div></div>
+<div class="ttc" id="a00114_html_a07bcbb94b8b83f2e40a23870a550494f"><div class="ttname"><a href="a00114.html#a07bcbb94b8b83f2e40a23870a550494f">gi_class_cube.map_nu</a></div><div class="ttdeci">def map_nu</div><div class="ttdoc">map tracer densities, directly if used, put self.maxlog10nu = 4. </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00206">gi_class_cube.py:206</a></div></div>
 <div class="ttc" id="a00001_html_abebc092e122659ceee0ebd226ad5a48a"><div class="ttname"><a href="a00001.html#abebc092e122659ceee0ebd226ad5a48a">gi_class_cube.Cube.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">constructor, with modes depending on locpop </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00275">gi_class_cube.py:275</a></div></div>
-<div class="ttc" id="a00113_html_a7b77a3c5e681cced0e940f6c2e862914"><div class="ttname"><a href="a00113.html#a7b77a3c5e681cced0e940f6c2e862914">gi_class_cube.map_rhonu</a></div><div class="ttdeci">def map_rhonu</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00230">gi_class_cube.py:230</a></div></div>
 <div class="ttc" id="a00001_html_ab08a16e06beb8b875f411f71df655e68"><div class="ttname"><a href="a00001.html#ab08a16e06beb8b875f411f71df655e68">gi_class_cube.Cube.copy</a></div><div class="ttdeci">def copy</div><div class="ttdoc">copy constructor </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00352">gi_class_cube.py:352</a></div></div>
-<div class="ttc" id="a00113_html_af69623625523f72b663a95ec93eccf47"><div class="ttname"><a href="a00113.html#af69623625523f72b663a95ec93eccf47">gi_class_cube.map_simplenu_baryon</a></div><div class="ttdeci">def map_simplenu_baryon</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00120">gi_class_cube.py:120</a></div></div>
+<div class="ttc" id="a00114_html_af69623625523f72b663a95ec93eccf47"><div class="ttname"><a href="a00114.html#af69623625523f72b663a95ec93eccf47">gi_class_cube.map_simplenu_baryon</a></div><div class="ttdeci">def map_simplenu_baryon</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00120">gi_class_cube.py:120</a></div></div>
+<div class="ttc" id="a00114_html_a4b99215085a0f61b8250d74a5ee07170"><div class="ttname"><a href="a00114.html#a4b99215085a0f61b8250d74a5ee07170">gi_class_cube.map_kr</a></div><div class="ttdeci">def map_kr</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00055">gi_class_cube.py:55</a></div></div>
 <div class="ttc" id="a00001_html_ae2e9a59e9c645aeeda2dee73518f82b7"><div class="ttname"><a href="a00001.html#ae2e9a59e9c645aeeda2dee73518f82b7">gi_class_cube.Cube.pops</a></div><div class="ttdeci">pops</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00276">gi_class_cube.py:276</a></div></div>
-<div class="ttc" id="a00113_html_a0adfe7b980784a0b32f74ee9ede1997f"><div class="ttname"><a href="a00113.html#a0adfe7b980784a0b32f74ee9ede1997f">gi_class_cube.map_tilt_slope</a></div><div class="ttdeci">def map_tilt_slope</div><div class="ttdoc">map [0, 1] to [-infty, 1] for each </div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00024">gi_class_cube.py:24</a></div></div>
+<div class="ttc" id="a00114_html_aa2dd8f27b7618924166399842e4f4186"><div class="ttname"><a href="a00114.html#aa2dd8f27b7618924166399842e4f4186">gi_class_cube.map_constdm</a></div><div class="ttdeci">def map_constdm</div><div class="ttdef"><b>Definition:</b> <a href="a00016_source.html#l00268">gi_class_cube.py:268</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:37 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

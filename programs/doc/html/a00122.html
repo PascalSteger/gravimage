@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_int Namespace Reference</title>
+<title>GravImage: gi_file Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,64 +84,91 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gi_int Namespace Reference</div>  </div>
+<div class="title">gi_file Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a8d2c39026c26a97d7b9de04c9c283a75">int_poly_inf</a></td></tr>
-<tr class="memdesc:a8d2c39026c26a97d7b9de04c9c283a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate polynomial from r0[k] to infinity assume log(integrand) = A + B*r; B = poly[0] &lt; 0, A = poly[1]  <a href="#a8d2c39026c26a97d7b9de04c9c283a75">More...</a><br/></td></tr>
-<tr class="separator:a8d2c39026c26a97d7b9de04c9c283a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4627af4bccde0dbe1bafef26ba016260"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a4627af4bccde0dbe1bafef26ba016260">correct_first_bin</a></td></tr>
-<tr class="memdesc:a4627af4bccde0dbe1bafef26ba016260"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate back to first bin, with splines  <a href="#a4627af4bccde0dbe1bafef26ba016260">More...</a><br/></td></tr>
-<tr class="separator:a4627af4bccde0dbe1bafef26ba016260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#abc4571d7472a35afcc57b3cfec89bcd4">ant_intbeta</a></td></tr>
-<tr class="memdesc:abc4571d7472a35afcc57b3cfec89bcd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)  <a href="#abc4571d7472a35afcc57b3cfec89bcd4">More...</a><br/></td></tr>
-<tr class="separator:abc4571d7472a35afcc57b3cfec89bcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a86332c13eed6a13f4b7dc4e4c960b207">g</a></td></tr>
-<tr class="memdesc:a86332c13eed6a13f4b7dc4e4c960b207"><td class="mdescLeft">&#160;</td><td class="mdescRight">function from Lokas+2005, eq.  <a href="#a86332c13eed6a13f4b7dc4e4c960b207">More...</a><br/></td></tr>
-<tr class="separator:a86332c13eed6a13f4b7dc4e4c960b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a657add5cfa9ee1a48db389246d6d6bb5">varepsilon</a></td></tr>
-<tr class="memdesc:a657add5cfa9ee1a48db389246d6d6bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return e^{-2 int_r_min^r beta(s)/s ds}, to be used in sigma_r^2 calc  <a href="#a657add5cfa9ee1a48db389246d6d6bb5">More...</a><br/></td></tr>
-<tr class="separator:a657add5cfa9ee1a48db389246d6d6bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#aa25d61ce3efbf854f6323ee6ad42d810">ant_sigkaplos</a></td></tr>
-<tr class="memdesc:aa25d61ce3efbf854f6323ee6ad42d810"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa, and virial parameters from Richardson,Fairbairn 2014 all on gp.nfine logarithmically spaced radii, and store outcome on lookup table  <a href="#aa25d61ce3efbf854f6323ee6ad42d810">More...</a><br/></td></tr>
-<tr class="separator:aa25d61ce3efbf854f6323ee6ad42d810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab237071931f4fd85416c04350d8f241a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ab237071931f4fd85416c04350d8f241a">zeta</a></td></tr>
-<tr class="memdesc:ab237071931f4fd85416c04350d8f241a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014  <a href="#ab237071931f4fd85416c04350d8f241a">More...</a><br/></td></tr>
-<tr class="separator:ab237071931f4fd85416c04350d8f241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a851345fa7cfbc535b7de72338cb782fa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a851345fa7cfbc535b7de72338cb782fa">kappa</a></td></tr>
-<tr class="separator:a851345fa7cfbc535b7de72338cb782fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7f980c6b66313572041be28fe01814"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a3a7f980c6b66313572041be28fe01814">smooth_ext</a></td></tr>
-<tr class="memdesc:a3a7f980c6b66313572041be28fe01814"><td class="mdescLeft">&#160;</td><td class="mdescRight">extrapolate to high radii with linear extrapolation NOT USED ANYMORE  <a href="#a3a7f980c6b66313572041be28fe01814">More...</a><br/></td></tr>
-<tr class="separator:a3a7f980c6b66313572041be28fe01814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#adb4f91dec2092b7f85206392a3b5f7a0">smooth_fun</a></td></tr>
-<tr class="memdesc:adb4f91dec2092b7f85206392a3b5f7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">smooth function y(x) NOT USED ANYMORE  <a href="#adb4f91dec2092b7f85206392a3b5f7a0">More...</a><br/></td></tr>
-<tr class="separator:adb4f91dec2092b7f85206392a3b5f7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880222b774c495c04cb1331abbe4a973"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a880222b774c495c04cb1331abbe4a973">get_pos_and_COM</a></td></tr>
+<tr class="memdesc:a880222b774c495c04cb1331abbe4a973"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in files with differing file formats, write out to common x, y, vz file  <a href="#a880222b774c495c04cb1331abbe4a973">More...</a><br/></td></tr>
+<tr class="separator:a880222b774c495c04cb1331abbe4a973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a41c7dd0da11eca5ef3902f5fb1ec5a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a6a41c7dd0da11eca5ef3902f5fb1ec5a">read_Sigdata</a></td></tr>
+<tr class="separator:a6a41c7dd0da11eca5ef3902f5fb1ec5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b923a7552baf5bf5aaa08b256dd9eb1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a4b923a7552baf5bf5aaa08b256dd9eb1">bin_data</a></td></tr>
+<tr class="memdesc:a4b923a7552baf5bf5aaa08b256dd9eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get data, bin it anew (e.g.  <a href="#a4b923a7552baf5bf5aaa08b256dd9eb1">More...</a><br/></td></tr>
+<tr class="separator:a4b923a7552baf5bf5aaa08b256dd9eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d26855f2651daabe4279518fdc0ff0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a75d26855f2651daabe4279518fdc0ff0">get_binned_data</a></td></tr>
+<tr class="memdesc:a75d26855f2651daabe4279518fdc0ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in binned data, store in a <a class="el" href="a00119.html">gi_data</a> class  <a href="#a75d26855f2651daabe4279518fdc0ff0">More...</a><br/></td></tr>
+<tr class="separator:a75d26855f2651daabe4279518fdc0ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148da9e942a5dd7d8054070d3c14b69f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a148da9e942a5dd7d8054070d3c14b69f">get_binned_data_noscale</a></td></tr>
+<tr class="memdesc:a148da9e942a5dd7d8054070d3c14b69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in binned data, store in a gl_data class  <a href="#a148da9e942a5dd7d8054070d3c14b69f">More...</a><br/></td></tr>
+<tr class="separator:a148da9e942a5dd7d8054070d3c14b69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1d58a79a610c00070cf7382793347d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a3a1d58a79a610c00070cf7382793347d">get_rhohalfs</a></td></tr>
+<tr class="memdesc:a3a1d58a79a610c00070cf7382793347d"><td class="mdescLeft">&#160;</td><td class="mdescRight">get informed priors on 3D densities at half-light radius via deprojection for nu and M_half = M(&lt;r_half) for rho  <a href="#a3a1d58a79a610c00070cf7382793347d">More...</a><br/></td></tr>
+<tr class="separator:a3a1d58a79a610c00070cf7382793347d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4ee0b3316eb71d4b97849094255816"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a6d4ee0b3316eb71d4b97849094255816">arraydump</a></td></tr>
+<tr class="memdesc:a6d4ee0b3316eb71d4b97849094255816"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine takes a number, narr, of equal length arrays and appends/writes them to a specified file in columnated data format.  <a href="#a6d4ee0b3316eb71d4b97849094255816">More...</a><br/></td></tr>
+<tr class="separator:a6d4ee0b3316eb71d4b97849094255816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a81e2e75d4880c91e4f1ca084aab7bf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a0a81e2e75d4880c91e4f1ca084aab7bf">bufcount</a></td></tr>
+<tr class="memdesc:a0a81e2e75d4880c91e4f1ca084aab7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">count lines of a file  <a href="#a0a81e2e75d4880c91e4f1ca084aab7bf">More...</a><br/></td></tr>
+<tr class="separator:a0a81e2e75d4880c91e4f1ca084aab7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec7201265a0e252eba21a487bdfae90a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#aec7201265a0e252eba21a487bdfae90a">write_headers_2D</a></td></tr>
+<tr class="memdesc:aec7201265a0e252eba21a487bdfae90a"><td class="mdescLeft">&#160;</td><td class="mdescRight">write headers for datareduction output files, and return file handlers  <a href="#aec7201265a0e252eba21a487bdfae90a">More...</a><br/></td></tr>
+<tr class="separator:aec7201265a0e252eba21a487bdfae90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa3376aa2b43958119965243bfa92ae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a5fa3376aa2b43958119965243bfa92ae">write_headers_3D</a></td></tr>
+<tr class="memdesc:a5fa3376aa2b43958119965243bfa92ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">write headers for the 3D quantity output  <a href="#a5fa3376aa2b43958119965243bfa92ae">More...</a><br/></td></tr>
+<tr class="separator:a5fa3376aa2b43958119965243bfa92ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94b48f884bc185632f2c3e9f49d2722"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ab94b48f884bc185632f2c3e9f49d2722">empty</a></td></tr>
+<tr class="memdesc:ab94b48f884bc185632f2c3e9f49d2722"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine if file is empty or not  <a href="#ab94b48f884bc185632f2c3e9f49d2722">More...</a><br/></td></tr>
+<tr class="separator:ab94b48f884bc185632f2c3e9f49d2722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391b2d1b0533c9e1c32b943f7da24aef"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a391b2d1b0533c9e1c32b943f7da24aef">read_Xscale</a></td></tr>
+<tr class="memdesc:a391b2d1b0533c9e1c32b943f7da24aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">read scale radius from file  <a href="#a391b2d1b0533c9e1c32b943f7da24aef">More...</a><br/></td></tr>
+<tr class="separator:a391b2d1b0533c9e1c32b943f7da24aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698566255f7e8d278511fb1445eff263"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a698566255f7e8d278511fb1445eff263">write_tracer_file</a></td></tr>
+<tr class="memdesc:a698566255f7e8d278511fb1445eff263"><td class="mdescLeft">&#160;</td><td class="mdescRight">write tracer file  <a href="#a698566255f7e8d278511fb1445eff263">More...</a><br/></td></tr>
+<tr class="separator:a698566255f7e8d278511fb1445eff263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48cc9d65d0130b2bda81f5f386d54ca5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a48cc9d65d0130b2bda81f5f386d54ca5">write_Sig_scale</a></td></tr>
+<tr class="memdesc:a48cc9d65d0130b2bda81f5f386d54ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">output density  <a href="#a48cc9d65d0130b2bda81f5f386d54ca5">More...</a><br/></td></tr>
+<tr class="separator:a48cc9d65d0130b2bda81f5f386d54ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10f50ac38e5551614c533ae2fcd2b5b3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a10f50ac38e5551614c533ae2fcd2b5b3">write_nu_scale</a></td></tr>
+<tr class="memdesc:a10f50ac38e5551614c533ae2fcd2b5b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">output 3D tracer density scale  <a href="#a10f50ac38e5551614c533ae2fcd2b5b3">More...</a><br/></td></tr>
+<tr class="separator:a10f50ac38e5551614c533ae2fcd2b5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4628a8954b02dfb218be95f91c8f6938"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a4628a8954b02dfb218be95f91c8f6938">write_data_output</a></td></tr>
+<tr class="memdesc:a4628a8954b02dfb218be95f91c8f6938"><td class="mdescLeft">&#160;</td><td class="mdescRight">write x,y,vz to files  <a href="#a4628a8954b02dfb218be95f91c8f6938">More...</a><br/></td></tr>
+<tr class="separator:a4628a8954b02dfb218be95f91c8f6938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a383000d69ed20cac544c2eca09145a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a8a383000d69ed20cac544c2eca09145a">write_Xscale</a></td></tr>
+<tr class="memdesc:a8a383000d69ed20cac544c2eca09145a"><td class="mdescLeft">&#160;</td><td class="mdescRight">store central values in scale_ file  <a href="#a8a383000d69ed20cac544c2eca09145a">More...</a><br/></td></tr>
+<tr class="separator:a8a383000d69ed20cac544c2eca09145a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="abc4571d7472a35afcc57b3cfec89bcd4"></a>
+<a class="anchor" id="a6d4ee0b3316eb71d4b97849094255816"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.ant_intbeta </td>
+          <td class="memname">gi_file.arraydump </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
+          <td class="paramname"><em>fname</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
+          <td class="paramname"><em>arrays</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
+          <td class="paramname"><em>app</em> = <code>'a'</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>narr</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -151,617 +178,584 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here) </p>
+<p>This routine takes a number, narr, of equal length arrays and appends/writes them to a specified file in columnated data format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>free variable, array, in [lunit] </td></tr>
-    <tr><td class="paramname">betapar</td><td>integrand, array, in [1] </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">fname</td><td>filename, string </td></tr>
+    <tr><td class="paramname">arrays</td><td>=[[arr1], [arr2]...] </td></tr>
+    <tr><td class="paramname">app</td><td>='a' appending? </td></tr>
+    <tr><td class="paramname">narr</td><td>=1 number of arrays </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00023_source.html#l00050">50</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00122_abc4571d7472a35afcc57b3cfec89bcd4_icgraph.png" border="0" usemap="#a00122_abc4571d7472a35afcc57b3cfec89bcd4_icgraph" alt=""/></div>
-<map name="a00122_abc4571d7472a35afcc57b3cfec89bcd4_icgraph" id="a00122_abc4571d7472a35afcc57b3cfec89bcd4_icgraph">
-<area shape="rect" id="node3" href="a00122.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="184,5,331,35"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="a00038_source.html#l00179">179</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa25d61ce3efbf854f6323ee6ad42d810"></a>
+<a class="anchor" id="a4b923a7552baf5bf5aaa08b256dd9eb1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_int.ant_sigkaplos </td>
+          <td class="memname">gi_file.bin_data </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rhodmpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>lbaryonpar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>MtoL</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nupar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa, and virial parameters from Richardson,Fairbairn 2014 all on gp.nfine logarithmically spaced radii, and store outcome on lookup table </p>
+<p>get data, bin it anew (e.g. </p>
+<p>if gp.nbin changed) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r0</td><td>array, radial bin positions, in [pc] </td></tr>
-    <tr><td class="paramname">rhodmpar</td><td>overall 3D density profile in [Munit/pc^3] </td></tr>
-    <tr><td class="paramname">lbaryonpar</td><td>rho* light profile from baryons </td></tr>
-    <tr><td class="paramname">MtoL</td><td>mass-to-light ratio in [Msun/Lsun] </td></tr>
-    <tr><td class="paramname">nupar</td><td>tracer density in [Munit/pc^3] </td></tr>
-    <tr><td class="paramname">betapar</td><td>velocity anisotropy in [1] </td></tr>
-    <tr><td class="paramname">pop</td><td>int for population to look at (really the scalrad for rhohalf) </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>sig_los^2, correspondingly for 4th order kappa, zetaa, zetab </dd></dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00091">91</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00122_aa25d61ce3efbf854f6323ee6ad42d810_cgraph.png" border="0" usemap="#a00122_aa25d61ce3efbf854f6323ee6ad42d810_cgraph" alt=""/></div>
-<map name="a00122_aa25d61ce3efbf854f6323ee6ad42d810_cgraph" id="a00122_aa25d61ce3efbf854f6323ee6ad42d810_cgraph">
-<area shape="rect" id="node3" href="a00122.html#abc4571d7472a35afcc57b3cfec89bcd4" title="integrate beta(s)/s over s (integrals in front of and after sigma_r^2 integral, factor 2 not in here)..." alt="" coords="201,5,329,35"/><area shape="rect" id="node5" href="a00122.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="216,59,315,88"/><area shape="rect" id="node9" href="a00122.html#ab237071931f4fd85416c04350d8f241a" title="return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014 " alt="" coords="223,112,308,141"/><area shape="rect" id="node7" href="a00122.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="379,59,445,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a4627af4bccde0dbe1bafef26ba016260"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.correct_first_bin </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>yint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.01</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>extrapolate back to first bin, with splines </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">xint</td><td>x values </td></tr>
-    <tr><td class="paramname">yint</td><td>y values, of which the first entry has to be rechecked </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing of the spline. 0.01 is a <em>small</em> default value, hard to converge to </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in log space </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00035">35</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a86332c13eed6a13f4b7dc4e4c960b207"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.g </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rvar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>rfix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>beta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>dbetadr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>function from Lokas+2005, eq. </p>
-<p>(8) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rvar</td><td>small r, in [pc] </td></tr>
-    <tr><td class="paramname">rfix</td><td>capital R, in [pc] </td></tr>
-    <tr><td class="paramname">beta</td><td>beta, in [1] </td></tr>
-    <tr><td class="paramname">dbetadr</td><td>d beta/dr, in [1] </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00066">66</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00122_a86332c13eed6a13f4b7dc4e4c960b207_icgraph.png" border="0" usemap="#a00122_a86332c13eed6a13f4b7dc4e4c960b207_icgraph" alt=""/></div>
-<map name="a00122_a86332c13eed6a13f4b7dc4e4c960b207_icgraph" id="a00122_a86332c13eed6a13f4b7dc4e4c960b207_icgraph">
-<area shape="rect" id="node3" href="a00122.html#a851345fa7cfbc535b7de72338cb782fa" title="gi_int.kappa" alt="" coords="147,5,245,35"/><area shape="rect" id="node7" href="a00129.html#a1898e0c1690cb9e36f319ed8d25e3de8" title="check that beta is bound and not jumping " alt="" coords="120,59,272,88"/><area shape="rect" id="node5" href="a00122.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="320,5,467,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a8d2c39026c26a97d7b9de04c9c283a75"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.int_poly_inf </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>poly</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>integrate polynomial from r0[k] to infinity assume log(integrand) = A + B*r; B = poly[0] &lt; 0, A = poly[1] </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radii </td></tr>
-    <tr><td class="paramname">poly</td><td>slope </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00025">25</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a851345fa7cfbc535b7de72338cb782fa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def gi_int.kappa </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0fine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Mrfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nufine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>sigr2nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>intbetasfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00458">458</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00122_a851345fa7cfbc535b7de72338cb782fa_cgraph.png" border="0" usemap="#a00122_a851345fa7cfbc535b7de72338cb782fa_cgraph" alt=""/></div>
-<map name="a00122_a851345fa7cfbc535b7de72338cb782fa_cgraph" id="a00122_a851345fa7cfbc535b7de72338cb782fa_cgraph">
-<area shape="rect" id="node3" href="a00122.html#a86332c13eed6a13f4b7dc4e4c960b207" title="function from Lokas+2005, eq. " alt="" coords="152,5,219,35"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00122_a851345fa7cfbc535b7de72338cb782fa_icgraph.png" border="0" usemap="#a00122_a851345fa7cfbc535b7de72338cb782fa_icgraph" alt=""/></div>
-<map name="a00122_a851345fa7cfbc535b7de72338cb782fa_icgraph" id="a00122_a851345fa7cfbc535b7de72338cb782fa_icgraph">
-<area shape="rect" id="node3" href="a00122.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="152,5,299,35"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a3a7f980c6b66313572041be28fe01814"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.smooth_ext </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>x0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>y0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xext</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>slope</em> = <code>-3.</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>minval</em> = <code>0.</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>extrapolate to high radii with linear extrapolation NOT USED ANYMORE </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x0</td><td>array, free variable </td></tr>
-    <tr><td class="paramname">y0</td><td>array, dependent variable </td></tr>
-    <tr><td class="paramname">xext</td><td>array, points to evaluate function on </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline, 1 as a default </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing. 0.01 is small </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in logarithmic space </td></tr>
-    <tr><td class="paramname">slope</td><td>without upper limit </td></tr>
-    <tr><td class="paramname">minval</td><td>minimal value allowed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00513">513</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adb4f91dec2092b7f85206392a3b5f7a0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.smooth_fun </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>x0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>y0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>xnew</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>s</em> = <code>0.01</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>log</em> = <code>True</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>smooth function y(x) NOT USED ANYMORE </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x0</td><td>array, free variable </td></tr>
-    <tr><td class="paramname">y0</td><td>array, dependent variable </td></tr>
-    <tr><td class="paramname">xnew</td><td>array, new positions (or the same as x0) </td></tr>
-    <tr><td class="paramname">k</td><td>order of the spline </td></tr>
-    <tr><td class="paramname">s</td><td>smoothing. 0.01 is <em>small</em> </td></tr>
-    <tr><td class="paramname">log</td><td>bool for working in logarithmic space </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00540">540</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a657add5cfa9ee1a48db389246d6d6bb5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.varepsilon </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betapar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>return e^{-2 int_r_min^r beta(s)/s ds}, to be used in sigma_r^2 calc </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>radius [pc] </td></tr>
-    <tr><td class="paramname">betapar</td><td>[1] coefficients of beta representation </td></tr>
-    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00023_source.html#l00080">80</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab237071931f4fd85416c04350d8f241a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gi_int.zeta </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>r0fine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nufine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Sigfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>Mrfine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>betafine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>sigr2nu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>gp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>return zeta_A and zeta_B parameters by Richardson,Fairbairn 2014 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0fine</td><td>radii, [pc] </td></tr>
-    <tr><td class="paramname">nufine</td><td>3D tracer density </td></tr>
-    <tr><td class="paramname">Sigfine</td><td>2D surface density </td></tr>
-    <tr><td class="paramname">Mrfine</td><td>enclosed mass </td></tr>
-    <tr><td class="paramname">betafine</td><td>anisotropy parameter </td></tr>
-    <tr><td class="paramname">sigr2nu</td><td>&lt;v_r**2&gt; </td></tr>
     <tr><td class="paramname">gp</td><td>global parameter </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00023_source.html#l00409">409</a> of file <a class="el" href="a00023_source.html">gi_int.py</a>.</p>
+<p>Definition at line <a class="el" href="a00038_source.html#l00085">85</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00122_a4b923a7552baf5bf5aaa08b256dd9eb1_cgraph.png" border="0" usemap="#a00122_a4b923a7552baf5bf5aaa08b256dd9eb1_cgraph" alt=""/></div>
+<map name="a00122_a4b923a7552baf5bf5aaa08b256dd9eb1_cgraph" id="a00122_a4b923a7552baf5bf5aaa08b256dd9eb1_cgraph">
+<area shape="rect" id="node3" href="a00140.html#a859783fbbb6d8184207a0333b7ecafa9" title="gr_MCMCbin.run" alt="" coords="184,59,312,88"/><area shape="rect" id="node14" href="a00161.html#a78fc8f1dbce944fc435b2efe0f25a776" title="grw_mcmcbin.run" alt="" coords="183,219,313,248"/><area shape="rect" id="node18" href="a00157.html#a1a6507c244019445429c454fc4279938" title="grt_dens.run" alt="" coords="197,165,299,195"/><area shape="rect" id="node20" href="a00158.html#a1ce8e382296d58f979c6cf977c62f5b6" title="grt_siglos.run" alt="" coords="195,112,301,141"/><area shape="rect" id="node23" href="a00152.html#acd42a16a63faeca0b748be14c98e23c6" title="generate disk data from analytic form, return 3D densities, delta (=tilt) write it to files ..." alt="" coords="191,272,305,301"/><area shape="rect" id="node27" href="a00139.html#a531335670dc21ab5cdeaf9432416edb7" title="Read in data from JR&#39;s simple 1D mock Bin it, calculate nu and sigma, output it to file..." alt="" coords="172,333,324,363"/><area shape="rect" id="node5" href="a00142.html#a4f4a83eaddc5c011c9a9f626d62fb65d" title="gr_MCMCbin_for.run" alt="" coords="395,5,547,35"/><area shape="rect" id="node7" href="a00103.html#a29a73d62880e90ca27cbef0a7f197fd8" title="Estimation of the central location (&#39;mean&#39;) of a distribution, resistant for outliers and robust for ..." alt="" coords="388,112,553,141"/><area shape="rect" id="node12" href="a00140.html#a6b2aa54be0a3b3ecaeb91c1964b0bf15" title="gr_MCMCbin.obs_Sig_phot" alt="" coords="373,59,568,88"/><area shape="rect" id="node9" href="a00103.html#a0e5ef102bbbcf0c3e0c2697ca572b83c" title="PURPOSE: Estimation of the scale (&#39;dispersion&#39;) of a distribution, resistant for outliers and robust ..." alt="" coords="617,112,791,141"/><area shape="rect" id="node16" href="a00161.html#abb1ae559f5155be4098f755c5f4723ed" title="volume of a circular ring from binmin to binmax " alt="" coords="393,194,548,241"/><area shape="rect" id="node25" href="a00152.html#a5ff6584b6c852a0d4d54fcae10f60386" title="for permanent and consistent data handling " alt="" coords="392,263,549,310"/><area shape="rect" id="node29" href="a00139.html#a68dcfacb74582eb72aa03d0a065341a8" title="gr_external_data.write\l_disk_output_files" alt="" coords="389,333,552,379"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a81e2e75d4880c91e4f1ca084aab7bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.bufcount </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>count lines of a file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00200">200</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00122_ab237071931f4fd85416c04350d8f241a_icgraph.png" border="0" usemap="#a00122_ab237071931f4fd85416c04350d8f241a_icgraph" alt=""/></div>
-<map name="a00122_ab237071931f4fd85416c04350d8f241a_icgraph" id="a00122_ab237071931f4fd85416c04350d8f241a_icgraph">
-<area shape="rect" id="node3" href="a00122.html#aa25d61ce3efbf854f6323ee6ad42d810" title="calculate integral for sig_los^2 * surface density, correspondingly for 4th order kappa..." alt="" coords="141,5,288,35"/></map>
+<div class="center"><img src="a00122_a0a81e2e75d4880c91e4f1ca084aab7bf_icgraph.png" border="0" usemap="#a00122_a0a81e2e75d4880c91e4f1ca084aab7bf_icgraph" alt=""/></div>
+<map name="a00122_a0a81e2e75d4880c91e4f1ca084aab7bf_icgraph" id="a00122_a0a81e2e75d4880c91e4f1ca084aab7bf_icgraph">
+<area shape="rect" id="node3" href="a00122.html#ab94b48f884bc185632f2c3e9f49d2722" title="determine if file is empty or not " alt="" coords="169,5,268,35"/><area shape="rect" id="node5" href="a00173.html#aafca09f47560efa6eea57e858bb11b5a" title="run MCMC to get regression on bimodal normal distribution http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic&#45;Programming&#45;and&#45;Bayesian&#45;Methods&#45;for&#45;Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb " alt="" coords="319,5,503,35"/><area shape="rect" id="node7" href="a00173.html#a017c86d8c133610605999a83ae1f4673" title="pymcmetal.run" alt="" coords="552,5,664,35"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ab94b48f884bc185632f2c3e9f49d2722"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.empty </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>determine if file is empty or not </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00261">261</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00122_ab94b48f884bc185632f2c3e9f49d2722_cgraph.png" border="0" usemap="#a00122_ab94b48f884bc185632f2c3e9f49d2722_cgraph" alt=""/></div>
+<map name="a00122_ab94b48f884bc185632f2c3e9f49d2722_cgraph" id="a00122_ab94b48f884bc185632f2c3e9f49d2722_cgraph">
+<area shape="rect" id="node3" href="a00122.html#a0a81e2e75d4880c91e4f1ca084aab7bf" title="count lines of a file " alt="" coords="155,5,269,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00122_ab94b48f884bc185632f2c3e9f49d2722_icgraph.png" border="0" usemap="#a00122_ab94b48f884bc185632f2c3e9f49d2722_icgraph" alt=""/></div>
+<map name="a00122_ab94b48f884bc185632f2c3e9f49d2722_icgraph" id="a00122_ab94b48f884bc185632f2c3e9f49d2722_icgraph">
+<area shape="rect" id="node3" href="a00173.html#aafca09f47560efa6eea57e858bb11b5a" title="run MCMC to get regression on bimodal normal distribution http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic&#45;Programming&#45;and&#45;Bayesian&#45;Methods&#45;for&#45;Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb " alt="" coords="156,5,340,35"/><area shape="rect" id="node5" href="a00173.html#a017c86d8c133610605999a83ae1f4673" title="pymcmetal.run" alt="" coords="389,5,501,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a75d26855f2651daabe4279518fdc0ff0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.get_binned_data </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read in binned data, store in a <a class="el" href="a00119.html">gi_data</a> class </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00123">123</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a148da9e942a5dd7d8054070d3c14b69f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.get_binned_data_noscale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read in binned data, store in a gl_data class </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters H Silverwood 20/11/14 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00145">145</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a880222b774c495c04cb1331abbe4a973"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.get_pos_and_COM </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read in files with differing file formats, write out to common x, y, vz file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00015">15</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00122_a880222b774c495c04cb1331abbe4a973_cgraph.png" border="0" usemap="#a00122_a880222b774c495c04cb1331abbe4a973_cgraph" alt=""/></div>
+<map name="a00122_a880222b774c495c04cb1331abbe4a973_cgraph" id="a00122_a880222b774c495c04cb1331abbe4a973_cgraph">
+<area shape="rect" id="node3" href="a00155.html#aa4d7d5480b30722e2f902cf71d8758bb" title="grh_com.run" alt="" coords="263,192,361,221"/><area shape="rect" id="node7" href="a00154.html#a451289e4fce12fd8d92f656ff6b0f558" title="grg_COM.run" alt="" coords="259,379,365,408"/><area shape="rect" id="node11" href="a00159.html#a65c36ead1fcfecb51f693b309d406fb0" title="grw_COM.run" alt="" coords="257,112,367,141"/><area shape="rect" id="node20" href="a00160.html#a4d7154e805cd614ae92a158ead664ebf" title="grw_com.run" alt="" coords="261,432,363,461"/><area shape="rect" id="node24" href="a00146.html#ab01fbee1eced15003a77b4dd3a7f9410" title="grc_COM.run" alt="" coords="259,272,365,301"/><area shape="rect" id="node33" href="a00156.html#a77ebee8188702bbd1400881b75fc35ee" title="grt_com.run" alt="" coords="264,485,360,515"/><area shape="rect" id="node35" href="a00151.html#a9bd36dcf200e04bbbcfbe74f02002eb5" title="main functionality: get center of mass of deBoer data " alt="" coords="245,539,379,568"/><area shape="rect" id="node39" href="a00147.html#aba945884398fd062689f840083d889d6" title="perform " alt="" coords="259,592,365,621"/><area shape="rect" id="node47" href="a00148.html#a2ae2805be945cd8cb3ef345d85ce72b5" title="perform " alt="" coords="244,672,380,701"/><area shape="rect" id="node54" href="a00150.html#a4f45ce9928b1d26c5e8491eca4244330" title="grd_metalsplit.read" alt="" coords="241,779,383,808"/><area shape="rect" id="node5" href="a00112.html#aaea53f4dbf3467572957feca099a86b4" title="shrinking sphere in 3D, following v_LOS " alt="" coords="447,165,668,195"/><area shape="rect" id="node9" href="a00154.html#a46c6846005475395fa7ef930f2c9c2d6" title="extract only parts of the arrays given " alt="" coords="483,379,632,408"/><area shape="rect" id="node13" href="a00159.html#af00a28b20863a3b2e30afacba8c1d8cd" title="read and convert data " alt="" coords="480,5,635,35"/><area shape="rect" id="node15" href="a00159.html#ae8518c3ea3339634cc76c915ddfde0d7" title="extract only parts of the arrays given " alt="" coords="481,59,633,88"/><area shape="rect" id="node17" href="a00159.html#ab9e756164059f96c2cf6693970a6ef27" title="grw_COM.concat_pops" alt="" coords="472,112,643,141"/><area shape="rect" id="node22" href="a00112.html#a42eae6637fbf5740e6a32b05ce1c1d33" title="3D shrinking sphere " alt="" coords="453,432,661,461"/><area shape="rect" id="node26" href="a00146.html#ad791bd5714a6e1baf052ab1b6271c781" title="read and convert data " alt="" coords="483,325,632,355"/><area shape="rect" id="node28" href="a00146.html#a59411f2f05959b05bcdd9d66aabe46e9" title="grc_COM.select_pm" alt="" coords="483,219,632,248"/><area shape="rect" id="node30" href="a00146.html#a7132c1c569b6f7c325213f2c8deed3fd" title="concatenate all arrays for two populations " alt="" coords="475,272,640,301"/><area shape="rect" id="node37" href="a00112.html#a77f2fcb4ca1005066cf1e972b4af114f" title="gi_centering.com_shrinkcircle_2D" alt="" coords="440,485,675,515"/><area shape="rect" id="node41" href="a00147.html#a31a6ee611c6520afa23ca5b2345fa381" title="grd_COM.select_pm" alt="" coords="483,539,632,568"/><area shape="rect" id="node43" href="a00147.html#a5104099724164185396f03aae7ea0e16" title="grd_COM.concat_pops" alt="" coords="473,592,641,621"/><area shape="rect" id="node45" href="a00112.html#ad8c978a2815c4547b2363011505766d0" title="gi_centering.com_shrinkcircle_v_2D" alt="" coords="433,645,681,675"/><area shape="rect" id="node49" href="a00148.html#ad43c76e76cfd395314550671b6f53827" title="grd_COM_dra.select_pm" alt="" coords="468,699,647,728"/><area shape="rect" id="node51" href="a00148.html#af8f192ca73f302818349f31fa0f1726c" title="grd_COM_dra.concat_pops" alt="" coords="459,752,656,781"/><area shape="rect" id="node56" href="a00150.html#a1465914d7dda1f2cdb696aa89a184a2f" title="determine no. " alt="" coords="475,805,640,835"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a1d58a79a610c00070cf7382793347d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.get_rhohalfs </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get informed priors on 3D densities at half-light radius via deprojection for nu and M_half = M(&lt;r_half) for rho </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00155">155</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a41c7dd0da11eca5ef3902f5fb1ec5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_file.read_Sigdata </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00073">73</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a391b2d1b0533c9e1c32b943f7da24aef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.read_Xscale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read scale radius from file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00269">269</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4628a8954b02dfb218be95f91c8f6938"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_data_output </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>Xscale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>write x,y,vz to files </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">vz</td><td></td></tr>
+    <tr><td class="paramname">Xscale</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00307">307</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec7201265a0e252eba21a487bdfae90a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_headers_2D </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>pop</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>write headers for datareduction output files, and return file handlers </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">pop</td><td>component (0: all, 1,2,...) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00215">215</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5fa3376aa2b43958119965243bfa92ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_headers_3D </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>gp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>pop</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>write headers for the 3D quantity output </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gp</td><td>global parameters </td></tr>
+    <tr><td class="paramname">pop</td><td>population int </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00245">245</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a10f50ac38e5551614c533ae2fcd2b5b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_nu_scale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>nu0pc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>output 3D tracer density scale </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">nu0pc</td><td>central 3D tracer density [Munit/pc^3] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00298">298</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48cc9d65d0130b2bda81f5f386d54ca5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_Sig_scale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>Sig0pc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>totmass_tracers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>output density </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+    <tr><td class="paramname">Sig0pc</td><td>central density [Munit/pc^2] </td></tr>
+    <tr><td class="paramname">totmass_tracers</td><td>total tracer density mass </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00287">287</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a698566255f7e8d278511fb1445eff263"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_tracer_file </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>totmass_tracers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>write tracer file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">totmass_tracers</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00278">278</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a383000d69ed20cac544c2eca09145a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gi_file.write_Xscale </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>Xscale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>store central values in scale_ file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+    <tr><td class="paramname">Xscale</td><td>float, [pc] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00038_source.html#l00323">323</a> of file <a class="el" href="a00038_source.html">gi_file.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

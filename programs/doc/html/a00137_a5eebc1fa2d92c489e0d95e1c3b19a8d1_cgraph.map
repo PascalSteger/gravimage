@@ -1,0 +1,7 @@
+<map id="glselect_run.run" name="glselect_run.run">
+<area shape="rect" id="node3" href="$a00137.html#abd5de2f36d64d0009ec872c8d18790e8" title="glselect_run.get_investigate" alt="" coords="176,5,373,35"/>
+<area shape="rect" id="node5" href="$a00137.html#a678c1bd96c17415f2318fc76b464da2b" title="glselect_run.get_case" alt="" coords="196,59,353,88"/>
+<area shape="rect" id="node7" href="$a00137.html#a8dccb27da571d587e01cc5cee84e2005" title="return list of MCMC run directories " alt="" coords="200,111,349,158"/>
+<area shape="rect" id="node9" href="$a00137.html#a0415759a692445ba5f35390ae709cffa" title="ask user for choice on run number " alt="" coords="200,181,349,211"/>
+<area shape="rect" id="node11" href="$a00137.html#abbfe554c1fbfcb96f9a1be65c94121f7" title="ask user for choice on action to take: print or delete " alt="" coords="192,235,357,264"/>
+</map>

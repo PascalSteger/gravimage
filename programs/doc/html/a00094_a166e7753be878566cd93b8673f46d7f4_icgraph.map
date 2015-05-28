@@ -1,8 +1,0 @@
-<map id="gi_analytic.X" name="gi_analytic.X">
-<area shape="rect" id="node3" href="$a00094.html#ac3dfae3ae61f77d3a36e748fe68fd48e" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="155,32,304,61"/>
-<area shape="rect" id="node11" href="$a00094.html#a88edbb0846524b33b4559b97f6be4d2a" title="equation 21 from Baes&amp;Dejonghe 2002 " alt="" coords="160,85,299,131"/>
-<area shape="rect" id="node5" href="$a00094.html#a96be530f228bdea4f1b4d515ee0cfd70" title="analytic total mass surface density profile for all investigations " alt="" coords="373,5,504,35"/>
-<area shape="rect" id="node7" href="$a00094.html#a1b01c7d2bb53c077787471c91346d263" title="sig_los determined from analytic surfden*sig2 and surfden " alt="" coords="352,59,525,88"/>
-<area shape="rect" id="node9" href="$a00094.html#a42b61698774ad5668c249a558428c202" title="sigma_LOS for all investigations " alt="" coords="573,59,709,88"/>
-<area shape="rect" id="node14" href="$a00094.html#a87143ecad8bcdcb70ed4c6969b06eca0" title="surface density time sigma_r^2 " alt="" coords="369,111,508,158"/>
-</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: split Namespace Reference</title>
+<title>GravImage: select_run Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,65 +82,418 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">split Namespace Reference</div>  </div>
+<div class="title">select_run Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a47496bf5999f258f0e4ae82a715428a3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a47496bf5999f258f0e4ae82a715428a3">myerrorbar</a></td></tr>
-<tr class="separator:a47496bf5999f258f0e4ae82a715428a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a9cc5ecf68cedf80ddbe6b107f05c19b6"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a9cc5ecf68cedf80ddbe6b107f05c19b6">fig</a> = plt.figure()</td></tr>
-<tr class="separator:a9cc5ecf68cedf80ddbe6b107f05c19b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a393400f60a56e937396ca377f757a00a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a393400f60a56e937396ca377f757a00a">N</a> = 3</td></tr>
-<tr class="separator:a393400f60a56e937396ca377f757a00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac06d798fcb63da784aafff7fb794a952"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#ac06d798fcb63da784aafff7fb794a952">binmin</a> = bins[:-1]</td></tr>
-<tr class="separator:ac06d798fcb63da784aafff7fb794a952"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76ce29d0f16cc488352c4b21379bc590"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a76ce29d0f16cc488352c4b21379bc590">binmax</a> = bins[1:]</td></tr>
-<tr class="separator:a76ce29d0f16cc488352c4b21379bc590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8681af0bad9174a9894726b25bd2d1f0"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a8681af0bad9174a9894726b25bd2d1f0">ax0</a> = fig.add_subplot(int(str(<a class="el" href="a00174.html#a393400f60a56e937396ca377f757a00a">N</a>)+str(1)+str(1)))</td></tr>
-<tr class="separator:a8681af0bad9174a9894726b25bd2d1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00af4f38473b7b867ceca7471468d542"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a00af4f38473b7b867ceca7471468d542">miny</a> = 1.5</td></tr>
-<tr class="separator:a00af4f38473b7b867ceca7471468d542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a599edb67738d985d28e70fce36192cda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a599edb67738d985d28e70fce36192cda">maxy</a> = 1.5</td></tr>
-<tr class="separator:a599edb67738d985d28e70fce36192cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5314a8c23d2e84ff79adf30d9bcab1"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a2d5314a8c23d2e84ff79adf30d9bcab1">model</a> = npr.normal(1.5,0.3, 100)</td></tr>
-<tr class="separator:a2d5314a8c23d2e84ff79adf30d9bcab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48e0dd541e611647fade178ac1e81854"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a48e0dd541e611647fade178ac1e81854">bufcount</a></td></tr>
+<tr class="memdesc:a48e0dd541e611647fade178ac1e81854"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine no.  <a href="#a48e0dd541e611647fade178ac1e81854">More...</a><br/></td></tr>
+<tr class="separator:a48e0dd541e611647fade178ac1e81854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba89bd6ea537ba9dcd4459bd452cd6c4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#aba89bd6ea537ba9dcd4459bd452cd6c4">removeDir</a></td></tr>
+<tr class="memdesc:aba89bd6ea537ba9dcd4459bd452cd6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete directory recursively, if it exists  <a href="#aba89bd6ea537ba9dcd4459bd452cd6c4">More...</a><br/></td></tr>
+<tr class="separator:aba89bd6ea537ba9dcd4459bd452cd6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade488ed8eac7de2637a5b68ade50bc05"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#ade488ed8eac7de2637a5b68ade50bc05">remove_empty_folders</a></td></tr>
+<tr class="memdesc:ade488ed8eac7de2637a5b68ade50bc05"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest algorithm were stored  <a href="#ade488ed8eac7de2637a5b68ade50bc05">More...</a><br/></td></tr>
+<tr class="separator:ade488ed8eac7de2637a5b68ade50bc05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5527453779acc542aba7d996b5c9278"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#ab5527453779acc542aba7d996b5c9278">list_files</a></td></tr>
+<tr class="memdesc:ab5527453779acc542aba7d996b5c9278"><td class="mdescLeft">&#160;</td><td class="mdescRight">return all working or completed MCMC run directories NOT USED ANYMORE  <a href="#ab5527453779acc542aba7d996b5c9278">More...</a><br/></td></tr>
+<tr class="separator:ab5527453779acc542aba7d996b5c9278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca87e12b1e29a270ddd664ac3fd9c623"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#aca87e12b1e29a270ddd664ac3fd9c623">list_files_readout</a></td></tr>
+<tr class="memdesc:aca87e12b1e29a270ddd664ac3fd9c623"><td class="mdescLeft">&#160;</td><td class="mdescRight">return list of MCMC run directories  <a href="#aca87e12b1e29a270ddd664ac3fd9c623">More...</a><br/></td></tr>
+<tr class="separator:aca87e12b1e29a270ddd664ac3fd9c623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa89e8720355c4df22ad7da2eda4fa3b5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#aa89e8720355c4df22ad7da2eda4fa3b5">get_investigate</a></td></tr>
+<tr class="separator:aa89e8720355c4df22ad7da2eda4fa3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8664d9c7a07535eda3b69770e6d3e53e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a8664d9c7a07535eda3b69770e6d3e53e">choose_obs</a></td></tr>
+<tr class="memdesc:a8664d9c7a07535eda3b69770e6d3e53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">mapping of selection (int) to directory name (string of length 3)  <a href="#a8664d9c7a07535eda3b69770e6d3e53e">More...</a><br/></td></tr>
+<tr class="separator:a8664d9c7a07535eda3b69770e6d3e53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3b9621999fd3deb5efced74eba1d64"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a3f3b9621999fd3deb5efced74eba1d64">get_case</a></td></tr>
+<tr class="separator:a3f3b9621999fd3deb5efced74eba1d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4075ee3e1abcab3024da733e0097146"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#ae4075ee3e1abcab3024da733e0097146">get_run</a></td></tr>
+<tr class="memdesc:ae4075ee3e1abcab3024da733e0097146"><td class="mdescLeft">&#160;</td><td class="mdescRight">ask user for choice on run number  <a href="#ae4075ee3e1abcab3024da733e0097146">More...</a><br/></td></tr>
+<tr class="separator:ae4075ee3e1abcab3024da733e0097146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbd05d4c9f9112f9563056d15eff4094"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#afbd05d4c9f9112f9563056d15eff4094">get_action</a></td></tr>
+<tr class="memdesc:afbd05d4c9f9112f9563056d15eff4094"><td class="mdescLeft">&#160;</td><td class="mdescRight">ask user for choice on action to take: print or delete  <a href="#afbd05d4c9f9112f9563056d15eff4094">More...</a><br/></td></tr>
+<tr class="separator:afbd05d4c9f9112f9563056d15eff4094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584d3a4f2e7ce8f7f11dbb7e901710af"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a584d3a4f2e7ce8f7f11dbb7e901710af">get_pop</a></td></tr>
+<tr class="memdesc:a584d3a4f2e7ce8f7f11dbb7e901710af"><td class="mdescLeft">&#160;</td><td class="mdescRight">get population integer  <a href="#a584d3a4f2e7ce8f7f11dbb7e901710af">More...</a><br/></td></tr>
+<tr class="separator:a584d3a4f2e7ce8f7f11dbb7e901710af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bb8f9490df14529849db74cafbb8413"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a2bb8f9490df14529849db74cafbb8413">get_prof</a></td></tr>
+<tr class="memdesc:a2bb8f9490df14529849db74cafbb8413"><td class="mdescLeft">&#160;</td><td class="mdescRight">interactive input for prof: rho, M, beta, betastar, nu, sig  <a href="#a2bb8f9490df14529849db74cafbb8413">More...</a><br/></td></tr>
+<tr class="separator:a2bb8f9490df14529849db74cafbb8413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730d74d7ceb93e35c8117e93a4a81d48"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a730d74d7ceb93e35c8117e93a4a81d48">get_pops</a></td></tr>
+<tr class="memdesc:a730d74d7ceb93e35c8117e93a4a81d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">return number of populations from <a class="el" href="a00129.html">gi_params</a> stored in output directory  <a href="#a730d74d7ceb93e35c8117e93a4a81d48">More...</a><br/></td></tr>
+<tr class="separator:a730d74d7ceb93e35c8117e93a4a81d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5699d33b9eeb7565a90cdb15a71036"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#aba5699d33b9eeb7565a90cdb15a71036">get_nipol</a></td></tr>
+<tr class="memdesc:aba5699d33b9eeb7565a90cdb15a71036"><td class="mdescLeft">&#160;</td><td class="mdescRight">return number bins from <a class="el" href="a00129.html">gi_params</a> stored in output directory  <a href="#aba5699d33b9eeb7565a90cdb15a71036">More...</a><br/></td></tr>
+<tr class="separator:aba5699d33b9eeb7565a90cdb15a71036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1656b04ccd7a0a39b21bbd01a5d03343"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#a1656b04ccd7a0a39b21bbd01a5d03343">get_nbeta</a></td></tr>
+<tr class="memdesc:a1656b04ccd7a0a39b21bbd01a5d03343"><td class="mdescLeft">&#160;</td><td class="mdescRight">return number of beta parameters from <a class="el" href="a00129.html">gi_params</a> stored in output directory  <a href="#a1656b04ccd7a0a39b21bbd01a5d03343">More...</a><br/></td></tr>
+<tr class="separator:a1656b04ccd7a0a39b21bbd01a5d03343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2833a931b05382cdbc12b87b9e0c2e4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4">run</a></td></tr>
+<tr class="memdesc:af2833a931b05382cdbc12b87b9e0c2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">display possible runs of the current investigation method, select one  <a href="#af2833a931b05382cdbc12b87b9e0c2e4">More...</a><br/></td></tr>
+<tr class="separator:af2833a931b05382cdbc12b87b9e0c2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a47496bf5999f258f0e4ae82a715428a3"></a>
+<a class="anchor" id="a48e0dd541e611647fade178ac1e81854"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def split.myerrorbar </td>
+          <td class="memname">select_run.bufcount </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>models</em>, </td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>determine no. </p>
+<p>lines optimally not used anymore </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>filename </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00018">18</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_a48e0dd541e611647fade178ac1e81854_icgraph.png" border="0" usemap="#a00174_a48e0dd541e611647fade178ac1e81854_icgraph" alt=""/></div>
+<map name="a00174_a48e0dd541e611647fade178ac1e81854_icgraph" id="a00174_a48e0dd541e611647fade178ac1e81854_icgraph">
+<area shape="rect" id="node3" href="a00174.html#ade488ed8eac7de2637a5b68ade50bc05" title="remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest a..." alt="" coords="199,5,380,51"/><area shape="rect" id="node5" href="a00174.html#ab5527453779acc542aba7d996b5c9278" title="return all working or completed MCMC run directories NOT USED ANYMORE " alt="" coords="220,75,359,104"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8664d9c7a07535eda3b69770e6d3e53e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.choose_obs </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>sel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>mapping of selection (int) to directory name (string of length 3) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sel</td><td>selection (int) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00149">149</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afbd05d4c9f9112f9563056d15eff4094"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_action </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ask user for choice on action to take: print or delete </p>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00213">213</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_afbd05d4c9f9112f9563056d15eff4094_icgraph.png" border="0" usemap="#a00174_afbd05d4c9f9112f9563056d15eff4094_icgraph" alt=""/></div>
+<map name="a00174_afbd05d4c9f9112f9563056d15eff4094_icgraph" id="a00174_afbd05d4c9f9112f9563056d15eff4094_icgraph">
+<area shape="rect" id="node3" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4" title="display possible runs of the current investigation method, select one " alt="" coords="212,5,321,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f3b9621999fd3deb5efced74eba1d64"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def select_run.get_case </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>investigate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00165">165</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_a3f3b9621999fd3deb5efced74eba1d64_icgraph.png" border="0" usemap="#a00174_a3f3b9621999fd3deb5efced74eba1d64_icgraph" alt=""/></div>
+<map name="a00174_a3f3b9621999fd3deb5efced74eba1d64_icgraph" id="a00174_a3f3b9621999fd3deb5efced74eba1d64_icgraph">
+<area shape="rect" id="node3" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4" title="display possible runs of the current investigation method, select one " alt="" coords="204,5,313,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa89e8720355c4df22ad7da2eda4fa3b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def select_run.get_investigate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00127">127</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_aa89e8720355c4df22ad7da2eda4fa3b5_icgraph.png" border="0" usemap="#a00174_aa89e8720355c4df22ad7da2eda4fa3b5_icgraph" alt=""/></div>
+<map name="a00174_aa89e8720355c4df22ad7da2eda4fa3b5_icgraph" id="a00174_aa89e8720355c4df22ad7da2eda4fa3b5_icgraph">
+<area shape="rect" id="node3" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4" title="display possible runs of the current investigation method, select one " alt="" coords="241,5,351,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1656b04ccd7a0a39b21bbd01a5d03343"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_nbeta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>basename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return number of beta parameters from <a class="el" href="a00129.html">gi_params</a> stored in output directory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basename</td><td>string of output dir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>integer number of beta* parameters </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00303">303</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba5699d33b9eeb7565a90cdb15a71036"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_nipol </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>basename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return number bins from <a class="el" href="a00129.html">gi_params</a> stored in output directory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basename</td><td>string of output dir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>integer number of bins </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00289">289</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a584d3a4f2e7ce8f7f11dbb7e901710af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_pop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get population integer </p>
+<dl class="section return"><dt>Returns</dt><dd>int of population (0: all, 1: first, ...) </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00232">232</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a730d74d7ceb93e35c8117e93a4a81d48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_pops </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>basename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return number of populations from <a class="el" href="a00129.html">gi_params</a> stored in output directory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basename</td><td>string of output dir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>integer number of populations </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00271">271</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2bb8f9490df14529849db74cafbb8413"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_prof </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>interactive input for prof: rho, M, beta, betastar, nu, sig </p>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00251">251</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4075ee3e1abcab3024da733e0097146"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.get_run </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>default</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ask user for choice on run number </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">default</td><td>default value: last one </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>selection integer </dd></dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00193">193</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_ae4075ee3e1abcab3024da733e0097146_icgraph.png" border="0" usemap="#a00174_ae4075ee3e1abcab3024da733e0097146_icgraph" alt=""/></div>
+<map name="a00174_ae4075ee3e1abcab3024da733e0097146_icgraph" id="a00174_ae4075ee3e1abcab3024da733e0097146_icgraph">
+<area shape="rect" id="node3" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4" title="display possible runs of the current investigation method, select one " alt="" coords="193,5,303,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5527453779acc542aba7d996b5c9278"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.list_files </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>basedir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return all working or completed MCMC run directories NOT USED ANYMORE </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basedir</td><td>string of directory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00058">58</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_ab5527453779acc542aba7d996b5c9278_cgraph.png" border="0" usemap="#a00174_ab5527453779acc542aba7d996b5c9278_cgraph" alt=""/></div>
+<map name="a00174_ab5527453779acc542aba7d996b5c9278_cgraph" id="a00174_ab5527453779acc542aba7d996b5c9278_cgraph">
+<area shape="rect" id="node3" href="a00174.html#a48e0dd541e611647fade178ac1e81854" title="determine no. " alt="" coords="196,5,337,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aca87e12b1e29a270ddd664ac3fd9c623"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">select_run.list_files_readout </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>basedir</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>nbins</em>, </td>
+          <td class="paramname"><em>investigate</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>binmin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>binmax</em>&#160;</td>
+          <td class="paramname"><em>case</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,127 +503,148 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00095_source.html#l00013">13</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
+<p>return list of MCMC run directories </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basedir</td><td>string of base directory, e.g. DTgaia/3/ </td></tr>
+    <tr><td class="paramname">investigate</td><td>str investigation, gaia, walk, .. </td></tr>
+    <tr><td class="paramname">case</td><td>int for case to look at </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00108">108</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_aca87e12b1e29a270ddd664ac3fd9c623_icgraph.png" border="0" usemap="#a00174_aca87e12b1e29a270ddd664ac3fd9c623_icgraph" alt=""/></div>
+<map name="a00174_aca87e12b1e29a270ddd664ac3fd9c623_icgraph" id="a00174_aca87e12b1e29a270ddd664ac3fd9c623_icgraph">
+<area shape="rect" id="node3" href="a00174.html#af2833a931b05382cdbc12b87b9e0c2e4" title="display possible runs of the current investigation method, select one " alt="" coords="196,13,305,43"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a8681af0bad9174a9894726b25bd2d1f0"></a>
+<a class="anchor" id="ade488ed8eac7de2637a5b68ade50bc05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tuple split.ax0 = fig.add_subplot(int(str(<a class="el" href="a00174.html#a393400f60a56e937396ca377f757a00a">N</a>)+str(1)+str(1)))</td>
+          <td class="memname">select_run.remove_empty_folders </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>fdl</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00095_source.html#l00026">26</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
+<p>remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest algorithm were stored </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fdl</td><td>[(name, datestamp)] of all dirs in current mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00040">40</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_ade488ed8eac7de2637a5b68ade50bc05_cgraph.png" border="0" usemap="#a00174_ade488ed8eac7de2637a5b68ade50bc05_cgraph" alt=""/></div>
+<map name="a00174_ade488ed8eac7de2637a5b68ade50bc05_cgraph" id="a00174_ade488ed8eac7de2637a5b68ade50bc05_cgraph">
+<area shape="rect" id="node3" href="a00174.html#a48e0dd541e611647fade178ac1e81854" title="determine no. " alt="" coords="239,13,380,43"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a76ce29d0f16cc488352c4b21379bc590"></a>
+<a class="anchor" id="aba89bd6ea537ba9dcd4459bd452cd6c4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list split.binmax = bins[1:]</td>
+          <td class="memname">select_run.removeDir </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00095_source.html#l00025">25</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
+<p>delete directory recursively, if it exists </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>path to directory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00058_source.html#l00033">33</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac06d798fcb63da784aafff7fb794a952"></a>
+<a class="anchor" id="af2833a931b05382cdbc12b87b9e0c2e4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list split.binmin = bins[:-1]</td>
+          <td class="memname">select_run.run </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>investigate</em> = <code>&quot;&quot;</code>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00095_source.html#l00024">24</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9cc5ecf68cedf80ddbe6b107f05c19b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">tuple split.fig = plt.figure()</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>case</em> = <code>-1</code>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00095_source.html#l00011">11</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a599edb67738d985d28e70fce36192cda"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">tuple split.maxy = 1.5</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>latest</em> = <code>False</code>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00095_source.html#l00028">28</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00af4f38473b7b867ceca7471468d542"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">tuple split.miny = 1.5</td>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00095_source.html#l00027">27</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
+<p>display possible runs of the current investigation method, select one </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">investigate</td><td>string of investigation case, hern, gaia, walk, discmock </td></tr>
+    <tr><td class="paramname">case</td><td>int for case </td></tr>
+    <tr><td class="paramname">latest</td><td>boolean if looking at latest only </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>basename, prof (string) </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a2d5314a8c23d2e84ff79adf30d9bcab1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple split.model = npr.normal(1.5,0.3, 100)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="a00058_source.html#l00317">317</a> of file <a class="el" href="a00058_source.html">select_run.py</a>.</p>
 
-<p>Definition at line <a class="el" href="a00095_source.html#l00030">30</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
-
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00174_af2833a931b05382cdbc12b87b9e0c2e4_cgraph.png" border="0" usemap="#a00174_af2833a931b05382cdbc12b87b9e0c2e4_cgraph" alt=""/></div>
+<map name="a00174_af2833a931b05382cdbc12b87b9e0c2e4_cgraph" id="a00174_af2833a931b05382cdbc12b87b9e0c2e4_cgraph">
+<area shape="rect" id="node3" href="a00174.html#aa89e8720355c4df22ad7da2eda4fa3b5" title="select_run.get_investigate" alt="" coords="165,5,352,35"/><area shape="rect" id="node5" href="a00174.html#a3f3b9621999fd3deb5efced74eba1d64" title="select_run.get_case" alt="" coords="185,59,332,88"/><area shape="rect" id="node7" href="a00174.html#aca87e12b1e29a270ddd664ac3fd9c623" title="return list of MCMC run directories " alt="" coords="189,111,328,158"/><area shape="rect" id="node9" href="a00174.html#ae4075ee3e1abcab3024da733e0097146" title="ask user for choice on run number " alt="" coords="189,181,328,211"/><area shape="rect" id="node11" href="a00174.html#afbd05d4c9f9112f9563056d15eff4094" title="ask user for choice on action to take: print or delete " alt="" coords="181,235,336,264"/></map>
 </div>
-</div>
-<a class="anchor" id="a393400f60a56e937396ca377f757a00a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int split.N = 3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00095_source.html#l00022">22</a> of file <a class="el" href="a00095_source.html">split.py</a>.</p>
+</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

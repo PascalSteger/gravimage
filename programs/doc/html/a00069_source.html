@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/gr_show.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/gr_params.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,165 +85,110 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">gr_show.py</div>  </div>
+<div class="title">gr_params.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00069.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00143.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/python3</span></div>
+<a href="a00069.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00143.html">    1</a></span>&#160;<span class="comment">#!/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># draw preprocessed data</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> matplotlib</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;matplotlib.use(<span class="stringliteral">&#39;pdf&#39;</span>)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> pylab <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;ion()</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00143.html#abd79fa7a43f06db4ab17d61aa99c0eb1">   12</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#abd79fa7a43f06db4ab17d61aa99c0eb1">show_part_pos</a>(x, y, pmn, Xscale):</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    clf()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    res = (abs(x)&lt;3)*(abs(y)&lt;3)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    x = x[res]; y = y[res]           <span class="comment"># [Xscale]</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    en = len(x)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> en == 0:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    scatter(x[:en], y[:en], c=pmn[:en], s=35, \</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            vmin=0.95, vmax=1.0, lw=0.0, alpha=0.2)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment"># xscale(&#39;log&#39;); yscale(&#39;log&#39;)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    colorbar()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    circ_HL=Circle((0,0), radius=Xscale/Xscale, fc=<span class="stringliteral">&#39;None&#39;</span>, ec=<span class="stringliteral">&#39;g&#39;</span>, lw=1)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    gca().add_patch(circ_HL)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span> <span class="keywordflow">or</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        circ_DM=Circle((0,0), radius=r_DM/Xscale, fc=<span class="stringliteral">&#39;None&#39;</span>, ec=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;, lw=1)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">        gca().add_patch(circ_DM)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">    </span><span class="comment"># visible region</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    maxr = max(np.abs(x));  mayr = max(np.abs(y)) <span class="comment"># [rscale]</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    width2 = max([maxr,mayr]) <span class="comment"># [rscale]</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    xlim([-width2,width2])</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ylim([-width2,width2])</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    axes().set_aspect(<span class="stringliteral">&#39;equal&#39;</span>)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    xlabel(<span class="stringliteral">r&#39;$x [R_s]$&#39;</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ylabel(<span class="stringliteral">r&#39;$y [R_s]$&#39;</span>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment"># title(fil)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    savefig(gp.files.dir+<span class="stringliteral">&#39;centeredpos_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">## \fn show_part_pos(x, y, pmn, Xscale)</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># show 2D scatter plot of particle positions</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"># @param x coordinate</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"># @param y coordinate</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># @param pmn probability of membership</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"># @param Xscale scale radius in 2D</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># global params for data analysis step 1 used to generate input for spherical MCMC</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># (c) GPL v3 2015 ETHZ Pascal Steger, pascal@steger.aero</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00004.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00004.html">grParams</a>():</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00004.html#a6c88a0929bc0cb51f8a765f6bb1f74cb">   13</a></span>&#160;    <span class="keyword">def </span><a class="code" href="a00004.html#a6c88a0929bc0cb51f8a765f6bb1f74cb">__init__</a>(self, gp):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">from</span> gi_class_files <span class="keyword">import</span> Files</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment"># show plots during execution of data readout?</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="comment"># set automatically if gr_MCMCbin.py is called on the command line</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00004.html#ac989cca5d2b0f745b9b19a9089be2d54">   17</a></span>&#160;        self.<a class="code" href="a00004.html#ac989cca5d2b0f745b9b19a9089be2d54">showplots</a> = <span class="keyword">False</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00004.html#a0e2e3333c5270f94b7bc22a782e7366c">   18</a></span>&#160;        self.<a class="code" href="a00004.html#a0e2e3333c5270f94b7bc22a782e7366c">n</a> = 300 <span class="comment"># number of iterations in gr_MCMCbin</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00004.html#a3648de9a09563b58897067ac469d509f">   19</a></span>&#160;        self.<a class="code" href="a00004.html#a3648de9a09563b58897067ac469d509f">Rerr</a>  = 0. <span class="comment"># 0.01      # distance error in [Xscale]</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00004.html#afe02cf35fa765ccb0c11c496e7280e74">   20</a></span>&#160;        self.<a class="code" href="a00004.html#afe02cf35fa765ccb0c11c496e7280e74">vrerr</a> = 2.0 <span class="comment"># [km/s] 2.0 # velocity error. raises sig_los, errors in it</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;hern&#39;</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00004.html#a8e3f18d8141f85826a45936c4ea7211c">   22</a></span>&#160;            self.<a class="code" href="a00004.html#a8e3f18d8141f85826a45936c4ea7211c">repr</a>  = 1     <span class="comment"># choose simulation representation</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00004.html#a15b6627edfed71a58a8455432fc811c2">   23</a></span>&#160;            self.<a class="code" href="a00004.html#a15b6627edfed71a58a8455432fc811c2">Rcut</a> = 1.e10  <span class="comment"># [Rvir]</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00004.html#a7e1ddae01a805b6ff6f07b9a99d12351">   24</a></span>&#160;            self.<a class="code" href="a00004.html#a7e1ddae01a805b6ff6f07b9a99d12351">Rmin</a> = 0. <span class="comment"># [Rscale]i</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00004.html#ac2ea72adad16c1ec2fe4344fab782ba8">   25</a></span>&#160;            self.<a class="code" href="a00004.html#ac2ea72adad16c1ec2fe4344fab782ba8">Rmax</a> = 10. <span class="comment"># [Rscale]</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">   26</a></span>&#160;            self.<a class="code" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">simname</a> = gp.files.get_sim_name(gp) <span class="comment"># dir+&#39;simulation/&#39;+prename+&#39;unit_hern_%i&#39; %(repr)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">if</span> gp.pops == 1:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00004.html#a86a3857ceecc86007bf7149063370d21">   28</a></span>&#160;                self.<a class="code" href="a00004.html#a86a3857ceecc86007bf7149063370d21">simpos</a> = gp.files.dir+<span class="stringliteral">&#39;simulation/&#39;</span>+self.<a class="code" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">simname</a>+<span class="stringliteral">&#39;pos.txt&#39;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00004.html#afc9b5b87c8325807194a3fe9824191e8">   29</a></span>&#160;                self.<a class="code" href="a00004.html#afc9b5b87c8325807194a3fe9824191e8">simvel</a> = gp.files.dir+<span class="stringliteral">&#39;simulation/&#39;</span>+self.<a class="code" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">simname</a>+<span class="stringliteral">&#39;vel.txt&#39;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">elif</span> gp.pops == 2:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                self.<a class="code" href="a00004.html#a86a3857ceecc86007bf7149063370d21">simpos</a> = gp.files.dir+<span class="stringliteral">&#39;simulation/&#39;</span>+self.<a class="code" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">simname</a>+<span class="stringliteral">&#39;stars_pos.txt&#39;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                self.<a class="code" href="a00004.html#afc9b5b87c8325807194a3fe9824191e8">simvel</a> = gp.files.dir+<span class="stringliteral">&#39;simulation/&#39;</span>+self.<a class="code" href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">simname</a>+<span class="stringliteral">&#39;stars_vel.txt&#39;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                gh.LOG(0, <span class="stringliteral">&#39;get data for more than 2 pops in Hernquist profile&#39;</span>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                pdb.set_trace()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span>: <span class="comment"># or just want to try some other generic pymc stuff:</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00004.html#acab32b934ae68aebca938410025e60fd">   37</a></span>&#160;            self.<a class="code" href="a00004.html#acab32b934ae68aebca938410025e60fd">r_DM</a>  = 1000.</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">   38</a></span>&#160;            self.<a class="code" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">fi</a> = Files(gp)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            self.fi.set_walk(gp)</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">   40</a></span>&#160;            self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> = self.fi.dir</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">   41</a></span>&#160;            self.<a class="code" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">fil</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a>+<span class="stringliteral">&#39;mem2&#39;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a00004.html#a933434fe4b026b5d4f7e7740bd1c01de">   43</a></span>&#160;            self.<a class="code" href="a00004.html#a933434fe4b026b5d4f7e7740bd1c01de">pmsplit</a> = 0.9 <span class="comment"># minimum probability of membership required for analysis</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment"># use 0 if grw_* should be called from within gravimage</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00004.html#a5b6227ead99920feeede87e268fc2c56">   45</a></span>&#160;            self.<a class="code" href="a00004.html#a5b6227ead99920feeede87e268fc2c56">fileposcartesian</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a>+<span class="stringliteral">&#39;simulation/pos.txt&#39;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00004.html#a7791fdc9ed715ded49dc2734a357d985">   46</a></span>&#160;            self.<a class="code" href="a00004.html#a7791fdc9ed715ded49dc2734a357d985">filevelcartesian</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a>+<span class="stringliteral">&#39;simulation/vel_my.txt&#39;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00143.html#abf7daf41abd8268bdfd8517ef91a3b08">   48</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#abf7daf41abd8268bdfd8517ef91a3b08">show_plots_dens_3D</a>(rbin, p_dens, p_edens, gp):</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    clf()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    plot(rbin, p_dens, <span class="stringliteral">&#39;b&#39;</span>, lw=1)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    lbound = p_dens-p_edens; lbound[lbound&lt;1e-6] = 1e-6</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ubound = p_dens+p_edens;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    fill_between(rbin, lbound, ubound, alpha=0.5, color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="stringliteral">    yscale(</span><span class="stringliteral">&#39;log&#39;</span>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    xlim([0, gp.maxR])</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ylim([np.min(lbound), np.max(ubound)])</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    xlabel(<span class="stringliteral">r&#39;$r [r_c]$&#39;</span>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ylabel(<span class="stringliteral">r&#39;$\nu(r)/\nu(0)$&#39;</span>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    savefig( gp.files.dir+<span class="stringliteral">&#39;siglos/siglos_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">## \fn show_plots_dens_3D(Rbin, p_dens, p_edens, gp)</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"># show density</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"># @param Rbin</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"># @param p_dens</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"># @param p_edens</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"># @param gp global parameters</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            self.<a class="code" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">fi</a>  = Files(gp)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            self.fi.set_gaia(gp)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> = self.fi.dir</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            self.<a class="code" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">fil</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> + <span class="stringliteral">&#39;dat&#39;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            self.<a class="code" href="a00004.html#acab32b934ae68aebca938410025e60fd">r_DM</a> = 1000.</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;triax&#39;</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            self.<a class="code" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">fi</a>  = Files(gp)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            self.fi.set_triax(gp)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> = self.fi.dir</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            self.<a class="code" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">fil</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> + <span class="stringliteral">&#39;dat&#39;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            self.<a class="code" href="a00004.html#acab32b934ae68aebca938410025e60fd">r_DM</a> = 1500.                  <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;obs&#39;</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            self.<a class="code" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">fi</a> = Files(gp)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            self.fi.set_obs(gp)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> = self.fi.dir</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            self.<a class="code" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">fil</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a>+<span class="stringliteral">&#39;mem2&#39;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            self.<a class="code" href="a00004.html#a933434fe4b026b5d4f7e7740bd1c01de">pmsplit</a> = 0.9</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a00143.html#a6467a94ad01b13ffe7490ab67973824c">   69</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#a6467a94ad01b13ffe7490ab67973824c">show_plots_dens_2D</a>(Rbin, P_dens, P_edens, Dens0pc):</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    clf()</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment"># plot density</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    plot(Rbin, P_dens*Dens0pc, <span class="stringliteral">&#39;b&#39;</span>, lw=1)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    lbound = (P_dens-P_edens)*Dens0pc; lbound[lbound&lt;1e-6] = 1e-6</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ubound = (P_dens+P_edens)*Dens0pc</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    plot(Rbin, lbound, <span class="stringliteral">&#39;k&#39;</span>)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    plot(Rbin, ubound, <span class="stringliteral">&#39;k&#39;</span>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    fill_between(Rbin, lbound, ubound, alpha=0.5, color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">    yscale(</span><span class="stringliteral">&#39;log&#39;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    xlabel(<span class="stringliteral">r&#39;$R [R_c]$&#39;</span>)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    ylabel(<span class="stringliteral">r&#39;$\nu_{2D}(R) [\mathrm{Munit/pc/pc}]$&#39;</span>)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    savefig(gp.files.dir+<span class="stringliteral">&#39;Sigma/Sig_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">## \fn show_plots_dens_2D(Rbin, P_dens, P_edens, Dens0pc)</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"># show density</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"># @param Rbin bin radii, array, [pc]</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"># @param P_dens density</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"># @param P_edens error on density</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"># @param Dens0pc central density in Munit/pc^3</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="a00143.html#ae7075711d6339234c14dbda21fe829b5">   91</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#ae7075711d6339234c14dbda21fe829b5">show_plots_sigma</a>(Rbin, p_dvlos, p_edvlos):</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    clf()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    plot(Rbin, p_dvlos, <span class="stringliteral">&#39;b&#39;</span>, lw=1, label=<span class="stringliteral">&#39;data&#39;</span>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    fill_between(Rbin, p_dvlos-p_edvlos, p_dvlos+p_edvlos, alpha=0.5, color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">    </span><span class="comment"># [rscale],2*[km/s]</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    xlabel(<span class="stringliteral">r&#39;$R [\mathrm{Xscale}]$&#39;</span>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ylabel(<span class="stringliteral">r&#39;$\langle\sigma_{\mathrm{LOS}}\rangle [\mathrm{km/s}]$&#39;</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    savefig( gp.files.dir+<span class="stringliteral">&#39;siglos/siglos_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">## \fn show_plots_sigma(Rbin, p_dvlos, p_edvlos)</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"># show sigma</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"># @param Rbin [pc]</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"># @param p_dvlos</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"># @param p_edvlos</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a00143.html#a8dd33c821a80b4ccdb73fafb870f678e">  108</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#a8dd33c821a80b4ccdb73fafb870f678e">show_plots_vlos</a>(rbin, p_dvlos, p_edvlos):</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    clf()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    print(<span class="stringliteral">&#39;rbin = &#39;</span>, rbin,<span class="stringliteral">&#39; rscale&#39;</span>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    print(<span class="stringliteral">&#39;p_dvlos = &#39;</span>, p_dvlos,<span class="stringliteral">&#39; km/s&#39;</span>)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    print(<span class="stringliteral">&#39;p_edvlos = &#39;</span>, p_edvlos, <span class="stringliteral">&#39;km/s&#39;</span>)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    plot(rbin, p_dvlos, <span class="stringliteral">&#39;b&#39;</span>, linewidth=3)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    fill_between(rbin, p_dvlos-p_edvlos, p_dvlos+p_edvlos, alpha=0.5, color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">    </span><span class="comment"># [rscale], [km/s], [km/s]</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    xlabel(<span class="stringliteral">r&#39;$r [rscale]$&#39;</span>)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    ylabel(<span class="stringliteral">r&#39;$\langle\sigma_{LOS}\rangle [km/s]$&#39;</span>)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    ylim([-5,30])</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment"># xscale(&#39;log&#39;)</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    xlim([np.min(rbin),np.max(rbin)])</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    savefig( gp.files.dir+<span class="stringliteral">&#39;siglos/siglos_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">## \fn show_plots_vlos(rbin, p_dvlos, p_edvlos)</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"># show line-of-sight velocity profile with error bars</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment"># @param rbin [pc]</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"># @param p_dvlos profile, array of floats, defined in the bins given by rbin</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"># @param p_edvlos error profile</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a00143.html#a4460ef0c28429a41ac35c38e708b9c65">  131</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00143.html#a4460ef0c28429a41ac35c38e708b9c65">show_plots_kappa</a>(Rbin, p_kappa, p_ekappa):</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    plot(Rbin, p_kappa, <span class="stringliteral">&#39;b&#39;</span>, lw=1)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    fill_between(Rbin, p_kappa-p_ekappa, p_kappa+p_ekappa, alpha=0.5, color=<span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral">    </span><span class="comment"># [rscale], 2*[1]</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    xlabel(<span class="stringliteral">r&#39;$R [\mathrm{Xscale}]$&#39;</span>)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    ylabel(<span class="stringliteral">r&#39;$\langle\kappa_{\mathrm{LOS}}\rangle [1]$&#39;</span>)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    ylim([0, 5.])</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment"># xlim([0, gp.maxR])</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    savefig( gp.files.dir+<span class="stringliteral">&#39;kappalos/kappalos_&#39;</span> + str(n) + <span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    pdb.set_trace()</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">## \fn show_plots_kappa(Rbin, P_dens, P_edens, p_dvlos, p_edvlos, p_kappa, p_ekappa, Dens0pc)</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"># show kappa profile with errors</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment"># @param Rbin [pc]</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"># @param p_kappa</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"># @param p_ekappa</span></div>
-<div class="ttc" id="a00143_html_a4460ef0c28429a41ac35c38e708b9c65"><div class="ttname"><a href="a00143.html#a4460ef0c28429a41ac35c38e708b9c65">gr_show.show_plots_kappa</a></div><div class="ttdeci">def show_plots_kappa</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00131">gr_show.py:131</a></div></div>
-<div class="ttc" id="a00143_html_abd79fa7a43f06db4ab17d61aa99c0eb1"><div class="ttname"><a href="a00143.html#abd79fa7a43f06db4ab17d61aa99c0eb1">gr_show.show_part_pos</a></div><div class="ttdeci">def show_part_pos</div><div class="ttdoc">show 2D scatter plot of particle positions </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00012">gr_show.py:12</a></div></div>
-<div class="ttc" id="a00143_html_a8dd33c821a80b4ccdb73fafb870f678e"><div class="ttname"><a href="a00143.html#a8dd33c821a80b4ccdb73fafb870f678e">gr_show.show_plots_vlos</a></div><div class="ttdeci">def show_plots_vlos</div><div class="ttdoc">show line-of-sight velocity profile with error bars </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00108">gr_show.py:108</a></div></div>
-<div class="ttc" id="a00143_html_ae7075711d6339234c14dbda21fe829b5"><div class="ttname"><a href="a00143.html#ae7075711d6339234c14dbda21fe829b5">gr_show.show_plots_sigma</a></div><div class="ttdeci">def show_plots_sigma</div><div class="ttdoc">show sigma </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00091">gr_show.py:91</a></div></div>
-<div class="ttc" id="a00143_html_abf7daf41abd8268bdfd8517ef91a3b08"><div class="ttname"><a href="a00143.html#abf7daf41abd8268bdfd8517ef91a3b08">gr_show.show_plots_dens_3D</a></div><div class="ttdeci">def show_plots_dens_3D</div><div class="ttdoc">show density </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00048">gr_show.py:48</a></div></div>
-<div class="ttc" id="a00143_html_a6467a94ad01b13ffe7490ab67973824c"><div class="ttname"><a href="a00143.html#a6467a94ad01b13ffe7490ab67973824c">gr_show.show_plots_dens_2D</a></div><div class="ttdeci">def show_plots_dens_2D</div><div class="ttdoc">show density </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00069">gr_show.py:69</a></div></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">elif</span> gp.investigate == <span class="stringliteral">&#39;coll&#39;</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            self.<a class="code" href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">fi</a> = Files(gp)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            self.fi.set_coll(gp)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a> = self.fi.dir</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            self.<a class="code" href="a00004.html#a308dae62d21dcae583aa1bb94517b240">fil</a> = self.<a class="code" href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">dir</a>+<span class="stringliteral">&#39;dat&#39;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">## \fn __init__(gp)</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment"># set up common parameters for data pre-processing</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment"># @param gp global parameters</span></div>
+<div class="ttc" id="a00004_html_afe02cf35fa765ccb0c11c496e7280e74"><div class="ttname"><a href="a00004.html#afe02cf35fa765ccb0c11c496e7280e74">gr_params.grParams.vrerr</a></div><div class="ttdeci">vrerr</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00020">gr_params.py:20</a></div></div>
+<div class="ttc" id="a00004_html_a7791fdc9ed715ded49dc2734a357d985"><div class="ttname"><a href="a00004.html#a7791fdc9ed715ded49dc2734a357d985">gr_params.grParams.filevelcartesian</a></div><div class="ttdeci">filevelcartesian</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00046">gr_params.py:46</a></div></div>
+<div class="ttc" id="a00004_html_a86a3857ceecc86007bf7149063370d21"><div class="ttname"><a href="a00004.html#a86a3857ceecc86007bf7149063370d21">gr_params.grParams.simpos</a></div><div class="ttdeci">simpos</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00028">gr_params.py:28</a></div></div>
+<div class="ttc" id="a00004_html_a6c88a0929bc0cb51f8a765f6bb1f74cb"><div class="ttname"><a href="a00004.html#a6c88a0929bc0cb51f8a765f6bb1f74cb">gr_params.grParams.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">set up common parameters for data pre-processing </div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00013">gr_params.py:13</a></div></div>
+<div class="ttc" id="a00004_html_a3648de9a09563b58897067ac469d509f"><div class="ttname"><a href="a00004.html#a3648de9a09563b58897067ac469d509f">gr_params.grParams.Rerr</a></div><div class="ttdeci">Rerr</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00019">gr_params.py:19</a></div></div>
+<div class="ttc" id="a00004_html_a933434fe4b026b5d4f7e7740bd1c01de"><div class="ttname"><a href="a00004.html#a933434fe4b026b5d4f7e7740bd1c01de">gr_params.grParams.pmsplit</a></div><div class="ttdeci">pmsplit</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00043">gr_params.py:43</a></div></div>
+<div class="ttc" id="a00004_html_ac989cca5d2b0f745b9b19a9089be2d54"><div class="ttname"><a href="a00004.html#ac989cca5d2b0f745b9b19a9089be2d54">gr_params.grParams.showplots</a></div><div class="ttdeci">showplots</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00017">gr_params.py:17</a></div></div>
+<div class="ttc" id="a00004_html_ad78ad0c91e5b7da92594986a9b77ea04"><div class="ttname"><a href="a00004.html#ad78ad0c91e5b7da92594986a9b77ea04">gr_params.grParams.dir</a></div><div class="ttdeci">dir</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00040">gr_params.py:40</a></div></div>
+<div class="ttc" id="a00004_html_af1136189ddf84ab3e1a47bc45e4c1ab5"><div class="ttname"><a href="a00004.html#af1136189ddf84ab3e1a47bc45e4c1ab5">gr_params.grParams.fi</a></div><div class="ttdeci">fi</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00038">gr_params.py:38</a></div></div>
+<div class="ttc" id="a00004_html_a8e3f18d8141f85826a45936c4ea7211c"><div class="ttname"><a href="a00004.html#a8e3f18d8141f85826a45936c4ea7211c">gr_params.grParams.repr</a></div><div class="ttdeci">repr</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00022">gr_params.py:22</a></div></div>
+<div class="ttc" id="a00004_html_afc9b5b87c8325807194a3fe9824191e8"><div class="ttname"><a href="a00004.html#afc9b5b87c8325807194a3fe9824191e8">gr_params.grParams.simvel</a></div><div class="ttdeci">simvel</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00029">gr_params.py:29</a></div></div>
+<div class="ttc" id="a00004_html_a4510043dc9f24ddf29be2a5a815c4a68"><div class="ttname"><a href="a00004.html#a4510043dc9f24ddf29be2a5a815c4a68">gr_params.grParams.simname</a></div><div class="ttdeci">simname</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00026">gr_params.py:26</a></div></div>
+<div class="ttc" id="a00004_html_a0e2e3333c5270f94b7bc22a782e7366c"><div class="ttname"><a href="a00004.html#a0e2e3333c5270f94b7bc22a782e7366c">gr_params.grParams.n</a></div><div class="ttdeci">n</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00018">gr_params.py:18</a></div></div>
+<div class="ttc" id="a00004_html_acab32b934ae68aebca938410025e60fd"><div class="ttname"><a href="a00004.html#acab32b934ae68aebca938410025e60fd">gr_params.grParams.r_DM</a></div><div class="ttdeci">r_DM</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00037">gr_params.py:37</a></div></div>
+<div class="ttc" id="a00004_html_ac2ea72adad16c1ec2fe4344fab782ba8"><div class="ttname"><a href="a00004.html#ac2ea72adad16c1ec2fe4344fab782ba8">gr_params.grParams.Rmax</a></div><div class="ttdeci">Rmax</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00025">gr_params.py:25</a></div></div>
+<div class="ttc" id="a00004_html_a7e1ddae01a805b6ff6f07b9a99d12351"><div class="ttname"><a href="a00004.html#a7e1ddae01a805b6ff6f07b9a99d12351">gr_params.grParams.Rmin</a></div><div class="ttdeci">Rmin</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00024">gr_params.py:24</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">gr_params.grParams</a></div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00012">gr_params.py:12</a></div></div>
+<div class="ttc" id="a00004_html_a5b6227ead99920feeede87e268fc2c56"><div class="ttname"><a href="a00004.html#a5b6227ead99920feeede87e268fc2c56">gr_params.grParams.fileposcartesian</a></div><div class="ttdeci">fileposcartesian</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00045">gr_params.py:45</a></div></div>
+<div class="ttc" id="a00004_html_a308dae62d21dcae583aa1bb94517b240"><div class="ttname"><a href="a00004.html#a308dae62d21dcae583aa1bb94517b240">gr_params.grParams.fil</a></div><div class="ttdeci">fil</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00041">gr_params.py:41</a></div></div>
+<div class="ttc" id="a00004_html_a15b6627edfed71a58a8455432fc811c2"><div class="ttname"><a href="a00004.html#a15b6627edfed71a58a8455432fc811c2">gr_params.grParams.Rcut</a></div><div class="ttdeci">Rcut</div><div class="ttdef"><b>Definition:</b> <a href="a00069_source.html#l00023">gr_params.py:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:39 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

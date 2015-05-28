@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">   13</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(model, data, sig, hypersig, dof):</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">   13</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(model, data, sig, hypersig, dof):</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment"># if Degrees Of Freedom = 1, return non-reduced chi2</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    model = np.array(model)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    data  = np.array(data)</div>
@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"># @param hypersig additional fudge parameter to blow up errors</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"># @param dof number of bins</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">def </span><a class="code" href="a00112.html#a145f0c80ed5504c94b3d2be05eb97bb3">calc_chi2</a>(profs, gp):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">def </span><a class="code" href="a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3">calc_chi2</a>(profs, gp):</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    chi2 = 0.</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment"># calc chi^2 from overall baryonic tracers</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment"># is not needed, as photometric data has very small errors,</span></div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        Sigerr   = gp.dat.Sigerr[pop]   <span class="comment"># [Munit/pc^2]</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        Sigmodel = profs.get_prof(<span class="stringliteral">&#39;Sig&#39;</span>, pop)[gp.nexp:-gp.nexp]</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        hyperSig = profs.hyperSig[pop-1]</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        chi2_Sig  = <a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(Sigmodel, Sigdat, Sigerr, hyperSig, gp.nipol) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        chi2_Sig  = <a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(Sigmodel, Sigdat, Sigerr, hyperSig, gp.nipol) <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        chi2 += chi2_Sig                 <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        gh.LOG(2, <span class="stringliteral">&#39; chi2_Sig   = &#39;</span>, chi2_Sig)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
@@ -145,13 +145,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        sigerr  = gp.dat.sigerr[pop]    <span class="comment"># [km/s]</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        smodel  = profs.get_prof(<span class="stringliteral">&#39;sig&#39;</span>, pop)[gp.nexp:-gp.nexp]</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        hypersig = profs.hypersig[pop-1]</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        chi2_sig = <a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(smodel, sigdat, sigerr, hypersig, gp.nipol) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        chi2_sig = <a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(smodel, sigdat, sigerr, hypersig, gp.nipol) <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        chi2 += chi2_sig                <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        gh.LOG(2, <span class="stringliteral">&#39;  chi2_sig  = &#39;</span>, chi2_sig)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> gp.usekappa:</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            kapdat  = 1.*gp.dat.kap[pop] <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            kaperr  = 1.*gp.dat.kaperr[pop] <span class="comment"># [1]</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            chi2_kap = <a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(profs.get_kap(pop), kapdat, kaperr, gp.nipol) <span class="comment"># [1]</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            chi2_kap = <a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(profs.get_kap(pop), kapdat, kaperr, gp.nipol) <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            chi2 += chi2_kap            <span class="comment"># [1]</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> gp.usezeta:</div>
@@ -160,8 +160,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            zetaaerr = 1.*gp.dat.zetaaerr[pop]</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            zetaberr = 1.*gp.dat.zetaberr[pop]</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            zetaa_model, zetab_model = profs.get_zeta(pop)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            chi2_zetaa = <a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(zetaa_model, zetaadat, zetaaerr, 1)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            chi2_zetab = <a class="code" href="a00112.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(zetab_model, zetabdat, zetaberr, 1)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            chi2_zetaa = <a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(zetaa_model, zetaadat, zetaaerr, 1)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            chi2_zetab = <a class="code" href="a00113.html#afbbcde30ae3902669c708d929cb579b4">chi2red</a>(zetab_model, zetabdat, zetaberr, 1)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            chi2 += (chi2_zetaa + chi2_zetab)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> gp.chi2_Sig_converged &gt; 0:</div>
@@ -176,12 +176,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"># Calculate chi^2</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"># @param profs profiles for rho, M, rho*, nu_i, beta_i, sig_i, kap_i</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"># @param gp global parameters</span></div>
-<div class="ttc" id="a00112_html_a145f0c80ed5504c94b3d2be05eb97bb3"><div class="ttname"><a href="a00112.html#a145f0c80ed5504c94b3d2be05eb97bb3">gi_chi.calc_chi2</a></div><div class="ttdeci">def calc_chi2</div><div class="ttdoc">Calculate chi^2. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00030">gi_chi.py:30</a></div></div>
-<div class="ttc" id="a00112_html_afbbcde30ae3902669c708d929cb579b4"><div class="ttname"><a href="a00112.html#afbbcde30ae3902669c708d929cb579b4">gi_chi.chi2red</a></div><div class="ttdeci">def chi2red</div><div class="ttdoc">determine &amp;#39;reduced chi2&amp;#39; </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00015">gi_chi.py:15</a></div></div>
+<div class="ttc" id="a00113_html_afbbcde30ae3902669c708d929cb579b4"><div class="ttname"><a href="a00113.html#afbbcde30ae3902669c708d929cb579b4">gi_chi.chi2red</a></div><div class="ttdeci">def chi2red</div><div class="ttdoc">determine &amp;#39;reduced chi2&amp;#39; </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00015">gi_chi.py:15</a></div></div>
+<div class="ttc" id="a00113_html_a145f0c80ed5504c94b3d2be05eb97bb3"><div class="ttname"><a href="a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3">gi_chi.calc_chi2</a></div><div class="ttdeci">def calc_chi2</div><div class="ttdoc">Calculate chi^2. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00030">gi_chi.py:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:37 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

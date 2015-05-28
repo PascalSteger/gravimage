@@ -180,9 +180,12 @@ class Params():
         self.z_binmaxs = np.array([])
         self.z_all_pts = np.array([]) # [pc] holds [zC = 0, z_bin_centers]
 
-    ## \fn __init__(self, timestamp = '')
+    ## \fn __init__(self, timestamp, investigate, case)
     # set up all parameters used in the course of the MultiNest run,
     # and the analysis routines in plot_multinest @param timestamp = '', for output
+    # @param timestamp YYYYMMDDhhmm
+    # @param investigate string
+    # @param case int
 
     def __repr__(self):
         return "Params: "+self.files.dir

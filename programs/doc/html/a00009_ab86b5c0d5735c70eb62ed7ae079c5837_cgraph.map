@@ -1,0 +1,17 @@
+<map id="gi_collection_disk.ProfileCollection.plot_profile" name="gi_collection_disk.ProfileCollection.plot_profile">
+<area shape="rect" id="node3" href="$a00008.html#a3ca1dbe6dd5dec836fc4d4457c711013" title="draw x and y labels " alt="" coords="251,5,480,51"/>
+<area shape="rect" id="node7" href="$a00009.html#ada268aef1b954462a70b3aea7effa83b" title="draw x and y labels " alt="" coords="277,74,453,121"/>
+<area shape="rect" id="node9" href="$a00008.html#a9a416b78bd311aa947aa296ee468e775" title="write ascii file with chi2 information " alt="" coords="229,144,501,173"/>
+<area shape="rect" id="node11" href="$a00009.html#abbb4e9a2823bee532830950a6fcf6480" title="write ascii file with chi2 information " alt="" coords="277,197,453,243"/>
+<area shape="rect" id="node13" href="$a00008.html#ad1ca4b588ab5f66db9a3da573314c464" title="plot filled region for 1sigma and 2sigma confidence interval " alt="" coords="239,320,492,349"/>
+<area shape="rect" id="node18" href="$a00009.html#af46cfc5ed206ac1c824629bd97179ee5" title="plot filled region for 1sigma and 2sigma confidence interval " alt="" coords="277,581,453,627"/>
+<area shape="rect" id="node23" href="$a00008.html#a68b8acd0fc7435ebf3eff0079bdc5231" title="plot 30 sample profiles on top of the model {1,2} sig boundaries " alt="" coords="251,373,480,419"/>
+<area shape="rect" id="node25" href="$a00009.html#a38b1960a7a1ea8b722190a829eed6634" title="plot 30 sample profiles on top of the model {1,2} sig boundaries " alt="" coords="272,442,459,489"/>
+<area shape="rect" id="node27" href="$a00009.html#a82bc0a231eb30eb3dbbda0805c93a904" title="plot vertical line at the positions of the bin centers " alt="" coords="277,511,453,558"/>
+<area shape="rect" id="node29" href="$a00008.html#a98c1e9695d0c1f5aeb88245b9a401982" title="plot data as blue shaded region " alt="" coords="232,267,499,296"/>
+<area shape="rect" id="node32" href="$a00009.html#a8e83a46904d24390f4d4593f8225c636" title="plot data as blue shaded region " alt="" coords="277,650,453,697"/>
+<area shape="rect" id="node34" href="$a00009.html#a3c2b4411df765b27d97304d3a3592e7a" title="gi_collection_disk.Profile\lCollection.plot_model_simplenu" alt="" coords="256,719,475,766"/>
+<area shape="rect" id="node5" href="$a00008.html#a691774c59c6dff79de82bc5c9c7e858a" title="broaden the plotting range " alt="" coords="549,267,835,296"/>
+<area shape="rect" id="node15" href="$a00008.html#af8c3b8898daad2e1c3e2fcc3dbb88610" title="plot 3D half&#45;light radii, based on median nu model " alt="" coords="577,415,807,462"/>
+<area shape="rect" id="node21" href="$a00009.html#aae854591cd803847a67691a98dc7e6f3" title="gi_collection_disk.Profile\lCollection.plot_Xscale_3D" alt="" coords="599,581,785,627"/>
+</map>

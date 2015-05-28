@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_loglike.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00024.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00123.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00024.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00125.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @file</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># define log likelihood function to be called by pyMultinest</span></div>
@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">#ion()</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> time</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">geom_loglike</a>(cube, ndim, nparams, gp):</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">   18</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">geom_loglike</a>(cube, ndim, nparams, gp):</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    tmp_profs = <a class="code" href="a00010.html">Profiles</a>(gp.ntracer_pops, gp.nbins)<span class="comment">#, gp.nbaryon_pops, gp.nbaryon_params)#, gp.nrhonu, )</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">#Normalisation constant C for sigz calculation</span></div>
@@ -208,7 +208,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    tmp_profs.set_prof(<span class="stringliteral">&#39;sigz2_vec&#39;</span>, sigz2_vec[1:], 0, gp)</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment"># determine log likelihood</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    chi2 = <a class="code" href="a00112.html#a145f0c80ed5504c94b3d2be05eb97bb3">calc_chi2</a>(tmp_profs, gp)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    chi2 = <a class="code" href="a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3">calc_chi2</a>(tmp_profs, gp)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    gh.LOG(1, <span class="stringliteral">&#39;   log L = &#39;</span>, -chi2/2.)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    tmp_profs.chi2 = chi2</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
@@ -221,12 +221,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"># @param nparams number of parameters, needed as argument by multinest</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="ttc" id="a00010_html"><div class="ttname"><a href="a00010.html">gi_class_profiles.Profiles</a></div><div class="ttdoc">class for storing all profiles </div><div class="ttdef"><b>Definition:</b> <a href="a00018_source.html#l00015">gi_class_profiles.py:15</a></div></div>
-<div class="ttc" id="a00112_html_a145f0c80ed5504c94b3d2be05eb97bb3"><div class="ttname"><a href="a00112.html#a145f0c80ed5504c94b3d2be05eb97bb3">gi_chi.calc_chi2</a></div><div class="ttdeci">def calc_chi2</div><div class="ttdoc">Calculate chi^2. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00030">gi_chi.py:30</a></div></div>
-<div class="ttc" id="a00123_html_ac840f1eb9037c7ceb08dc8ecfccc5bf9"><div class="ttname"><a href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></div><div class="ttdeci">def geom_loglike</div><div class="ttdoc">define log likelihood function to be called by pyMultinest and plot_profiles disk version ...</div><div class="ttdef"><b>Definition:</b> <a href="a00024_source.html#l00018">gi_loglike.py:18</a></div></div>
+<div class="ttc" id="a00113_html_a145f0c80ed5504c94b3d2be05eb97bb3"><div class="ttname"><a href="a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3">gi_chi.calc_chi2</a></div><div class="ttdeci">def calc_chi2</div><div class="ttdoc">Calculate chi^2. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00030">gi_chi.py:30</a></div></div>
+<div class="ttc" id="a00125_html_ac840f1eb9037c7ceb08dc8ecfccc5bf9"><div class="ttname"><a href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></div><div class="ttdeci">def geom_loglike</div><div class="ttdoc">define log likelihood function to be called by pyMultinest and plot_profiles disk version ...</div><div class="ttdef"><b>Definition:</b> <a href="a00024_source.html#l00018">gi_loglike.py:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

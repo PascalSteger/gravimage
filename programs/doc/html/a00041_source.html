@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_multinest_helper.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00125.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00127.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## Interfaces with multinest output files</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;sys.path.insert(0, <span class="stringliteral">&#39;plotting/&#39;</span>)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> plot_profiles <span class="keyword">import</span> correct_E_error</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, paracube_filename, profile_filename, investigation, case, timestamp):</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00127.html#af663a44c7c1e9b6da91081950ea5bf97">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00127.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, paracube_filename, profile_filename, investigation, case, timestamp):</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment"># Takes a file with points defined in the multinest cube, output file with profiles</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment"># as per the pc2.save type</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
@@ -130,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    gp.z_binmaxs = nu_1_data[:,2]</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    gp.z_all_pts = np.append([0.0], gp.z_bincenters)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="a00167.html#a8a89b3451465b041ef01dcf3dd83b217">correct_E_error</a>(basepath_ts + paracube_filename)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="a00168.html#a8a89b3451465b041ef01dcf3dd83b217">correct_E_error</a>(basepath_ts + paracube_filename)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    paracube_data = np.loadtxt(basepath_ts + paracube_filename, dtype=<span class="stringliteral">&#39;a&#39;</span>)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
@@ -143,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">#pdb.set_trace()</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            temp_profile = <a class="code" href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">geom_loglike</a>(paracube, gp.ndim, gp.ndim+1, gp)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            temp_profile = <a class="code" href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">geom_loglike</a>(paracube, gp.ndim, gp.ndim+1, gp)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
@@ -157,21 +157,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00125.html#af825942b04e68ac0912dab296ba822c2">   70</a></span>&#160;    parser = OptionParser()</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00127.html#af825942b04e68ac0912dab296ba822c2">   70</a></span>&#160;    parser = OptionParser()</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-i&quot;</span>, <span class="stringliteral">&quot;--investigation&quot;</span>, dest=<span class="stringliteral">&quot;investigation&quot;</span>, default=<span class="stringliteral">&quot;&quot;</span>)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-c&quot;</span>, <span class="stringliteral">&quot;--case&quot;</span>, dest=<span class="stringliteral">&quot;case&quot;</span>, default=0)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-t&quot;</span>, <span class="stringliteral">&quot;--timestamp&quot;</span>, dest=<span class="stringliteral">&quot;timestamp&quot;</span>, default=<span class="stringliteral">&quot;&quot;</span>)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    (options, args) = parser.parse_args()</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00125.html#a8eb9eaf32822aff6d1ccd850cc852cf6">   76</a></span>&#160;    basepath_ts=<span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/gravimage/DT&#39;</span> + str(options.investigation) + <span class="stringliteral">&#39;/&#39;</span> + str(options.case) + <span class="stringliteral">&#39;/&#39;</span> + str(options.timestamp) +<span class="stringliteral">&#39;/&#39;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, <span class="stringliteral">&quot;phys_live.point&quot;</span>, <span class="stringliteral">&quot;phys_live_profiles.save&quot;</span>, <span class="stringliteral">&#39;simplenu&#39;</span>, options.case, str(options.timestamp))</div>
-<div class="ttc" id="a00125_html_af663a44c7c1e9b6da91081950ea5bf97"><div class="ttname"><a href="a00125.html#af663a44c7c1e9b6da91081950ea5bf97">gi_multinest_helper.paracube_to_profile</a></div><div class="ttdeci">def paracube_to_profile</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00015">gi_multinest_helper.py:15</a></div></div>
-<div class="ttc" id="a00167_html_a8a89b3451465b041ef01dcf3dd83b217"><div class="ttname"><a href="a00167.html#a8a89b3451465b041ef01dcf3dd83b217">plop.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00054_source.html#l00048">plop.py:48</a></div></div>
-<div class="ttc" id="a00123_html_ac840f1eb9037c7ceb08dc8ecfccc5bf9"><div class="ttname"><a href="a00123.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></div><div class="ttdeci">def geom_loglike</div><div class="ttdoc">define log likelihood function to be called by pyMultinest and plot_profiles disk version ...</div><div class="ttdef"><b>Definition:</b> <a href="a00024_source.html#l00018">gi_loglike.py:18</a></div></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00127.html#a8eb9eaf32822aff6d1ccd850cc852cf6">   76</a></span>&#160;    basepath_ts=<span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/gravimage/DT&#39;</span> + str(options.investigation) + <span class="stringliteral">&#39;/&#39;</span> + str(options.case) + <span class="stringliteral">&#39;/&#39;</span> + str(options.timestamp) +<span class="stringliteral">&#39;/&#39;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="a00127.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a>(basepath_ts, <span class="stringliteral">&quot;phys_live.point&quot;</span>, <span class="stringliteral">&quot;phys_live_profiles.save&quot;</span>, <span class="stringliteral">&#39;simplenu&#39;</span>, options.case, str(options.timestamp))</div>
+<div class="ttc" id="a00125_html_ac840f1eb9037c7ceb08dc8ecfccc5bf9"><div class="ttname"><a href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9">gi_loglike.geom_loglike</a></div><div class="ttdeci">def geom_loglike</div><div class="ttdoc">define log likelihood function to be called by pyMultinest and plot_profiles disk version ...</div><div class="ttdef"><b>Definition:</b> <a href="a00024_source.html#l00018">gi_loglike.py:18</a></div></div>
+<div class="ttc" id="a00127_html_af663a44c7c1e9b6da91081950ea5bf97"><div class="ttname"><a href="a00127.html#af663a44c7c1e9b6da91081950ea5bf97">gi_multinest_helper.paracube_to_profile</a></div><div class="ttdeci">def paracube_to_profile</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00015">gi_multinest_helper.py:15</a></div></div>
+<div class="ttc" id="a00168_html_a8a89b3451465b041ef01dcf3dd83b217"><div class="ttname"><a href="a00168.html#a8a89b3451465b041ef01dcf3dd83b217">plop.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00054_source.html#l00048">plop.py:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

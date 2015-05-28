@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_mc_errors.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00040.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00124.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<a href="a00040.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00126.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## Estimates errors using Monte Carlo sampling</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">#TEST this will eventually go outside</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00124.html#a0288b706ac5d65db5f9f7d231688cd03">   17</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00124.html#a0288b706ac5d65db5f9f7d231688cd03">ErSamp_gauss_linear_w_z</a>():</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00126.html#a0288b706ac5d65db5f9f7d231688cd03">   17</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00126.html#a0288b706ac5d65db5f9f7d231688cd03">ErSamp_gauss_linear_w_z</a>():</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    fraction_err = 0.05</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    datafile = <span class="stringliteral">&#39;/home/hsilverw/LoDaM/darcoda/Data_Sets/simplenu/simplenu_sigz_raw_sdz_p05_sdvz_5.dat&#39;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    data = np.loadtxt(datafile)</div>
@@ -117,8 +117,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> z_sampled</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00124.html#ae481e70af90789b6b89328c7156928ae">   30</a></span>&#160;z_data_flat_distro = rand.random(2000000)</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00124.html#a74e6228da8f5c660caecc16b196d9991">   31</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00124.html#a74e6228da8f5c660caecc16b196d9991">ErSamp_flat_distro_test</a>():</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00126.html#ae481e70af90789b6b89328c7156928ae">   30</a></span>&#160;z_data_flat_distro = rand.random(2000000)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00126.html#a74e6228da8f5c660caecc16b196d9991">   31</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00126.html#a74e6228da8f5c660caecc16b196d9991">ErSamp_flat_distro_test</a>():</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    fraction_err = 0.001</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    z_data = z_data_flat_distro</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00124.html#ac5a042feabd952a78808afae16c33d05">   44</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00124.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(sampled_z_func, number_mcs, binmin, binmax, bincenter):</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00126.html#ac5a042feabd952a78808afae16c33d05">   44</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00126.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(sampled_z_func, number_mcs, binmin, binmax, bincenter):</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment"># sampled_z_func - returns a vector of z points</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    nu_vectors=[]</div>
@@ -164,15 +164,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    binmin, binmax, bincenter = gh.bin_r_linear(0.2, 0.8, 12)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00124.html#a8e1b6c1a659e84e85a6fe9e2741f0a69">   77</a></span>&#160;    nu_stdevs = <a class="code" href="a00124.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(ErSamp_flat_distro_test, 100, binmin, binmax, bincenter)</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00126.html#a8e1b6c1a659e84e85a6fe9e2741f0a69">   77</a></span>&#160;    nu_stdevs = <a class="code" href="a00126.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(ErSamp_flat_distro_test, 100, binmin, binmax, bincenter)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    pdb.set_trace()</div>
-<div class="ttc" id="a00124_html_a0288b706ac5d65db5f9f7d231688cd03"><div class="ttname"><a href="a00124.html#a0288b706ac5d65db5f9f7d231688cd03">gi_mc_errors.ErSamp_gauss_linear_w_z</a></div><div class="ttdeci">def ErSamp_gauss_linear_w_z</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00017">gi_mc_errors.py:17</a></div></div>
-<div class="ttc" id="a00124_html_a74e6228da8f5c660caecc16b196d9991"><div class="ttname"><a href="a00124.html#a74e6228da8f5c660caecc16b196d9991">gi_mc_errors.ErSamp_flat_distro_test</a></div><div class="ttdeci">def ErSamp_flat_distro_test</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00031">gi_mc_errors.py:31</a></div></div>
-<div class="ttc" id="a00124_html_ac5a042feabd952a78808afae16c33d05"><div class="ttname"><a href="a00124.html#ac5a042feabd952a78808afae16c33d05">gi_mc_errors.mc_nu_error</a></div><div class="ttdeci">def mc_nu_error</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00044">gi_mc_errors.py:44</a></div></div>
+<div class="ttc" id="a00126_html_a0288b706ac5d65db5f9f7d231688cd03"><div class="ttname"><a href="a00126.html#a0288b706ac5d65db5f9f7d231688cd03">gi_mc_errors.ErSamp_gauss_linear_w_z</a></div><div class="ttdeci">def ErSamp_gauss_linear_w_z</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00017">gi_mc_errors.py:17</a></div></div>
+<div class="ttc" id="a00126_html_a74e6228da8f5c660caecc16b196d9991"><div class="ttname"><a href="a00126.html#a74e6228da8f5c660caecc16b196d9991">gi_mc_errors.ErSamp_flat_distro_test</a></div><div class="ttdeci">def ErSamp_flat_distro_test</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00031">gi_mc_errors.py:31</a></div></div>
+<div class="ttc" id="a00126_html_ac5a042feabd952a78808afae16c33d05"><div class="ttname"><a href="a00126.html#ac5a042feabd952a78808afae16c33d05">gi_mc_errors.mc_nu_error</a></div><div class="ttdeci">def mc_nu_error</div><div class="ttdef"><b>Definition:</b> <a href="a00040_source.html#l00044">gi_mc_errors.py:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

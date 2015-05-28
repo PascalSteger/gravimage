@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/newsplit.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/new_fitting_beta.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,34 +85,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">newsplit.py</div>  </div>
+<div class="title">new_fitting_beta.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00094.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00165.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython</span></div>
+<a href="a00094.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00165.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> npr</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00165.html#a17c5a5920b8bdbb01b776fa0a9e3d837">    7</a></span>&#160;fig = plt.figure()</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00165.html#aa0fbb0090c0711831769d9a36efef63c">   10</a></span>&#160;xval = npr.normal(9, 3, 100)</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00165.html#a3792e1eb9b268f3801db16ed09d6d35e">   11</a></span>&#160;yval = npr.normal(1, 0.5, 100)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00165.html#a32a6d2272493548c3056fe6ae9549fed">   13</a></span>&#160;nbins = 12</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;countx, xbins = np.histogram(xval, nbins)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nbins):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    histo, yedges = np.histogram(models, nbins)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;plt.imshow(np.array([histo.T,histo.T]).T,</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00165.html#af93120a84f01bcafd3295b9047231399">   20</a></span>&#160;           extent=[binmin, binmax, yedges.min(), yedges.max()],</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00165.html#a9100be47fe322b8d683abb1b063393e4">   21</a></span>&#160;           cmap=plt.cm.Blues)</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> matplotlib</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;matplotlib.use(<span class="stringliteral">&#39;pdf&#39;</span>)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> gl_params</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00165.html#aadef9650e5927c40080ad4e1cf6eb023">   10</a></span>&#160;gp = gl_params.Params()</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;ip.insert_sys_path(<span class="stringliteral">&#39;/home/psteger/sci/darcoda/gravimage/programs/sphere/&#39;</span>)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> gl_analytic <span class="keyword">as</span> ga</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">   16</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">analytic_beta</a>(x, gp):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    r_a1 = 1000</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment"># gaia 1 pop</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> ga.beta_gaia(x, gp)[0]</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment"># Hern: return x**2/(x**2+r_a1**2)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00165.html#a96eeb9500832a1386a087ebb90935dd5">   23</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00165.html#a96eeb9500832a1386a087ebb90935dd5">model_beta</a>(r0, vec):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    betatmp = np.zeros(len(r0))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(vec)):</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        betatmp += vec[k] * (r0/max(r0))**k</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment"># clipping beta* to the range [-1,1]</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment"># thus not allowing any unphysical beta,</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment"># but still allowing parameters to go the the max. value</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment"># for i in range(len(r0)):</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">#     if betatmp[i] &gt; 1.:</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">#         betatmp[i] = 1.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">#     if betatmp[i] &lt;= -1.:</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">#         betatmp[i] = -0.99999999999 # excluding -inf values in beta</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> 2.*betatmp/(1.+betatmp)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">## \fn model_beta(r0, vec)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># map [0,1] to [-1,1] with a polynomial</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># @param r0 radii [pc]</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param vec normalized ai, s.t. abs(sum(ai)) = 1</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00165.html#ad5c3449257ec86785f7e69e88489caf6">   44</a></span>&#160;fig = plt.figure()</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00165.html#a80a6e5b171dab188d5ae0bbe1b39e2c6">   45</a></span>&#160;ax  = fig.add_subplot(1,1,1)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a00165.html#ad733123caeb0f730e20158782edb69e9">   47</a></span>&#160;x = np.linspace(0, 3e3, 20)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"># y = func(x, 2.5, 1.3, 0.5)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00165.html#aa730bf890e3f40fa774da42fbefaccd2">   49</a></span>&#160;y = <a class="code" href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">analytic_beta</a>(x, gp)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;ax.plot(x, y, <span class="stringliteral">&#39;b--&#39;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">#yn = y*(1 + 0.1*np.random.normal(size=len(x)))</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">#ax.plot(x, yn, &#39;b&#39;)</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">#ax.plot(x, model_beta(x, 0.5), &#39;r&#39;)</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;pdb.set_trace()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;popt, pcov = curve_fit(model_beta, x, y)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;ax.plot(x, <a class="code" href="a00165.html#a96eeb9500832a1386a087ebb90935dd5">model_beta</a>(x, *popt), <span class="stringliteral">&#39;g&#39;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">#ax.draw()</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;plt.savefig(<span class="stringliteral">&#39;beta_fit.pdf&#39;</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;print(popt)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;print(pcov)</div>
+<div class="ttc" id="a00165_html_a95d3309dc051b796d05a7b8f9c7e4464"><div class="ttname"><a href="a00165.html#a95d3309dc051b796d05a7b8f9c7e4464">new_fitting_beta.analytic_beta</a></div><div class="ttdeci">def analytic_beta</div><div class="ttdef"><b>Definition:</b> <a href="a00094_source.html#l00016">new_fitting_beta.py:16</a></div></div>
+<div class="ttc" id="a00165_html_a96eeb9500832a1386a087ebb90935dd5"><div class="ttname"><a href="a00165.html#a96eeb9500832a1386a087ebb90935dd5">new_fitting_beta.model_beta</a></div><div class="ttdeci">def model_beta</div><div class="ttdoc">map [0,1] to [-1,1] with a polynomial </div><div class="ttdef"><b>Definition:</b> <a href="a00094_source.html#l00023">new_fitting_beta.py:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

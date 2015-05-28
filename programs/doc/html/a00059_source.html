@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/pymcmetal.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/plotting/txtplot.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,250 +80,330 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_d634850895433f7ab5aae948813f928f.html">plotting</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">pymcmetal.py</div>  </div>
+<div class="title">txtplot.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00059.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00172.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00059.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00181.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># MCMC to split stellar tracers into two populations</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># assuming split by age is traced by age and thus metallicity only</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @file</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># plot all profiles of a given run</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># (c) 2015 ETHZ Pascal Steger, pascal@steger.aero</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># (c) 2013 Pascal Steger, psteger@phys.ethz.ch</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pdb</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> pymc <span class="keyword">as</span> mc</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> matplotlib</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;matplotlib.use(<span class="stringliteral">&#39;pdf&#39;</span>)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">from</span> pylab <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;ion()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">from</span> gl_helper <span class="keyword">import</span> expDtofloat</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00172.html#a331ea88f0dac4acb3e0bcec6a6467660">   22</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00172.html#a331ea88f0dac4acb3e0bcec6a6467660">assign_pop</a>(data, p, mu1, sig1, mu2, sig2):</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    size = len(data)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    pm1 = []; pm2 = []</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(size):</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        x = 1.*data[i]</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> np.random.rand() &lt; p*norm.pdf(x, loc=mu1, scale=sig1)/\</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;           (p*norm.pdf(x,loc=mu1,scale=sig1)+(1.-p)*norm.pdf(x,loc=mu2,scale=sig2)):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            pm1.append(<span class="keyword">True</span>); pm2.append(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            pm1.append(<span class="keyword">False</span>);pm2.append(<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> np.array(pm1), np.array(pm2) <span class="comment"># np.array needed to use it as subset indicator</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">## \fn assign_pop(data, p, mu1, sig1, mu2, sig2)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"># get possible assignment to populations</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"># @param data Magnesium linewidth, used for splitting populations [1]</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"># @param p</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># @param mu1 center of first population</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># @param sig1 spread of first pop</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"># @param mu2 center of second population</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"># @param sig2 spread of second pop</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00172.html#a224dd5afbc0560a715c1a4a01f398072">   44</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00172.html#a224dd5afbc0560a715c1a4a01f398072">plot_traces</a>(mcmc):</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    subplot(311)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    center_trace = mcmc.trace(<span class="stringliteral">&quot;centers&quot;</span>)[:]</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"># start off with plotting/ in front of path</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">#import sys</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> pdb</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pickle</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> npr</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> time</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;npr.seed(int(time.time())) <span class="comment"># 1989 for random events that are reproducible</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> gi_helper <span class="keyword">as</span> gh</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> select_run <span class="keyword">as</span> sr</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00181.html#a99bb5861faa2104ea836e9fc9e9e1adf">   23</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#a99bb5861faa2104ea836e9fc9e9e1adf">prepare_output_folder</a>(basename):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/data/&#39;</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/ascii/&#39;</span>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/pdf/&#39;</span>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/analytic/&#39;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">## \fn prepare_output_folder(basename)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># create directory structure in output folder</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param basename string, data folder</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00181.html#adcf174b883c3deb28a88f06f696daaeb">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#adcf174b883c3deb28a88f06f696daaeb">read_scale</a>(gp):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    gp.Xscale = []</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    gp.Sig0pc = []</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    gp.maxsiglos = []</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> range(gp.pops+1):</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        A = np.loadtxt(gp.files.get_scale_file(pop), unpack=<span class="keyword">False</span>, skiprows=1)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        gp.Xscale.append(A[0])  <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        gp.Sig0pc.append(A[1])  <span class="comment"># [Munit/pc^2]</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment"># totmass_tracers is A[2] # [Munit]</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        gp.nu0pc.append(A[3])   <span class="comment"># [Munit/pc^3]</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        gp.maxsiglos.append(A[4]) <span class="comment"># [km/s]</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">## \fn read_scale(gp)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"># read scale file, store into gp.*scale</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"># @param gp</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment"># for pretty colors later in the book.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    colors = [<span class="stringliteral">&quot;#348ABD&quot;</span>, <span class="stringliteral">&quot;#A60628&quot;</span>] <span class="keywordflow">if</span> center_trace[-1,0] &gt; center_trace[-1,1] \</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;             <span class="keywordflow">else</span> [ <span class="stringliteral">&quot;#A60628&quot;</span>, <span class="stringliteral">&quot;#348ABD&quot;</span>]</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    plt.plot(center_trace[:,0], label=<span class="stringliteral">&quot;trace of center 0&quot;</span>, c=colors[0])</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    plt.plot(center_trace[:,1], label=<span class="stringliteral">&quot;trace of center 1&quot;</span>, c=colors[1])</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    plt.title( <span class="stringliteral">&quot;Traces of unknown parameters&quot;</span> )</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    leg = plt.legend(loc = <span class="stringliteral">&quot;upper right&quot;</span>)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    leg.get_frame().set_alpha(0.7)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    subplot(312)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std_trace = mcmc.trace(<span class="stringliteral">&quot;stds&quot;</span>)[:]</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    plt.plot(std_trace[:,0], label=<span class="stringliteral">&quot;trace of standard deviation of cluster 0&quot;</span>,\</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;             c = colors[0])</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    plt.plot(std_trace[:,1], label=<span class="stringliteral">&quot;trace of standard deviation of cluster 1&quot;</span>,\</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;             c = colors[1])</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    plt.legend(loc = <span class="stringliteral">&quot;upper left&quot;</span>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    subplot(313)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    p_trace = mcmc.trace(<span class="stringliteral">&quot;p&quot;</span>)[:]</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    plt.plot( p_trace, label = <span class="stringliteral">&quot;$p$: frequency of assignment to cluster 0&quot;</span>,\</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              color = <span class="stringliteral">&quot;#467821&quot;</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    plt.xlabel( <span class="stringliteral">&quot;Steps&quot;</span> )</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    plt.ylim(0,1)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    plt.legend()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="a00144.html#a0413892ef0e772a415c5199bc593d873">show</a>()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">## \fn plot_traces(mcmc)</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"># plot all traces</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"># @param mcmc MCMC object</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a00172.html#aafca09f47560efa6eea57e858bb11b5a">   79</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00172.html#aafca09f47560efa6eea57e858bb11b5a">bimodal_gauss</a>(data):</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    p = mc.Normal( <span class="stringliteral">&quot;p&quot;</span>, 0.5, 1./0.1**2)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    assignment = mc.Categorical(<span class="stringliteral">&quot;assignment&quot;</span>, [p, 1-p], size = data.shape[0] )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    print(<span class="stringliteral">&quot;prior assignment, with p = %.2f:&quot;</span>%p.value)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    print(assignment.value[:100], <span class="stringliteral">&quot;...&quot;</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    taus = 1.0/mc.Uniform( <span class="stringliteral">&quot;stds&quot;</span>, 0., 0.5, size=2)**2</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    mu1  = mc.Uniform(<span class="stringliteral">&#39;mu1&#39;</span>,-1.0,2.0)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    dmu  = mc.Uniform(<span class="stringliteral">&#39;dmu&#39;</span>,0.2, 5.0)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    @mc.deterministic(plot=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">def </span>centers(mu1 = mu1, dmu = dmu):</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        cs = <a class="code" href="a00120.html#ab94b48f884bc185632f2c3e9f49d2722">empty</a>(2)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        cs[0] = mu1</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        cs[1] = mu1+dmu</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> cs</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment"># centers = mc.Normal( &quot;centers&quot;, [mu0,mu0+dmu], [dmu2, dmu2], size=2)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    @mc.deterministic</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">def </span>center_i( assignment = assignment, centers = centers ):</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> centers[ assignment]</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    @mc.deterministic</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">def </span>tau_i( assignment = assignment, taus = taus ):</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> taus[ assignment]</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    print(<span class="stringliteral">&quot;Random assignments: &quot;</span>, assignment.value[ :10 ], <span class="stringliteral">&quot;...&quot;</span>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    print(<span class="stringliteral">&quot;Assigned center: &quot;</span>,    center_i.value[ :10], <span class="stringliteral">&quot;...&quot;</span>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    print(<span class="stringliteral">&quot;Assigned precision: &quot;</span>, tau_i.value[ :10], <span class="stringliteral">&quot;...&quot;</span>)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment"># and to combine it with the observations:</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    observations = mc.Normal( <span class="stringliteral">&quot;obs&quot;</span>, center_i, tau_i, value = data, observed = <span class="keyword">True</span> )</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment"># below we create a model class</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    model = mc.Model( [p, assignment, taus, centers, observations] )</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    M = mc.MCMC( model ) <span class="comment">#, db=&#39;pickle&#39;, dbname=&#39;metals.pickle&#39;)</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    iter = 50000; burn = 40000; thin = 10</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    M.sample( iter=iter, burn = burn, thin = thin)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    print(<span class="stringliteral">&#39;log_10(p) = &#39;</span>, M.logp)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment"># M.db.commit()</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="a00172.html#a224dd5afbc0560a715c1a4a01f398072">plot_traces</a>(M)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    mu1, mu2 = M.trace(<span class="stringliteral">&#39;centers&#39;</span>)[:].mean(axis=0)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    sig1, sig2 = M.trace(<span class="stringliteral">&#39;stds&#39;</span>)[:].mean(axis=0)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    p = M.trace(<span class="stringliteral">&quot;p&quot;</span>)[:].mean()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> p, mu1, sig1, mu2, sig2, M</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">## \fn bimodal_gauss(data)</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"># run MCMC to get regression on bimodal normal distribution</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"># http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"># @param data observed Mg metallicity [A]</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"># @return p probability of assignments [1]</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"># @return mu1 centers pop 1 [A]</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment"># @return sig1 standard deviations pop 1 [A]</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment"># @return mu2 centers pop 2 [A]</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment"># @return sig2 standard deviations pop 2 [A]</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"># @return M MCMC object</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="a00172.html#a017c86d8c133610605999a83ae1f4673">  139</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00172.html#a017c86d8c133610605999a83ae1f4673">run</a>(gp):</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">import</span> gr_params</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    gpr = gr_params.Params(gp)</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    x0,y0,z0,vz0,vb0,Mg0,PM0,pop0=np.genfromtxt(gpr.fil,skiprows=0,unpack=<span class="keyword">True</span>,\</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                    usecols=(0, 1, 2, 5, 12, 13, 19, 20),\</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                    dtype=<span class="stringliteral">&quot;d17&quot;</span>,\</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                                    converters={0:expDtofloat,  <span class="comment"># x0  in pc \</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                    1:expDtofloat,  <span class="comment"># y0  in pc \</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                                    2:expDtofloat,  <span class="comment"># z0  in pc \</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                    5:expDtofloat, <span class="comment"># vz0_obs in km/s\</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                    12:expDtofloat, <span class="comment"># vb0(LOS due binary), km/s\</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                    13:expDtofloat, <span class="comment"># Mg0 in Angstrom\</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                                    19:expDtofloat, <span class="comment"># PM0 [1]\</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                                    20:expDtofloat}) <span class="comment"># pop0 1,2,3(background)</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    pm = (PM0 &gt;= gpr.pmsplit)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    data = np.array(Mg0[pm])</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment"># import random</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment"># random.shuffle(data)</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    p, mu1, sig1, mu2, sig2, M = <a class="code" href="a00172.html#aafca09f47560efa6eea57e858bb11b5a">bimodal_gauss</a>(data)</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">   48</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">correct_E_error</a>(filename):</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">import</span> os</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    os.system(<span class="stringliteral">&quot;sed -i &#39;s/\\([0-9]\\)-\\([0-9]\\)/\\1E-\\2/g&#39; &quot;</span> + filename)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    os.system(<span class="stringliteral">&quot;sed -i &#39;s/\\([0-9]\\)+\\([0-9]\\)/\\1E+\\2/g&#39; &quot;</span> + filename)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">## \fn correct_E_error(filename)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"># replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># @param filename string</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a00181.html#a0f053569389f05b46b51a8ff78b3e675">   57</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#a0f053569389f05b46b51a8ff78b3e675">read_models</a>(basename):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># read in all accepted models</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    print(basename+<span class="stringliteral">&#39;{ev.dat, phys_live.points}&#39;</span>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">correct_E_error</a>(basename + <span class="stringliteral">&#39;ev.dat&#39;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">correct_E_error</a>(basename + <span class="stringliteral">&#39;phys_live.points&#39;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    REJECTED = np.loadtxt(basename+<span class="stringliteral">&#39;ev.dat&#39;</span>, skiprows=0, unpack=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    LIVE = np.loadtxt(basename+<span class="stringliteral">&#39;phys_live.points&#39;</span>, skiprows=0, unpack=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ALL = np.vstack([REJECTED[:,:-3], LIVE[:,:-2]])</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    npr.shuffle(ALL)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment"># for debugging, random 10 models</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment"># ALL = ALL[:10]</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment"># for debugging, based on live points only</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment"># ALL = np.vstack([LIVE[:12,:-2]])</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment"># for debugging, fixed 100 models after N=1000 iterations</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">#ALL = np.vstack([REJECTED[:6,:-2]])</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> ALL</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">## \fn read_models(basename)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"># read in all models, concatenate them</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"># @param basename string</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a00181.html#afe04fe2ed91cdf76e2e2d0bae523f1de">   77</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#afe04fe2ed91cdf76e2e2d0bae523f1de">pcload_single_entries</a>(basename, gp):</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">import</span> gi_collection <span class="keyword">as</span> gic</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    pc = gic.ProfileCollection(gp.pops, gp.nepol)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">import</span> re</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    tmp = re.split(<span class="stringliteral">&#39;/DT&#39;</span>, basename)[-1]</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    path = str.join(<span class="stringliteral">&#39;/&#39;</span>, re.split(<span class="stringliteral">&#39;/&#39;</span>, tmp)[:-1])</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment"># get number of iterations from run_info file</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">import</span> gi_base <span class="keyword">as</span> gb</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    bp = gb.get_basepath()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    fil = open(bp+<span class="stringliteral">&quot;/run_info&quot;</span>, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;)</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> fil:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> re.search(path, line):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            line2 = re.sub(<span class="stringliteral">r&#39;\n&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, line)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> re.search(<span class="stringliteral">&quot;File &quot;</span>, line2):</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                runparams = line2</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    fil.close()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    numofmodels = int(re.split(<span class="stringliteral">&#39;\t&#39;</span>, runparams)[2])</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    current = 0</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    with open(basename+<span class="stringliteral">&#39;pc2.save&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> fi:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        dum = pickle.load(fi) <span class="comment"># dummy variable, was used to create file</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="comment"># and current&lt;22360: # if needing to cut to max no. iterations</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                current += 1</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">if</span> current%100 == 0:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    gh.progressbar((1.0*current)/numofmodels)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                MODEL = pickle.load(fi)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                pc.add(MODEL)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">except</span> EOFError:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    print(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> pc</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">## \fn pcload_single_entries(basename, gp)</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># load all data into [chi^2, profiles] pairs, and add to a profile collection</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"># @param basename string</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"># @param gp global parameters</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a00181.html#ade183c0bccbbbe0d64aeefa12d2374f3">  114</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00181.html#ade183c0bccbbbe0d64aeefa12d2374f3">pccreate</a>(basename, gp):</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">import</span> gi_collection <span class="keyword">as</span> gic</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    pc = gic.ProfileCollection(gp.pops, gp.nepol)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">import</span> re</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    tmp = re.split(<span class="stringliteral">&#39;/DT&#39;</span>, basename)[-1]</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    path = str.join(<span class="stringliteral">&#39;/&#39;</span>, re.split(<span class="stringliteral">&#39;/&#39;</span>, tmp)[:-1])</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment"># get number of iterations from run_info file</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">import</span> gi_base <span class="keyword">as</span> gb</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    bp = gb.get_basepath()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    fil = open(bp+<span class="stringliteral">&quot;/run_info&quot;</span>, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;)</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="stringliteral">    </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> fil:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span> re.search(path, line):</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            line2 = re.sub(<span class="stringliteral">r&#39;\n&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, line)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> re.search(<span class="stringliteral">&quot;File &quot;</span>, line2):</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                runparams = line2</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    fil.close()</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    numofmodels = int(re.split(<span class="stringliteral">&#39;\t&#39;</span>, runparams)[2])</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    current = 0</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    with open(basename+<span class="stringliteral">&#39;.txt&#39;</span>, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;) as fi:</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="stringliteral">        m2lnLs = []</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral">        weights = []</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="stringliteral">        cubes = []</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> line <span class="keywordflow">in</span> fi:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            line2 = line.strip()</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            line3 = [float(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> line2.split()]</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            weight = float(line3[0])</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            m2lnL = float(line3[1])</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            cube = line3[2:-1]</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            m2lnLs.append(m2lnL)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            weights.append(weight)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            cubes.append(cube)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    weights = np.array(weights)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    cubes = np.array(cubes).T</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">import</span> weighted</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    L99 = weighted.quantile(cubes, weights, 0.01)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    L95 = weighted.quantile(cubes, weights, 0.05)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    L68 = weighted.quantile(cubes, weights, 0.32)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    MED = weighted.quantile(cubes, weights, 0.50)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    H68 = weighted.quantile(cubes, weights, 0.68)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    H95 = weighted.quantile(cubes, weights, 0.95)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    H99 = weighted.quantile(cubes, weights, 0.99)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> L99, L95, L68, MED, H68, H95, H99, m2lnLs</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">## \fn pccreate(basename, gp)</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"># load all data into [chi^2, profiles] pairs, and add to a profile collection, from .txt file</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment"># @param basename string</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment"># KS-test: are the two distributions the same?</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">from</span> scipy.stats <span class="keyword">import</span> ks_2samp</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    mp = []</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    N = 30</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(N):</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        model = np.hstack([np.random.normal(mu1,sig1,p*len(data)),\</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                           np.random.normal(mu2,sig2,(1.-p)*len(data))])</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        ks2 = ks_2samp(data, model)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment"># print(&#39;Kolmogorov-Smirnov test: &#39;,ks2)</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        mp.append(ks2[1])</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    print(<span class="stringliteral">&#39;&lt;p&gt; = &#39;</span>,np.mean(np.array(mp)))</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    print(<span class="stringliteral">&#39;median p = &#39;</span>,np.median(np.array(mp)))</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    clf()</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    ion()</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    colors = [<span class="stringliteral">&quot;#348ABD&quot;</span>, <span class="stringliteral">&quot;#A60628&quot;</span>]</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    bins = np.linspace(min(data),max(data),30)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    h1 = hist(data,bins=bins,color=<span class="stringliteral">&#39;k&#39;</span>, alpha=0.2, normed=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    print(<span class="stringliteral">&#39;overall mean = &#39;</span>, np.mean(data))</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="a00181.html#ad9944209cd1a3bb7ccd4ef410c8dcd70">  162</a></span>&#160;    parser = OptionParser()</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-i&quot;</span>, <span class="stringliteral">&quot;--investigation&quot;</span>, dest=<span class="stringliteral">&quot;investigate&quot;</span>, default=<span class="stringliteral">&quot;&quot;</span>, help=<span class="stringliteral">&quot;investigation to plot&quot;</span>)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-c&quot;</span>, <span class="stringliteral">&quot;--case&quot;</span>,          dest=<span class="stringliteral">&quot;case&quot;</span>,        default=-1, help=<span class="stringliteral">&quot;case to plot&quot;</span>)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-l&quot;</span>, <span class="stringliteral">&quot;--latest&quot;</span>, help=<span class="stringliteral">&#39;plot latest one&#39;</span>, dest = <span class="stringliteral">&#39;latest&#39;</span>, default = <span class="keyword">False</span>, action = <span class="stringliteral">&#39;store_true&#39;</span>)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-t&quot;</span>, <span class="stringliteral">&quot;--timestamps&quot;</span>, help=<span class="stringliteral">&#39;take all models from following timestamps&#39;</span>, dest=<span class="stringliteral">&#39;timestamps&#39;</span>, default=[], action=<span class="stringliteral">&#39;append&#39;</span>)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment"># parser.add_option(&quot;-t&quot;, &quot;--timestamp&quot;, dest=&quot;timestamp&quot;, default=-1, help=&quot;timestamp of run to plot. Overrides -l&quot;)</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment"># parser.add_option(&quot;-a&quot;, &quot;--action&quot;, dest=&quot;action&quot;, default=&quot;p&quot;, help=&quot;action to take: p: print, k: kill&quot;)</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    (options, args) = parser.parse_args()</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment"># gh.LOG(1, &#39;plot_profiles &#39;+str(options.investigate)+&#39; &#39;+str(options.case)+&#39; &#39;+str(options.latest))</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">if</span> len(options.timestamps) == 0:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">import</span> select_run <span class="keyword">as</span> sr</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        timestamp, basename = sr.run(options.investigate, options.case, options.latest)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        options.timestamps=[timestamp]</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keyword">import</span> gi_base <span class="keyword">as</span> gb</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="a00181.html#a1c029bf35e30838cc235f6aa906706f9">  178</a></span>&#160;        basepath = gb.get_basepath()</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a00181.html#a39ca28fc767429089d091652339d2d3b">  179</a></span>&#160;        basename = os.path.abspath(basepath+<span class="stringliteral">&#39;DT&#39;</span>+options.investigate+<span class="stringliteral">&#39;/&#39;</span>+str(options.case))+<span class="stringliteral">&#39;/&#39;</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">#    hist(data[pop0==1],bins=bins,color=&#39;r&#39;,alpha=0.5,normed=True)</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">#    axvline(x=np.mean(data[pop0==1]),color=&#39;r&#39;,ls=&#39;dashed&#39;)</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">#    print(&#39;mean 1 = &#39;, np.mean(data[pop0==1]), &#39;, found &#39;,mu1,&#39;, &#39;,sig1)</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">#    hist(data[pop0==2],bins=bins,color=&#39;b&#39;,alpha=0.5,normed=True)</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">#    axvline(x=np.mean(data[pop0==2]),color=&#39;b&#39;,ls=&#39;dashed&#39;)</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">#    print(&#39;mean 2 = &#39;, np.mean(data[pop0==2]), &#39;, found &#39;,mu2,&#39;, &#39;,sig2)</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    x = bins</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    y = p * norm.pdf(x, loc = mu1, scale = sig1)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    plt.plot(x, y, label = <span class="stringliteral">&quot;posterior pop 1&quot;</span>, lw = 2 )</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    plt.fill_between( x, y, color = colors[0], alpha = 0.3 )</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    y = (1-p) * norm.pdf(x, loc = mu2, scale = sig2)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    plt.plot(x, y, label = <span class="stringliteral">&quot;posterior pop 2&quot;</span>, lw = 2 )</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    plt.fill_between( x, y, color = colors[1], alpha = 0.3 )</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    y = p * norm.pdf(x, loc = mu1, scale = sig1) + (1-p) * norm.pdf(x, loc = mu2, scale = sig2)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    plt.plot(x, y, label = <span class="stringliteral">&quot;overall fitted distribution&quot;</span>, lw = 2 )</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    plt.legend(loc = <span class="stringliteral">&quot;upper left&quot;</span>)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    plt.title( <span class="stringliteral">&quot;Visualizing Clusters using posterior-mean parameters&quot;</span> );</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    ioff()</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    savefig(<span class="stringliteral">&#39;data.pdf&#39;</span>)</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment"># ion()</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment"># mc.Matplot.plot(M)</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment"># ioff()</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment"># ion()</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment"># cmap = mpl.colors.LinearSegmentedColormap.from_list(&quot;BMH&quot;, colors )</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment"># assign_trace = M.trace(&quot;assignment&quot;)[:]</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment"># scatter( data,1-assign_trace.mean(axis=0), cmap=cmap, c=assign_trace.mean(axis=0), s = 50)</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment"># # plt.ylim( -0.05, 1.05 )</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment"># # plt.xlim( 35, 300)</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment"># plt.title( &quot;Probability of data point belonging to cluster 0&quot; )</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment"># plt.ylabel(&quot;probability&quot;)</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment"># plt.xlabel(&quot;value of data point&quot; );</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment"># ioff()</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="a00144.html#a0413892ef0e772a415c5199bc593d873">show</a>()</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <a class="code" href="a00172.html#a017c86d8c133610605999a83ae1f4673">run</a>()</div>
-<div class="ttc" id="a00120_html_ab94b48f884bc185632f2c3e9f49d2722"><div class="ttname"><a href="a00120.html#ab94b48f884bc185632f2c3e9f49d2722">gi_file.empty</a></div><div class="ttdeci">def empty</div><div class="ttdoc">determine if file is empty or not </div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00261">gi_file.py:261</a></div></div>
-<div class="ttc" id="a00144_html_a0413892ef0e772a415c5199bc593d873"><div class="ttname"><a href="a00144.html#a0413892ef0e772a415c5199bc593d873">gravimage.show</a></div><div class="ttdeci">def show</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00048">gravimage.py:48</a></div></div>
-<div class="ttc" id="a00172_html_a224dd5afbc0560a715c1a4a01f398072"><div class="ttname"><a href="a00172.html#a224dd5afbc0560a715c1a4a01f398072">pymcmetal.plot_traces</a></div><div class="ttdeci">def plot_traces</div><div class="ttdoc">plot all traces </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00044">pymcmetal.py:44</a></div></div>
-<div class="ttc" id="a00172_html_a331ea88f0dac4acb3e0bcec6a6467660"><div class="ttname"><a href="a00172.html#a331ea88f0dac4acb3e0bcec6a6467660">pymcmetal.assign_pop</a></div><div class="ttdeci">def assign_pop</div><div class="ttdoc">get possible assignment to populations </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00022">pymcmetal.py:22</a></div></div>
-<div class="ttc" id="a00172_html_aafca09f47560efa6eea57e858bb11b5a"><div class="ttname"><a href="a00172.html#aafca09f47560efa6eea57e858bb11b5a">pymcmetal.bimodal_gauss</a></div><div class="ttdeci">def bimodal_gauss</div><div class="ttdoc">run MCMC to get regression on bimodal normal distribution http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00079">pymcmetal.py:79</a></div></div>
-<div class="ttc" id="a00172_html_a017c86d8c133610605999a83ae1f4673"><div class="ttname"><a href="a00172.html#a017c86d8c133610605999a83ae1f4673">pymcmetal.run</a></div><div class="ttdeci">def run</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00139">pymcmetal.py:139</a></div></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment"># use last timestamp for sample gp</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="a00181.html#a364fbe69e5158c680179973d3a093544">  183</a></span>&#160;    tt = options.timestamps[-1]</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    ip.insert_sys_path(basename+tt+<span class="stringliteral">&#39;/programs/&#39;</span>)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    ip.insert_sys_path(basename+tt+<span class="stringliteral">&#39;/programs/sphere&#39;</span>)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">import</span> gi_params <span class="keyword">as</span> gip</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="a00181.html#a95dc5689575955b64b362d2afab8085f">  187</a></span>&#160;    gp = gip.Params(tt)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    gp.pops = sr.get_pops(basename+tt+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment"># find minimum number of iterations for all runs</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="a00181.html#ac1a5fb56d07c7f857781d75dc005856f">  190</a></span>&#160;    minlinelen = 1e99</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">#import gi_collection as gc</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">for</span> tt <span class="keywordflow">in</span> options.timestamps:</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="a00181.html#a6a11c2f3989acdb68bce502bbeb123e2">  193</a></span>&#160;        linelen = 0</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        with open(basename+tt+<span class="stringliteral">&#39;/pc2.save&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> fi:</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="a00181.html#aaabe06a759ba8ba1f381b8c16af6b59c">  195</a></span>&#160;            dum = pickle.load(fi) <span class="comment"># dummy variable</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                    linelen += 1</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="a00181.html#a9908b462172a12b5a4744025cba361d5">  199</a></span>&#160;                    MODEL = pickle.load(fi)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">except</span> EOFError:</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        print(<span class="stringliteral">&#39;linelen = &#39;</span>,linelen)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        minlinelen = min(minlinelen, linelen)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">#ip.remove_first(); ip.remove_first()</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">#ip.remove_first(); ip.remove_first()</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment"># set up overall profile collection</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">#import import_path as ip</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">#ip.insert_sys_path(basename+tt+&#39;/programs/&#39;)</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">#ip.insert_sys_path(basename+tt+&#39;/programs/sphere&#39;)</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">import</span> gi_params <span class="keyword">as</span> gip</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    gp = gip.Params(tt)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    gp.pops = sr.get_pops(basename+tt+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    print(<span class="stringliteral">&#39;working with &#39;</span>, gp.pops, <span class="stringliteral">&#39; populations&#39;</span>)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">#ip.remove_first(); ip.remove_first() # programs/sphere and programs/reducedata from gip.Params() call</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment">#import gi_collection</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">#pcall = gi_collection.ProfileCollection(gp.pops, gp.nepol)</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">#ip.remove_first()</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">#ip.remove_first() # tt/programs/sphere and tt/programs</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment"># load all profiles of all timestamps into pcall</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">#for tt in options.timestamps:</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">#    # call external program to work with independent gp</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">#    os.system(&#39;external_pc.py &#39;+basename+&#39; &#39;+tt+&#39; &#39;+str(minlinelen))</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">#    # TODO check: read in pickled values</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment">#    with open(basename+tt+&#39;/pc&#39;, &#39;rb&#39;) as fn:</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">#        pc = pickle.load(fn)</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">#    pcall.merge(pc)</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment"># use last timestamp for output</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">import</span> import_path <span class="keyword">as</span> ip</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    ip.insert_sys_path(basename+tt+<span class="stringliteral">&#39;/programs/&#39;</span>)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    ip.insert_sys_path(basename+tt+<span class="stringliteral">&#39;/programs/sphere&#39;</span>)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">import</span> gi_params <span class="keyword">as</span> gip</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    gp = gip.Params(tt)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    gp.pops = sr.get_pops(basename+tt+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    print(<span class="stringliteral">&#39;working with &#39;</span>, gp.pops, <span class="stringliteral">&#39; populations&#39;</span>)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="comment">#if len(pcall.chis) == 0:</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">#    gh.LOG(1, &#39;no profiles found for plotting&#39;)</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">#    sys.exit(1)</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment"># first plot all chi^2 values in histogram</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment"># old version: pcall.plot_profile(basename+tt+&#39;/&#39;, &#39;chi2&#39;, 0, gp)</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="comment"># new version with .txt file: use -2ln L directly</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">correct_E_error</a>(basename+tt+<span class="stringliteral">&#39;/.txt&#39;</span>)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    L99, L95, L68, MED, H68, H95, H99, m2lnLs = <a class="code" href="a00181.html#ade183c0bccbbbe0d64aeefa12d2374f3">pccreate</a>(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, gp)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="a00181.html#adcf174b883c3deb28a88f06f696daaeb">read_scale</a>(gp) <span class="comment"># store half-light radii in  gp.Xscale</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    Radii, Binmin, Binmax, Sigdat1, Sigerr1 = gh.readcol5(gp.files.Sigfiles[0])</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment"># [Xscale0], [Munit/Xscale0^2]</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    gp.xipol = Radii * gp.Xscale[0]       <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a00181.html#a9daa0dcd22413df1dc12469a57ebb08b">  252</a></span>&#160;    maxR = max(Radii)                     <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="a00181.html#a1c385c788d74eb25654eea6a5cc08e82">  253</a></span>&#160;    minR = min(Radii)                     <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="a00181.html#adb50cc1b8c1b924eca6a17fbb53e3380">  254</a></span>&#160;    Radii = np.hstack([minR/8, minR/4, minR/2, Radii, 2*maxR, 4*maxR, 8*maxR])</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    gp.xepol = Radii * gp.Xscale[0]       <span class="comment"># [pc]</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">import</span> gi_file <span class="keyword">as</span> gf</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    gf.get_binned_data(gp)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    gf.get_rhohalfs(gp)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;walk&#39;</span> <span class="keywordflow">or</span> gp.investigate == <span class="stringliteral">&#39;gaia&#39;</span> <span class="keywordflow">or</span> gp.investigate == <span class="stringliteral">&#39;triax&#39;</span>:</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="a00181.html#a9dcaf8fc28bd8e4edf352beb9dd30c68">  263</a></span>&#160;        r0analytic = np.logspace(np.log10(1.), np.log10(max(gp.xepol)), 100)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">import</span> gi_collection <span class="keyword">as</span> gic</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="a00181.html#abb04d0f06bf0c08cc854a03ed3673026">  266</a></span>&#160;    pcall = gic.ProfileCollection(gp.pops, gp.nepol)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">#calculate rho, nr</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">import</span> gi_loglike <span class="keyword">as</span> gil</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    gp.chi2_Sig_converged = -1</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    pcall.M99lo = gil.geom_loglike(L99, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    pcall.M95lo = gil.geom_loglike(L95, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    pcall.M68lo = gil.geom_loglike(L68, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    pcall.Mmedi = gil.geom_loglike(MED, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    pcall.M68hi = gil.geom_loglike(H68, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    pcall.M95hi = gil.geom_loglike(H95, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    pcall.M99hi = gil.geom_loglike(H99, gp.ndim, gp.ndim, gp)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> gp.investigate ==<span class="stringliteral">&#39;walk&#39;</span> <span class="keywordflow">or</span> gp.investigate==<span class="stringliteral">&#39;gaia&#39;</span> <span class="keywordflow">or</span> gp.investigate ==<span class="stringliteral">&#39;triax&#39;</span>:</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        r0analytic = np.logspace(np.log10(1.), np.log10(max(gp.xepol)), 100)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        pcall.set_analytic(r0analytic, gp)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;rho&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;nr&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span> gp.investigate == <span class="stringliteral">&#39;obs&#39;</span>:</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;Sig&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;nu&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;nrnu&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> gp.geom == <span class="stringliteral">&#39;sphere&#39;</span>:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;M&#39;</span>, 0, gp)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">for</span> pop <span class="keywordflow">in</span> np.arange(1, gp.pops+1):</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;betastar&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;beta&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;Sig&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;nu&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;nrnu&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        pcall.plot_txtprofile(basename+tt+<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;sig&#39;</span>, pop, gp)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="a00181.html#ad7185d0cdc174d0012fb27892dcdc07c">  299</a></span>&#160;    cmd = <span class="stringliteral">&quot;cd &quot;</span>+basename+tt+<span class="stringliteral">&quot;/output/pdf/;&quot;</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">if</span> gp.pops == 1:</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        cmd += <span class="stringliteral">&quot;pdfjam --outfile tcat.pdf --nup 3x4 --no-landscape tprof_nr_0.pdf tprof_rho_0.pdf tprof_M_0.pdf tprof_nrnu_1.pdf tprof_nu_1.pdf tprof_Sig_1.pdf tprof_betastar_1.pdf tprof_beta_1.pdf tprof_sig_1.pdf ../prof_chi2_0.pdf;&quot;</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">elif</span> gp.pops == 2:</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        cmd += <span class="stringliteral">&quot;pdfjam --outfile tcat.pdf --nup 3x5 --no-landscape tprof_nr_0.pdf tprof_rho_0.pdf tprof_M_0.pdf tprof_nrnu_1.pdf tprof_nu_1.pdf tprof_Sig_1.pdf tprof_betastar_1.pdf tprof_beta_1.pdf tprof_sig_1.pdf tprof_nrnu_2.pdf tprof_nu_2.pdf tprof_Sig_2.pdf tprof_betastar_2.pdf tprof_beta_2.pdf tprof_sig_2.pdf;&quot;</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    os.system(cmd)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">#cmd += &quot;evince cat.pdf &amp;&quot;</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">#os.system(cmd)</span></div>
+<div class="ttc" id="a00181_html_a99bb5861faa2104ea836e9fc9e9e1adf"><div class="ttname"><a href="a00181.html#a99bb5861faa2104ea836e9fc9e9e1adf">txtplot.prepare_output_folder</a></div><div class="ttdeci">def prepare_output_folder</div><div class="ttdoc">create directory structure in output folder </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00023">txtplot.py:23</a></div></div>
+<div class="ttc" id="a00181_html_ade183c0bccbbbe0d64aeefa12d2374f3"><div class="ttname"><a href="a00181.html#ade183c0bccbbbe0d64aeefa12d2374f3">txtplot.pccreate</a></div><div class="ttdeci">def pccreate</div><div class="ttdoc">load all data into [chi^2, profiles] pairs, and add to a profile collection, from ...</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00114">txtplot.py:114</a></div></div>
+<div class="ttc" id="a00181_html_a0591aa9d57a2b2ceb24ea1c74336cd2d"><div class="ttname"><a href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">txtplot.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00048">txtplot.py:48</a></div></div>
+<div class="ttc" id="a00181_html_adcf174b883c3deb28a88f06f696daaeb"><div class="ttname"><a href="a00181.html#adcf174b883c3deb28a88f06f696daaeb">txtplot.read_scale</a></div><div class="ttdeci">def read_scale</div><div class="ttdoc">read scale file, store into gp. </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00033">txtplot.py:33</a></div></div>
+<div class="ttc" id="a00181_html_a0f053569389f05b46b51a8ff78b3e675"><div class="ttname"><a href="a00181.html#a0f053569389f05b46b51a8ff78b3e675">txtplot.read_models</a></div><div class="ttdeci">def read_models</div><div class="ttdoc">read in all models, concatenate them </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00057">txtplot.py:57</a></div></div>
+<div class="ttc" id="a00181_html_afe04fe2ed91cdf76e2e2d0bae523f1de"><div class="ttname"><a href="a00181.html#afe04fe2ed91cdf76e2e2d0bae523f1de">txtplot.pcload_single_entries</a></div><div class="ttdeci">def pcload_single_entries</div><div class="ttdoc">load all data into [chi^2, profiles] pairs, and add to a profile collection </div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00077">txtplot.py:77</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:39 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

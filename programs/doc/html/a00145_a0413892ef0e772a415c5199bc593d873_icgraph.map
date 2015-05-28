@@ -1,0 +1,7 @@
+<map id="gravimage.show" name="gravimage.show">
+<area shape="rect" id="node3" href="$a00173.html#a224dd5afbc0560a715c1a4a01f398072" title="plot all traces " alt="" coords="197,5,360,35"/>
+<area shape="rect" id="node7" href="$a00173.html#a017c86d8c133610605999a83ae1f4673" title="pymcmetal.run" alt="" coords="661,32,773,61"/>
+<area shape="rect" id="node10" href="$a00104.html#a44d003aa123ea6d308b198a404061181" title="run all commands inside check_proj " alt="" coords="221,133,336,163"/>
+<area shape="rect" id="node13" href="$a00149.html#a61e2c86517ae16105167a8ae1a823013" title="show ellipses with error bars for each star&#39;s Fe and Mg " alt="" coords="180,187,377,216"/>
+<area shape="rect" id="node5" href="$a00173.html#aafca09f47560efa6eea57e858bb11b5a" title="run MCMC to get regression on bimodal normal distribution http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic&#45;Programming&#45;and&#45;Bayesian&#45;Methods&#45;for&#45;Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb " alt="" coords="428,5,612,35"/>
+</map>

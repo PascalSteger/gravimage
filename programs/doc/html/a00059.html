@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/pymcmetal.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/plotting/txtplot.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,50 +80,91 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_d634850895433f7ab5aae948813f928f.html">plotting</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">pymcmetal.py File Reference</div>  </div>
+<div class="title">txtplot.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>MCMC to split stellar tracers into two populations assuming split by age is traced by age and thus metallicity only.  
+<p>plot all profiles of a given run  
 <a href="#details">More...</a></p>
 
 <p><a href="a00059_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00172"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00172.html">pymcmetal</a></td></tr>
+<tr class="memitem:a00181"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html">txtplot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a331ea88f0dac4acb3e0bcec6a6467660"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00172.html#a331ea88f0dac4acb3e0bcec6a6467660">pymcmetal.assign_pop</a></td></tr>
-<tr class="memdesc:a331ea88f0dac4acb3e0bcec6a6467660"><td class="mdescLeft">&#160;</td><td class="mdescRight">get possible assignment to populations  <a href="#a331ea88f0dac4acb3e0bcec6a6467660">More...</a><br/></td></tr>
-<tr class="separator:a331ea88f0dac4acb3e0bcec6a6467660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a224dd5afbc0560a715c1a4a01f398072"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00172.html#a224dd5afbc0560a715c1a4a01f398072">pymcmetal.plot_traces</a></td></tr>
-<tr class="memdesc:a224dd5afbc0560a715c1a4a01f398072"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot all traces  <a href="#a224dd5afbc0560a715c1a4a01f398072">More...</a><br/></td></tr>
-<tr class="separator:a224dd5afbc0560a715c1a4a01f398072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafca09f47560efa6eea57e858bb11b5a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00172.html#aafca09f47560efa6eea57e858bb11b5a">pymcmetal.bimodal_gauss</a></td></tr>
-<tr class="memdesc:aafca09f47560efa6eea57e858bb11b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">run MCMC to get regression on bimodal normal distribution <a href="http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb">http://nbviewer.ipython.org/urls/raw.github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/master/Chapter3_MCMC/IntroMCMC.ipynb</a>  <a href="#aafca09f47560efa6eea57e858bb11b5a">More...</a><br/></td></tr>
-<tr class="separator:aafca09f47560efa6eea57e858bb11b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a017c86d8c133610605999a83ae1f4673"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00172.html#a017c86d8c133610605999a83ae1f4673">pymcmetal.run</a></td></tr>
-<tr class="separator:a017c86d8c133610605999a83ae1f4673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99bb5861faa2104ea836e9fc9e9e1adf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a99bb5861faa2104ea836e9fc9e9e1adf">txtplot.prepare_output_folder</a></td></tr>
+<tr class="memdesc:a99bb5861faa2104ea836e9fc9e9e1adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">create directory structure in output folder  <a href="#a99bb5861faa2104ea836e9fc9e9e1adf">More...</a><br/></td></tr>
+<tr class="separator:a99bb5861faa2104ea836e9fc9e9e1adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcf174b883c3deb28a88f06f696daaeb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#adcf174b883c3deb28a88f06f696daaeb">txtplot.read_scale</a></td></tr>
+<tr class="memdesc:adcf174b883c3deb28a88f06f696daaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">read scale file, store into gp.  <a href="#adcf174b883c3deb28a88f06f696daaeb">More...</a><br/></td></tr>
+<tr class="separator:adcf174b883c3deb28a88f06f696daaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0591aa9d57a2b2ceb24ea1c74336cd2d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a0591aa9d57a2b2ceb24ea1c74336cd2d">txtplot.correct_E_error</a></td></tr>
+<tr class="memdesc:a0591aa9d57a2b2ceb24ea1c74336cd2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way  <a href="#a0591aa9d57a2b2ceb24ea1c74336cd2d">More...</a><br/></td></tr>
+<tr class="separator:a0591aa9d57a2b2ceb24ea1c74336cd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f053569389f05b46b51a8ff78b3e675"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a0f053569389f05b46b51a8ff78b3e675">txtplot.read_models</a></td></tr>
+<tr class="memdesc:a0f053569389f05b46b51a8ff78b3e675"><td class="mdescLeft">&#160;</td><td class="mdescRight">read in all models, concatenate them  <a href="#a0f053569389f05b46b51a8ff78b3e675">More...</a><br/></td></tr>
+<tr class="separator:a0f053569389f05b46b51a8ff78b3e675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe04fe2ed91cdf76e2e2d0bae523f1de"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#afe04fe2ed91cdf76e2e2d0bae523f1de">txtplot.pcload_single_entries</a></td></tr>
+<tr class="memdesc:afe04fe2ed91cdf76e2e2d0bae523f1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">load all data into [chi^2, profiles] pairs, and add to a profile collection  <a href="#afe04fe2ed91cdf76e2e2d0bae523f1de">More...</a><br/></td></tr>
+<tr class="separator:afe04fe2ed91cdf76e2e2d0bae523f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade183c0bccbbbe0d64aeefa12d2374f3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#ade183c0bccbbbe0d64aeefa12d2374f3">txtplot.pccreate</a></td></tr>
+<tr class="memdesc:ade183c0bccbbbe0d64aeefa12d2374f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">load all data into [chi^2, profiles] pairs, and add to a profile collection, from .txt file  <a href="#ade183c0bccbbbe0d64aeefa12d2374f3">More...</a><br/></td></tr>
+<tr class="separator:ade183c0bccbbbe0d64aeefa12d2374f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad9944209cd1a3bb7ccd4ef410c8dcd70"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#ad9944209cd1a3bb7ccd4ef410c8dcd70">txtplot.parser</a> = OptionParser()</td></tr>
+<tr class="separator:ad9944209cd1a3bb7ccd4ef410c8dcd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c029bf35e30838cc235f6aa906706f9"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a1c029bf35e30838cc235f6aa906706f9">txtplot.basepath</a> = gb.get_basepath()</td></tr>
+<tr class="separator:a1c029bf35e30838cc235f6aa906706f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ca28fc767429089d091652339d2d3b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a39ca28fc767429089d091652339d2d3b">txtplot.basename</a> = os.path.abspath(basepath+'DT'+options.investigate+'/'+str(options.case))</td></tr>
+<tr class="separator:a39ca28fc767429089d091652339d2d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364fbe69e5158c680179973d3a093544"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a364fbe69e5158c680179973d3a093544">txtplot.tt</a> = options.timestamps[-1]</td></tr>
+<tr class="separator:a364fbe69e5158c680179973d3a093544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95dc5689575955b64b362d2afab8085f"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a95dc5689575955b64b362d2afab8085f">txtplot.gp</a> = gip.Params(tt)</td></tr>
+<tr class="separator:a95dc5689575955b64b362d2afab8085f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a5fb56d07c7f857781d75dc005856f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#ac1a5fb56d07c7f857781d75dc005856f">txtplot.minlinelen</a> = 1</td></tr>
+<tr class="separator:ac1a5fb56d07c7f857781d75dc005856f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a11c2f3989acdb68bce502bbeb123e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a6a11c2f3989acdb68bce502bbeb123e2">txtplot.linelen</a> = 0</td></tr>
+<tr class="separator:a6a11c2f3989acdb68bce502bbeb123e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabe06a759ba8ba1f381b8c16af6b59c"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#aaabe06a759ba8ba1f381b8c16af6b59c">txtplot.dum</a> = pickle.load(fi)</td></tr>
+<tr class="separator:aaabe06a759ba8ba1f381b8c16af6b59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9908b462172a12b5a4744025cba361d5"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a9908b462172a12b5a4744025cba361d5">txtplot.MODEL</a> = pickle.load(fi)</td></tr>
+<tr class="separator:a9908b462172a12b5a4744025cba361d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9daa0dcd22413df1dc12469a57ebb08b"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a9daa0dcd22413df1dc12469a57ebb08b">txtplot.maxR</a> = max(Radii)</td></tr>
+<tr class="separator:a9daa0dcd22413df1dc12469a57ebb08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c385c788d74eb25654eea6a5cc08e82"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a1c385c788d74eb25654eea6a5cc08e82">txtplot.minR</a> = min(Radii)</td></tr>
+<tr class="separator:a1c385c788d74eb25654eea6a5cc08e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb50cc1b8c1b924eca6a17fbb53e3380"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#adb50cc1b8c1b924eca6a17fbb53e3380">txtplot.Radii</a> = np.hstack([minR/8, minR/4, minR/2, Radii, 2*maxR, 4*maxR, 8*maxR])</td></tr>
+<tr class="separator:adb50cc1b8c1b924eca6a17fbb53e3380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dcaf8fc28bd8e4edf352beb9dd30c68"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#a9dcaf8fc28bd8e4edf352beb9dd30c68">txtplot.r0analytic</a> = np.logspace(np.log10(1.), np.log10(max(gp.xepol)), 100)</td></tr>
+<tr class="separator:a9dcaf8fc28bd8e4edf352beb9dd30c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb04d0f06bf0c08cc854a03ed3673026"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#abb04d0f06bf0c08cc854a03ed3673026">txtplot.pcall</a> = gic.ProfileCollection(gp.pops, gp.nepol)</td></tr>
+<tr class="separator:abb04d0f06bf0c08cc854a03ed3673026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7185d0cdc174d0012fb27892dcdc07c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00181.html#ad7185d0cdc174d0012fb27892dcdc07c">txtplot.cmd</a> = &quot;cd &quot;</td></tr>
+<tr class="separator:ad7185d0cdc174d0012fb27892dcdc07c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>MCMC to split stellar tracers into two populations assuming split by age is traced by age and thus metallicity only. </p>
+<div class="textblock"><p>plot all profiles of a given run </p>
 
-<p>Definition in file <a class="el" href="a00059_source.html">pymcmetal.py</a>.</p>
+<p>Definition in file <a class="el" href="a00059_source.html">txtplot.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

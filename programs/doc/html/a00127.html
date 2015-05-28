@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_params Namespace Reference</title>
+<title>GravImage: gi_multinest_helper Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,55 +82,120 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_params Namespace Reference</div>  </div>
+<div class="title">gi_multinest_helper Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html">Params</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#af7c959edeb0d2f1d2e5e640d39e67eac">check_investigate</a></td></tr>
-<tr class="memdesc:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether there is a valid investigation chosen  <a href="#af7c959edeb0d2f1d2e5e640d39e67eac">More...</a><br/></td></tr>
-<tr class="separator:af7c959edeb0d2f1d2e5e640d39e67eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af663a44c7c1e9b6da91081950ea5bf97"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#af663a44c7c1e9b6da91081950ea5bf97">paracube_to_profile</a></td></tr>
+<tr class="separator:af663a44c7c1e9b6da91081950ea5bf97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af825942b04e68ac0912dab296ba822c2"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#af825942b04e68ac0912dab296ba822c2">parser</a> = OptionParser()</td></tr>
+<tr class="separator:af825942b04e68ac0912dab296ba822c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb9eaf32822aff6d1ccd850cc852cf6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a8eb9eaf32822aff6d1ccd850cc852cf6">basepath_ts</a> = '/home/hsilverw/LoDaM/darcoda/gravimage/DT'</td></tr>
+<tr class="separator:a8eb9eaf32822aff6d1ccd850cc852cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="af7c959edeb0d2f1d2e5e640d39e67eac"></a>
+<a class="anchor" id="af663a44c7c1e9b6da91081950ea5bf97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gi_params.check_investigate </td>
+          <td class="memname">def gi_multinest_helper.paracube_to_profile </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>inv</em></td><td>)</td>
+          <td class="paramname"><em>basepath_ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>paracube_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>profile_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>investigation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>case</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>timestamp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>check whether there is a valid investigation chosen </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inv</td><td>string </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="a00041_source.html#l00015">15</a> of file <a class="el" href="a00041_source.html">gi_multinest_helper.py</a>.</p>
 
-<p>Definition at line <a class="el" href="a00026_source.html#l00015">15</a> of file <a class="el" href="a00026_source.html">gi_params.py</a>.</p>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00127_af663a44c7c1e9b6da91081950ea5bf97_cgraph.png" border="0" usemap="#a00127_af663a44c7c1e9b6da91081950ea5bf97_cgraph" alt=""/></div>
+<map name="a00127_af663a44c7c1e9b6da91081950ea5bf97_cgraph" id="a00127_af663a44c7c1e9b6da91081950ea5bf97_cgraph">
+<area shape="rect" id="node3" href="a00168.html#a8a89b3451465b041ef01dcf3dd83b217" title="replace 3.4230210&#45;301 and ...+301 by 3.4230210E&#45;301 and ...+301 the sed way " alt="" coords="267,5,419,35"/><area shape="rect" id="node5" href="a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by pyMultinest and plot_profiles disk version ..." alt="" coords="260,59,425,88"/><area shape="rect" id="node7" href="a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3" title="Calculate chi^2. " alt="" coords="476,59,596,88"/><area shape="rect" id="node9" href="a00113.html#afbbcde30ae3902669c708d929cb579b4" title="determine &#39;reduced chi2&#39; " alt="" coords="645,59,755,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a8eb9eaf32822aff6d1ccd850cc852cf6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string gi_multinest_helper.basepath_ts = '/home/hsilverw/LoDaM/darcoda/gravimage/DT'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00041_source.html#l00076">76</a> of file <a class="el" href="a00041_source.html">gi_multinest_helper.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af825942b04e68ac0912dab296ba822c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gi_multinest_helper.parser = OptionParser()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00041_source.html#l00070">70</a> of file <a class="el" href="a00041_source.html">gi_multinest_helper.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -118,6 +118,9 @@ def run(gp):
                     log_zero = -1e500, # points with log likelihood<log_zero will be neglected
                     max_iter = 0, # set to 0 for never reaching max_iter (no stopping criterium based on number of iterations)
                     init_MPI = False, dump_callback = None)
+## \fn run(gp)
+# start main MultiNest routine
+# @param gp global parameters as defined in gi_params
 
 if __name__=="__main__":
     global Cube, geom_loglike

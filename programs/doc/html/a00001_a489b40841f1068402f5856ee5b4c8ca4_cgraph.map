@@ -1,8 +1,0 @@
-<map id="gl_class_cube.Cube.convert_to_parameter_space" name="gl_class_cube.Cube.convert_to_parameter_space">
-<area shape="rect" id="node3" href="$a00001.html#a4a0285e4abba08ff5fbb3beb3e5e79a9" title="convert [0,1]^ndim to parameter space such that values in cube are the parameters we need for rho..." alt="" coords="251,53,445,99"/>
-<area shape="rect" id="node5" href="$a00077.html#adf0c95492e8a3842908e16c6d6dae394" title="mapping rho parameters from [0,1] to full parameter space setting all n(r&lt;r_nrlim)&lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value " alt="" coords="509,5,669,35"/>
-<area shape="rect" id="node7" href="$a00077.html#a0557595573b8bda30ada13754aeb6595" title="map [0,1] to MtoL flat prior " alt="" coords="500,117,679,147"/>
-<area shape="rect" id="node12" href="$a00077.html#a839e8b214413bc8e002d3eb4a30769ef" title="mapping rho parameters from [0,1] to full parameter space setting all n(r&lt;r_nrlim)&lt;=2.0 and possibly a monotonically increasing function first parameter is offset for rho_half second parameter is asymptotic n(r to 0) value " alt="" coords="268,173,428,219"/>
-<area shape="rect" id="node15" href="$a00077.html#a7003ba67deaddaf4114940b7663c36b0" title="mapping beta parameters from [0,1] to full param space " alt="" coords="249,242,447,289"/>
-<area shape="rect" id="node9" href="$a00077.html#a338a7d0fd38da239106ba7413b0a5978" title="gl_class_cube.map_tiltstar" alt="" coords="496,61,683,91"/>
-</map>

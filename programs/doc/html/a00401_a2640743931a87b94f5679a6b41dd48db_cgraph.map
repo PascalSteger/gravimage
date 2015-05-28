@@ -1,5 +1,0 @@
-<map id="plot_profiles_batch.run" name="plot_profiles_batch.run">
-<area shape="rect" id="node3" href="$a00401.html#a4a29ebb0462ff59b741829b4e9b078d5" title="create directory structure in output folder " alt="" coords="219,5,413,51"/>
-<area shape="rect" id="node5" href="$a00401.html#aadaa9342dcfab3aa12cbed852f276958" title="read scale file, store into gp. " alt="" coords="229,74,403,121"/>
-<area shape="rect" id="node7" href="$a00401.html#abffd34b1158703b6124a14f588ea8946" title="load all data into [chi^2, profiles] pairs, and add to a profile collection " alt="" coords="223,143,409,190"/>
-</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/stellarmass.py File Reference</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/reducedata/grw_mcmcbin.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,74 +80,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_abd9d75bd53711dcc65e38733baa2f85.html">sci</a></li><li class="navelem"><a class="el" href="dir_4841cdf1c2cef340ef1dabf490ca5464.html">darcoda</a></li><li class="navelem"><a class="el" href="dir_4b8d7292d7d9bdc5bb83a2e42d5fb5dd.html">gravimage</a></li><li class="navelem"><a class="el" href="dir_5686bc8835a6499a73b193ccd249e421.html">programs</a></li><li class="navelem"><a class="el" href="dir_be9429b6d98f3738ece5a5ee89294dc4.html">reducedata</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">stellarmass.py File Reference</div>  </div>
+<div class="title">grw_mcmcbin.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate approximative stellar masses from V-band magnitude, V-I color, distance to dwarf galaxy.  
+<p>calculate surface mass density falloff of circular rings around center of mass calculate velocity dispersion of 2D rings from a Walker dataset calculate 4th order velocity moment (kurtosis) of 2D rings from a Walker dataset do this consistently with always the same sets of particles per bin 3D version, see grw_MCMCbin for 2D version only  
 <a href="#details">More...</a></p>
 
 <p><a href="a00086_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00176"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html">stellarmass</a></td></tr>
+<tr class="memitem:a00161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html">grw_mcmcbin</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:abb1ae559f5155be4098f755c5f4723ed"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#abb1ae559f5155be4098f755c5f4723ed">grw_mcmcbin.volume_spherical_shell</a></td></tr>
+<tr class="memdesc:abb1ae559f5155be4098f755c5f4723ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">volume of a circular ring from binmin to binmax  <a href="#abb1ae559f5155be4098f755c5f4723ed">More...</a><br/></td></tr>
+<tr class="separator:abb1ae559f5155be4098f755c5f4723ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78fc8f1dbce944fc435b2efe0f25a776"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#a78fc8f1dbce944fc435b2efe0f25a776">grw_mcmcbin.run</a></td></tr>
+<tr class="separator:a78fc8f1dbce944fc435b2efe0f25a776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a89311f0e6d5f60cef966d294655f9fbf"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a89311f0e6d5f60cef966d294655f9fbf">stellarmass.dwarf</a> = sys.argv[1]</td></tr>
-<tr class="separator:a89311f0e6d5f60cef966d294655f9fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee80123c321c61238e0ac6d1ce4adccb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#aee80123c321c61238e0ac6d1ce4adccb">stellarmass.dir</a> = gp.files.machine</td></tr>
-<tr class="separator:aee80123c321c61238e0ac6d1ce4adccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac922eba584582a519b88fd1b5ed0151f"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#ac922eba584582a519b88fd1b5ed0151f">stellarmass.delim</a> = [0,22,3,3,6,4,3,5,6,6,7,5,6,5,6,5,6]</td></tr>
-<tr class="separator:ac922eba584582a519b88fd1b5ed0151f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5de1c29fcf861dc7a3081a4413ef4499"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a5de1c29fcf861dc7a3081a4413ef4499">stellarmass.ID</a> = numpy.genfromtxt(dir+dwarf+&quot;/table_merged.bin&quot;,skiprows=29,unpack=True,usecols=(0,1),delimiter=delim,dtype=&quot;string&quot;)</td></tr>
-<tr class="separator:a5de1c29fcf861dc7a3081a4413ef4499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add667a2b795e2a011bf8861c16679852"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#add667a2b795e2a011bf8861c16679852">stellarmass.skiprows</a> = 1</td></tr>
-<tr class="separator:add667a2b795e2a011bf8861c16679852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89410bb33feea75b6ba81bad8fbc2fa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a89410bb33feea75b6ba81bad8fbc2fa1">stellarmass.kpc</a> = 1000</td></tr>
-<tr class="separator:a89410bb33feea75b6ba81bad8fbc2fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d6101f3be9797f4096fd004cfaedaeb"><td class="memItemLeft" align="right" valign="top">dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a7d6101f3be9797f4096fd004cfaedaeb">stellarmass.DL</a></td></tr>
-<tr class="separator:a7d6101f3be9797f4096fd004cfaedaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85c495e5bf0b6c7f9043800cd57864e"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#ac85c495e5bf0b6c7f9043800cd57864e">stellarmass.pm</a> = (PM&gt;0.95)</td></tr>
-<tr class="separator:ac85c495e5bf0b6c7f9043800cd57864e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90b7f55d2082a759ba4d4d0f63f7e5f"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#ac90b7f55d2082a759ba4d4d0f63f7e5f">stellarmass.Vmag</a> = Vmag[pm]</td></tr>
-<tr class="separator:ac90b7f55d2082a759ba4d4d0f63f7e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fb1e01f14165c5bbc9ad9ee21f73928"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a0fb1e01f14165c5bbc9ad9ee21f73928">stellarmass.SigFe</a> = SigFe[pm]</td></tr>
-<tr class="separator:a0fb1e01f14165c5bbc9ad9ee21f73928"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad169709566fc58cc5d2c3f85f176a084"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#ad169709566fc58cc5d2c3f85f176a084">stellarmass.PM</a> = PM[pm]</td></tr>
-<tr class="separator:ad169709566fc58cc5d2c3f85f176a084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a418f4aabe30b7300060a7ef7c4106737"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a418f4aabe30b7300060a7ef7c4106737">stellarmass.VMag</a> = Vmag-5.0</td></tr>
-<tr class="separator:a418f4aabe30b7300060a7ef7c4106737"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe99b75cb9ddaa180637d4307f4780d0"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#afe99b75cb9ddaa180637d4307f4780d0">stellarmass.windowCMD</a> = (minVMag&lt;=MvCMD)</td></tr>
-<tr class="separator:afe99b75cb9ddaa180637d4307f4780d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa31078add0c528a7ac9ebcfcbde2c3e"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#aaa31078add0c528a7ac9ebcfcbde2c3e">stellarmass.MCMD</a> = MCMD[windowCMD]</td></tr>
-<tr class="separator:aaa31078add0c528a7ac9ebcfcbde2c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51eab74716c18c1acbbc086052124ae7"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#a51eab74716c18c1acbbc086052124ae7">stellarmass.MvCMD</a> = MvCMD[windowCMD]</td></tr>
-<tr class="separator:a51eab74716c18c1acbbc086052124ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac93a64bae362c45f5e600b5ad1d35570"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#ac93a64bae362c45f5e600b5ad1d35570">stellarmass.VICMD</a> = VICMD[windowCMD]</td></tr>
-<tr class="separator:ac93a64bae362c45f5e600b5ad1d35570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc6478e8736b83976063738003cece02"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00176.html#afc6478e8736b83976063738003cece02">stellarmass.xyset</a> = [[str(MCMD[i]),VICMD[i],MvCMD[i]] for i in range(len(VICMD))]</td></tr>
-<tr class="separator:afc6478e8736b83976063738003cece02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e9ee0bf16dccc659b65f2407b90254"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#ad1e9ee0bf16dccc659b65f2407b90254">grw_mcmcbin.gp</a> = <a class="el" href="a00007.html">gi_params.Params</a>()</td></tr>
+<tr class="separator:ad1e9ee0bf16dccc659b65f2407b90254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculate approximative stellar masses from V-band magnitude, V-I color, distance to dwarf galaxy. </p>
-<p>Read in [some].bin.[MV,V-I], output ID,Mstar </p>
+<div class="textblock"><p>calculate surface mass density falloff of circular rings around center of mass calculate velocity dispersion of 2D rings from a Walker dataset calculate 4th order velocity moment (kurtosis) of 2D rings from a Walker dataset do this consistently with always the same sets of particles per bin 3D version, see grw_MCMCbin for 2D version only </p>
 
-<p>Definition in file <a class="el" href="a00086_source.html">stellarmass.py</a>.</p>
+<p>Definition in file <a class="el" href="a00086_source.html">grw_mcmcbin.py</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

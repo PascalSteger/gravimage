@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">BiWeight.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00011.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00102.html">    1</a></span>&#160;<span class="comment">######################################################################</span></div>
+<a href="a00011.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00103.html">    1</a></span>&#160;<span class="comment">######################################################################</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"># original IDL code by</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"># Glenn van de Ven</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># Leiden Observatory, 2005, vdven@strw.leidenuniv.nl</span></div>
@@ -132,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">   45</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">stddevbiweight</a>(vector, zero=None, eps=1e-20):</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00103.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">   45</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00103.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">stddevbiweight</a>(vector, zero=None, eps=1e-20):</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    c=9. <span class="comment">#tuning constant</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> zero!=<span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        center=0.</div>
@@ -176,8 +176,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">def </span><a class="code" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">meanbiweight</a>(vector,itmax=10,fracmin=[],eps=1e-24,\</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">   90</a></span>&#160;                 ci_perc=95,ci_mean=<span class="keyword">True</span>,ci_std=<span class="keyword">True</span>):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">def </span><a class="code" href="a00103.html#a29a73d62880e90ca27cbef0a7f197fd8">meanbiweight</a>(vector,itmax=10,fracmin=[],eps=1e-24,\</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a00103.html#a29a73d62880e90ca27cbef0a7f197fd8">   90</a></span>&#160;                 ci_perc=95,ci_mean=<span class="keyword">True</span>,ci_std=<span class="keyword">True</span>):</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    c = 6. <span class="comment">#tuning constant</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    n = len(vector) <span class="comment">#[1]</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
@@ -186,7 +186,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        fracmin = 0.03*np.sqrt(0.5/(n-1)) <span class="comment">#[1]</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">#calculate scale</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    STDDEV = <a class="code" href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">stddevbiweight</a>(vector) <span class="comment">#[vecunit]</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    STDDEV = <a class="code" href="a00103.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">stddevbiweight</a>(vector) <span class="comment">#[vecunit]</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">#take median as first guess of the central location</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    center = np.median(vector) <span class="comment">#[vecunit]</span></div>
@@ -268,12 +268,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">#         STDDEV    = scale of the distribution</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">#         ci_mean[0],ci_mean[1]= confidence interval for the mean (default 95%)</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">#         ci_std[0],ci_std[1]= confidence interval for the mean (default 95%)</span></div>
-<div class="ttc" id="a00102_html_a29a73d62880e90ca27cbef0a7f197fd8"><div class="ttname"><a href="a00102.html#a29a73d62880e90ca27cbef0a7f197fd8">BiWeight.meanbiweight</a></div><div class="ttdeci">def meanbiweight</div><div class="ttdoc">Estimation of the central location (&amp;#39;mean&amp;#39;) of a distribution, resistant for outliers and robust for ...</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00090">BiWeight.py:90</a></div></div>
-<div class="ttc" id="a00102_html_a0e5ef102bbbcf0c3e0c2697ca572b83c"><div class="ttname"><a href="a00102.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">BiWeight.stddevbiweight</a></div><div class="ttdeci">def stddevbiweight</div><div class="ttdoc">PURPOSE: Estimation of the scale (&amp;#39;dispersion&amp;#39;) of a distribution, resistant for outliers and robust ...</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00045">BiWeight.py:45</a></div></div>
+<div class="ttc" id="a00103_html_a29a73d62880e90ca27cbef0a7f197fd8"><div class="ttname"><a href="a00103.html#a29a73d62880e90ca27cbef0a7f197fd8">BiWeight.meanbiweight</a></div><div class="ttdeci">def meanbiweight</div><div class="ttdoc">Estimation of the central location (&amp;#39;mean&amp;#39;) of a distribution, resistant for outliers and robust for ...</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00090">BiWeight.py:90</a></div></div>
+<div class="ttc" id="a00103_html_a0e5ef102bbbcf0c3e0c2697ca572b83c"><div class="ttname"><a href="a00103.html#a0e5ef102bbbcf0c3e0c2697ca572b83c">BiWeight.stddevbiweight</a></div><div class="ttdeci">def stddevbiweight</div><div class="ttdoc">PURPOSE: Estimation of the scale (&amp;#39;dispersion&amp;#39;) of a distribution, resistant for outliers and robust ...</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00045">BiWeight.py:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:30 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:37 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

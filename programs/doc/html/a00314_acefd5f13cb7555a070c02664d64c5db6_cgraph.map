@@ -1,9 +1,0 @@
-<map id="montepython.analyze.compute_posterior" name="montepython.analyze.compute_posterior">
-<area shape="rect" id="node3" href="$a00314.html#a8581e606abe5904246c13a9674c04f63" title="montepython.analyze.adjust\l_ticks" alt="" coords="276,5,471,51"/>
-<area shape="rect" id="node5" href="$a00314.html#a79ce512792657798d21103cbfb081dea" title="Small routine to accomodate the absence of the interpolate module. " alt="" coords="279,74,468,121"/>
-<area shape="rect" id="node7" href="$a00314.html#a9a5aaaa94a807d702dedbcecc355334f" title="Extract minimum credible intervals (method from Jan Haman) FIXME. " alt="" coords="267,143,480,190"/>
-<area shape="rect" id="node9" href="$a00314.html#a0461aacb76d4b380fbcf1fa5b6fc14b4" title="Store the posterior distribution to a file. " alt="" coords="279,213,468,259"/>
-<area shape="rect" id="node11" href="$a00314.html#acf779a5e891d07c0d73be077e47c49b5" title="Extract the contours for the 2d plots (Karim Benabed) " alt="" coords="287,282,460,329"/>
-<area shape="rect" id="node13" href="$a00314.html#acd3b419469297a212577ae38a1a47038" title="docstring " alt="" coords="279,351,468,398"/>
-<area shape="rect" id="node15" href="$a00314.html#a30353a34138e5921e1244c8f3dfcab3a" title="Store the histogram information to a file, to plot it later. " alt="" coords="279,421,468,467"/>
-</map>

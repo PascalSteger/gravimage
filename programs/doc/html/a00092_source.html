@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/myhist.py Source File</title>
+<title>GravImage: /home/psteger/sci/darcoda/gravimage/programs/test/gauss_distro.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,35 +85,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">myhist.py</div>  </div>
+<div class="title">gauss_distro.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00092.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00163.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00092.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00109.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> numpy.random <span class="keyword">as</span> npr</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> matplotlib</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;matplotlib.use(<span class="stringliteral">&#39;pdf&#39;</span>)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;plt.ioff()</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00163.html#af4a08b4296880151274859cc167df9c0">   10</a></span>&#160;fig = plt.figure()</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00163.html#a077da1f2a9ad04b7b4dbb32ae8a7fff9">   11</a></span>&#160;ax  = fig.add_subplot(111)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"># first create a single histogram</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;mu, sigma = 200, 25</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00163.html#afd1f9ed6cdd4b19d1b4f772905e37e14">   15</a></span>&#160;x = mu + sigma*npr.randn(10000)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;bins, edges = np.histogram(x, range=[0.,220.], bins=30, density=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;ax.step(edges[1:], bins, where=<span class="stringliteral">&#39;pre&#39;</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;plt.show(block=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;plt.savefig(<span class="stringliteral">&#39;myhist.pdf&#39;</span>)</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="a00109.html#ab487a950eabaaba2cd6ac2363bc260ea">    6</a></span>&#160;fig = plt.figure()</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00109.html#a79f63d69c7cccc528cfca04f6a0bbf96">    7</a></span>&#160;ax  = fig.add_subplot(1,1,1)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="a00109.html#afb7d50d80e8a36a4fdf762693882b27d">    9</a></span>&#160;x = np.linspace(-5., 5., 100)</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00109.html#ad0c1c7b266c02326fc119bee8705208d">   10</a></span>&#160;y = np.exp(-x**2/(2*sigma))/np.sqrt(2*sigma)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;ax.set_xscale(<span class="stringliteral">&#39;linear&#39;</span>)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;ax.set_yscale(<span class="stringliteral">&#39;log&#39;</span>)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00109.html#a9324a8ef7c12fb68ee46e7a93620e70c">   16</a></span>&#160;sigma = 1</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;ax.plot(x, y, lw=2)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;ax.axvline(x = -2*sigma, alpha=0.5)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;ax.axvline(x = -sigma,   alpha=0.5)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;ax.axvline(x =  sigma,   alpha=0.5)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;ax.axvline(x =  2*sigma, alpha=0.5)</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

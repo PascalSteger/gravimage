@@ -1,8 +1,0 @@
-<map id="montepython.parser_mp.parse" name="montepython.parser_mp.parse">
-<area shape="rect" id="node3" href="$a00380.html#a16d4cf624a1ab522aca5c753ce2fba76" title="Definition of the parser command line options. " alt="" coords="204,39,351,86"/>
-<area shape="rect" id="node5" href="$a00380.html#a9de4f94bdc909eb814551d4c5b5c4ea2" title="Create the argument parser and returns it Parameters kwargs: dictionary keyword to pass to the parser..." alt="" coords="401,5,551,51"/>
-<area shape="rect" id="node11" href="$a00380.html#a99adb0a37e7b234e4a36d54e6289d7a4" title="Add a parser to the subparser sp with name. " alt="" coords="403,74,549,121"/>
-<area shape="rect" id="node7" href="$a00380.html#a753f550197b61ee95ad959a596fba29a" title="Create the decorator. " alt="" coords="601,5,804,51"/>
-<area shape="rect" id="node9" href="$a00380.html#ab6a0e2ec02fba7a49a7946e7f14430e7" title="Extract from the docstring the keys and description, return it as a dict. " alt="" coords="853,5,1008,51"/>
-<area shape="rect" id="node13" href="$a00380.html#af8f8036dddf9fa2d3b7d542a7881a5cb" title="Create a custom help action. " alt="" coords="629,74,776,121"/>
-</map>

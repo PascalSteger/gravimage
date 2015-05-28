@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>GravImage: gi_output Namespace Reference</title>
+<title>GravImage: gi_mc_errors Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,22 +82,143 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">gi_output Namespace Reference</div>  </div>
+<div class="title">gi_mc_errors Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html">Output</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for generating ASCII output files from plot_multinest  <a href="a00006.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0288b706ac5d65db5f9f7d231688cd03"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a0288b706ac5d65db5f9f7d231688cd03">ErSamp_gauss_linear_w_z</a></td></tr>
+<tr class="separator:a0288b706ac5d65db5f9f7d231688cd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e6228da8f5c660caecc16b196d9991"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a74e6228da8f5c660caecc16b196d9991">ErSamp_flat_distro_test</a></td></tr>
+<tr class="separator:a74e6228da8f5c660caecc16b196d9991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a042feabd952a78808afae16c33d05"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a></td></tr>
+<tr class="separator:ac5a042feabd952a78808afae16c33d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ae481e70af90789b6b89328c7156928ae"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#ae481e70af90789b6b89328c7156928ae">z_data_flat_distro</a> = rand.random(2000000)</td></tr>
+<tr class="separator:ae481e70af90789b6b89328c7156928ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e1b6c1a659e84e85a6fe9e2741f0a69"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a8e1b6c1a659e84e85a6fe9e2741f0a69">nu_stdevs</a> = <a class="el" href="a00126.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(<a class="el" href="a00126.html#a74e6228da8f5c660caecc16b196d9991">ErSamp_flat_distro_test</a>, 100, binmin, binmax, bincenter)</td></tr>
+<tr class="separator:a8e1b6c1a659e84e85a6fe9e2741f0a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a74e6228da8f5c660caecc16b196d9991"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_mc_errors.ErSamp_flat_distro_test </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00040_source.html#l00031">31</a> of file <a class="el" href="a00040_source.html">gi_mc_errors.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0288b706ac5d65db5f9f7d231688cd03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_mc_errors.ErSamp_gauss_linear_w_z </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00040_source.html#l00017">17</a> of file <a class="el" href="a00040_source.html">gi_mc_errors.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5a042feabd952a78808afae16c33d05"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gi_mc_errors.mc_nu_error </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>sampled_z_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>number_mcs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>binmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>binmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>bincenter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00040_source.html#l00044">44</a> of file <a class="el" href="a00040_source.html">gi_mc_errors.py</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a8e1b6c1a659e84e85a6fe9e2741f0a69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gi_mc_errors.nu_stdevs = <a class="el" href="a00126.html#ac5a042feabd952a78808afae16c33d05">mc_nu_error</a>(<a class="el" href="a00126.html#a74e6228da8f5c660caecc16b196d9991">ErSamp_flat_distro_test</a>, 100, binmin, binmax, bincenter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00040_source.html#l00077">77</a> of file <a class="el" href="a00040_source.html">gi_mc_errors.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae481e70af90789b6b89328c7156928ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple gi_mc_errors.z_data_flat_distro = rand.random(2000000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00040_source.html#l00030">30</a> of file <a class="el" href="a00040_source.html">gi_mc_errors.py</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:33 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:40 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

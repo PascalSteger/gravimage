@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_priors.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00030.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00129.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00030.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00131.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> splrep, splev</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00129.html#acb4137d602624a5ccc714ae86ea3f511">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00129.html#acb4137d602624a5ccc714ae86ea3f511">check_tilt</a>(tmp_tilt, gp):</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00131.html#acb4137d602624a5ccc714ae86ea3f511">   15</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00131.html#acb4137d602624a5ccc714ae86ea3f511">check_tilt</a>(tmp_tilt, gp):</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">False</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">## \fn check_tilt(tmp_tilt, gp)</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"># check that tilt is physically possible</span></div>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># @param gp</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00129.html#a0a8df72fb426b6d6fb38faee6468e5ce">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00129.html#a0a8df72fb426b6d6fb38faee6468e5ce">check_bprior</a>(rhocheck, nucheck):</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00131.html#a0a8df72fb426b6d6fb38faee6468e5ce">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00131.html#a0a8df72fb426b6d6fb38faee6468e5ce">check_bprior</a>(rhocheck, nucheck):</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> jj <span class="keywordflow">in</span> range(len(rhocheck)):</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span> rhocheck[jj] &lt; nucheck[jj]:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
@@ -120,12 +120,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># check that observed tracer mass is less than total mass</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># @param rhocheck density profile in [Munit/pc^3]</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># @param nucheck density profile in [Munit/pc^3]</span></div>
-<div class="ttc" id="a00129_html_a0a8df72fb426b6d6fb38faee6468e5ce"><div class="ttname"><a href="a00129.html#a0a8df72fb426b6d6fb38faee6468e5ce">gi_priors.check_bprior</a></div><div class="ttdeci">def check_bprior</div><div class="ttdoc">check that observed tracer mass is less than total mass </div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00024">gi_priors.py:24</a></div></div>
-<div class="ttc" id="a00129_html_acb4137d602624a5ccc714ae86ea3f511"><div class="ttname"><a href="a00129.html#acb4137d602624a5ccc714ae86ea3f511">gi_priors.check_tilt</a></div><div class="ttdeci">def check_tilt</div><div class="ttdoc">check that tilt is physically possible TODO: sensible values, e.g. </div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00015">gi_priors.py:15</a></div></div>
+<div class="ttc" id="a00131_html_acb4137d602624a5ccc714ae86ea3f511"><div class="ttname"><a href="a00131.html#acb4137d602624a5ccc714ae86ea3f511">gi_priors.check_tilt</a></div><div class="ttdeci">def check_tilt</div><div class="ttdoc">check that tilt is physically possible TODO: sensible values, e.g. </div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00015">gi_priors.py:15</a></div></div>
+<div class="ttc" id="a00131_html_a0a8df72fb426b6d6fb38faee6468e5ce"><div class="ttname"><a href="a00131.html#a0a8df72fb426b6d6fb38faee6468e5ce">gi_priors.check_bprior</a></div><div class="ttdeci">def check_bprior</div><div class="ttdoc">check that observed tracer mass is less than total mass </div><div class="ttdef"><b>Definition:</b> <a href="a00030_source.html#l00024">gi_priors.py:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

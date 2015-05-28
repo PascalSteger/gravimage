@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gi_units.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00043.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00132.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00043.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00134.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">##</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># @file</span></div>
@@ -100,36 +100,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00132.html#a2ac1996ed6b2e934b2bff7c185fd7127">   13</a></span>&#160;day__hr = 24</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00132.html#af8d0e8a6bcc0e597f2677cc6c957647d">   14</a></span>&#160;hr__min = 60</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00132.html#a4f8e481065219263466b029da1f8fdb6">   15</a></span>&#160;day__min = day__hr*hr__min</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00132.html#a19352c9b9095b84b42da460f9bbb75b6">   16</a></span>&#160;min__s = 60</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00132.html#a603be84ed6a33196f8548979ee86f508">   17</a></span>&#160;hr__s = hr__min*min__s</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00132.html#a869761bc41a2f5d138631371278732bd">   18</a></span>&#160;day__s = day__min*min__s</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00132.html#a273dbe43df24d1d226cb1a7d347d3fc7">   19</a></span>&#160;year__day = 365.25</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00132.html#a3a945f82113e9634e193471a4c6a37d4">   20</a></span>&#160;year__s = year__day * day__s</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00132.html#af92838866c309b827351f71f598e1792">   21</a></span>&#160;century__s = 100 * year__s</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00132.html#a3f2ac25bd64220bffae6e9979fa97c41">   22</a></span>&#160;arcsec__mas = 1000</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00132.html#a6c61ea57f046c8ca1d1eb2bb611da7aa">   23</a></span>&#160;full_circle__rad = 2*np.pi</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00132.html#a6824fc2ade0bd76e1cbb4f0a6450ea71">   24</a></span>&#160;full_circle__deg = 360</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00132.html#ada1537e134c3f6ebd5cc6817855ea637">   25</a></span>&#160;rad__deg = full_circle__deg/full_circle__rad</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00132.html#a93f8dbadbd38983d4a905c40411118f4">   26</a></span>&#160;deg__arcmin = 60</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00132.html#a26dbae36693fef1c8a1a3df17f4baf25">   27</a></span>&#160;rad__arcmin = rad__deg*deg__arcmin</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00132.html#a5985f91da0673f660077212837cdb977">   28</a></span>&#160;arcmin__arcsec = 60</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00132.html#a9cb0e624216c437435b42c7e97e80cbf">   29</a></span>&#160;rad__arcsec = rad__arcmin*arcmin__arcsec</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00132.html#a946021128c7f87e76b086a9acb1d2406">   30</a></span>&#160;km__m = 1000</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00134.html#a2ac1996ed6b2e934b2bff7c185fd7127">   13</a></span>&#160;day__hr = 24</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00134.html#af8d0e8a6bcc0e597f2677cc6c957647d">   14</a></span>&#160;hr__min = 60</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00134.html#a4f8e481065219263466b029da1f8fdb6">   15</a></span>&#160;day__min = day__hr*hr__min</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00134.html#a19352c9b9095b84b42da460f9bbb75b6">   16</a></span>&#160;min__s = 60</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00134.html#a603be84ed6a33196f8548979ee86f508">   17</a></span>&#160;hr__s = hr__min*min__s</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00134.html#a869761bc41a2f5d138631371278732bd">   18</a></span>&#160;day__s = day__min*min__s</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00134.html#a273dbe43df24d1d226cb1a7d347d3fc7">   19</a></span>&#160;year__day = 365.25</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00134.html#a3a945f82113e9634e193471a4c6a37d4">   20</a></span>&#160;year__s = year__day * day__s</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00134.html#af92838866c309b827351f71f598e1792">   21</a></span>&#160;century__s = 100 * year__s</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00134.html#a3f2ac25bd64220bffae6e9979fa97c41">   22</a></span>&#160;arcsec__mas = 1000</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00134.html#a6c61ea57f046c8ca1d1eb2bb611da7aa">   23</a></span>&#160;full_circle__rad = 2*np.pi</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00134.html#a6824fc2ade0bd76e1cbb4f0a6450ea71">   24</a></span>&#160;full_circle__deg = 360</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00134.html#ada1537e134c3f6ebd5cc6817855ea637">   25</a></span>&#160;rad__deg = full_circle__deg/full_circle__rad</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00134.html#a93f8dbadbd38983d4a905c40411118f4">   26</a></span>&#160;deg__arcmin = 60</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00134.html#a26dbae36693fef1c8a1a3df17f4baf25">   27</a></span>&#160;rad__arcmin = rad__deg*deg__arcmin</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00134.html#a5985f91da0673f660077212837cdb977">   28</a></span>&#160;arcmin__arcsec = 60</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00134.html#a9cb0e624216c437435b42c7e97e80cbf">   29</a></span>&#160;rad__arcsec = rad__arcmin*arcmin__arcsec</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00134.html#a946021128c7f87e76b086a9acb1d2406">   30</a></span>&#160;km__m = 1000</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00132.html#a8c86a3ccbd0148c144b62921c5c44814">   33</a></span>&#160;G1__m3kg_1s_2  = 6.67398e-11</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00132.html#a2cd00e6504c98df84a63efe7a8e1f9b8">   34</a></span>&#160;pc__m  = 3.08567758e16</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00132.html#ab5290cc8cfac9698049edeb15d7c2d1a">   35</a></span>&#160;Msun__kg= 1.981e30</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00134.html#a8c86a3ccbd0148c144b62921c5c44814">   33</a></span>&#160;G1__m3kg_1s_2  = 6.67398e-11</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00134.html#a2cd00e6504c98df84a63efe7a8e1f9b8">   34</a></span>&#160;pc__m  = 3.08567758e16</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00134.html#ab5290cc8cfac9698049edeb15d7c2d1a">   35</a></span>&#160;Msun__kg= 1.981e30</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;km__m  = 1000.</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00132.html#ac5c7e93c5ed5c1594734cce33b047979">   37</a></span>&#160;kpc__pc = 1000.</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00132.html#a0fcb162479c2929bdfca3712175c7a2f">   38</a></span>&#160;G1__pcMsun_1km2s_2  = G1__m3kg_1s_2*Msun__kg/km__m**2/pc__m</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00134.html#ac5c7e93c5ed5c1594734cce33b047979">   37</a></span>&#160;kpc__pc = 1000.</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00134.html#a0fcb162479c2929bdfca3712175c7a2f">   38</a></span>&#160;G1__pcMsun_1km2s_2  = G1__m3kg_1s_2*Msun__kg/km__m**2/pc__m</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

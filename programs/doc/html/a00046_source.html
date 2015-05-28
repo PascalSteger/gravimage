@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">multinest.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00046.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00162.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
+<a href="a00046.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00163.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env ipython3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals, print_function</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> ctypes <span class="keyword">import</span> CDLL</div>
@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> ctypes <span class="keyword">import</span> create_string_buffer</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> pdb</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00162.html#a9ac2a6a6754fe3bea1388b0860b60dde">   10</a></span>&#160;    lib = CDLL(<span class="stringliteral">&#39;libnest3.so&#39;</span>)</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00163.html#a9ac2a6a6754fe3bea1388b0860b60dde">   10</a></span>&#160;    lib = CDLL(<span class="stringliteral">&#39;libnest3.so&#39;</span>)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordflow">except</span> OSError <span class="keyword">as</span> e:</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    print(<span class="stringliteral">&#39;error loading library&#39;</span>)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    print(<span class="stringliteral">&#39;problem:&#39;</span>, e)</div>
@@ -108,11 +108,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> signal, sys</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> inspect</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00162.html#aa73e5eda7b791dcb82e12634fdf0980a">   21</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00162.html#aa73e5eda7b791dcb82e12634fdf0980a">interrupt_handler</a>(signal, frame):</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00163.html#aa73e5eda7b791dcb82e12634fdf0980a">   21</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00163.html#aa73e5eda7b791dcb82e12634fdf0980a">interrupt_handler</a>(signal, frame):</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    sys.stderr.write(<span class="stringliteral">&#39;ERROR: Interrupt received: Terminating\n&#39;</span>)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    sys.exit(1)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">def </span><a class="code" href="a00162.html#ab58fe2a67ac3d0ac51f7314e949d2636">run</a>(LogLikelihood,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">def </span><a class="code" href="a00163.html#ab58fe2a67ac3d0ac51f7314e949d2636">run</a>(LogLikelihood,</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Prior,</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        nest_ndims,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        nest_totPar = <span class="keywordtype">None</span>,</div>
@@ -137,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        nest_logZero = -1e100,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        nest_maxIter = 0,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        initMPI = <span class="keyword">True</span>,</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00162.html#ab58fe2a67ac3d0ac51f7314e949d2636">   50</a></span>&#160;        dump_callback = <span class="keywordtype">None</span>):</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00163.html#ab58fe2a67ac3d0ac51f7314e949d2636">   50</a></span>&#160;        dump_callback = <span class="keywordtype">None</span>):</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    print(<span class="stringliteral">&#39;got into run() function&#39;</span>)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> nest_totPar == <span class="keywordtype">None</span>:</div>
@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="comment"># without copies. Untested!</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            pc =  as_array(paramConstr,shape=(nPar,4))</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="a00148.html#a4fd0e328c7c922847d4b9ba45a933b4a">dump_callback</a>(nSamples,nlive,nPar,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="a00149.html#a4fd0e328c7c922847d4b9ba45a933b4a">dump_callback</a>(nSamples,nlive,nPar,</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                as_array(physLive,shape=(nPar+1,nlive)).T,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                as_array(posterior,shape=(nPar+2,nSamples)).T,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                (pc[0,:],pc[1,:],pc[2,:],pc[3,:]), <span class="comment"># (mean,std,bestfit,map)</span></div>
@@ -304,13 +304,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"># @param nest_maxIter maximum number of iterations. 0 is unlimited.</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment"># @param nest_outfile write output files? This is required for analysis.</span></div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment"># @param dump_callback a callback function for dumping the current status</span></div>
-<div class="ttc" id="a00162_html_aa73e5eda7b791dcb82e12634fdf0980a"><div class="ttname"><a href="a00162.html#aa73e5eda7b791dcb82e12634fdf0980a">multinest.interrupt_handler</a></div><div class="ttdeci">def interrupt_handler</div><div class="ttdef"><b>Definition:</b> <a href="a00046_source.html#l00021">multinest.py:21</a></div></div>
-<div class="ttc" id="a00148_html_a4fd0e328c7c922847d4b9ba45a933b4a"><div class="ttname"><a href="a00148.html#a4fd0e328c7c922847d4b9ba45a933b4a">grd_master.dump_callback</a></div><div class="ttdeci">dump_callback</div><div class="ttdef"><b>Definition:</b> <a href="a00073_source.html#l00286">grd_master.py:286</a></div></div>
-<div class="ttc" id="a00162_html_ab58fe2a67ac3d0ac51f7314e949d2636"><div class="ttname"><a href="a00162.html#ab58fe2a67ac3d0ac51f7314e949d2636">multinest.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">Runs MultiNest The most important parameters are the two log-probability functions Prior and LogLikel...</div><div class="ttdef"><b>Definition:</b> <a href="a00046_source.html#l00050">multinest.py:50</a></div></div>
+<div class="ttc" id="a00163_html_ab58fe2a67ac3d0ac51f7314e949d2636"><div class="ttname"><a href="a00163.html#ab58fe2a67ac3d0ac51f7314e949d2636">multinest.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">Runs MultiNest The most important parameters are the two log-probability functions Prior and LogLikel...</div><div class="ttdef"><b>Definition:</b> <a href="a00046_source.html#l00050">multinest.py:50</a></div></div>
+<div class="ttc" id="a00149_html_a4fd0e328c7c922847d4b9ba45a933b4a"><div class="ttname"><a href="a00149.html#a4fd0e328c7c922847d4b9ba45a933b4a">grd_master.dump_callback</a></div><div class="ttdeci">dump_callback</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00286">grd_master.py:286</a></div></div>
+<div class="ttc" id="a00163_html_aa73e5eda7b791dcb82e12634fdf0980a"><div class="ttname"><a href="a00163.html#aa73e5eda7b791dcb82e12634fdf0980a">multinest.interrupt_handler</a></div><div class="ttdeci">def interrupt_handler</div><div class="ttdef"><b>Definition:</b> <a href="a00046_source.html#l00021">multinest.py:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:31 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:38 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

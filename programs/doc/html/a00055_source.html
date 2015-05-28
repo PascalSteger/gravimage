@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">plot_profiles.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00055.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00168.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<a href="a00055.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00169.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @file</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># plot all profiles of a given run</span></div>
@@ -107,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> gl_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00168.html#a5694e39a3ef562cd28b80791cebfbd8b">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#a5694e39a3ef562cd28b80791cebfbd8b">prepare_output_folder</a>(basename):</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00169.html#a5694e39a3ef562cd28b80791cebfbd8b">   20</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#a5694e39a3ef562cd28b80791cebfbd8b">prepare_output_folder</a>(basename):</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/data/&#39;</span>)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/ascii/&#39;</span>)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    os.system(<span class="stringliteral">&#39;mkdir -p &#39;</span>+ basename + <span class="stringliteral">&#39;output/pdf/&#39;</span>)</div>
@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># @param basename string, data folder</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00168.html#ad47362df43ce22c784d335f3de89047b">   31</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#ad47362df43ce22c784d335f3de89047b">read_scale</a>(basename, gp):</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00169.html#ad47362df43ce22c784d335f3de89047b">   31</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#ad47362df43ce22c784d335f3de89047b">read_scale</a>(basename, gp):</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    gp.Xscale = []</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    gp.Sig0pc = []</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    gp.maxsiglos = []</div>
@@ -137,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"># @param gp</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00168.html#a84cb0181c4f141eda51680a2f7b5583a">   50</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(filename):</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00169.html#a84cb0181c4f141eda51680a2f7b5583a">   50</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(filename):</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">import</span> os</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    os.system(<span class="stringliteral">&quot;sed -i &#39;s/\\([0-9]\\)-\\([0-9]\\)/\\1E-\\2/g&#39; &quot;</span> + filename)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    os.system(<span class="stringliteral">&quot;sed -i &#39;s/\\([0-9]\\)+\\([0-9]\\)/\\1E+\\2/g&#39; &quot;</span> + filename)</div>
@@ -147,11 +147,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"># @param filename string</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00168.html#a30d060fca7ac9e2066049a22b6e9be19">   60</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#a30d060fca7ac9e2066049a22b6e9be19">read_models</a>(basename):</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00169.html#a30d060fca7ac9e2066049a22b6e9be19">   60</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#a30d060fca7ac9e2066049a22b6e9be19">read_models</a>(basename):</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment"># read in all accepted models</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    print(basename+<span class="stringliteral">&#39;/{ev.dat, phys_live.points}&#39;</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="a00168.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(basename + <span class="stringliteral">&#39;/ev.dat&#39;</span>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="a00168.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(basename + <span class="stringliteral">&#39;/phys_live.points&#39;</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="a00169.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(basename + <span class="stringliteral">&#39;/ev.dat&#39;</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="a00169.html#a84cb0181c4f141eda51680a2f7b5583a">correct_E_error</a>(basename + <span class="stringliteral">&#39;/phys_live.points&#39;</span>)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    REJECTED = np.loadtxt(basename+<span class="stringliteral">&#39;/ev.dat&#39;</span>, skiprows=0, unpack=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    LIVE = np.loadtxt(basename+<span class="stringliteral">&#39;/phys_live.points&#39;</span>, skiprows=0, unpack=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ALL = np.vstack([REJECTED[:,:-3], LIVE[:,:-2]])</div>
@@ -168,9 +168,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"># @param basename string</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="a00168.html#aa5d5f9822036ab58152c80fe24d015a7">   81</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#aa5d5f9822036ab58152c80fe24d015a7">pcload_single_entries</a>(basename, gp):</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">import</span> gl_collection <span class="keyword">as</span> glc</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    pc = glc.ProfileCollection(gp.pops, gp.nipol)</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="a00169.html#aa5d5f9822036ab58152c80fe24d015a7">   81</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#aa5d5f9822036ab58152c80fe24d015a7">pcload_single_entries</a>(basename, gp):</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">import</span> gi_collection <span class="keyword">as</span> gic</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    pc = gic.ProfileCollection(gp.pops, gp.nipol)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    with open(basename+<span class="stringliteral">&#39;pc2.save&#39;</span>, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> fi:</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        dum = pickle.load(fi) <span class="comment"># dummy variable, was used to create file</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">while</span> 1:</div>
@@ -186,11 +186,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"># @param gp global parameters</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a00168.html#acb022625f611921a8cc8274b964cd841">   99</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00168.html#acb022625f611921a8cc8274b964cd841">run</a>(timestamp, basename, gp):</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="a00168.html#a5694e39a3ef562cd28b80791cebfbd8b">prepare_output_folder</a>(basename)</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a00169.html#acb022625f611921a8cc8274b964cd841">   99</a></span>&#160;<span class="keyword">def </span><a class="code" href="a00169.html#acb022625f611921a8cc8274b964cd841">run</a>(timestamp, basename, gp):</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="a00169.html#a5694e39a3ef562cd28b80791cebfbd8b">prepare_output_folder</a>(basename)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">import</span> gl_file <span class="keyword">as</span> glf</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    gp.dat = glf.get_binned_data(gp)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="a00168.html#ad47362df43ce22c784d335f3de89047b">read_scale</a>(basename, gp) <span class="comment"># store half-light radii in  gp.Xscale</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="a00169.html#ad47362df43ce22c784d335f3de89047b">read_scale</a>(basename, gp) <span class="comment"># store half-light radii in  gp.Xscale</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">import</span> gl_helper <span class="keyword">as</span> gh</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    Radii, Binmin, Binmax, Sigdat1, Sigerr1 = gh.readcol5(gp.files.Sigfiles[0])</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment"># [Xscale0], [Munit/Xscale0^2]</span></div>
@@ -200,7 +200,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    minR = min(Radii)                     <span class="comment"># [pc]</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Radii = np.hstack([minR/8, minR/4, minR/2, Radii, 2*maxR, 4*maxR, 8*maxR])</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    gp.xepol = Radii * gp.Xscale[0]       <span class="comment"># [pc]</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    pc = <a class="code" href="a00168.html#aa5d5f9822036ab58152c80fe24d015a7">pcload_single_entries</a>(basename, gp)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    pc = <a class="code" href="a00169.html#aa5d5f9822036ab58152c80fe24d015a7">pcload_single_entries</a>(basename, gp)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">if</span> len(pc.chis) == 0:</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        gh.LOG(1, <span class="stringliteral">&#39;no profiles found for plotting&#39;</span>)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span></div>
@@ -238,9 +238,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a00168.html#a75f53c7f1c9125bc01a8a67ff67e5f3e">  151</a></span>&#160;    parser = OptionParser()</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a00169.html#a75f53c7f1c9125bc01a8a67ff67e5f3e">  151</a></span>&#160;    parser = OptionParser()</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-i&quot;</span>, <span class="stringliteral">&quot;--investigation&quot;</span>, dest=<span class="stringliteral">&quot;investigate&quot;</span>,</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a00168.html#a7784f535017e989b2f830dca27318a99">  153</a></span>&#160;                      default=<span class="stringliteral">&quot;&quot;</span>, help=<span class="stringliteral">&quot;investigation to plot&quot;</span>)</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a00169.html#a7784f535017e989b2f830dca27318a99">  153</a></span>&#160;                      default=<span class="stringliteral">&quot;&quot;</span>, help=<span class="stringliteral">&quot;investigation to plot&quot;</span>)</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-c&quot;</span>, <span class="stringliteral">&quot;--case&quot;</span>, dest=<span class="stringliteral">&quot;case&quot;</span>,</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                      default=-1, help=<span class="stringliteral">&quot;case to plot&quot;</span>)</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    parser.add_option(<span class="stringliteral">&quot;-l&quot;</span>, <span class="stringliteral">&quot;--latest&quot;</span>, help=<span class="stringliteral">&#39;plot latest one&#39;</span>, dest =</div>
@@ -264,22 +264,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    ip.remove_first()</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment"># uncomment following to use stored collection, loglike, all other modules</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">#ip.insert_sys_path(basename+&#39;sphere&#39;)</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">#import gl_collection as glc</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">#import gi_collection as gi</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">##ip.remove_first(); ip.remove_first() # uncomment to include most recent</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a00168.html#a144ff0789e2ca6ac8f1489de3627384a">  179</a></span>&#160;    gp = glp.Params(timestamp)</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a00169.html#a144ff0789e2ca6ac8f1489de3627384a">  179</a></span>&#160;    gp = glp.Params(timestamp)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    gp.pops = sr.get_pops(basename)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    print(<span class="stringliteral">&#39;working with &#39;</span>, gp.pops, <span class="stringliteral">&#39; populations&#39;</span>)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="a00168.html#acb022625f611921a8cc8274b964cd841">run</a>(timestamp, basename, gp)</div>
-<div class="ttc" id="a00168_html_a30d060fca7ac9e2066049a22b6e9be19"><div class="ttname"><a href="a00168.html#a30d060fca7ac9e2066049a22b6e9be19">plot_profiles.read_models</a></div><div class="ttdeci">def read_models</div><div class="ttdoc">read in all models, concatenate them </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00060">plot_profiles.py:60</a></div></div>
-<div class="ttc" id="a00168_html_acb022625f611921a8cc8274b964cd841"><div class="ttname"><a href="a00168.html#acb022625f611921a8cc8274b964cd841">plot_profiles.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">call all model read-in, and profile-plotting routines </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00099">plot_profiles.py:99</a></div></div>
-<div class="ttc" id="a00168_html_ad47362df43ce22c784d335f3de89047b"><div class="ttname"><a href="a00168.html#ad47362df43ce22c784d335f3de89047b">plot_profiles.read_scale</a></div><div class="ttdeci">def read_scale</div><div class="ttdoc">read scale file, store into gp. </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00031">plot_profiles.py:31</a></div></div>
-<div class="ttc" id="a00168_html_a5694e39a3ef562cd28b80791cebfbd8b"><div class="ttname"><a href="a00168.html#a5694e39a3ef562cd28b80791cebfbd8b">plot_profiles.prepare_output_folder</a></div><div class="ttdeci">def prepare_output_folder</div><div class="ttdoc">create directory structure in output folder </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00020">plot_profiles.py:20</a></div></div>
-<div class="ttc" id="a00168_html_a84cb0181c4f141eda51680a2f7b5583a"><div class="ttname"><a href="a00168.html#a84cb0181c4f141eda51680a2f7b5583a">plot_profiles.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00050">plot_profiles.py:50</a></div></div>
-<div class="ttc" id="a00168_html_aa5d5f9822036ab58152c80fe24d015a7"><div class="ttname"><a href="a00168.html#aa5d5f9822036ab58152c80fe24d015a7">plot_profiles.pcload_single_entries</a></div><div class="ttdeci">def pcload_single_entries</div><div class="ttdoc">load all data into [chi^2, profiles] pairs, and add to a profile collection </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00081">plot_profiles.py:81</a></div></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="a00169.html#acb022625f611921a8cc8274b964cd841">run</a>(timestamp, basename, gp)</div>
+<div class="ttc" id="a00169_html_a30d060fca7ac9e2066049a22b6e9be19"><div class="ttname"><a href="a00169.html#a30d060fca7ac9e2066049a22b6e9be19">plot_profiles.read_models</a></div><div class="ttdeci">def read_models</div><div class="ttdoc">read in all models, concatenate them </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00060">plot_profiles.py:60</a></div></div>
+<div class="ttc" id="a00169_html_ad47362df43ce22c784d335f3de89047b"><div class="ttname"><a href="a00169.html#ad47362df43ce22c784d335f3de89047b">plot_profiles.read_scale</a></div><div class="ttdeci">def read_scale</div><div class="ttdoc">read scale file, store into gp. </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00031">plot_profiles.py:31</a></div></div>
+<div class="ttc" id="a00169_html_acb022625f611921a8cc8274b964cd841"><div class="ttname"><a href="a00169.html#acb022625f611921a8cc8274b964cd841">plot_profiles.run</a></div><div class="ttdeci">def run</div><div class="ttdoc">call all model read-in, and profile-plotting routines </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00099">plot_profiles.py:99</a></div></div>
+<div class="ttc" id="a00169_html_aa5d5f9822036ab58152c80fe24d015a7"><div class="ttname"><a href="a00169.html#aa5d5f9822036ab58152c80fe24d015a7">plot_profiles.pcload_single_entries</a></div><div class="ttdeci">def pcload_single_entries</div><div class="ttdoc">load all data into [chi^2, profiles] pairs, and add to a profile collection </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00081">plot_profiles.py:81</a></div></div>
+<div class="ttc" id="a00169_html_a5694e39a3ef562cd28b80791cebfbd8b"><div class="ttname"><a href="a00169.html#a5694e39a3ef562cd28b80791cebfbd8b">plot_profiles.prepare_output_folder</a></div><div class="ttdeci">def prepare_output_folder</div><div class="ttdoc">create directory structure in output folder </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00020">plot_profiles.py:20</a></div></div>
+<div class="ttc" id="a00169_html_a84cb0181c4f141eda51680a2f7b5583a"><div class="ttname"><a href="a00169.html#a84cb0181c4f141eda51680a2f7b5583a">plot_profiles.correct_E_error</a></div><div class="ttdeci">def correct_E_error</div><div class="ttdoc">replace 3.4230210-301 and ...+301 by 3.4230210E-301 and ...+301 the sed way </div><div class="ttdef"><b>Definition:</b> <a href="a00055_source.html#l00050">plot_profiles.py:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 21:05:32 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 28 2015 13:50:39 for GravImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -1,0 +1,6 @@
+<map id="gi_chi.chi2red" name="gi_chi.chi2red">
+<area shape="rect" id="node3" href="$a00113.html#a145f0c80ed5504c94b3d2be05eb97bb3" title="Calculate chi^2. " alt="" coords="164,44,284,73"/>
+<area shape="rect" id="node6" href="$a00125.html#ac840f1eb9037c7ceb08dc8ecfccc5bf9" title="define log likelihood function to be called by pyMultinest and plot_profiles disk version ..." alt="" coords="335,44,500,73"/>
+<area shape="rect" id="node8" href="$a00127.html#af663a44c7c1e9b6da91081950ea5bf97" title="gi_multinest_helper.paracube\l_to_profile" alt="" coords="549,5,755,51"/>
+<area shape="rect" id="node10" href="$a00145.html#ad821dec8433925b93f7529a34a5471b7" title="gravimage.myloglike" alt="" coords="577,75,727,104"/>
+</map>

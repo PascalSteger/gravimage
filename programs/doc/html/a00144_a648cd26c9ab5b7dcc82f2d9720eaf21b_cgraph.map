@@ -1,5 +1,0 @@
-<map id="plop.run" name="plop.run">
-<area shape="rect" id="node3" href="$a00144.html#afb79d6a0429292fb1b106f348338152a" title="create directory structure in output folder " alt="" coords="127,5,273,51"/>
-<area shape="rect" id="node5" href="$a00144.html#aa8650f72a1c5a92e145d5f1e6603eb9a" title="read scale file, store into gp. " alt="" coords="139,75,261,104"/>
-<area shape="rect" id="node7" href="$a00144.html#a84f5ccd6b305e9742a98a03ce49eb0e9" title="load all data into [chi^2, profiles] pairs, and add to a profile collection " alt="" coords="131,127,269,174"/>
-</map>
