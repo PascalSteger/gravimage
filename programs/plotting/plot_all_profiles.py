@@ -129,7 +129,7 @@ def pccreate(basename, gp):
     fil.close()
     numofmodels = int(re.split('\t', runparams)[2])
     current = 0
-    with open(basename+'.txt', 'rb') as fi:
+    with open(basename+'pym.txt', 'rb') as fi:
         weights = []
         cubes = []
         for line in fi:

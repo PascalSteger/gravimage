@@ -129,7 +129,7 @@ def pccreate(basename, gp):
     fil.close()
     numofmodels = int(re.split('\t', runparams)[2])
     current = 0
-    with open(basename+'.txt', 'r') as fi:
+    with open(basename+'pym.txt', 'r') as fi:
         m2lnLs = []
         weights = []
         cubes = []
@@ -170,7 +170,7 @@ if __name__ == '__main__':
 
     # gh.LOG(1, 'plot_profiles '+str(options.investigate)+' '+str(options.case)+' '+str(options.latest))
     if len(options.timestamps) == 0:
-        import select_run as sr
+        #import select_run as sr
         timestamp, basename = sr.run(options.investigate, options.case, options.latest)
         options.timestamps=[timestamp]
     else:
@@ -187,20 +187,20 @@ if __name__ == '__main__':
     gp = gip.Params(tt)
     gp.pops = sr.get_pops(basename+tt+'/')
     # find minimum number of iterations for all runs
-    minlinelen = 1e99
+    #minlinelen = 1e99
     #import gi_collection as gc
-    for tt in options.timestamps:
-        linelen = 0
-        with open(basename+tt+'/pc2.save', 'rb') as fi:
-            dum = pickle.load(fi) # dummy variable
-            try:
-                while True:
-                    linelen += 1
-                    MODEL = pickle.load(fi)
-            except EOFError:
-                pass
-        print('linelen = ',linelen)
-        minlinelen = min(minlinelen, linelen)
+    #for tt in options.timestamps:
+    #    linelen = 0
+    #    with open(basename+tt+'/pc2.save', 'rb') as fi:
+    #        dum = pickle.load(fi) # dummy variable
+    #        try:
+    #            while True:
+    #                linelen += 1
+    #                MODEL = pickle.load(fi)
+    #        except EOFError:
+    #            pass
+    #    print('linelen = ',linelen)
+    #    minlinelen = min(minlinelen, linelen)
     #ip.remove_first(); ip.remove_first()
     #ip.remove_first(); ip.remove_first()
     # set up overall profile collection
@@ -242,7 +242,7 @@ if __name__ == '__main__':
     # first plot all chi^2 values in histogram
     # old version: pcall.plot_profile(basename+tt+'/', 'chi2', 0, gp)
     # new version with .txt file: use -2ln L directly
-    correct_E_error(basename+tt+'/.txt')
+    correct_E_error(basename+tt+'/pym.txt')
     L99, L95, L68, MED, H68, H95, H99, m2lnLs = pccreate(basename+tt+'/', gp)
 
     read_scale(gp) # store half-light radii in  gp.Xscale

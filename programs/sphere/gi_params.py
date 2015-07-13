@@ -33,7 +33,7 @@ class Params():
         if investigate != '':
             self.investigate = investigate
         else:
-            self.investigate  = 'obs' # determine which data set to work on
+            self.investigate  = 'gaia' # determine which data set to work on
                                       # 'hern': simple Hernquist prof. from simwiki
                                       # 'walk': with full obs. cont. data from Walker
                                       # 'gaia': 1pop 6D data, gaia challenge
@@ -44,7 +44,7 @@ class Params():
         if case != -1:
             self.case = case
         else:
-            self.case = 1 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
+            self.case = 2 # gaia models (1..8) Walker (0..2,4,5; use 1, 2)
                           # triax (1-4:core, 5-8:cusp), obs (1:for,car,scl,sex,dra)
 
         print(' case : ', self.case)
@@ -87,8 +87,8 @@ class Params():
             N_nu = self.pops*self.nrho
 
         # ndim has nrho for rho, N_nu, (self.nbeta + 2 (if hyperparameters)) per population
-        self.hyperparameters = True
-        self.nperpop = 1.*self.nbeta
+        self.hyperparameters = False
+        self.nperpop = 1*self.nbeta
         if self.hyperparameters:
             self.nperpop += 2
         self.ndim = self.nrho + N_nu + self.pops*self.nperpop
