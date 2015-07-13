@@ -298,15 +298,16 @@ class Cube:
                 pc[off+i] = tmp_nu[i]
             off += offstep
 
-            offstep = 1
-            tmp_hyperSig = map_hypersig(pc[off:off+offstep], 'Sig', pop, gp)
-            pc[off] = tmp_hyperSig
-            off += offstep
+            if gp.hyperparameters:
+                offstep = 1
+                tmp_hyperSig = map_hypersig(pc[off:off+offstep], 'Sig', pop, gp)
+                pc[off] = tmp_hyperSig
+                off += offstep
 
-            offstep = 1
-            tmp_hypersig = map_hypersig(pc[off:off+offstep], 'sig', pop, gp)
-            pc[off] = tmp_hypersig
-            off += offstep
+                offstep = 1
+                tmp_hypersig = map_hypersig(pc[off:off+offstep], 'sig', pop, gp)
+                pc[off] = tmp_hypersig
+                off += offstep
 
             offstep = gp.nbeta
             tmp_betastar = map_betastar_sigmoid(pc[off:off+offstep], gp)
