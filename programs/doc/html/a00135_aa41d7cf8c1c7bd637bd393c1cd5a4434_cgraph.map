@@ -1,0 +1,4 @@
+<map id="gi_project.rho_INT_Sum_MR" name="gi_project.rho_INT_Sum_MR">
+<area shape="rect" id="node3" href="$a00135.html#a8c112d3510f534596716914ea4620c17" title="take 3D density, calculate projected surface density " alt="" coords="197,5,363,35"/>
+<area shape="rect" id="node5" href="$a00135.html#aab8e4eb55771becd2d97a3cc629047d1" title="calculate enclosed mass from summing up (density in rings)*(ring surface) " alt="" coords="192,59,368,88"/>
+</map>

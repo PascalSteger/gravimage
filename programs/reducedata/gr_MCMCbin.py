@@ -11,7 +11,9 @@
 
 import pdb
 import numpy as np
+from pylab import *
 from scipy.stats import kurtosis
+from scipy.interpolate import splrep, splev
 
 import gi_file as gf
 import gi_helper as gh
@@ -76,8 +78,8 @@ def run(gp):
     Vol = gh.volume_circular_ring(Binmin, Binmax, gp) # [Rscale0^2]
     Rscale0 = gf.read_Xscale(gp.files.get_scale_file(0)) # [pc]
     for pop in range(gp.pops+1):
-        print('#######  working on component ',pop)
-        print('input: ', gp.files.get_com_file(pop))
+        #print('#######  working on component ',pop)
+        #print('input: ', gp.files.get_com_file(pop))
         # exclude second condition if self-consistent approach wished
         if gp.investigate == "obs" and gp.case==1 and pop==0:
             # for Fornax, overwrite first Sigma with deBoer data
@@ -201,15 +203,38 @@ def run(gp):
         f_Sig.close()
         f_mass.close()
         # deproject Sig to get nu
+
+        ## first, fill in values into gp.xfine
+        Ripol = Rbin * Rscalei
+        minr = min(Ripol)
+        maxr = max(Ripol)
+        Repol = np.hstack([minr/8.,minr/4.,minr/2.,Ripol,2*maxr,4*maxr,8*maxr])#[pc]
+        Rfine = gh.introduce_points_in_between(Repol, gp, 200)
+
+        tck = splrep(np.log(Ripol), np.log(Sig0pc * P_dens), k=1, s=0)
+        P_dens_fine = np.exp(splev(np.log(Rfine), tck))/Sig0pc
         numedi = gip.Sig_INT_rho(Rbin*Rscalei, Sig0pc*P_dens, gp)
-        #numin  = gip.Sig_INT_rho(Rbin*Rscalei, Sig0pc*(P_dens-P_edens), gp)
+        numedi_fine = gip.Sig_INT_rho(Rfine, Sig0pc*P_dens_fine, gp)
+        tck2 = splrep(np.log(Rfine), np.log(numedi_fine), k=1, s=0)
+        numedi_ipol = np.exp(splev(np.log(Ripol), tck2))
         numax  = gip.Sig_INT_rho(Rbin*Rscalei, Sig0pc*(P_dens+P_edens), gp)
-        nu0pc  = numedi[0]
+        tck = splrep(np.log(Ripol), np.log(Sig0pc * (P_dens+P_edens)), k=1, s=0)
+        P_dens_fine = np.exp(splev(np.log(Rfine), tck))/Sig0pc
+        numedi = gip.Sig_INT_rho(Rbin*Rscalei, Sig0pc*(P_dens+P_edens), gp)
+        numedi_fine = gip.Sig_INT_rho(Rfine, Sig0pc*P_dens_fine, gp)
+        tck2 = splrep(np.log(Rfine), np.log(numedi_fine), k=1, s=0)
+        numax_ipol = np.exp(splev(np.log(Ripol), tck2))
+        #loglog(Ripol, numax, 'b.-')
+        #loglog(Ripol, numax_ipol, 'r.-')
+        #loglog(Ripol, numedi_ipol, 'g.-')
+        #pdb.set_trace()
+        nu0pc  = numedi_ipol[0]
         gf.write_nu_scale(gp.files.get_scale_file(pop), nu0pc)
-        nuerr  = numax-numedi
+        nuerr  = numax_ipol-numedi_ipol
         for b in range(gp.nipol):
-            print(Rbin[b], Binmin[b], Binmax[b], numedi[b]/nu0pc, nuerr[b]/nu0pc, file = f_nu)
+            print(Rbin[b], Binmin[b], Binmax[b], numedi_ipol[b]/nu0pc, nuerr[b]/nu0pc, file = f_nu)
         f_nu.close()
+
         # calculate and output siglos
         p_dvlos = np.zeros(gp.nipol)
         p_edvlos = np.zeros(gp.nipol)

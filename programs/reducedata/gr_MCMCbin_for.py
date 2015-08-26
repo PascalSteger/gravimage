@@ -48,7 +48,6 @@ def run(gp):
     Rscalei = gf.read_Xscale(gp.files.get_scale_file(pop)) # [pc]
     # set maximum radius (if gp.maxR is set)
     Rmax = max(R) if gp.maxR<0 else 1.0*gp.maxR # [Rscale0]
-    print('Rmax [Rscale0] = ', Rmax)
     sel = (R * Rscalei <= Rmax * Rscale0)
     x = x[sel] # [Rscalei]
     y = y[sel] # [Rscalei]

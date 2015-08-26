@@ -1,0 +1,9 @@
+<map id="gi_analytic.Sigma" name="gi_analytic.Sigma">
+<area shape="rect" id="node3" href="$a00113.html#a62f50fd8a64fd8660a6192c2f121ec91" title="surface density of Hernquist profile, equation 3 from Baes&amp;Dejonghe 2002 " alt="" coords="184,5,333,35"/>
+<area shape="rect" id="node7" href="$a00113.html#a5048833e9068c7fb50fd96af27bc4ad9" title="get projected surface density for Gaia tracer population not based on analytic integral ..." alt="" coords="185,59,332,88"/>
+<area shape="rect" id="node13" href="$a00113.html#a4cdf78cf519c9a33de5fb1725a148e3d" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="185,112,332,141"/>
+<area shape="rect" id="node5" href="$a00113.html#a6bf9a2798e9e3063917b0124da67f2ba" title="equation 33, 34 from Hernquist 1990 " alt="" coords="405,5,507,35"/>
+<area shape="rect" id="node9" href="$a00113.html#a12e21debd8e1f19e937ccaf34c2474bd" title="give densities for the spherical Gaia challenge dataset " alt="" coords="383,59,529,88"/>
+<area shape="rect" id="node11" href="$a00113.html#ac8c42c5a9e53d26538a7a36ebb2369c7" title="determine rho(r) for a generalized Hernquist model " alt="" coords="580,85,748,115"/>
+<area shape="rect" id="node15" href="$a00113.html#a6c6f58a30cbd2959ce5616c0a9b9c6ee" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="381,112,531,141"/>
+</map>

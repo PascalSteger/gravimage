@@ -1,0 +1,5 @@
+<map id="gi_helper.complete_nu" name="gi_helper.complete_nu">
+<area shape="rect" id="node3" href="$a00126.html#a5ea82c90fc07093b0f3bbf3e24b9f4fd" title="extrapolate data to xout, based on radial basis functions " alt="" coords="249,5,367,35"/>
+<area shape="rect" id="node5" href="$a00126.html#a20aac4afe482c43612d41e02c2f49f71" title="interpolate linearly in ln&#45;ln&#45;space " alt="" coords="239,59,377,88"/>
+<area shape="rect" id="node7" href="$a00126.html#a83cb39b68ea9d2936e646c37a5ec80ce" title="extrapolate to high radii, assuming a minimum powerlaw " alt="" coords="219,112,397,141"/>
+</map>

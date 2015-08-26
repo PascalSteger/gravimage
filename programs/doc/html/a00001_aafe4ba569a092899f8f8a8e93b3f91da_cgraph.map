@@ -1,0 +1,12 @@
+<map id="gi_class_cube.Cube.convert_to_parameter_space" name="gi_class_cube.Cube.convert_to_parameter_space">
+<area shape="rect" id="node3" href="$a00001.html#a6dc33b31485cc40a3fe20c2566841650" title="convert [0,1]^ndim to parameter space such that values in cube are the parameters we need for rho..." alt="" coords="252,77,447,123"/>
+<area shape="rect" id="node13" href="$a00117.html#af2f5e2ef5f3d4405044232296e2ed3da" title="mapping rho parameters from [0,1] to full parameter space prior on dn/dlnr: &lt; nrscale and possibly a ..." alt="" coords="269,147,429,176"/>
+<area shape="rect" id="node15" href="$a00117.html#a3bfaed1622fbf17fd10afc3c2b4c5c29" title="create nr params " alt="" coords="251,200,448,229"/>
+<area shape="rect" id="node17" href="$a00117.html#aec16ee492153cd957a425d7173c4853b" title="map [0,1] to MtoL flat prior " alt="" coords="511,287,689,316"/>
+<area shape="rect" id="node19" href="$a00117.html#a608424f805466f9f1eb022a05357b456" title="map [0,1] to [1/(gp.maxSS * mean(SS)), 1/(gp.minSS * mean(SS))], SS=&quot;s i g&quot; return hyperparameter ..." alt="" coords="248,304,451,333"/>
+<area shape="rect" id="node21" href="$a00117.html#a32fbc7ed17c5ab4af72bb0a47f8512be" title="mapping beta parameters from [0,1] to full param space " alt="" coords="251,357,448,403"/>
+<area shape="rect" id="node5" href="$a00117.html#a722113b166338685d297b6ec67707732" title="gi_class_cube.map_constdm" alt="" coords="500,5,700,35"/>
+<area shape="rect" id="node7" href="$a00117.html#aa0f1a0d18a9daa14cf8816da7784c6b1" title="gi_class_cube.map_rhonu" alt="" coords="508,59,692,88"/>
+<area shape="rect" id="node9" href="$a00117.html#a17b24db9c1f7be0086339d2cdecaa96e" title="gi_class_cube.map_kr" alt="" coords="520,112,680,141"/>
+<area shape="rect" id="node11" href="$a00117.html#aa05efc08070bae846fe88a724761f56b" title="gi_class_cube.map_simplenu\l_baryon" alt="" coords="499,165,701,211"/>
+</map>

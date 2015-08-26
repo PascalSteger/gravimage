@@ -1,0 +1,28 @@
+<map id="gi_file.get_pos_and_COM" name="gi_file.get_pos_and_COM">
+<area shape="rect" id="node3" href="$a00159.html#ac4b700fbca7ded6153826ceeadc1f4e6" title="grh_com.run" alt="" coords="263,192,361,221"/>
+<area shape="rect" id="node7" href="$a00158.html#ad418b6cde0cbe31cb3b4099cc31d1704" title="grg_COM.run" alt="" coords="259,379,365,408"/>
+<area shape="rect" id="node11" href="$a00163.html#a3c792810ee5e7b92ff5b3da8a79b75bd" title="grw_COM.run" alt="" coords="257,112,367,141"/>
+<area shape="rect" id="node20" href="$a00164.html#a1f6fe62cb9cc6d00d066209aa9ebbf75" title="grw_com.run" alt="" coords="261,432,363,461"/>
+<area shape="rect" id="node24" href="$a00150.html#afc67ba16da976872d3f2a512b6b862fd" title="grc_COM.run" alt="" coords="259,272,365,301"/>
+<area shape="rect" id="node33" href="$a00160.html#a04a26668744bd9f9334fb184e510df8c" title="grt_com.run" alt="" coords="264,485,360,515"/>
+<area shape="rect" id="node35" href="$a00155.html#a9298a75f1876f221f9a82c437b576737" title="main functionality: get center of mass of deBoer data " alt="" coords="245,539,379,568"/>
+<area shape="rect" id="node39" href="$a00151.html#ac24d80847fa190f67379df1b21fc787c" title="perform " alt="" coords="259,592,365,621"/>
+<area shape="rect" id="node47" href="$a00152.html#ad65462924a2abb9005ed312a87e0f565" title="perform " alt="" coords="244,672,380,701"/>
+<area shape="rect" id="node54" href="$a00154.html#a5fc5a12dc75d0048af9275187c3ce562" title="grd_metalsplit.read" alt="" coords="241,779,383,808"/>
+<area shape="rect" id="node5" href="$a00115.html#a1430a990b897e99367e331b9529b4314" title="shrinking sphere in 3D, following v_LOS " alt="" coords="447,165,668,195"/>
+<area shape="rect" id="node9" href="$a00158.html#af08c1d12ab1bcde891357783c6372751" title="extract only parts of the arrays given " alt="" coords="483,379,632,408"/>
+<area shape="rect" id="node13" href="$a00163.html#aff1854c56c25390bc891aaddfc5ed9b5" title="read and convert data " alt="" coords="480,5,635,35"/>
+<area shape="rect" id="node15" href="$a00163.html#a82005b5f2b8e838997c3b4ddeac725ad" title="extract only parts of the arrays given " alt="" coords="481,59,633,88"/>
+<area shape="rect" id="node17" href="$a00163.html#a8040b2dc8140c1f536b949307f1f6c63" title="grw_COM.concat_pops" alt="" coords="472,112,643,141"/>
+<area shape="rect" id="node22" href="$a00115.html#a68a6167f19a3e3d063d3b2cde10725a0" title="3D shrinking sphere " alt="" coords="453,432,661,461"/>
+<area shape="rect" id="node26" href="$a00150.html#ab6447a4ea6fd4a6e23bf05b65c723bb2" title="read and convert data " alt="" coords="483,325,632,355"/>
+<area shape="rect" id="node28" href="$a00150.html#a128ab120d913ad4260cfa7eae59a63a4" title="grc_COM.select_pm" alt="" coords="483,219,632,248"/>
+<area shape="rect" id="node30" href="$a00150.html#af08ef52083aaac378411e15501b71f71" title="concatenate all arrays for two populations " alt="" coords="475,272,640,301"/>
+<area shape="rect" id="node37" href="$a00115.html#a13ba7a469a10e833d0e9a5f9d9bb283b" title="gi_centering.com_shrinkcircle_2D" alt="" coords="440,485,675,515"/>
+<area shape="rect" id="node41" href="$a00151.html#ab9a51fc14612229f39f038b93c681570" title="grd_COM.select_pm" alt="" coords="483,539,632,568"/>
+<area shape="rect" id="node43" href="$a00151.html#aa1ecfb6d5d5e2f7e3db0391adf28b506" title="grd_COM.concat_pops" alt="" coords="473,592,641,621"/>
+<area shape="rect" id="node45" href="$a00115.html#a6bdea07c4cab00a0c41bc6a041dbaa1f" title="gi_centering.com_shrinkcircle_v_2D" alt="" coords="433,645,681,675"/>
+<area shape="rect" id="node49" href="$a00152.html#abd2147a3dc1bd6bcc867254bc6977909" title="grd_COM_dra.select_pm" alt="" coords="468,699,647,728"/>
+<area shape="rect" id="node51" href="$a00152.html#aa554a34937cda517b739fb07463611c7" title="grd_COM_dra.concat_pops" alt="" coords="459,752,656,781"/>
+<area shape="rect" id="node56" href="$a00154.html#a50184ce1d4e0eb462f89acca0a3c188e" title="determine no. " alt="" coords="475,805,640,835"/>
+</map>

@@ -231,15 +231,15 @@ def map_betastar_sigmoid(params, gp):
 # @param params parameter vector, size 4
 # @param gp global parameters
 
-def map_MtoL(param, gp):
-    gh.sanitize_scalar(param, 0, 1, gp.debug)
+def map_MtoL(pp, gp):
+    gh.sanitize_scalar(pp, 0, 1, gp.debug)
     scale = gp.MtoLmax - gp.MtoLmin
-    MtoL = param*scale+gp.MtoLmin
+    MtoL = pp*scale+gp.MtoLmin
     return MtoL
-## \fn map_MtoL(param, gp)
+## \fn map_MtoL(pp, gp)
 # map [0,1] to MtoL flat prior
-# @param param scalar
-# @param gp global parameters holding MtoL{min,max}
+# @param pp float in [0,1]
+# @param gp global parameters holding MtoLmin, MtoLmax
 
 def map_hypersig(param, prof, pop, gp):
     if prof == 'Sig':
@@ -251,7 +251,7 @@ def map_hypersig(param, prof, pop, gp):
     lam = 1/(param[0]*(lmax-lmin)+lmin)
     return lam
 ## \fn map_hypersig(param, prof, pop, gp)
-# map [0,1] to [1/(gp.maxsig * <sig>), 1/(gp.minsig * <sig>)]
+# map [0,1] to [1/(gp.maxSS * mean(SS)), 1/(gp.minSS * mean(SS))], SS="s i g"
 # return hyperparameter
 # @param param scalar [0,1]
 # @param prof Sigma or sigma depending on profile
@@ -298,15 +298,16 @@ class Cube:
                 pc[off+i] = tmp_nu[i]
             off += offstep
 
-            offstep = 1
-            tmp_hyperSig = map_hypersig(pc[off:off+offstep], 'Sig', pop, gp)
-            pc[off] = tmp_hyperSig
-            off += offstep
+            if gp.hyperparameters:
+                offstep = 1
+                tmp_hyperSig = map_hypersig(pc[off:off+offstep], 'Sig', pop, gp)
+                pc[off] = tmp_hyperSig
+                off += offstep
 
-            offstep = 1
-            tmp_hypersig = map_hypersig(pc[off:off+offstep], 'sig', pop, gp)
-            pc[off] = tmp_hypersig
-            off += offstep
+                offstep = 1
+                tmp_hypersig = map_hypersig(pc[off:off+offstep], 'sig', pop, gp)
+                pc[off] = tmp_hypersig
+                off += offstep
 
             offstep = gp.nbeta
             tmp_betastar = map_betastar_sigmoid(pc[off:off+offstep], gp)

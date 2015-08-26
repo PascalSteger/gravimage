@@ -60,7 +60,7 @@ def read_models(basename):
 
 
 def pcload_single_entries(basename, profile_source, gp):
-    import gl_collection as glc
+    import gi_collection_disk as glc
     pc = glc.ProfileCollection(gp.ntracer_pops, gp.nbins)
 
     if profile_source =='standard':
@@ -157,7 +157,7 @@ if __name__ == '__main__':
     ip.remove_first()
     # uncomment following to use stored collection, loglike, all other modules
     #ip.insert_sys_path(basename+'sphere')
-    #import gl_collection as glc
+    #import gi_collection_disk as glc
     ##ip.remove_first(); ip.remove_first() # uncomment to include most recent
     gp = glp.Params(timestamp, investigate)
     gp.pops = sr.get_pops(basename)

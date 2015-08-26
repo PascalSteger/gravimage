@@ -1,0 +1,7 @@
+<map id="gi_collection.ProfileCollection.plot_txtprofile" name="gi_collection.ProfileCollection.plot_txtprofile">
+<area shape="rect" id="node3" href="$a00010.html#a8b1870215779670cec65d833e2001fd7" title="draw x and y labels " alt="" coords="304,5,533,51"/>
+<area shape="rect" id="node5" href="$a00010.html#a0ead08cbc056dd5de8af3c44cbdf0422" title="broaden the plotting range " alt="" coords="600,100,885,129"/>
+<area shape="rect" id="node7" href="$a00010.html#a4a74bbb79243b99610eafd08b0afcca6" title="plot filled region for 1sigma and 2sigma confidence interval from only .txt outputs ..." alt="" coords="308,178,529,225"/>
+<area shape="rect" id="node12" href="$a00010.html#abd57346c7124190bd63161f4997a1d98" title="plot data as blue shaded region " alt="" coords="285,125,552,155"/>
+<area shape="rect" id="node9" href="$a00010.html#a53cc989cfe4aa9f35fe1065624c56b88" title="plot 3D half&#45;light radii, based on median nu model " alt="" coords="628,178,857,225"/>
+</map>

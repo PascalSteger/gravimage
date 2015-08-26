@@ -1,0 +1,10 @@
+<map id="gl_select_run.run" name="gl_select_run.run">
+<area shape="rect" id="node3" href="$a00140.html#ae1108e95a9ad64cd59814308bd17e408" title="gl_select_run.get_investigate" alt="" coords="184,5,389,35"/>
+<area shape="rect" id="node5" href="$a00140.html#adae709d6e8f5b459dcde63d1693f61c6" title="gl_select_run.get_case" alt="" coords="204,59,369,88"/>
+<area shape="rect" id="node7" href="$a00140.html#a266d2ef6040fd44c082f29645ad3c8bc" title="gl_select_run.get_profile\l_source" alt="" coords="199,111,375,158"/>
+<area shape="rect" id="node9" href="$a00140.html#aa81920308d737610d0e1551c31e11c4a" title="return all working or completed MCMC run directories " alt="" coords="224,181,349,227"/>
+<area shape="rect" id="node16" href="$a00140.html#adf002ecc86e77cda75fca5b1fd4fc926" title="ask user for choice on run number " alt="" coords="208,251,365,280"/>
+<area shape="rect" id="node18" href="$a00140.html#a3d11245142e1ea4796b064c05bea68da" title="ask user for choice on action to take: print or delete " alt="" coords="200,304,373,333"/>
+<area shape="rect" id="node11" href="$a00140.html#a1e4df58c71a7cc476fb958d76cca0a29" title="remove all folders in list fdl without any ev.dat file in it = where no iterations of the MultiNest a..." alt="" coords="439,151,593,198"/>
+<area shape="rect" id="node13" href="$a00140.html#ab6463e458b07ed9aef1847241a5e4724" title="determine no. " alt="" coords="644,191,804,220"/>
+</map>

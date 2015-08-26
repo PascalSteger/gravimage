@@ -1,0 +1,19 @@
+<map id="gi_helper.LOG" name="gi_helper.LOG">
+<area shape="rect" id="node3" href="$a00134.html#ad1bec3161f4105e2109c0c874480d824" title="check that beta is bound and not jumping " alt="" coords="180,5,332,35"/>
+<area shape="rect" id="node5" href="$a00126.html#a30a7a3e3fa61a45276083ed78081e3e0" title="sanitize input (vectors) " alt="" coords="191,58,321,105"/>
+<area shape="rect" id="node7" href="$a00126.html#a48aece1c0215d65b149a0a64e0c62336" title="determine bin radii once and for all. " alt="" coords="183,127,329,174"/>
+<area shape="rect" id="node9" href="$a00126.html#a3c21f7e79deef001fa00ab583b89493c" title="sanitize input (scalar) " alt="" coords="191,197,321,243"/>
+<area shape="rect" id="node11" href="$a00126.html#a18b4284992643cbe289ddacced1af970" title="print Radius information " alt="" coords="168,267,344,296"/>
+<area shape="rect" id="node13" href="$a00126.html#a0dcebd6cf8c0b1fb0a7ecbb597c39430" title="integrate y over x, using splines " alt="" coords="191,320,321,349"/>
+<area shape="rect" id="node15" href="$a00126.html#a5eba0e7f1129d4f346ea8aaa0d75b10c" title="gi_helper.quadinflog" alt="" coords="181,373,331,403"/>
+<area shape="rect" id="node21" href="$a00126.html#a236f2c02fde6f0f6e81a6aa94a697827" title="gi_helper.quadinfloglog" alt="" coords="172,427,340,456"/>
+<area shape="rect" id="node23" href="$a00126.html#a182afc6cf52e5af0e850cbd8d384ae08" title="NaN encountered at any position in arr? " alt="" coords="184,480,328,509"/>
+<area shape="rect" id="node25" href="$a00126.html#a83c3715414aa8dc1ef54b5fac28f3d74" title="abort if negative value found " alt="" coords="393,479,561,508"/>
+<area shape="rect" id="node28" href="$a00126.html#a2a9a7a40d02a2b00bf7f299af78a6b81" title="interpolate function in lin space, based on radial basis functions " alt="" coords="203,584,309,613"/>
+<area shape="rect" id="node34" href="$a00126.html#ad6d9cbace0da005ae36ff6aa47b620d6" title="interpolate function in log10 space, based on radial basis functions " alt="" coords="415,639,540,668"/>
+<area shape="rect" id="node37" href="$a00126.html#aa95a5287f8aa2c38b14ad52e76ae57c6" title="Given an array of data[1..n] , this routine returns its mean ave , average deviation adev ..." alt="" coords="185,688,327,717"/>
+<area shape="rect" id="node17" href="$a00126.html#ad9c84bdc46226115860fcf1112d7ea17" title="return total number of stars " alt="" coords="423,347,532,376"/>
+<area shape="rect" id="node19" href="$a00126.html#afdd419ddbba21b35a0e7c38c0a814153" title="eq. " alt="" coords="413,400,541,429"/>
+<area shape="rect" id="node30" href="$a00126.html#aedea808f4f70fbfe2c603f7ec9eec377" title="gives numeric differentiation, assumes constant x spacings " alt="" coords="420,532,535,561"/>
+<area shape="rect" id="node32" href="$a00126.html#a3fa553c238a06db7d2be7d7055d7489c" title="numerical derivative, with h=const=stepsize of radial bins " alt="" coords="399,585,556,615"/>
+</map>

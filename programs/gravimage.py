@@ -98,26 +98,30 @@ def prepare_data(gp):
 # @param gp global parameters
 
 def run(gp):
+    output_basename = gp.files.outdir + 'pym'
     pymultinest.run(myloglike, myprior, gp.ndim, n_params = gp.ndim+1,
                     n_clustering_params = gp.nrho, # gp.ndim, or separate modes on the rho parameters only: gp.nrho
                     wrapped_params = [ gp.pops, gp.nipol, gp.nrho],
-                    importance_nested_sampling = False, # INS enabled
+                    importance_nested_sampling = False, # INS enabled?
                     multimodal = False,           # separate modes
                     const_efficiency_mode = True, # use const sampling efficiency
                     n_live_points = gp.nlive,
-                    evidence_tolerance = 0.0,   # 0 to keep algorithm working indefinitely
-                    sampling_efficiency = 0.05, # 0.05, MultiNest README for >30 params
+                    evidence_tolerance = 0.5,   # 0 to keep algorithm working indefinitely
+                    sampling_efficiency = 0.3, # 0.05, MultiNest README for >30 params
                     n_iter_before_update = 2,  # output after this many iterations
                     null_log_evidence = -1e100,
                     max_modes = gp.nlive, # preallocation of modes: max=number of live points
                     mode_tolerance = -1.e100,   # mode tolerance in the case where no special value exists: highly negative
-                    outputfiles_basename = gp.files.outdir,
+                    outputfiles_basename = output_basename,
                     seed = -1, verbose = True,
                     resume = gp.restart,
                     context = 0, write_output = True,
                     log_zero = -1e500, # points with log likelihood<log_zero will be neglected
                     max_iter = 0, # set to 0 for never reaching max_iter (no stopping criterium based on number of iterations)
                     init_MPI = False, dump_callback = None)
+## \fn run(gp)
+# start main MultiNest routine
+# @param gp global parameters as defined in gi_params
 
 if __name__=="__main__":
     global Cube, geom_loglike

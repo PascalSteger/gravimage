@@ -37,7 +37,7 @@ def calc_chi2(profs, gp):
         Sigerr   = gp.dat.Sigerr[pop]   # [Munit/pc^2]
         Sigmodel = profs.get_prof('Sig', pop)[gp.nexp:-gp.nexp]
         hyperSig = profs.hyperSig[pop-1]
-        chi2_Sig  = chi2red(Sigmodel, Sigdat, Sigerr, hyperSig, gp.nipol) # [1]
+        chi2_Sig  = chi2red(Sigmodel, Sigdat, Sigerr, hyperSig, 1) # gp.nipol) # [1]
         chi2 += chi2_Sig                 # [1]
         gh.LOG(2, ' chi2_Sig   = ', chi2_Sig)
 
@@ -45,7 +45,7 @@ def calc_chi2(profs, gp):
         #nudat   = gp.dat.nu[pop]      # [Munit/pc^2]
         #nuerr   = gp.dat.nuerr[pop]   # [Munit/pc^2]
         #numodel = profs.get_prof('nu', pop)[gp.nexp:-gp.nexp]
-        #chi2_nu  = chi2red(numodel, nudat, nuerr, gp.nipol) # [1]
+        #chi2_nu  = chi2red(numodel, nudat, nuerr, 1) #gp.nipol) # [1]
         #chi2 += chi2_nu                 # [1]
         #gh.LOG(1, ' chi2_nu   = ', chi2_nu)
         if gp.chi2_Sig_converged > 0:
@@ -55,13 +55,13 @@ def calc_chi2(profs, gp):
         sigerr  = gp.dat.sigerr[pop]    # [km/s]
         smodel  = profs.get_prof('sig', pop)[gp.nexp:-gp.nexp]
         hypersig = profs.hypersig[pop-1]
-        chi2_sig = chi2red(smodel, sigdat, sigerr, hypersig, gp.nipol) # [1]
+        chi2_sig = chi2red(smodel, sigdat, sigerr, hypersig, 1) #gp.nipol) # [1]
         chi2 += chi2_sig                # [1]
         gh.LOG(2, '  chi2_sig  = ', chi2_sig)
         if gp.usekappa:
             kapdat  = 1.*gp.dat.kap[pop] # [1]
             kaperr  = 1.*gp.dat.kaperr[pop] # [1]
-            chi2_kap = chi2red(profs.get_kap(pop), kapdat, kaperr, gp.nipol) # [1]
+            chi2_kap = chi2red(profs.get_kap(pop), kapdat, kaperr, 1) #gp.nipol) # [1]
             chi2 += chi2_kap            # [1]
 
         if gp.usezeta:
@@ -78,7 +78,7 @@ def calc_chi2(profs, gp):
         chi2 *= 10 # overamplify chi2 to get better models after switch
         if chi2 < gp.chi2_switch:
             gp.chi2_Sig_converged -= 1
-            gh.LOG(1, 'Sig finished burn-in, waiting to get stable, ', gp.chi2_Sig_converged)
+            print('Sig finishing burn-in, waiting to get stable, '+str(gp.chi2_Sig_converged))
     if gp.checksig:
         pdb.set_trace()
     return chi2

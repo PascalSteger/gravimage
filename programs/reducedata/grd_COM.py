@@ -50,7 +50,9 @@ def run(gp):
     delim = [0, 22, 3, 3, 6, 4, 3, 5, 6, 6, 7, 5, 6, 5, 6, 5, 6]
     ID = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, usecols=(0,1),delimiter=delim)
     RAh, RAm, RAs, DEd, DEm, DEs, Vmag, VI, VHel, e_VHel, SigFe, e_SigFe, SigMg, e_SigMg, PM = np.genfromtxt(gpr.fil, skiprows=29, unpack=True, usecols=tuple(range(2,17)), delimiter=delim, filling_values=-1)
-    if gp.pops == 2:
+    if gp.pops == 1:
+        popass = np.ones(len(ID[1]))
+    elif gp.pops > 1:
         popass = np.loadtxt(gp.files.dir+'data/popass_'+gp.Rdiff)
 
     # only use stars which have Mg measurements

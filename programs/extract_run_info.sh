@@ -21,13 +21,13 @@ do
         for timestamp in $var
         do
             #echo $timestamp
-            if [ ! -f $timestamp/ev.dat ]; then
-                echo "File "$timestamp"/ev.dat not found!"
+            if [ ! -f $timestamp/pymev.dat ]; then
+                echo "File "$timestamp"/pymev.dat not found!"
             else
                 if [ ! -f $timestamp/programs/gi_params.py ]; then
                     echo "File "$timestamp"/programs/gi_params.py not found!"
                 else
-                    lines=$(wc -l $timestamp/ev.dat|cut -d" " -f1)
+                    lines=$(wc -l $timestamp/pymev.dat|cut -d" " -f1)
                     nbeta=$(grep "self.nbeta =" $timestamp/programs/gi_params.py | cut -d"=" -f2 | cut -d"#" -f1)
                     pops=$(grep "self.pops =" $timestamp/programs/gi_params.py | cut -d"=" -f2 | head -n1 | cut -d"#" -f1)
                     bins=$(grep "self.nipol =" $timestamp/programs/gi_params.py | cut -d"=" -f2 | cut -d"#" -f1)

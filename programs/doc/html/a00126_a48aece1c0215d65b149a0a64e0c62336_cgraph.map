@@ -1,0 +1,6 @@
+<map id="gi_helper.determine_radius" name="gi_helper.determine_radius">
+<area shape="rect" id="node3" href="$a00126.html#a35889ce9a1baeba40a6b771608b43d89" title="print debugging message if level is important enough " alt="" coords="223,5,337,35"/>
+<area shape="rect" id="node5" href="$a00126.html#a1cc2bdbcd9f1b785dc636b2b33a3e3e2" title="split interval linearly into bins " alt="" coords="201,59,359,88"/>
+<area shape="rect" id="node7" href="$a00126.html#a858a93a0bee6d375c8c650ec96ae289f" title="split interval into bins, in a logarithmic fashion " alt="" coords="209,112,351,141"/>
+<area shape="rect" id="node9" href="$a00126.html#ac0eb8832c5620388928a6279be313970" title="split interval into bins of constant particle number " alt="" coords="201,165,359,211"/>
+</map>

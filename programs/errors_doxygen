@@ -1,0 +1,31 @@
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py:275: warning: no uniquely matching class member found for 
+  def gi_collection_disk.ProfileCollection::set_analytic(x0,gp)
+Possible candidates:
+  def gi_collection.ProfileCollection::set_analytic(self, x0, gp)' at line 228 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection.py
+  def gi_collection_disk.ProfileCollection::set_analytic(self, x0, gp)' at line 215 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py
+  def gl_collection.ProfileCollection::set_analytic(self, x0, gp)' at line 215 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py
+
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py:562: warning: no uniquely matching class member found for 
+  def gi_collection_disk.ProfileCollection::plot_Xscale_3D(ax,gp)
+Possible candidates:
+  def gi_collection.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 464 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection.py
+  def gi_collection_disk.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 532 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py
+  def gl_collection.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 537 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py
+
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py:275: warning: no uniquely matching class member found for 
+  def gl_collection.ProfileCollection::set_analytic(x0,gp)
+Possible candidates:
+  def gi_collection.ProfileCollection::set_analytic(self, x0, gp)' at line 228 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection.py
+  def gi_collection_disk.ProfileCollection::set_analytic(self, x0, gp)' at line 215 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py
+  def gl_collection.ProfileCollection::set_analytic(self, x0, gp)' at line 215 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py
+
+/home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py:567: warning: no uniquely matching class member found for 
+  def gl_collection.ProfileCollection::plot_Xscale_3D(ax,gp)
+Possible candidates:
+  def gi_collection.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 464 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection.py
+  def gi_collection_disk.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 532 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gi_collection_disk.py
+  def gl_collection.ProfileCollection::plot_Xscale_3D(self, ax, gp)' at line 537 of file /home/psteger/sci/darcoda/gravimage/programs/plotting/gl_collection.py
+
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_cube.py:241: warning: argument 'pa' of command @param is not found in the argument list of gi_class_cube::map_MtoL(pp,gp)
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_profiles.py:38: warning: argument 'ntracer_pops' of command @param is not found in the argument list of gi_class_profiles.Profiles::__init__(self,pops,nepol)
+/home/psteger/sci/darcoda/gravimage/programs/sphere/gi_class_profiles.py:38: warning: argument 'nbins' of command @param is not found in the argument list of gi_class_profiles.Profiles::__init__(self,pops,nepol)

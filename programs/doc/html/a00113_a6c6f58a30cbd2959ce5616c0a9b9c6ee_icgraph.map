@@ -1,0 +1,8 @@
+<map id="gi_analytic.rho_walk" name="gi_analytic.rho_walk">
+<area shape="rect" id="node3" href="$a00113.html#a042fc1426f339b48539e51d48a363a2a" title="return total mass density, stars+DM " alt="" coords="203,75,368,104"/>
+<area shape="rect" id="node9" href="$a00113.html#a4cdf78cf519c9a33de5fb1725a148e3d" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="212,128,359,157"/>
+<area shape="rect" id="node13" href="$a00113.html#ad3d5d4601cd9d3cb7a45e6afb8a17070" title="analytic total mass density profile for all investigations " alt="" coords="229,181,341,211"/>
+<area shape="rect" id="node5" href="$a00113.html#a8e01c79e5c5b65d41228d07c6622f3d3" title="plot d log rho/d log r " alt="" coords="425,5,564,51"/>
+<area shape="rect" id="node7" href="$a00113.html#a9f32c4cae689f041f3d293245d8e9201" title="return total mass in Walker model NOT USED ANYMORE " alt="" coords="417,75,572,104"/>
+<area shape="rect" id="node11" href="$a00113.html#a5c66bb66227c7e91218e53b2008630ea" title="analytic total mass surface density profile for all investigations " alt="" coords="429,128,560,157"/>
+</map>

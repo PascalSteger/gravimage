@@ -1,0 +1,16 @@
+<map id="gi_analytic.get_prof" name="gi_analytic.get_prof">
+<area shape="rect" id="node3" href="$a00010.html#acdc743f0697b5d4238431f38a00a49ab" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="209,291,473,320"/>
+<area shape="rect" id="node21" href="$a00010.html#a2943e7b4cfbd84b97f23965a3b777a4d" title="calculate J from Sig from rho " alt="" coords="203,471,480,500"/>
+<area shape="rect" id="node23" href="$a00008.html#aa1cee36e7dd7564b303e56e685feb413" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="253,347,429,394"/>
+<area shape="rect" id="node31" href="$a00008.html#a494a7e468396d6716071173cc1e2cba8" title="calculate M profiles from rho, as this has not been done prior to pc2.save " alt="" coords="253,523,429,570"/>
+<area shape="rect" id="node33" href="$a00009.html#a1e9b33628fe885fb2739ddbc6683b143" title="sort the list of prof&#45;profiles, and store the {1,2}sigma, min, medi, max in the appropriate place ..." alt="" coords="209,417,473,447"/>
+<area shape="rect" id="node38" href="$a00009.html#a1b7fc6e7b99bc29781c36728299ede8d" title="calculate M profiles from rho, as this has not been done prior to pc2.save " alt="" coords="200,593,483,623"/>
+<area shape="rect" id="node5" href="$a00010.html#a3425dd1b8b08d507f90a4f189ba0ae94" title="sort all profiles, in a parallel way " alt="" coords="531,5,763,51"/>
+<area shape="rect" id="node7" href="$a00010.html#a38d5a57b56f3f268c8748ea7e149bc80" title="plot filled region with grayscale propto # models in log bin " alt="" coords="532,74,761,121"/>
+<area shape="rect" id="node9" href="$a00008.html#afd950dfbbcaa4d9606038b58f3955590" title="sort all profiles " alt="" coords="559,143,735,190"/>
+<area shape="rect" id="node11" href="$a00008.html#a185e266437e95066a6d97b2232572877" title="gi_collection_disk.Profile\lCollection.sort_profiles_disk" alt="" coords="548,213,745,259"/>
+<area shape="rect" id="node13" href="$a00008.html#ac0d33485e8b1a16ac436cc394241a7a0" title="plot filled region with grayscale propto # models in log bin " alt="" coords="557,282,736,329"/>
+<area shape="rect" id="node15" href="$a00009.html#a912666f7875bdd8cefccd1b78c0daa80" title="sort all profiles " alt="" coords="531,351,763,398"/>
+<area shape="rect" id="node17" href="$a00009.html#aeb139ae3ac336b06c817bc6a93922b61" title="gl_collection.ProfileCollection.sort\l_profiles_disk" alt="" coords="531,421,763,467"/>
+<area shape="rect" id="node19" href="$a00009.html#aedfccfc9e90f14dab1182b843e4edbf0" title="plot filled region with grayscale propto # models in log bin " alt="" coords="532,490,761,537"/>
+</map>

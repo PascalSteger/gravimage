@@ -1,0 +1,5 @@
+<map id="plot_profiles.run" name="plot_profiles.run">
+<area shape="rect" id="node3" href="$a00174.html#abaa277c8dcad29ff6a2cbed5d187524e" title="create directory structure in output folder " alt="" coords="176,5,328,51"/>
+<area shape="rect" id="node5" href="$a00174.html#a97744d04071097e6470354c00bdc553e" title="read scale file, store into gp. " alt="" coords="187,74,317,121"/>
+<area shape="rect" id="node7" href="$a00174.html#a97c472ecfa669188d55ed649f2c0f571" title="load all data into [chi^2, profiles] pairs, and add to a profile collection " alt="" coords="180,143,324,190"/>
+</map>

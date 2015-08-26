@@ -10,10 +10,10 @@
 | 201502031847 | 000  | p      | 141924. cusp needed, core found. beta right dir, but too late |
 |              |      |        |                                                               |
 
-** 2
+** 2  cored
 |    Timestamp | beta | status | outcome                                                                  |
 |--------------+------+--------+--------------------------------------------------------------------------|
-| 201501221045 | -    | p  f   | fine, new nrnu, nr too high, beta too low                                |
+| 201501221045 | -    | p  f   | 96k. fine, new nrnu, nr too high, beta too low                           |
 | 201501070936 | -    | p      | n(r) too high, beta* going negative, wrong                               |
 | 201501090757 | -    | p      | n(r) too steep, beta* at 0, wrong                                        |
 | 201501202211 | -    | p    r | new nrnu. nr too high, beta going negative                               |
@@ -45,7 +45,7 @@
 | 201502070558 | 00   | ap     | 9040. n(r) too high, beta 0, not positive                                |
 |              |      |        |                                                                          |
 
-** 3
+** 3 cusped
 |    Timestamp | b   | status              | outcome                                                              |
 |--------------+-----+---------------------+----------------------------------------------------------------------|
 | 201501222144 | -   | p no chi            | 8 bins, 208314 models, new nrnu, core (wrong)                        |
@@ -135,7 +135,7 @@
 |--------------+------+--------+-----------------------------------------------------------|
 | 201501240500 |    - | p      | new nrnu, beta not yet converged                          |
 | 201501202216 |    - | p      | new nrnu, beta not yet converged                          |
-| 201501112130 |    - | pcf r  | 180348. good, beta fine, slightly too low                 |
+| 201501112130 |    - | pcf r  | 180348. mono. good, beta fine, slightly too low           |
 |              |      |        |                                                           |
 |--------------+------+--------+-----------------------------------------------------------|
 | 201501112121 |  000 | pc     | very good, old nrnu, n(r) fine, a bit too turned too flat |

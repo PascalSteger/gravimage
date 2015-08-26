@@ -12,15 +12,6 @@ import gi_helper as gh
 import gi_project as gip
 from scipy.interpolate import splrep, splev
 
-def introduce_points_in_between(r0, gp):
-    rmin = np.log10(min(r0))
-    rmax = np.log10(max(r0))
-    return np.logspace(rmin, rmax, gp.nfine)
-## \fn introduce_points_in_between(r0, gp)
-# get gp.fine points logarithmically spaced points
-# @param r0 [pc] gp.xipol
-# @param gp global parameter
-
 class Datafile:
     def __init__(self):
         ## smallest radius of the data bins, in [pc]
@@ -83,7 +74,7 @@ class Datafile:
                 minr = min(self.rbin)                           # [pc]
                 maxr = max(self.rbin)                           # [pc]
                 gp.xepol = np.hstack([minr/8., minr/4., minr/2., self.rbin, 2*maxr, 4*maxr, 8*maxr]) # [pc]
-                gp.xfine = introduce_points_in_between(gp.xepol, gp)
+                gp.xfine = gh.introduce_points_in_between(gp.xepol, gp)
             # deproject,
             # takes [pc], 2* [Munit/pc^2], gives [pc], 2* [Munit/pc^3],
             # already normalized to same total mass

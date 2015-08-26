@@ -586,6 +586,17 @@ def wait():
 ## \fn wait()
 # wait for key press
 
+def introduce_points_in_between(r0, gp, points=-1):
+    if points == -1:
+        points = gp.nfine
+    rmin = np.log10(min(r0))
+    rmax = np.log10(max(r0))
+    return np.logspace(rmin, rmax, points)
+## \fn introduce_points_in_between(r0, gp)
+# get gp.fine points logarithmically spaced points
+# @param r0 [pc] gp.xipol
+# @param gp global parameter
+
 def bin_r_linear(rmin, rmax, nbin):
     binlength = (rmax - rmin)/(1.*nbin) #[rscale]
     binmin = np.zeros(nbin)

@@ -1,0 +1,5 @@
+<map id="gi_helper.ipol" name="gi_helper.ipol">
+<area shape="rect" id="node3" href="$a00126.html#aedea808f4f70fbfe2c603f7ec9eec377" title="gives numeric differentiation, assumes constant x spacings " alt="" coords="183,5,297,35"/>
+<area shape="rect" id="node5" href="$a00126.html#a3fa553c238a06db7d2be7d7055d7489c" title="numerical derivative, with h=const=stepsize of radial bins " alt="" coords="161,59,319,88"/>
+<area shape="rect" id="node7" href="$a00126.html#ad6d9cbace0da005ae36ff6aa47b620d6" title="interpolate function in log10 space, based on radial basis functions " alt="" coords="177,112,303,141"/>
+</map>

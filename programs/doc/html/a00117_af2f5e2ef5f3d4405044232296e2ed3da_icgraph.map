@@ -1,0 +1,4 @@
+<map id="gi_class_cube.map_nr" name="gi_class_cube.map_nr">
+<area shape="rect" id="node3" href="$a00117.html#a1ae7d397f25dddf53083dc54cda6e65c" title="take uniform range [0,1] and return normal pdf centered around mu, with width sigma sampled with a no..." alt="" coords="244,5,383,35"/>
+<area shape="rect" id="node5" href="$a00001.html#aafe4ba569a092899f8f8a8e93b3f91da" title="gi_class_cube.Cube.convert\l_to_parameter_space" alt="" coords="216,58,411,105"/>
+</map>

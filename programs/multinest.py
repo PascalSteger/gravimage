@@ -208,6 +208,7 @@ def run(LogLikelihood,
 # value. If there isn't any particulrly interesting
 # nullZ value, then nullZ should be set to a very large negative
 # number (e.g. -1.d90).
+# @param maxClst TODO
 # @param initMPI initialize MPI routines?, relevant only if compiling with MPI
 # @param nest_logZero points with loglike < logZero will be ignored by MultiNest
 # @param nest_maxIter maximum number of iterations. 0 is unlimited.

@@ -1,0 +1,8 @@
+<map id="gi_collection.unit" name="gi_collection.unit">
+<area shape="rect" id="node3" href="$a00010.html#a9cf6f64984ae0d281d42446809793fe7" title="write output file for a single profile " alt="" coords="180,136,449,165"/>
+<area shape="rect" id="node5" href="$a00010.html#abb48958b8b64387a14a476d21b805576" title="write output files for all profiles " alt="" coords="500,5,759,35"/>
+<area shape="rect" id="node7" href="$a00008.html#a72c92c8a290637af8de7f73dccccb612" title="write output files for all profiles " alt="" coords="541,58,717,105"/>
+<area shape="rect" id="node9" href="$a00008.html#aac2fe0a27d237ddbb6b0dfa1f6a1243c" title="gi_collection_disk.Profile\lCollection.write_all_disk" alt="" coords="541,127,717,174"/>
+<area shape="rect" id="node11" href="$a00009.html#a4649e029ec4a6bee6ea12aa8c6816c3a" title="write output files for all profiles " alt="" coords="500,197,759,227"/>
+<area shape="rect" id="node13" href="$a00009.html#a8014323f8002aeaab2a996eb5ea3ef24" title="gl_collection.ProfileCollection.write\l_all_disk" alt="" coords="511,250,748,297"/>
+</map>

@@ -49,15 +49,6 @@ def bufcount(filename):
 # determine no. lines optimally
 # @param filename filename
 
-def introduce_points_in_between(r0, gp):
-    rmin = np.log10(min(r0))
-    rmax = np.log10(max(r0))
-    return np.logspace(rmin, rmax, gp.nfine)
-## \fn introduce_points_in_between(r0, gp)
-# get gp.fine points logarithmically spaced points
-# @param r0 [pc] gp.xipol
-# @param gp global parameter
-
 def myprior(cube, ndim, nparams):
     # convert to physical space
     off = 0
@@ -482,8 +473,8 @@ def read(Rdiff, gp):
     gp.xipol = Rbin
     minr = min(Rbin)                           # [pc]
     maxr = max(Rbin)                           # [pc]
-    gp.xepol =np.hstack([minr/8.,minr/4.,minr/2.,Rbin,2*maxr,4*maxr,8*maxr])#[pc]
-    gp.xfine = introduce_points_in_between(gp.xepol, gp)
+    gp.xepol = np.hstack([minr/8.,minr/4.,minr/2.,Rbin,2*maxr,4*maxr,8*maxr])#[pc]
+    gp.xfine = gh.introduce_points_in_between(gp.xepol, gp)
     #pdb.set_trace()
     #Sigdatnu, Sigerrnu = gh.complete_nu(Rbin, Sig_phot, Sig_phot/10., gp.xfine)
     #dummyx,nudatnu,nuerrnu,Mrnu = gip.Sig_NORM_rho(gp.xfine,Sigdatnu,Sigerrnu,gp)

@@ -1,0 +1,16 @@
+<map id="gi_analytic.rho_general" name="gi_analytic.rho_general">
+<area shape="rect" id="node3" href="$a00113.html#a6c6f58a30cbd2959ce5616c0a9b9c6ee" title="Walker model: read values from theoretical params file, calculate from eq. " alt="" coords="237,124,387,153"/>
+<area shape="rect" id="node17" href="$a00113.html#a12e21debd8e1f19e937ccaf34c2474bd" title="give densities for the spherical Gaia challenge dataset " alt="" coords="239,204,385,233"/>
+<area shape="rect" id="node31" href="$a00113.html#a124f418c8602295d0cc1bc7a06a2c2bb" title="give total density for the spherical Gaia challenge dataset " alt="" coords="224,257,400,287"/>
+<area shape="rect" id="node5" href="$a00113.html#a042fc1426f339b48539e51d48a363a2a" title="return total mass density, stars+DM " alt="" coords="448,44,613,73"/>
+<area shape="rect" id="node11" href="$a00113.html#a4cdf78cf519c9a33de5fb1725a148e3d" title="calculate 2D surface density from radius for pop 0, 1, 2 " alt="" coords="457,97,604,127"/>
+<area shape="rect" id="node15" href="$a00113.html#ad3d5d4601cd9d3cb7a45e6afb8a17070" title="analytic total mass density profile for all investigations " alt="" coords="475,151,587,180"/>
+<area shape="rect" id="node7" href="$a00113.html#a8e01c79e5c5b65d41228d07c6622f3d3" title="plot d log rho/d log r " alt="" coords="671,5,809,51"/>
+<area shape="rect" id="node9" href="$a00113.html#a9f32c4cae689f041f3d293245d8e9201" title="return total mass in Walker model NOT USED ANYMORE " alt="" coords="663,75,817,104"/>
+<area shape="rect" id="node13" href="$a00113.html#a5c66bb66227c7e91218e53b2008630ea" title="analytic total mass surface density profile for all investigations " alt="" coords="675,149,805,179"/>
+<area shape="rect" id="node19" href="$a00113.html#aa3188577c0bdc68b43986da4b4c23f7e" title="calculate mass in 2D radial bins " alt="" coords="461,257,600,287"/>
+<area shape="rect" id="node23" href="$a00113.html#af69de310fc96ce7b116f4f2f39b8e7bc" title="return total mass density for Gaia challenge models " alt="" coords="449,312,612,341"/>
+<area shape="rect" id="node27" href="$a00113.html#a5048833e9068c7fb50fd96af27bc4ad9" title="get projected surface density for Gaia tracer population not based on analytic integral ..." alt="" coords="457,204,604,233"/>
+<area shape="rect" id="node21" href="$a00113.html#a9700e24dd4f386cb282685e388b99d1c" title="analytic total mass profile for all investigations " alt="" coords="685,255,795,284"/>
+<area shape="rect" id="node25" href="$a00113.html#a54c2413bcbd6f3224d0c321609e26150" title="plot d log rho/d log r " alt="" coords="671,307,809,354"/>
+</map>
